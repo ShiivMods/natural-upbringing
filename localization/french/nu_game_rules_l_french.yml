@@ -1,0 +1,17 @@
+﻿l_french:
+ rule_nu_simulation_scope: "Natural Upbringing : Portée de la simulation"
+
+ setting_nu_scope_close_family: "#high Famille proche uniquement#!"
+ setting_nu_scope_close_family_desc: "Natural Upbringing simule uniquement les enfants appartenant à la famille proche du joueur. Cette option privilégie au maximum les performances."
+
+ setting_nu_scope_player_court: "#high Cour du joueur#!"
+ setting_nu_scope_player_court_desc: "Natural Upbringing simule les enfants appartenant à la cour du joueur, ainsi que sa famille proche."
+
+ setting_nu_scope_top_realm: "#high Royaume du souverain#!"
+ setting_nu_scope_top_realm_desc: "Natural Upbringing simule les enfants appartenant au pays du souverain dont dépend le joueur. #bold Option recommandée et utilisée par défaut.#!"
+
+ setting_nu_scope_neighboring_realms: "#high Royaume et royaumes voisins#!"
+ setting_nu_scope_neighboring_realms_desc: "Natural Upbringing simule le pays du souverain dont dépend le joueur ainsi que les pays souverains voisins. Cette option augmente le nombre de personnages concernés."
+
+ setting_nu_scope_world: "#high Monde entier#!"
+ setting_nu_scope_world_desc: "Natural Upbringing simule tous les enfants éligibles du monde. Cette option offre la simulation la plus complète, au prix d'un impact potentiel plus important sur les performances."

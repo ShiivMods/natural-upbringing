@@ -1,0 +1,184 @@
+﻿namespace = nu_debug
+
+
+nu_debug.0001 = {
+	type = character_event
+	theme = education
+
+	title = nu_debug.0001.t
+
+	immediate = {
+
+		# Rebuild the inspected character scope inside the event.
+		# This makes the scope explicit and avoids relying on an
+		# externally-created saved scope for localization.
+		if = {
+			limit = {
+				exists = var:nu_debug_inspection_target
+			}
+
+			var:nu_debug_inspection_target = {
+				save_scope_as = nu_debug_child
+			}
+
+			remove_variable = nu_debug_inspection_target
+		}
+
+		# Resolve tracked cultural/religious targets from the
+		# inspected character.
+		if = {
+			limit = {
+				exists = scope:nu_debug_child
+			}
+
+			scope:nu_debug_child = {
+
+				if = {
+					limit = {
+						exists = var:nu_culture_exposure_target
+					}
+
+					var:nu_culture_exposure_target = {
+						save_scope_as = nu_debug_culture_target
+					}
+				}
+
+				if = {
+					limit = {
+						exists = var:nu_faith_exposure_target
+					}
+
+					var:nu_faith_exposure_target = {
+						save_scope_as = nu_debug_faith_target
+					}
+				}
+			}
+		}
+	}
+
+	desc = {
+		desc = nu_debug.0001.desc
+
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:nu_debug_culture_target
+				}
+
+				desc = nu_debug.0001.culture
+			}
+
+			desc = nu_debug.0001.culture_none
+		}
+
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:nu_debug_faith_target
+				}
+
+				desc = nu_debug.0001.faith
+			}
+
+			desc = nu_debug.0001.faith_none
+		}
+	}
+
+	left_portrait = {
+		character = scope:nu_debug_child
+	}
+
+	option = {
+		name = nu_debug.0001.a
+	}
+}
+nu_debug.0002 = {
+	type = character_event
+	theme = education
+
+	title = nu_debug.0002.t
+
+	immediate = {
+
+		if = {
+			limit = {
+				exists = var:nu_debug_conversion_target
+			}
+
+			var:nu_debug_conversion_target = {
+				save_scope_as = nu_debug_conversion_child
+			}
+
+			remove_variable = nu_debug_conversion_target
+		}
+
+		if = {
+			limit = {
+				exists = scope:nu_debug_conversion_child
+			}
+
+			scope:nu_debug_conversion_child = {
+
+				if = {
+					limit = {
+						exists = var:nu_culture_exposure_target
+					}
+
+					var:nu_culture_exposure_target = {
+						save_scope_as = nu_debug_conversion_culture
+					}
+				}
+
+				if = {
+					limit = {
+						exists = var:nu_faith_exposure_target
+					}
+
+					var:nu_faith_exposure_target = {
+						save_scope_as = nu_debug_conversion_faith
+					}
+				}
+			}
+		}
+	}
+
+	desc = nu_debug.0002.desc
+
+	left_portrait = {
+		character = scope:nu_debug_conversion_child
+	}
+
+	option = {
+		name = nu_debug.0002.culture
+
+		trigger = {
+			exists = scope:nu_debug_conversion_culture
+		}
+
+		scope:nu_debug_conversion_child = {
+			save_scope_as = nu_assimilated_child
+			nu_debug_force_cultural_assimilation_effect = yes
+		}
+
+		trigger_event = nu_assimilation.0001
+	}
+
+	option = {
+		name = nu_debug.0002.faith
+
+		trigger = {
+			exists = scope:nu_debug_conversion_faith
+		}
+
+		scope:nu_debug_conversion_child = {
+			save_scope_as = nu_assimilated_child
+			nu_debug_force_religious_assimilation_effect = yes
+		}
+
+		trigger_event = nu_assimilation.0002
+	}
+
+	option = {
+		name = nu_debug.0002.cancel
+	}
+}

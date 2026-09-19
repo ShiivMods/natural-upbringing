@@ -1,0 +1,24 @@
+﻿nu_simulation_scope = {
+	categories = {
+		tweaks
+		culture
+		faith
+	}
+
+	default = nu_scope_top_realm
+
+	nu_scope_close_family = {
+	}
+
+	nu_scope_player_court = {
+	}
+
+	nu_scope_top_realm = {
+	}
+
+	nu_scope_neighboring_realms = {
+	}
+
+	nu_scope_world = {
+	}
+}

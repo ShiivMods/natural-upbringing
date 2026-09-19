@@ -1,0 +1,54 @@
+﻿nu_has_cultural_assimilation_environment_trigger = {
+
+	exists = scope:nu_conversion_culture
+
+	OR = {
+
+		# The child's current court is culturally aligned
+		# with the assimilation target.
+		court_owner ?= {
+			culture = scope:nu_conversion_culture
+		}
+
+		# Or the local population around that court is.
+		court_owner ?= {
+			capital_province ?= {
+				culture = scope:nu_conversion_culture
+			}
+		}
+	}
+}
+
+
+nu_has_religious_assimilation_environment_trigger = {
+
+	exists = scope:nu_conversion_faith
+
+	OR = {
+
+		# The child's current court follows the target faith.
+		court_owner ?= {
+			faith = scope:nu_conversion_faith
+		}
+
+		# Or the local population around that court does.
+		court_owner ?= {
+			capital_province ?= {
+				faith = scope:nu_conversion_faith
+			}
+		}
+	}
+}
+
+nu_has_active_religious_contract_protection_trigger = {
+
+	exists = var:nu_religious_contract_protection_guardian
+
+	# The protection remains active only while the guardian
+	# attached to the protected arrangement is still the
+	# child's actual guardian.
+	any_relation = {
+		type = guardian
+		this = root.var:nu_religious_contract_protection_guardian
+	}
+}

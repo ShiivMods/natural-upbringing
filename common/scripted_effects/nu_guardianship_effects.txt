@@ -1,0 +1,490 @@
+﻿# =============================================================
+# QUALITY INSTRUCTION — CLEANUP
+# =============================================================
+
+nu_end_quality_instruction_effect = {
+	remove_variable = nu_quality_instruction_guardian
+	remove_variable = nu_quality_instruction_sponsor
+
+	remove_character_flag = nu_quality_request_cooldown
+}
+
+nu_apply_guardianship_options_effect = {
+
+	nu_record_guardianship_home_effect = yes
+
+	# =========================================================
+	# RESET PREVIOUS GUARDIANSHIP OPTIONS
+	# =========================================================
+	#
+	# These variables store the guardian for whom each option
+	# was selected. This prevents an option from accidentally
+	# carrying over if the child later receives a new guardian.
+	# =========================================================
+
+	scope:ward = {
+		nu_end_quality_instruction_effect = yes
+
+		remove_variable = nu_cultural_servants_guardian
+		remove_variable = nu_religious_attendant_guardian
+	}
+
+
+	# =========================================================
+	# CULTURAL SERVANTS
+	# =========================================================
+
+	if = {
+		limit = {
+			scope:nu_cultural_servants = yes
+		}
+
+		scope:ward = {
+			set_variable = {
+				name = nu_cultural_servants_guardian
+				value = scope:guardian
+			}
+		}
+
+		scope:actor = {
+			add_prestige = {
+				value = minor_prestige_value
+				multiply = -1
+			}
+		}
+	}
+
+
+	# =========================================================
+	# QUALITY INSTRUCTION
+	# =========================================================
+
+	if = {
+		limit = {
+			scope:nu_quality_instruction = yes
+		}
+
+		scope:ward = {
+			set_variable = {
+				name = nu_quality_instruction_guardian
+				value = scope:guardian
+			}
+
+			set_variable = {
+				name = nu_quality_instruction_sponsor
+				value = scope:actor
+			}
+
+			remove_character_flag = nu_quality_request_cooldown
+		}
+
+		scope:actor = {
+			remove_short_term_gold = minor_gold_value
+		}
+	}
+
+
+	# =========================================================
+	# RELIGIOUS ATTENDANT
+	# =========================================================
+
+	if = {
+		limit = {
+			scope:nu_religious_attendant = yes
+		}
+
+		scope:ward = {
+			set_variable = {
+				name = nu_religious_attendant_guardian
+				value = scope:guardian
+			}
+		}
+
+		scope:actor = {
+			add_piety = {
+				value = minor_piety_value
+				multiply = -1
+			}
+		}
+	}
+}
+
+nu_quality_instruction_birthday_effect = {
+
+	# Save the child's current guardian.
+	if = {
+		limit = {
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+		}
+
+		random_relation = {
+			type = guardian
+			save_temporary_scope_as = nu_quality_guardian
+		}
+	}
+
+	# =========================================================
+	# QUALITY INSTRUCTION PROGRESS
+	# =========================================================
+
+	# Quality instruction only works while the child is still
+	# educated by the guardian for whom it was funded.
+	if = {
+		limit = {
+			age >= 6
+			has_education_focus_trigger = yes
+
+			exists = scope:nu_quality_guardian
+			exists = var:nu_quality_instruction_guardian
+			var:nu_quality_instruction_guardian = scope:nu_quality_guardian
+		}
+
+		random = {
+			chance = 20
+
+			education_point_add_general_effect = {
+				VALUE = 1
+			}
+		}
+	}
+
+	# =========================================================
+	# GREEDY GUARDIAN REQUEST
+	# =========================================================
+
+	if = {
+		limit = {
+			age >= 6
+
+			exists = scope:nu_quality_guardian
+			exists = var:nu_quality_instruction_guardian
+			exists = var:nu_quality_instruction_sponsor
+
+			var:nu_quality_instruction_guardian = scope:nu_quality_guardian
+
+			NOT = {
+				has_character_flag = nu_quality_request_cooldown
+			}
+
+			scope:nu_quality_guardian = {
+				is_alive = yes
+				is_landed = yes
+
+				OR = {
+					has_trait = greedy
+					has_trait = avaricious
+				}
+			}
+
+			var:nu_quality_instruction_sponsor = {
+				is_alive = yes
+
+				NOT = {
+					this = scope:nu_quality_guardian
+				}
+			}
+		}
+
+		random = {
+			chance = 20
+
+			add_character_flag = {
+				flag = nu_quality_request_cooldown
+				years = 5
+			}
+
+			save_temporary_scope_as = nu_quality_request_ward_temp
+
+			scope:nu_quality_guardian = {
+				save_temporary_scope_as = nu_quality_request_guardian_temp
+			}
+
+			var:nu_quality_instruction_sponsor = {
+
+				set_variable = {
+					name = nu_quality_request_ward
+					value = scope:nu_quality_request_ward_temp
+				}
+
+				set_variable = {
+					name = nu_quality_request_guardian
+					value = scope:nu_quality_request_guardian_temp
+				}
+
+				trigger_event = {
+					id = nu_quality_request.0001
+					days = 1
+				}
+			}
+		}
+	}
+}
+nu_add_guardianship_options_effect = {
+
+	# =========================================================
+	# CULTURAL SERVANTS
+	# =========================================================
+
+	if = {
+		limit = {
+			scope:nu_cultural_servants = yes
+
+			OR = {
+				scope:secondary_actor.culture != scope:secondary_recipient.culture
+				scope:recipient.culture != scope:secondary_recipient.culture
+			}
+
+			scope:secondary_recipient = {
+				NOT = {
+					exists = var:nu_cultural_servants_guardian
+				}
+			}
+		}
+
+		scope:secondary_recipient = {
+			set_variable = {
+				name = nu_cultural_servants_guardian
+				value = scope:secondary_actor
+			}
+		}
+
+		hidden_effect = {
+			scope:actor = {
+				add_prestige = {
+					value = minor_prestige_value
+					multiply = -1
+				}
+			}
+		}
+	}
+
+
+	# =========================================================
+	# QUALITY INSTRUCTION
+	# =========================================================
+
+	if = {
+		limit = {
+			scope:nu_quality_instruction = yes
+
+			scope:secondary_recipient = {
+				age <= 14
+
+				NOT = {
+					exists = var:nu_quality_instruction_guardian
+				}
+			}
+		}
+
+		scope:secondary_recipient = {
+			nu_end_quality_instruction_effect = yes
+
+			set_variable = {
+				name = nu_quality_instruction_guardian
+				value = scope:secondary_actor
+			}
+
+			set_variable = {
+				name = nu_quality_instruction_sponsor
+				value = scope:actor
+			}
+
+			remove_character_flag = nu_quality_request_cooldown
+		}
+
+		hidden_effect = {
+			scope:actor = {
+				remove_short_term_gold = minor_gold_value
+			}
+		}
+	}
+
+
+	# =========================================================
+	# RELIGIOUS ATTENDANT
+	# =========================================================
+
+	if = {
+		limit = {
+			scope:nu_religious_attendant = yes
+
+			OR = {
+				scope:secondary_actor.faith != scope:secondary_recipient.faith
+				scope:recipient.faith != scope:secondary_recipient.faith
+			}
+
+			scope:secondary_recipient = {
+				NOT = {
+					exists = var:nu_religious_attendant_guardian
+				}
+			}
+		}
+
+		scope:secondary_recipient = {
+			set_variable = {
+				name = nu_religious_attendant_guardian
+				value = scope:secondary_actor
+			}
+		}
+
+		hidden_effect = {
+			scope:actor = {
+				add_piety = {
+					value = minor_piety_value
+					multiply = -1
+				}
+			}
+		}
+	}
+}
+nu_clear_guardianship_contract_protections_effect = {
+
+	scope:ward = {
+		remove_variable = nu_religious_contract_protection_guardian
+	}
+}
+
+
+nu_apply_guardianship_contract_protections_effect = {
+
+	# A new guardianship replaces any protection attached
+	# to the previous arrangement.
+	scope:ward = {
+		remove_variable = nu_religious_contract_protection_guardian
+	}
+
+	# Religious protection only applies when the guardian's
+	# liege is the liege of the protected vassal and initiated
+	# this guardianship arrangement.
+	if = {
+		limit = {
+			exists = scope:ward_liege
+			exists = scope:guardian_liege
+
+			scope:ward_liege = {
+				is_vassal_of = scope:guardian_liege
+				vassal_contract_has_flag = religiously_protected
+			}
+		}
+
+		scope:ward = {
+			set_variable = {
+				name = nu_religious_contract_protection_guardian
+				value = scope:guardian
+			}
+		}
+	}
+}
+
+# =============================================================
+# QUALITY INSTRUCTION - RECALL WARD
+# =============================================================
+
+nu_quality_recall_ward_effect = {
+
+	if = {
+		limit = {
+			exists = scope:nu_quality_request_ward
+			exists = scope:nu_quality_request_guardian
+		}
+
+		if = {
+			limit = {
+				scope:nu_quality_request_ward = {
+					any_relation = {
+						type = guardian
+						this = scope:nu_quality_request_guardian
+					}
+				}
+			}
+
+			remove_guardian_effect = {
+				GUARDIAN = scope:nu_quality_request_guardian
+				WARD = scope:nu_quality_request_ward
+				RETURN_WARD = yes
+				HIDE_OPINION = yes
+			}
+		}
+
+		scope:nu_quality_request_ward = {
+			nu_cleanup_guardianship_state_on_adulthood_effect = yes
+		}
+	}
+}
+
+nu_cleanup_guardianship_state_on_adulthood_effect = {
+
+	nu_end_quality_instruction_effect = yes
+
+	remove_variable = nu_cultural_servants_guardian
+	remove_variable = nu_religious_attendant_guardian
+	remove_variable = nu_religious_contract_protection_guardian
+	remove_variable = nu_guardianship_home_court_owner
+	remove_variable = nu_homesickness_abroad_years
+
+	remove_character_flag = nu_homesickness_request_pending
+	remove_character_flag = nu_homesickness_cooldown
+}
+
+nu_reset_previous_guardianship_state_effect = {
+
+	scope:ward = {
+		nu_end_quality_instruction_effect = yes
+		remove_variable = nu_cultural_servants_guardian
+		remove_variable = nu_religious_attendant_guardian
+		remove_variable = nu_religious_contract_protection_guardian
+	}
+
+	nu_record_guardianship_home_effect = yes
+}
+
+nu_record_guardianship_home_effect = {
+
+	scope:ward = {
+		remove_variable = nu_guardianship_home_court_owner
+		remove_variable = nu_homesickness_abroad_years
+	}
+
+	if = {
+		limit = {
+			exists = scope:ward_liege
+		}
+
+		scope:ward_liege = {
+
+			# Normally, the ward's side of the arrangement belongs
+			# to a court. Record the actual owner of that court.
+			if = {
+				limit = {
+					exists = court_owner
+				}
+
+				court_owner = {
+					save_temporary_scope_as = nu_guardianship_home_court
+				}
+			}
+
+			# Fallback for characters who are effectively their own
+			# court authority, such as some independent/landless cases.
+			else = {
+				save_temporary_scope_as = nu_guardianship_home_court
+			}
+		}
+
+		if = {
+			limit = {
+				exists = scope:nu_guardianship_home_court
+			}
+
+			scope:ward = {
+				set_variable = {
+					name = nu_guardianship_home_court_owner
+					value = scope:nu_guardianship_home_court
+				}
+			}
+		}
+	}
+}

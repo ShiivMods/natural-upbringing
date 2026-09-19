@@ -1,0 +1,315 @@
+﻿# =============================================================
+# NATURAL UPBRINGING - DEBUG INTERACTIONS
+# =============================================================
+
+
+# -------------------------------------------------------------
+# INSPECT NATURAL UPBRINGING STATE
+# -------------------------------------------------------------
+#
+# Available on both children and adults.
+# This is intentional: exposure history may still need to be
+# inspected after a character reaches adulthood.
+# -------------------------------------------------------------
+
+nu_debug_inspect_exposure_interaction = {
+	category = interaction_debug_admin
+	common_interaction = yes
+	icon = child
+
+	use_diplomatic_range = no
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+	}
+
+	on_accept = {
+
+		# Transport the inspected character into the event through
+		# a character variable on the player/root character.
+		scope:actor = {
+			set_variable = {
+				name = nu_debug_inspection_target
+				value = scope:recipient
+			}
+
+			trigger_event = nu_debug.0001
+		}
+	}
+}
+
+
+# -------------------------------------------------------------
+# FORCE HOMESICKNESS REQUEST
+# -------------------------------------------------------------
+#
+# This bypasses RNG and the normal cooldown.
+# It does NOT create a fake situation: the child must genuinely
+# be living away from home in their guardian's court.
+# -------------------------------------------------------------
+
+nu_debug_force_homesickness_interaction = {
+	category = interaction_debug_admin
+	common_interaction = yes
+	icon = child
+
+	use_diplomatic_range = no
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+
+		scope:recipient = {
+			is_adult = no
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		# The player receiving the RP event must actually be
+		# a parent of the child.
+		scope:recipient = {
+			is_child_of = scope:actor
+
+			# These two existence checks also make the interaction
+			# invalid when the required Natural Upbringing state
+			# does not exist.
+			exists = var:nu_guardianship_home_court_owner
+			exists = court_owner
+
+			# The child must genuinely have a guardian.
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+
+			# Do not dereference the stored home court unless the
+			# variable actually exists. This structure is important
+			# when CK3 builds interaction tooltips.
+			trigger_if = {
+				limit = {
+					exists = var:nu_guardianship_home_court_owner
+				}
+
+				NOT = {
+					var:nu_guardianship_home_court_owner = {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
+
+			# Same principle for the current court: only use the
+			# court scope once CK3 knows that it exists.
+			trigger_if = {
+				limit = {
+					exists = court_owner
+				}
+
+				any_relation = {
+					type = guardian
+
+					court_owner ?= {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
+		}
+	}
+
+	on_accept = {
+
+		scope:recipient = {
+
+			save_scope_as = nu_homesick_child
+
+			random_relation = {
+				type = guardian
+				save_scope_as = nu_homesick_guardian
+			}
+
+			court_owner = {
+				save_scope_as = nu_homesick_current_court
+			}
+		}
+
+		# Deliberately bypass:
+		# - nu_homesickness_chance
+		# - nu_homesickness_cooldown
+		# - minimum years abroad
+		#
+		# This interaction exists to test the event itself.
+		scope:actor = {
+			trigger_event = nu_homesickness.0001
+		}
+	}
+}
+
+# -------------------------------------------------------------
+# FORCE CURRENT ASSIMILATION
+# -------------------------------------------------------------
+
+nu_debug_force_current_assimilation_interaction = {
+	category = interaction_debug_admin
+	common_interaction = yes
+	icon = child
+
+	use_diplomatic_range = no
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+
+		scope:recipient = {
+			OR = {
+				exists = var:nu_culture_exposure_target
+				exists = var:nu_faith_exposure_target
+			}
+		}
+	}
+
+	on_accept = {
+
+		# Both exposure types exist: let the player choose.
+		if = {
+			limit = {
+				scope:recipient = {
+					exists = var:nu_culture_exposure_target
+					exists = var:nu_faith_exposure_target
+				}
+			}
+
+			scope:actor = {
+				set_variable = {
+					name = nu_debug_conversion_target
+					value = scope:recipient
+				}
+
+				trigger_event = nu_debug.0002
+			}
+		}
+
+		# Culture only.
+		else_if = {
+			limit = {
+				scope:recipient = {
+					exists = var:nu_culture_exposure_target
+				}
+			}
+
+			scope:recipient = {
+				save_scope_as = nu_assimilated_child
+				nu_debug_force_cultural_assimilation_effect = yes
+			}
+
+			scope:actor = {
+				trigger_event = nu_assimilation.0001
+			}
+		}
+
+		# Faith only.
+		else_if = {
+			limit = {
+				scope:recipient = {
+					exists = var:nu_faith_exposure_target
+				}
+			}
+
+			scope:recipient = {
+				save_scope_as = nu_assimilated_child
+				nu_debug_force_religious_assimilation_effect = yes
+			}
+
+			scope:actor = {
+				trigger_event = nu_assimilation.0002
+			}
+		}
+	}
+}
+# -------------------------------------------------------------
+# FORCE QUALITY INSTRUCTION MONEY REQUEST
+# -------------------------------------------------------------
+#
+# This bypasses RNG, guardian traits, landed status and cooldown.
+# The child must genuinely have Quality Instruction funded by
+# the player using the interaction.
+# -------------------------------------------------------------
+
+nu_debug_force_quality_request_interaction = {
+	category = interaction_debug_admin
+	common_interaction = yes
+	icon = child
+
+	use_diplomatic_range = no
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+
+		scope:recipient = {
+			is_adult = no
+			exists = var:nu_quality_instruction_guardian
+			exists = var:nu_quality_instruction_sponsor
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			exists = var:nu_quality_instruction_guardian
+			exists = var:nu_quality_instruction_sponsor
+
+			trigger_if = {
+				limit = {
+					exists = var:nu_quality_instruction_sponsor
+				}
+
+				var:nu_quality_instruction_sponsor = scope:actor
+			}
+
+			trigger_if = {
+				limit = {
+					exists = var:nu_quality_instruction_guardian
+				}
+
+				var:nu_quality_instruction_guardian = {
+					is_alive = yes
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		hidden_effect = {
+
+			scope:recipient = {
+
+				if = {
+					limit = {
+						exists = var:nu_quality_instruction_guardian
+						exists = var:nu_quality_instruction_sponsor
+					}
+
+					save_scope_as = nu_debug_quality_ward
+
+					var:nu_quality_instruction_guardian = {
+						save_scope_as = nu_debug_quality_guardian
+					}
+
+					scope:actor = {
+						set_variable = {
+							name = nu_quality_request_ward
+							value = scope:nu_debug_quality_ward
+						}
+
+						set_variable = {
+							name = nu_quality_request_guardian
+							value = scope:nu_debug_quality_guardian
+						}
+
+						trigger_event = nu_quality_request.0001
+					}
+				}
+			}
+		}
+	}
+}

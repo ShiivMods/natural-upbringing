@@ -1,0 +1,75 @@
+﻿l_french:
+ NU_CULTURAL_SERVANTS_RELEVANT:0 "L'enfant doit être exposé à une culture différente."
+ NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "L'enfant et son tuteur doivent être de foi différente."
+ NU_GUARDIANSHIP_MEASURE_NOT_ALREADY_ACTIVE:0 "Cette mesure ne doit pas déjà être active pour ce tuteur."
+
+ NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS: "Envoyer des serviteurs de sa culture"
+ NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS_TT:0 "Des serviteurs issus de la culture de l'enfant l'accompagneront afin de l'aider à conserver ses coutumes et ses repères durant son éducation.\n\nCoût initial : [prestige_i] [GetPlayer.MakeScope.ScriptValue('minor_prestige_value')|0]"
+
+ NU_GUARDIANSHIP_OPTION_QUALITY_INSTRUCTION: "Financer une instruction de qualité"
+ NU_GUARDIANSHIP_OPTION_QUALITY_INSTRUCTION_TT:0 "Des précepteurs et des moyens supplémentaires seront consacrés à son éducation afin de lui offrir un enseignement particulièrement soigné.\n\nCoût : [gold_i] [GetPlayer.MakeScope.ScriptValue('minor_gold_value')|0]"
+
+ NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT: "Prévoir un accompagnement religieux"
+ NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT_TT:0 "Un accompagnant religieux veillera à maintenir l'enfant au contact de la foi dans laquelle il a été élevé durant sa tutelle.\n\nCoût initial : [piety_i] [GetPlayer.MakeScope.ScriptValue('minor_piety_value')|0]"
+
+ NU_AI_ACCEPT_CULTURAL_SERVANTS:0 "Serviteurs culturels accompagnant le pupille : $VALUE|=+0$"
+ NU_AI_ACCEPT_QUALITY_INSTRUCTION:0 "Instruction de qualité financée : $VALUE|=+0$"
+ NU_AI_ACCEPT_RELIGIOUS_ATTENDANT:0 "Accompagnement religieux imposé : $VALUE|=+0$"
+
+ nu_organize_ward_accompaniment_interaction: "Organiser son accompagnement"
+ nu_organize_ward_accompaniment_interaction_desc: "Organiser des mesures supplémentaires afin d'encadrer l'éducation d'un enfant déjà placé sous tutelle."
+ NU_ORGANIZE_WARD_ACCOMPANIMENT_SEND: "Proposer ces mesures"
+ NU_ORGANIZE_WARD_ACCOMPANIMENT_NOTIFICATION: "Une proposition concernant l'accompagnement d'un pupille a été envoyée."
+ NU_ORGANIZE_WARD_ACCOMPANIMENT_SELECT_OPTION: "Vous devez sélectionner au moins une mesure d'accompagnement."
+
+ nu_accompaniment.0001.t:0 "Des dispositions pour [nu_accompaniment_ward.GetFirstName]"
+ nu_accompaniment.0001.desc_culture:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Très bien. Envoyez quelques serviteurs de confiance avec [nu_accompaniment_ward.GetFirstName], et je veillerai à ce qu'ils puissent rester auprès de votre enfant durant son séjour. »"
+ nu_accompaniment.0001.desc_education:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Je suis ravi de voir que vous prenez l'éducation de [nu_accompaniment_ward.GetFirstName] au sérieux. Soyez assuré que cet argent sera employé à bon escient et que rien ne sera négligé dans son instruction. »"
+ nu_accompaniment.0001.desc_faith:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Bien que cette demande ne soit pas des plus simples pour moi, je comprends parfaitement votre désir de préserver la foi de [nu_accompaniment_ward.GetFirstName]. Son accompagnateur sera bien reçu et pourra remplir son office sans être inquiété. »"
+ nu_accompaniment.0001.desc_culture_education:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Vos dispositions me paraissent raisonnables. Les serviteurs que vous enverrez pourront rester auprès de [nu_accompaniment_ward.GetFirstName], et les fonds destinés à son instruction seront employés afin de lui assurer la meilleure éducation possible. »"
+ nu_accompaniment.0001.desc_culture_faith:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Je comprends votre volonté de préserver les coutumes et la foi dans lesquelles [nu_accompaniment_ward.GetFirstName] a été élevé. Ses serviteurs et son accompagnateur religieux seront accueillis à ma cour et autorisés à rester auprès de lui. »"
+ nu_accompaniment.0001.desc_education_faith:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Votre souci pour l'éducation et la foi de [nu_accompaniment_ward.GetFirstName] vous honore. Les fonds prévus seront consacrés à son instruction, et son accompagnateur religieux sera autorisé à demeurer auprès de lui. »"
+ nu_accompaniment.0001.desc_all:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Vous avez manifestement pris grand soin de préparer le séjour de [nu_accompaniment_ward.GetFirstName]. Ses serviteurs et son accompagnateur religieux seront reçus comme convenu, et les fonds destinés à son instruction seront employés à bon escient. Je veillerai à ce que vos volontés soient respectées. »"
+ nu_accompaniment.0001.desc_generic:0 "[nu_accompaniment_sender.GetFirstName] vous confirme que les nouvelles dispositions concernant l'éducation de [nu_accompaniment_ward.GetFirstName] seront respectées."
+ nu_accompaniment.0001.a:0 "Très bien."
+
+ nu_quality_request.0001.desc:0 "Les moyens que vous avez consacrés à l'éducation de [nu_quality_request_ward.GetFirstName] se révèlent malheureusement insuffisants. Si vous souhaitez que je continue à lui offrir l'instruction que vous avez exigée, des fonds supplémentaires seront nécessaires."
+
+ nu_quality_request.0001.a:0 "Envoyer les fonds demandés."
+ nu_quality_request.0001.b:0 "Non. Qu'il poursuive son éducation avec ce qu'il a déjà."
+ nu_quality_request.0001.c:0 "Cela suffit. [nu_quality_request_ward.GetFirstName] rentre à la maison."
+
+ nu_quality_request.reaction.t:0 "Le prix de l'éducation"
+
+ nu_quality_request.0002.desc:0 "Vous avez accepté de délier une nouvelle fois les cordons de votre bourse pour l'éducation de [nu_quality_request_ward.GetFirstName]. [nu_quality_request_guardian.GetFirstName] obtiendra les fonds réclamés, même si sa demande ne vous laisse pas nécessairement indifférent."
+
+ nu_quality_request.0002.a:0 "Tout pour mon enfant !"
+ nu_quality_request.0002.b:0 "S'il le faut…"
+ nu_quality_request.0002.c:0 "Foutu parasite !"
+
+ nu_quality_request.0003.desc:0 "Vous avez refusé d'envoyer davantage d'argent à [nu_quality_request_guardian.GetFirstName]. [nu_quality_request_ward.GetFirstName] reste encore sous sa garde, mais il appartient désormais au tuteur de décider s'il accepte de poursuivre cette éducation dans ces conditions."
+ NU_QUALITY_REQUEST_GUARDIAN_DECIDES_TT:0 "[nu_quality_request_guardian.GetFirstName] décidera ensuite s'il accepte de poursuivre la tutelle. Sa décision dépend de son opinion envers vous et [nu_quality_request_ward.GetFirstName]."
+
+ nu_quality_request.0003.a:0 "Cela me coûte, mais je ne peux pas me le permettre."
+ nu_quality_request.0003.b:0 "Il y a d'autres priorités."
+ nu_quality_request.0003.c:0 "J'ai déjà bien assez donné, qu'il se contente de ça !"
+
+ nu_quality_request.0004.desc:0 "Cette demande était peut-être celle de trop. Rien ne vous oblige à laisser [nu_quality_request_ward.GetFirstName] entre les mains de [nu_quality_request_guardian.GetFirstName]."
+
+ nu_quality_request.0004.a:0 "Cela a assez duré. Ramenons [nu_quality_request_ward.GetFirstName] à la maison."
+ nu_quality_request.0004.b:0 "Il utilise mon enfant pour me soutirer de l'argent ? Il va le regretter."
+ NU_QUALITY_REQUEST_MURDER_RECALL_TT:0 "Vous rappellerez [nu_quality_request_ward.GetFirstName] et commencerez un complot d'assassinat contre [nu_quality_request_guardian.GetFirstName]."
+
+ nu_quality_request.0005.desc:0 "Puisque vous refusez de fournir les moyens que j'estime nécessaires à l'éducation de [nu_quality_request_ward.GetFirstName], je ne vois aucune raison de poursuivre cet arrangement. Votre enfant vous sera renvoyé."
+
+ nu_quality_request.0005.a:0 "Ainsi soit-il."
+
+ nu_quality_request.0006.desc:0 "[nu_quality_request_sponsor.GetFirstName] refuse de fournir davantage de fonds pour l'éducation de [nu_quality_request_ward.GetFirstName]. Rien ne vous oblige cependant à poursuivre cette tutelle dans ces conditions."
+
+ nu_quality_request.0006.a:0 "Je poursuivrai son éducation malgré tout."
+ nu_quality_request.0006.b:0 "Dans ce cas, qu'il rentre chez lui."
+  
+ nu_quality_request.opening:0 "[ROOT.Char.GetFirstName],"
+ 
+ actor_secondary_nu_organize_ward_accompaniment_interaction:0 "Tuteur"
+ recipient_secondary_nu_organize_ward_accompaniment_interaction:0 "Pupille"

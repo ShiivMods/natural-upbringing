@@ -1,0 +1,601 @@
+﻿namespace = nu_quality_request
+
+
+# =============================================================
+# 0001 - GUARDIAN REQUESTS MORE MONEY
+# =============================================================
+
+nu_quality_request.0001 = {
+	type = letter_event
+
+	opening = {
+			desc = nu_quality_request.opening
+	}
+
+	desc = nu_quality_request.0001.desc
+	sender = scope:nu_quality_request_guardian
+
+	immediate = {
+
+		save_scope_as = nu_quality_request_sponsor
+
+		var:nu_quality_request_guardian = {
+			save_scope_as = nu_quality_request_guardian
+		}
+
+		var:nu_quality_request_ward = {
+			save_scope_as = nu_quality_request_ward
+		}
+
+		remove_variable = nu_quality_request_guardian
+		remove_variable = nu_quality_request_ward
+
+		save_scope_value_as = {
+			name = nu_quality_request_amount
+			value = minor_gold_value
+		}
+	}
+
+
+	# Accept and pay.
+	option = {
+		name = nu_quality_request.0001.a
+
+		trigger = {
+			gold >= scope:nu_quality_request_amount
+		}
+
+		trigger_event = nu_quality_request.0002
+
+		ai_chance = {
+			base = 75
+
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = generous
+					has_trait = compassionate
+					has_trait = trusting
+				}
+			}
+
+			modifier = {
+				add = -50
+				OR = {
+					has_trait = greedy
+					has_trait = cynical
+				}
+			}
+		}
+	}
+
+
+	# Refuse, but keep the child there.
+	option = {
+		name = nu_quality_request.0001.b
+
+		trigger_event = nu_quality_request.0003
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	# Recall the child.
+	option = {
+		name = nu_quality_request.0001.c
+
+		trigger_event = nu_quality_request.0004
+
+		ai_chance = {
+			base = 20
+
+			modifier = {
+				add = 80
+				OR = {
+					has_trait = wrathful
+					has_trait = vengeful
+					has_trait = sadistic
+				}
+			}
+		}
+	}
+}
+
+
+# =============================================================
+# 0002 - REACTION AFTER ACCEPTING
+# =============================================================
+
+nu_quality_request.0002 = {
+	type = character_event
+	theme = education
+
+	title = nu_quality_request.reaction.t
+	desc = nu_quality_request.0002.desc
+
+	left_portrait = {
+		character = scope:nu_quality_request_guardian
+	}
+
+	right_portrait = {
+		character = scope:nu_quality_request_ward
+	}
+
+
+	# Naive / caring reaction.
+	option = {
+		name = nu_quality_request.0002.a
+
+		trigger = {
+			OR = {
+				has_trait = generous
+				has_trait = compassionate
+				has_trait = trusting
+			}
+		}
+
+		pay_short_term_gold = {
+			target = scope:nu_quality_request_guardian
+			gold = scope:nu_quality_request_amount
+		}
+
+		reverse_add_opinion = {
+			target = scope:nu_quality_request_guardian
+			modifier = pleased_opinion
+			opinion = 10
+		}
+
+		add_stress = minor_stress_loss
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	# Neutral reaction.
+	option = {
+		name = nu_quality_request.0002.b
+
+		trigger = {
+			NOR = {
+				has_trait = generous
+				has_trait = compassionate
+				has_trait = trusting
+
+				has_trait = greedy
+				has_trait = cynical
+				has_trait = paranoid
+				has_trait = wrathful
+			}
+		}
+
+		pay_short_term_gold = {
+			target = scope:nu_quality_request_guardian
+			gold = scope:nu_quality_request_amount
+		}
+
+		reverse_add_opinion = {
+			target = scope:nu_quality_request_guardian
+			modifier = pleased_opinion
+			opinion = 10
+		}
+
+		ai_chance = {
+			base = 50
+		}
+	}
+
+
+	# Hostile reaction.
+	option = {
+		name = nu_quality_request.0002.c
+
+		trigger = {
+			OR = {
+				has_trait = greedy
+				has_trait = cynical
+				has_trait = paranoid
+				has_trait = wrathful
+			}
+		}
+
+		pay_short_term_gold = {
+			target = scope:nu_quality_request_guardian
+			gold = scope:nu_quality_request_amount
+		}
+
+		reverse_add_opinion = {
+			target = scope:nu_quality_request_guardian
+			modifier = pleased_opinion
+			opinion = 10
+		}
+
+		add_stress = minor_stress_gain
+
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+
+# =============================================================
+# 0003 - REFUSE, BUT LEAVE THE CHILD THERE
+# =============================================================
+
+nu_quality_request.0003 = {
+	type = character_event
+	theme = education
+
+	title = nu_quality_request.reaction.t
+	desc = nu_quality_request.0003.desc
+
+	left_portrait = {
+		character = scope:nu_quality_request_guardian
+	}
+
+	right_portrait = {
+		character = scope:nu_quality_request_ward
+	}
+
+
+	# Caring reaction.
+	option = {
+		name = nu_quality_request.0003.a
+
+		custom_tooltip = {
+			text = NU_QUALITY_REQUEST_GUARDIAN_DECIDES_TT
+		}
+
+		trigger = {
+			OR = {
+				has_trait = generous
+				has_trait = compassionate
+				has_trait = trusting
+			}
+		}
+
+		add_stress = minor_stress_gain
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	# Neutral reaction.
+	option = {
+		name = nu_quality_request.0003.b
+
+		custom_tooltip = {
+			text = NU_QUALITY_REQUEST_GUARDIAN_DECIDES_TT
+		}
+
+		trigger = {
+			NOR = {
+				has_trait = generous
+				has_trait = compassionate
+				has_trait = trusting
+
+				has_trait = greedy
+				has_trait = cynical
+				has_trait = callous
+				has_trait = arbitrary
+			}
+		}
+
+		reverse_add_opinion = {
+			target = scope:nu_quality_request_ward
+			modifier = annoyed_opinion
+			opinion = -10
+		}
+
+		ai_chance = {
+			base = 50
+		}
+	}
+
+
+	# Hostile reaction.
+	option = {
+		name = nu_quality_request.0003.c
+
+		custom_tooltip = {
+			text = NU_QUALITY_REQUEST_GUARDIAN_DECIDES_TT
+		}
+
+		trigger = {
+			OR = {
+				has_trait = greedy
+				has_trait = cynical
+				has_trait = callous
+				has_trait = arbitrary
+			}
+		}
+
+		reverse_add_opinion = {
+			target = scope:nu_quality_request_ward
+			modifier = annoyed_opinion
+			opinion = -10
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	after = {
+		reverse_add_opinion = {
+			target = scope:nu_quality_request_guardian
+			modifier = annoyed_opinion
+			opinion = -10
+		}
+		# A human guardian gets the real decision.
+		if = {
+			limit = {
+				scope:nu_quality_request_guardian = {
+					is_ai = no
+				}
+			}
+
+			scope:nu_quality_request_guardian = {
+
+				set_variable = {
+					name = nu_quality_request_sponsor
+					value = root
+				}
+
+				set_variable = {
+					name = nu_quality_request_ward
+					value = scope:nu_quality_request_ward
+				}
+
+				trigger_event = {
+					id = nu_quality_request.0006
+					days = 1
+				}
+			}
+		}
+
+
+		# AI guardian: calculate opinion of sponsor + opinion of child.
+		else = {
+
+			scope:nu_quality_request_guardian = {
+
+				save_temporary_opinion_value_as = {
+					name = nu_quality_request_sponsor_opinion
+					target = root
+				}
+
+				save_temporary_opinion_value_as = {
+					name = nu_quality_request_ward_opinion
+					target = scope:nu_quality_request_ward
+				}
+			}
+
+			save_temporary_scope_value_as = {
+				name = nu_quality_request_combined_opinion
+
+				value = {
+					add = scope:nu_quality_request_sponsor_opinion
+					add = scope:nu_quality_request_ward_opinion
+				}
+			}
+
+
+			# Probability:
+			# -200 = 75%
+			# -100 = 50%
+			#  -50 = 37.5%
+			#    0 = 25%
+			#  +50 = 12.5%
+			# +100 = 5%
+			# +150 = 2.5%
+			# +200 = 0%
+			random = {
+				chance = {
+					value = 0
+
+					if = {
+						limit = {
+							scope:nu_quality_request_combined_opinion <= 50
+						}
+
+						add = 25
+
+						subtract = {
+							value = scope:nu_quality_request_combined_opinion
+							divide = 4
+						}
+					}
+
+					else_if = {
+						limit = {
+							scope:nu_quality_request_combined_opinion <= 100
+						}
+
+						add = 20
+
+						subtract = {
+							value = scope:nu_quality_request_combined_opinion
+							multiply = 0.15
+						}
+					}
+
+					else = {
+						add = 10
+
+						subtract = {
+							value = scope:nu_quality_request_combined_opinion
+							multiply = 0.05
+						}
+					}
+
+					max = 75
+					min = 0
+				}
+
+				trigger_event = nu_quality_request.0005
+			}
+		}
+	}
+}
+
+
+# =============================================================
+# 0004 - PARENT RECALLS THE CHILD
+# =============================================================
+
+nu_quality_request.0004 = {
+	type = character_event
+	theme = education
+
+	title = nu_quality_request.reaction.t
+	desc = nu_quality_request.0004.desc
+
+	left_portrait = {
+		character = scope:nu_quality_request_guardian
+	}
+
+	right_portrait = {
+		character = scope:nu_quality_request_ward
+	}
+
+
+	# Neutral recall.
+	option = {
+		name = nu_quality_request.0004.a
+
+		reverse_add_opinion = {
+			target = scope:nu_quality_request_guardian
+			modifier = angry_opinion
+			opinion = -20
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	# Vengeful escalation.
+	option = {
+		name = nu_quality_request.0004.b
+
+		custom_tooltip = {
+			text = NU_QUALITY_REQUEST_MURDER_RECALL_TT
+		}
+
+		trigger = {
+			OR = {
+				has_trait = vengeful
+				has_trait = sadistic
+				has_trait = wrathful
+			}
+
+			can_start_scheme = {
+				type = murder
+				target_character = scope:nu_quality_request_guardian
+			}
+		}
+
+		reverse_add_opinion = {
+			target = scope:nu_quality_request_guardian
+			modifier = angry_opinion
+			opinion = -20
+		}
+
+		hidden_effect = {
+			start_scheme = {
+				type = murder
+				target_character = scope:nu_quality_request_guardian
+			}
+		}
+
+		ai_chance = {
+			base = 150
+		}
+	}
+
+
+	after = {
+		nu_quality_recall_ward_effect = yes
+	}
+}
+
+
+# =============================================================
+# 0005 - GUARDIAN SENDS THE CHILD HOME
+# =============================================================
+
+nu_quality_request.0005 = {
+	type = letter_event
+
+	opening = {
+			desc = nu_quality_request.opening
+	}
+
+	desc = nu_quality_request.0005.desc
+	sender = scope:nu_quality_request_guardian
+
+	immediate = {
+		nu_quality_recall_ward_effect = yes
+	}
+
+	option = {
+		name = nu_quality_request.0005.a
+	}
+}
+
+
+# =============================================================
+# 0006 - HUMAN GUARDIAN DECIDES
+# =============================================================
+
+nu_quality_request.0006 = {
+	type = letter_event
+
+	opening = {
+			desc = nu_quality_request.opening
+	}
+
+	desc = nu_quality_request.0006.desc
+	sender = scope:nu_quality_request_sponsor
+
+	immediate = {
+
+		save_scope_as = nu_quality_request_guardian
+
+		var:nu_quality_request_sponsor = {
+			save_scope_as = nu_quality_request_sponsor
+		}
+
+		var:nu_quality_request_ward = {
+			save_scope_as = nu_quality_request_ward
+		}
+
+		remove_variable = nu_quality_request_sponsor
+		remove_variable = nu_quality_request_ward
+	}
+
+
+	# Continue the education anyway.
+	option = {
+		name = nu_quality_request.0006.a
+	}
+
+
+	# Send the child home.
+	option = {
+		name = nu_quality_request.0006.b
+
+		scope:nu_quality_request_sponsor = {
+			trigger_event = nu_quality_request.0005
+		}
+	}
+}

@@ -1,0 +1,195 @@
+﻿nu_check_homesickness_effect = {
+
+	# =========================================================
+	# BASIC ELIGIBILITY
+	# =========================================================
+
+	if = {
+		limit = {
+			age >= 6
+			is_adult = no
+
+			exists = var:nu_guardianship_home_court_owner
+
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+
+			exists = court_owner
+		}
+
+
+		# ---------------------------------------------------------
+		# Resolve guardian.
+		# ---------------------------------------------------------
+
+		random_relation = {
+			type = guardian
+			save_temporary_scope_as = nu_homesickness_guardian
+		}
+
+
+		# ---------------------------------------------------------
+		# Resolve original court.
+		# ---------------------------------------------------------
+
+		var:nu_guardianship_home_court_owner = {
+			save_temporary_scope_as = nu_homesickness_home_court
+		}
+
+
+		# ---------------------------------------------------------
+		# Resolve current court and its environment.
+		# ---------------------------------------------------------
+
+		court_owner = {
+			save_temporary_scope_as = nu_homesickness_current_court
+
+			culture = {
+				save_temporary_scope_as = nu_homesickness_current_culture
+			}
+
+			faith = {
+				save_temporary_scope_as = nu_homesickness_current_faith
+			}
+		}
+
+
+		# =========================================================
+		# ACTUALLY LIVING AWAY WITH THE GUARDIAN
+		# =========================================================
+
+		if = {
+			limit = {
+
+				# The child has genuinely left their original court.
+				scope:nu_homesickness_current_court != scope:nu_homesickness_home_court
+
+				# And the court they now inhabit is actually the
+				# guardian's court.
+				scope:nu_homesickness_guardian = {
+					court_owner ?= {
+						this = scope:nu_homesickness_current_court
+					}
+				}
+			}
+
+
+			# -----------------------------------------------------
+			# Track time actually spent abroad in this guardianship.
+			# -----------------------------------------------------
+
+			if = {
+				limit = {
+					NOT = {
+						has_variable = nu_homesickness_abroad_years
+					}
+				}
+
+				set_variable = {
+					name = nu_homesickness_abroad_years
+					value = 1
+				}
+			}
+
+			else = {
+				change_variable = {
+					name = nu_homesickness_abroad_years
+					add = 1
+				}
+			}
+
+
+			# -----------------------------------------------------
+			# No request during the first recorded year abroad.
+			# -----------------------------------------------------
+
+			if = {
+				limit = {
+					var:nu_homesickness_abroad_years >= 2
+
+					NOT = {
+						has_character_flag = nu_homesickness_cooldown
+					}
+
+					NOT = {
+						has_character_flag = nu_assimilation_happened_this_birthday
+					}
+                    any_parent = {
+	                    is_alive = yes
+                    }
+				}
+
+				random = {
+					chance = nu_homesickness_chance
+
+					add_character_flag = nu_homesickness_request_pending
+
+					add_character_flag = {
+						flag = nu_homesickness_cooldown
+						years = 3
+					}
+
+					# Preserve the child, guardian and foreign court
+					# for the parent's event.
+					save_scope_as = nu_homesick_child
+
+					scope:nu_homesickness_guardian = {
+						save_scope_as = nu_homesick_guardian
+					}
+
+					scope:nu_homesickness_current_court = {
+						save_scope_as = nu_homesick_current_court
+					}
+
+
+					# =====================================================
+					# SEND THE REQUEST TO ONE PARENT
+					# =====================================================
+
+					# Prefer a player parent if one exists.
+					if = {
+						limit = {
+							any_parent = {
+								is_alive = yes
+								is_ai = no
+							}
+						}
+
+						random_parent = {
+							limit = {
+								is_alive = yes
+								is_ai = no
+							}
+
+							trigger_event = nu_homesickness.0001
+						}
+					}
+
+					# Otherwise let one AI parent decide.
+					else = {
+						random_parent = {
+							limit = {
+								is_alive = yes
+							}
+
+							trigger_event = nu_homesickness.0001
+						}
+					}
+				}
+			}
+		}
+
+
+		# =========================================================
+		# NOT CURRENTLY ABROAD WITH THE GUARDIAN
+		# =========================================================
+
+		else = {
+
+			# Returning home resets the continuous-away counter.
+			remove_variable = nu_homesickness_abroad_years
+		}
+	}
+}

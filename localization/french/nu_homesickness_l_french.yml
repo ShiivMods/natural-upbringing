@@ -1,0 +1,7 @@
+﻿l_french:
+
+ nu_homesickness.0001.t:0 "Je veux rentrer chez moi"
+ nu_homesickness.0001.desc:0 "Un message de [nu_homesick_child.GetFirstName] m'est parvenu depuis la cour de [nu_homesick_current_court.GetFirstName].\n\nMalgré le temps passé sous la tutelle de [nu_homesick_guardian.GetFirstName], l'éloignement semble être devenu difficile à supporter. Les mots sont simples, mais la demande ne laisse guère de place au doute : [nu_homesick_child.GetFirstName] souhaite rentrer à la maison et mettre fin à cette éducation loin des siens."
+
+ nu_homesickness.0001.a:0 "Je vais organiser son retour."
+ nu_homesickness.0001.b:0 "Son éducation doit se poursuivre."

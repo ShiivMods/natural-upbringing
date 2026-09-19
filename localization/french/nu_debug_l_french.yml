@@ -1,0 +1,29 @@
+﻿l_french:
+ nu_debug_inspect_exposure_interaction: "Natural Upbringing : Inspecter l'exposition"
+ nu_debug_inspect_exposure_interaction_desc: "Affiche les variables internes de Natural Upbringing pour ce personnage."
+
+ nu_debug.0001.t: "Natural Upbringing — Debug"
+ nu_debug.0001.desc: "État actuel de [nu_debug_child.GetShortUIName] :"
+
+ nu_debug.0001.culture: "\n\n#bold Exposition culturelle#!\nCible : [nu_debug_culture_target.GetName]\nDurée : [nu_debug_child.MakeScope.Var('nu_culture_exposure_years').GetValue|0] ans\nScore : [nu_debug_child.MakeScope.Var('nu_culture_exposure_score').GetValue|0]"
+ nu_debug.0001.culture_none: "\n\n#bold Exposition culturelle#!\nAucune exposition culturelle enregistrée."
+
+ nu_debug.0001.faith: "\n\n#bold Exposition religieuse#!\nCible : [nu_debug_faith_target.GetName]\nDurée : [nu_debug_child.MakeScope.Var('nu_faith_exposure_years').GetValue|0] ans\nScore : [nu_debug_child.MakeScope.Var('nu_faith_exposure_score').GetValue|0]"
+ nu_debug.0001.faith_none: "\n\n#bold Exposition religieuse#!\nAucune exposition religieuse enregistrée."
+
+ nu_debug.0001.a: "Fermer"
+
+ nu_debug_force_homesickness_interaction: "Natural Upbringing : Forcer le mal du pays"
+ nu_debug_force_homesickness_interaction_desc: "Force ce pupille à demander à rentrer chez lui. Ignore le hasard, la durée minimale d'éloignement et le délai entre deux demandes."
+
+ nu_debug_force_current_assimilation_interaction: "Natural Upbringing : Forcer l'assimilation actuelle"
+ nu_debug_force_current_assimilation_interaction_desc: "Force l'assimilation correspondant à l'exposition actuellement enregistrée."
+
+ nu_debug.0002.t: "Natural Upbringing — Assimilation forcée"
+ nu_debug.0002.desc: "[nu_debug_conversion_child.GetFirstName] possède actuellement une exposition culturelle envers [nu_debug_conversion_culture.GetName] et une exposition religieuse envers [nu_debug_conversion_faith.GetName].\n\nQuelle assimilation voulez-vous forcer ?"
+ nu_debug.0002.culture: "Forcer l'assimilation culturelle : [nu_debug_conversion_culture.GetName]"
+ nu_debug.0002.faith: "Forcer l'assimilation religieuse : [nu_debug_conversion_faith.GetName]"
+ nu_debug.0002.cancel: "Annuler"
+
+ nu_debug_force_quality_request_interaction:0 "DEBUG - Forcer la demande de fonds"
+ nu_debug_force_quality_request_interaction_desc:0 "Force le déclenchement de la demande de fonds supplémentaires liée à l'instruction de qualité."

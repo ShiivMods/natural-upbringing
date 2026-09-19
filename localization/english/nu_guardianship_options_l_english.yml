@@ -1,0 +1,75 @@
+﻿l_english:
+ NU_CULTURAL_SERVANTS_RELEVANT:0 "The child must be exposed to a different culture."
+ NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "The child and their guardian must follow different faiths."
+ NU_GUARDIANSHIP_MEASURE_NOT_ALREADY_ACTIVE:0 "This measure must not already be active for this guardian."
+
+ NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS: "Send servants of their culture"
+ NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS_TT:0 "Servants from the child's own culture will accompany them, helping preserve familiar customs and points of reference throughout their education.\n\nInitial cost: [prestige_i] [GetPlayer.MakeScope.ScriptValue('minor_prestige_value')|0]"
+
+ NU_GUARDIANSHIP_OPTION_QUALITY_INSTRUCTION: "Fund a quality education"
+ NU_GUARDIANSHIP_OPTION_QUALITY_INSTRUCTION_TT:0 "Additional tutors and resources will be devoted to the child's education, ensuring that particular care is given to their studies.\n\nCost: [gold_i] [GetPlayer.MakeScope.ScriptValue('minor_gold_value')|0]"
+
+ NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT: "Provide religious accompaniment"
+ NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT_TT:0 "A religious attendant will ensure that the child remains in contact with the faith in which they were raised throughout their guardianship.\n\nInitial cost: [piety_i] [GetPlayer.MakeScope.ScriptValue('minor_piety_value')|0]"
+
+ NU_AI_ACCEPT_CULTURAL_SERVANTS:0 "Cultural servants accompanying the ward: $VALUE|=+0$"
+ NU_AI_ACCEPT_QUALITY_INSTRUCTION:0 "Quality education funded: $VALUE|=+0$"
+ NU_AI_ACCEPT_RELIGIOUS_ATTENDANT:0 "Religious accompaniment imposed: $VALUE|=+0$"
+
+ nu_organize_ward_accompaniment_interaction: "Organize Ward Accompaniment"
+ nu_organize_ward_accompaniment_interaction_desc: "Arrange additional measures to support the education of a child who is already under guardianship."
+ NU_ORGANIZE_WARD_ACCOMPANIMENT_SEND: "Propose These Measures"
+ NU_ORGANIZE_WARD_ACCOMPANIMENT_NOTIFICATION: "A proposal concerning a ward's accompaniment has been sent."
+ NU_ORGANIZE_WARD_ACCOMPANIMENT_SELECT_OPTION: "You must select at least one accompaniment measure."
+
+ nu_accompaniment.0001.t:0 "Arrangements for [nu_accompaniment_ward.GetFirstName]"
+ nu_accompaniment.0001.desc_culture:0 "[nu_accompaniment_sender.GetFirstName] has replied to your proposal.\n\n\"Very well. Send a few trusted servants with [nu_accompaniment_ward.GetFirstName], and I will ensure that they may remain by your child's side during the stay.\""
+ nu_accompaniment.0001.desc_education:0 "[nu_accompaniment_sender.GetFirstName] has replied to your proposal.\n\n\"I am pleased to see that you take [nu_accompaniment_ward.GetFirstName]'s education seriously. Rest assured that this money will be put to good use and that nothing will be neglected in the child's instruction.\""
+ nu_accompaniment.0001.desc_faith:0 "[nu_accompaniment_sender.GetFirstName] has replied to your proposal.\n\n\"Though this request is not an easy one for me, I understand your desire to preserve [nu_accompaniment_ward.GetFirstName]'s faith. The religious attendant will be welcomed and allowed to fulfill their duties without interference.\""
+ nu_accompaniment.0001.desc_culture_education:0 "[nu_accompaniment_sender.GetFirstName] has replied to your proposal.\n\n\"Your arrangements seem reasonable. The servants you send may remain with [nu_accompaniment_ward.GetFirstName], and the funds provided will be used to ensure the best education possible.\""
+ nu_accompaniment.0001.desc_culture_faith:0 "[nu_accompaniment_sender.GetFirstName] has replied to your proposal.\n\n\"I understand your wish to preserve the customs and faith in which [nu_accompaniment_ward.GetFirstName] was raised. The servants and religious attendant will be welcomed at my court and permitted to remain nearby.\""
+ nu_accompaniment.0001.desc_education_faith:0 "[nu_accompaniment_sender.GetFirstName] has replied to your proposal.\n\n\"Your concern for [nu_accompaniment_ward.GetFirstName]'s education and faith does you credit. The funds will be devoted to the child's instruction, and the religious attendant will be permitted to remain.\""
+ nu_accompaniment.0001.desc_all:0 "[nu_accompaniment_sender.GetFirstName] has replied to your proposal.\n\n\"You have clearly taken great care in preparing [nu_accompaniment_ward.GetFirstName]'s stay. The servants and religious attendant will be received as agreed, and the funds intended for the child's instruction will be put to good use. I will see that your wishes are respected.\""
+ nu_accompaniment.0001.desc_generic:0 "[nu_accompaniment_sender.GetFirstName] confirms that the new arrangements concerning [nu_accompaniment_ward.GetFirstName]'s education will be respected."
+ nu_accompaniment.0001.a:0 "Very well."
+
+ nu_quality_request.0001.desc:0 "The means you provided for [nu_quality_request_ward.GetFirstName]'s education have unfortunately proven insufficient. If you wish me to continue providing the standard of instruction you requested, additional funds will be necessary."
+
+ nu_quality_request.0001.a:0 "Send the requested funds."
+ nu_quality_request.0001.b:0 "No. Continue the education with what you already have."
+ nu_quality_request.0001.c:0 "Enough. [nu_quality_request_ward.GetFirstName] is coming home."
+
+ nu_quality_request.reaction.t:0 "The Price of Education"
+
+ nu_quality_request.0002.desc:0 "You have agreed to loosen your purse strings once again for [nu_quality_request_ward.GetFirstName]'s education. [nu_quality_request_guardian.GetFirstName] will receive the requested funds, even if the demand has not left you indifferent."
+
+ nu_quality_request.0002.a:0 "Anything for my child!"
+ nu_quality_request.0002.b:0 "If it must be done…"
+ nu_quality_request.0002.c:0 "Damn parasite!"
+
+ nu_quality_request.0003.desc:0 "You have refused to send additional money to [nu_quality_request_guardian.GetFirstName]. [nu_quality_request_ward.GetFirstName] remains in their care for now, but it is up to the guardian to decide whether the education will continue under these conditions."
+ NU_QUALITY_REQUEST_GUARDIAN_DECIDES_TT:0 "[nu_quality_request_guardian.GetFirstName] will decide whether to continue the guardianship. The decision depends on their opinion of you and [nu_quality_request_ward.GetFirstName]."
+
+ nu_quality_request.0003.a:0 "It pains me, but I simply cannot afford it."
+ nu_quality_request.0003.b:0 "There are other priorities."
+ nu_quality_request.0003.c:0 "I have given quite enough already. They will make do with what they have!"
+
+ nu_quality_request.0004.desc:0 "Perhaps this demand was one too many. Nothing requires you to leave [nu_quality_request_ward.GetFirstName] in [nu_quality_request_guardian.GetFirstName]'s care."
+
+ nu_quality_request.0004.a:0 "This has gone on long enough. Bring [nu_quality_request_ward.GetFirstName] home."
+ nu_quality_request.0004.b:0 "Using my own child to squeeze money out of me? They will regret it."
+ NU_QUALITY_REQUEST_MURDER_RECALL_TT:0 "You will recall [nu_quality_request_ward.GetFirstName] and begin a murder scheme against [nu_quality_request_guardian.GetFirstName]."
+
+ nu_quality_request.0005.desc:0 "Since you refuse to provide the means I consider necessary for [nu_quality_request_ward.GetFirstName]'s education, I see no reason to continue this arrangement. Your child will be sent home."
+
+ nu_quality_request.0005.a:0 "So be it."
+
+ nu_quality_request.0006.desc:0 "[nu_quality_request_sponsor.GetFirstName] refuses to provide additional funds for [nu_quality_request_ward.GetFirstName]'s education. You are under no obligation to continue the guardianship under these conditions."
+
+ nu_quality_request.0006.a:0 "I will continue the child's education regardless."
+ nu_quality_request.0006.b:0 "Then the child can go home."
+
+ nu_quality_request.opening:0 "[ROOT.Char.GetFirstName],"
+
+ actor_secondary_nu_organize_ward_accompaniment_interaction:0 "Guardian"
+ recipient_secondary_nu_organize_ward_accompaniment_interaction:0 "Ward"

@@ -1,0 +1,200 @@
+﻿namespace = nu_homesickness
+
+
+# =============================================================
+# CHILD ASKS TO RETURN HOME
+# =============================================================
+
+nu_homesickness.0001 = {
+	type = character_event
+	theme = family
+
+	title = nu_homesickness.0001.t
+	desc = nu_homesickness.0001.desc
+
+	left_portrait = {
+		character = scope:nu_homesick_child
+	}
+
+	right_portrait = {
+		character = scope:nu_homesick_guardian
+	}
+
+
+	# =========================================================
+	# LET THE CHILD RETURN
+	# =========================================================
+
+	option = {
+		name = nu_homesickness.0001.a
+
+		if = {
+			limit = {
+				exists = scope:nu_homesick_child
+				exists = scope:nu_homesick_guardian
+
+				scope:nu_homesick_child = {
+					is_alive = yes
+					is_adult = no
+
+					any_relation = {
+						type = guardian
+						this = scope:nu_homesick_guardian
+					}
+				}
+			}
+
+			# The child remembers that their request was heard.
+			scope:nu_homesick_child = {
+				add_opinion = {
+					target = root
+					modifier = trust_opinion
+					opinion = 15
+				}
+			}
+
+			remove_guardian_effect = {
+				GUARDIAN = scope:nu_homesick_guardian
+				WARD = scope:nu_homesick_child
+				RETURN_WARD = yes
+				HIDE_OPINION = yes
+			}
+
+			# Only clean the Natural Upbringing state if this was
+			# still the guardianship concerned by the request.
+			scope:nu_homesick_child = {
+				nu_cleanup_guardianship_state_on_adulthood_effect = yes
+			}
+		}
+
+		else = {
+			# The original arrangement disappeared before the
+			# request could be answered. Do not touch a new tutelage.
+			if = {
+				limit = {
+					exists = scope:nu_homesick_child
+				}
+
+				scope:nu_homesick_child = {
+					remove_character_flag = nu_homesickness_request_pending
+				}
+			}
+		}
+
+		stress_impact = {
+			compassionate = minor_stress_impact_loss
+			callous = minor_stress_impact_gain
+			stubborn = minor_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 70
+
+			modifier = {
+				add = 50
+				has_trait = compassionate
+			}
+
+			modifier = {
+				add = 20
+				has_trait = trusting
+			}
+
+			modifier = {
+				add = -40
+				has_trait = callous
+			}
+
+			modifier = {
+				add = -25
+				has_trait = stubborn
+			}
+		}
+	}
+
+
+	# =========================================================
+	# INSIST THAT THE EDUCATION CONTINUE
+	# =========================================================
+
+	option = {
+		name = nu_homesickness.0001.b
+
+		if = {
+			limit = {
+				exists = scope:nu_homesick_child
+				exists = scope:nu_homesick_guardian
+
+				scope:nu_homesick_child = {
+					is_alive = yes
+					is_adult = no
+
+					any_relation = {
+						type = guardian
+						this = scope:nu_homesick_guardian
+					}
+				}
+			}
+
+			scope:nu_homesick_child = {
+
+				# Being explicitly refused after asking to come home
+				# has an emotional cost.
+				add_stress = minor_stress_gain
+
+				add_opinion = {
+					target = root
+					modifier = disappointed_opinion
+					opinion = -25
+				}
+
+				remove_character_flag = nu_homesickness_request_pending
+			}
+		}
+
+		else = {
+			if = {
+				limit = {
+					exists = scope:nu_homesick_child
+				}
+
+				scope:nu_homesick_child = {
+					remove_character_flag = nu_homesickness_request_pending
+				}
+			}
+		}
+
+		# The three-year cooldown remains active.
+		# Additional personality-dependent consequences come in the trait pass.
+
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			callous = miniscule_stress_impact_loss
+			stubborn = miniscule_stress_impact_loss
+		}
+
+		ai_chance = {
+			base = 30
+
+			modifier = {
+				add = 50
+				has_trait = callous
+			}
+
+			modifier = {
+				add = 30
+				has_trait = stubborn
+			}
+
+			modifier = {
+				add = -25
+				has_trait = compassionate
+			}
+
+			modifier = {
+				add = -10
+				has_trait = trusting
+			}
+		}
+	}
+}

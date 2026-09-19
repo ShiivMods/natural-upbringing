@@ -1,0 +1,184 @@
+﻿nu_cultural_exposure_yearly_gain = {
+	value = 0
+
+	# ---------------------------------------------------------
+	# AGE
+	# Younger children are significantly more impressionable.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = { age <= 6 }
+		add = 4
+	}
+	else_if = {
+		limit = { age <= 10 }
+		add = 3
+	}
+	else_if = {
+		limit = { age <= 13 }
+		add = 2
+	}
+	else = {
+		# Ages 14-15
+		add = 1
+	}
+
+
+	# ---------------------------------------------------------
+	# GUARDIAN
+	# Direct daily influence from the educator.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			exists = scope:nu_guardian
+			scope:nu_guardian.culture = scope:nu_culture_environment
+		}
+
+		add = 2
+	}
+
+
+	# ---------------------------------------------------------
+	# COURT
+	# Living in a court dominated by the target culture.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			court_owner ?= {
+				culture = scope:nu_culture_environment
+			}
+		}
+
+		add = 2
+	}
+
+
+	# ---------------------------------------------------------
+	# LOCAL ENVIRONMENT
+	# The culture of the place where the child currently lives.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			court_owner ?= {
+				capital_province ?= {
+					culture = scope:nu_culture_environment
+				}
+			}
+		}
+
+		add = 1
+	}
+
+
+	# ---------------------------------------------------------
+	# LANGUAGE
+	# Speaking the language makes cultural integration easier.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			knows_language_of_culture = scope:nu_culture_environment
+		}
+		add = 1
+	}
+	
+	# Natural Upbringing - cultural servants
+	if = {
+		limit = {
+			exists = scope:nu_guardian
+			exists = var:nu_cultural_servants_guardian
+			var:nu_cultural_servants_guardian = scope:nu_guardian
+		}
+
+		multiply = 0.4
+	}
+}
+
+nu_religious_exposure_yearly_gain = {
+	value = 0
+
+	# ---------------------------------------------------------
+	# AGE
+	# Younger children are significantly more impressionable.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = { age <= 6 }
+		add = 4
+	}
+	else_if = {
+		limit = { age <= 10 }
+		add = 3
+	}
+	else_if = {
+		limit = { age <= 13 }
+		add = 2
+	}
+	else = {
+		# Ages 14-15
+		add = 1
+	}
+
+
+	# ---------------------------------------------------------
+	# GUARDIAN
+	# Direct religious influence from the educator.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			exists = scope:nu_guardian
+			scope:nu_guardian.faith = scope:nu_faith_environment
+		}
+
+		add = 2
+	}
+
+
+	# ---------------------------------------------------------
+	# COURT
+	# Living in a court following the target faith.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			court_owner ?= {
+				faith = scope:nu_faith_environment
+			}
+		}
+
+		add = 2
+	}
+
+
+	# ---------------------------------------------------------
+	# LOCAL ENVIRONMENT
+	# Faith practiced in the place where the child currently lives.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			court_owner ?= {
+				capital_province ?= {
+					faith = scope:nu_faith_environment
+				}
+			}
+		}
+
+		add = 1
+	}
+	
+	# Natural Upbringing - religious attendant
+	if = {
+		limit = {
+			exists = scope:nu_guardian
+			exists = var:nu_religious_attendant_guardian
+			var:nu_religious_attendant_guardian = scope:nu_guardian
+		}
+
+		multiply = 0.4
+	}
+}

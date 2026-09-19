@@ -1,0 +1,580 @@
+﻿nu_save_cultural_assimilation_context_effect = {
+
+	# =========================================================
+	# RESET PREVIOUS CULTURAL ASSIMILATION CONTEXT
+	# =========================================================
+
+	remove_variable = nu_last_cultural_assimilation_origin
+	remove_variable = nu_last_cultural_assimilation_target
+	remove_variable = nu_last_cultural_assimilation_years
+	remove_variable = nu_last_cultural_assimilation_score
+	remove_variable = nu_last_cultural_assimilation_guardian
+	remove_variable = nu_last_cultural_assimilation_court_owner
+
+	remove_character_flag = nu_last_cultural_assimilation_court_supported
+	remove_character_flag = nu_last_cultural_assimilation_local_supported
+	remove_character_flag = nu_last_cultural_assimilation_had_servants
+	remove_character_flag = nu_last_cultural_assimilation_had_quality_instruction
+
+
+	# =========================================================
+	# CULTURES
+	# =========================================================
+
+	culture = {
+		save_temporary_scope_as = nu_previous_culture
+	}
+
+	set_variable = {
+		name = nu_last_cultural_assimilation_origin
+		value = scope:nu_previous_culture
+	}
+
+	set_variable = {
+		name = nu_last_cultural_assimilation_target
+		value = scope:nu_conversion_culture
+	}
+
+
+	# =========================================================
+	# EXPOSURE HISTORY
+	# =========================================================
+
+	set_variable = {
+		name = nu_last_cultural_assimilation_years
+		value = var:nu_culture_exposure_years
+	}
+
+	set_variable = {
+		name = nu_last_cultural_assimilation_score
+		value = var:nu_culture_exposure_score
+	}
+
+
+	# =========================================================
+	# COURT
+	# =========================================================
+
+	if = {
+		limit = {
+			exists = court_owner
+		}
+
+		court_owner = {
+			save_temporary_scope_as = nu_cultural_assimilation_court_owner
+		}
+
+		set_variable = {
+			name = nu_last_cultural_assimilation_court_owner
+			value = scope:nu_cultural_assimilation_court_owner
+		}
+	}
+
+	if = {
+		limit = {
+			court_owner ?= {
+				culture = scope:nu_conversion_culture
+			}
+		}
+
+		add_character_flag = nu_last_cultural_assimilation_court_supported
+	}
+
+	if = {
+		limit = {
+			court_owner ?= {
+				capital_province ?= {
+					culture = scope:nu_conversion_culture
+				}
+			}
+		}
+
+		add_character_flag = nu_last_cultural_assimilation_local_supported
+	}
+
+
+	# =========================================================
+	# GUARDIAN AND GUARDIANSHIP OPTIONS
+	# =========================================================
+
+	if = {
+		limit = {
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+		}
+
+		random_relation = {
+			type = guardian
+			save_temporary_scope_as = nu_cultural_assimilation_guardian
+		}
+
+		set_variable = {
+			name = nu_last_cultural_assimilation_guardian
+			value = scope:nu_cultural_assimilation_guardian
+		}
+
+		if = {
+			limit = {
+				exists = var:nu_cultural_servants_guardian
+				var:nu_cultural_servants_guardian = scope:nu_cultural_assimilation_guardian
+			}
+
+			add_character_flag = nu_last_cultural_assimilation_had_servants
+		}
+
+		if = {
+			limit = {
+				exists = var:nu_quality_instruction_guardian
+				var:nu_quality_instruction_guardian = scope:nu_cultural_assimilation_guardian
+			}
+
+			add_character_flag = nu_last_cultural_assimilation_had_quality_instruction
+		}
+	}
+}
+
+
+nu_save_religious_assimilation_context_effect = {
+
+	# =========================================================
+	# RESET PREVIOUS RELIGIOUS ASSIMILATION CONTEXT
+	# =========================================================
+
+	remove_variable = nu_last_religious_assimilation_origin
+	remove_variable = nu_last_religious_assimilation_target
+	remove_variable = nu_last_religious_assimilation_years
+	remove_variable = nu_last_religious_assimilation_score
+	remove_variable = nu_last_religious_assimilation_guardian
+	remove_variable = nu_last_religious_assimilation_court_owner
+
+	remove_character_flag = nu_last_religious_assimilation_court_supported
+	remove_character_flag = nu_last_religious_assimilation_local_supported
+	remove_character_flag = nu_last_religious_assimilation_had_attendant
+	remove_character_flag = nu_last_religious_assimilation_had_quality_instruction
+
+
+	# =========================================================
+	# FAITHS
+	# =========================================================
+
+	faith = {
+		save_temporary_scope_as = nu_previous_faith
+	}
+
+	set_variable = {
+		name = nu_last_religious_assimilation_origin
+		value = scope:nu_previous_faith
+	}
+
+	set_variable = {
+		name = nu_last_religious_assimilation_target
+		value = scope:nu_conversion_faith
+	}
+
+
+	# =========================================================
+	# EXPOSURE HISTORY
+	# =========================================================
+
+	set_variable = {
+		name = nu_last_religious_assimilation_years
+		value = var:nu_faith_exposure_years
+	}
+
+	set_variable = {
+		name = nu_last_religious_assimilation_score
+		value = var:nu_faith_exposure_score
+	}
+
+
+	# =========================================================
+	# COURT
+	# =========================================================
+
+	if = {
+		limit = {
+			exists = court_owner
+		}
+
+		court_owner = {
+			save_temporary_scope_as = nu_religious_assimilation_court_owner
+		}
+
+		set_variable = {
+			name = nu_last_religious_assimilation_court_owner
+			value = scope:nu_religious_assimilation_court_owner
+		}
+	}
+
+	if = {
+		limit = {
+			court_owner ?= {
+				faith = scope:nu_conversion_faith
+			}
+		}
+
+		add_character_flag = nu_last_religious_assimilation_court_supported
+	}
+
+	if = {
+		limit = {
+			court_owner ?= {
+				capital_province ?= {
+					faith = scope:nu_conversion_faith
+				}
+			}
+		}
+
+		add_character_flag = nu_last_religious_assimilation_local_supported
+	}
+
+
+	# =========================================================
+	# GUARDIAN AND GUARDIANSHIP OPTIONS
+	# =========================================================
+
+	if = {
+		limit = {
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+		}
+
+		random_relation = {
+			type = guardian
+			save_temporary_scope_as = nu_religious_assimilation_guardian
+		}
+
+		set_variable = {
+			name = nu_last_religious_assimilation_guardian
+			value = scope:nu_religious_assimilation_guardian
+		}
+
+		if = {
+			limit = {
+				exists = var:nu_religious_attendant_guardian
+				var:nu_religious_attendant_guardian = scope:nu_religious_assimilation_guardian
+			}
+
+			add_character_flag = nu_last_religious_assimilation_had_attendant
+		}
+
+		if = {
+			limit = {
+				exists = var:nu_quality_instruction_guardian
+				var:nu_quality_instruction_guardian = scope:nu_religious_assimilation_guardian
+			}
+
+			add_character_flag = nu_last_religious_assimilation_had_quality_instruction
+		}
+	}
+}
+
+
+nu_prepare_assimilation_event_context_effect = {
+
+	scope:nu_assimilated_child = {
+
+		# Cultural guardian
+		if = {
+			limit = {
+				exists = var:nu_last_cultural_assimilation_guardian
+			}
+
+			var:nu_last_cultural_assimilation_guardian = {
+				save_scope_as = nu_cultural_assimilation_guardian
+			}
+		}
+
+		# Cultural court
+		if = {
+			limit = {
+				exists = var:nu_last_cultural_assimilation_court_owner
+			}
+
+			var:nu_last_cultural_assimilation_court_owner = {
+				save_scope_as = nu_cultural_assimilation_court_owner
+			}
+		}
+
+		# Religious guardian
+		if = {
+			limit = {
+				exists = var:nu_last_religious_assimilation_guardian
+			}
+
+			var:nu_last_religious_assimilation_guardian = {
+				save_scope_as = nu_religious_assimilation_guardian
+			}
+		}
+
+		# Religious court
+		if = {
+			limit = {
+				exists = var:nu_last_religious_assimilation_court_owner
+			}
+
+			var:nu_last_religious_assimilation_court_owner = {
+				save_scope_as = nu_religious_assimilation_court_owner
+			}
+		}
+	}
+}
+
+
+nu_check_natural_assimilation_effect = {
+
+	# =========================================================
+	# CULTURAL ASSIMILATION
+	# =========================================================
+
+	if = {
+		limit = {
+			exists = var:nu_culture_exposure_target
+			has_variable = nu_culture_exposure_score
+			var:nu_culture_exposure_score >= 5
+		}
+
+		var:nu_culture_exposure_target = {
+			save_temporary_scope_as = nu_conversion_culture
+		}
+
+		if = {
+			limit = {
+				culture != scope:nu_conversion_culture
+				nu_has_cultural_assimilation_environment_trigger = yes
+			}
+
+			random = {
+				chance = nu_cultural_assimilation_chance
+
+				# A very short exposure producing assimilation is
+				# unusual enough to receive special RP narration.
+				if = {
+					limit = {
+						has_variable = nu_culture_exposure_years
+						var:nu_culture_exposure_years <= 3
+					}
+
+					add_character_flag = {
+						flag = nu_recent_cultural_assimilation_rapid
+						months = 1
+					}
+				}
+
+				add_character_flag = nu_culture_assimilated_this_birthday
+				add_character_flag = nu_assimilation_happened_this_birthday
+
+				nu_save_cultural_assimilation_context_effect = yes
+				set_culture = scope:nu_conversion_culture
+
+				remove_variable = nu_culture_exposure_target
+				remove_variable = nu_culture_exposure_years
+				remove_variable = nu_culture_exposure_score
+				remove_variable = nu_culture_exposure_floor
+			}
+		}
+	}
+
+
+	# =========================================================
+	# RELIGIOUS ASSIMILATION
+	# =========================================================
+
+	if = {
+		limit = {
+			exists = var:nu_faith_exposure_target
+			has_variable = nu_faith_exposure_score
+			var:nu_faith_exposure_score >= 5
+		}
+
+		var:nu_faith_exposure_target = {
+			save_temporary_scope_as = nu_conversion_faith
+		}
+
+		if = {
+			limit = {
+				faith != scope:nu_conversion_faith
+				nu_has_religious_assimilation_environment_trigger = yes
+
+				NOT = {
+					nu_has_active_religious_contract_protection_trigger = yes
+				}
+			}
+
+			random = {
+				chance = nu_religious_assimilation_chance
+
+				if = {
+					limit = {
+						has_variable = nu_faith_exposure_years
+						var:nu_faith_exposure_years <= 3
+					}
+
+					add_character_flag = {
+						flag = nu_recent_religious_assimilation_rapid
+						months = 1
+					}
+				}
+
+				add_character_flag = nu_faith_assimilated_this_birthday
+				add_character_flag = nu_assimilation_happened_this_birthday
+
+				nu_save_religious_assimilation_context_effect = yes
+				set_character_faith = scope:nu_conversion_faith
+
+				remove_variable = nu_faith_exposure_target
+				remove_variable = nu_faith_exposure_years
+				remove_variable = nu_faith_exposure_score
+				remove_variable = nu_faith_exposure_floor
+			}
+		}
+	}
+
+
+	# =========================================================
+	# PLAYER-PARENT RP NOTIFICATION
+	# =========================================================
+
+	if = {
+		limit = {
+			OR = {
+				has_character_flag = nu_culture_assimilated_this_birthday
+				has_character_flag = nu_faith_assimilated_this_birthday
+			}
+		}
+
+		save_scope_as = nu_assimilated_child
+
+		# Only player parents need a full RP event.
+		# This also naturally supports two player parents in MP.
+		every_parent = {
+			limit = {
+				is_alive = yes
+				is_ai = no
+			}
+
+			if = {
+				limit = {
+					scope:nu_assimilated_child = {
+						has_character_flag = nu_culture_assimilated_this_birthday
+						has_character_flag = nu_faith_assimilated_this_birthday
+					}
+				}
+
+				trigger_event = nu_assimilation.0003
+			}
+
+			else_if = {
+				limit = {
+					scope:nu_assimilated_child = {
+						has_character_flag = nu_culture_assimilated_this_birthday
+					}
+				}
+
+				trigger_event = nu_assimilation.0001
+			}
+
+			else_if = {
+				limit = {
+					scope:nu_assimilated_child = {
+						has_character_flag = nu_faith_assimilated_this_birthday
+					}
+				}
+
+				trigger_event = nu_assimilation.0002
+			}
+		}
+
+		# These flags are only needed to decide which event to send.
+		remove_character_flag = nu_culture_assimilated_this_birthday
+		remove_character_flag = nu_faith_assimilated_this_birthday
+	}
+}
+# =============================================================
+# DEBUG — FORCE CURRENT ASSIMILATION
+# =============================================================
+
+nu_debug_force_cultural_assimilation_effect = {
+
+	if = {
+		limit = {
+			exists = var:nu_culture_exposure_target
+		}
+
+		var:nu_culture_exposure_target = {
+			save_temporary_scope_as = nu_conversion_culture
+		}
+
+		if = {
+			limit = {
+				culture != scope:nu_conversion_culture
+			}
+
+			if = {
+				limit = {
+					has_variable = nu_culture_exposure_years
+					var:nu_culture_exposure_years <= 3
+				}
+
+				add_character_flag = {
+					flag = nu_recent_cultural_assimilation_rapid
+					months = 1
+				}
+			}
+
+			nu_save_cultural_assimilation_context_effect = yes
+
+			set_culture = scope:nu_conversion_culture
+
+			remove_variable = nu_culture_exposure_target
+			remove_variable = nu_culture_exposure_years
+			remove_variable = nu_culture_exposure_score
+			remove_variable = nu_culture_exposure_floor
+		}
+	}
+}
+
+
+nu_debug_force_religious_assimilation_effect = {
+
+	if = {
+		limit = {
+			exists = var:nu_faith_exposure_target
+		}
+
+		var:nu_faith_exposure_target = {
+			save_temporary_scope_as = nu_conversion_faith
+		}
+
+		if = {
+			limit = {
+				faith != scope:nu_conversion_faith
+			}
+
+			if = {
+				limit = {
+					has_variable = nu_faith_exposure_years
+					var:nu_faith_exposure_years <= 3
+				}
+
+				add_character_flag = {
+					flag = nu_recent_religious_assimilation_rapid
+					months = 1
+				}
+			}
+
+			nu_save_religious_assimilation_context_effect = yes
+
+			set_character_faith = scope:nu_conversion_faith
+
+			remove_variable = nu_faith_exposure_target
+			remove_variable = nu_faith_exposure_years
+			remove_variable = nu_faith_exposure_score
+			remove_variable = nu_faith_exposure_floor
+		}
+	}
+}

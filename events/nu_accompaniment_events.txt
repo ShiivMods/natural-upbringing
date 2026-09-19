@@ -1,0 +1,141 @@
+﻿namespace = nu_accompaniment
+
+
+nu_accompaniment.0001 = {
+	type = character_event
+	theme = education
+
+	title = nu_accompaniment.0001.t
+
+	immediate = {
+
+		if = {
+			limit = {
+				exists = var:nu_accompaniment_reply_sender
+			}
+
+			var:nu_accompaniment_reply_sender = {
+				save_scope_as = nu_accompaniment_sender
+			}
+
+			remove_variable = nu_accompaniment_reply_sender
+		}
+
+		if = {
+			limit = {
+				exists = var:nu_accompaniment_reply_ward
+			}
+
+			var:nu_accompaniment_reply_ward = {
+				save_scope_as = nu_accompaniment_ward
+			}
+
+			remove_variable = nu_accompaniment_reply_ward
+		}
+	}
+
+	desc = {
+		first_valid = {
+
+			triggered_desc = {
+				trigger = {
+					has_character_flag = nu_accompaniment_reply_culture
+					has_character_flag = nu_accompaniment_reply_education
+					has_character_flag = nu_accompaniment_reply_faith
+				}
+
+				desc = nu_accompaniment.0001.desc_all
+			}
+
+			triggered_desc = {
+				trigger = {
+					has_character_flag = nu_accompaniment_reply_culture
+					has_character_flag = nu_accompaniment_reply_education
+					NOT = {
+						has_character_flag = nu_accompaniment_reply_faith
+					}
+				}
+
+				desc = nu_accompaniment.0001.desc_culture_education
+			}
+
+			triggered_desc = {
+				trigger = {
+					has_character_flag = nu_accompaniment_reply_culture
+					has_character_flag = nu_accompaniment_reply_faith
+					NOT = {
+						has_character_flag = nu_accompaniment_reply_education
+					}
+				}
+
+				desc = nu_accompaniment.0001.desc_culture_faith
+			}
+
+			triggered_desc = {
+				trigger = {
+					has_character_flag = nu_accompaniment_reply_education
+					has_character_flag = nu_accompaniment_reply_faith
+					NOT = {
+						has_character_flag = nu_accompaniment_reply_culture
+					}
+				}
+
+				desc = nu_accompaniment.0001.desc_education_faith
+			}
+
+			triggered_desc = {
+				trigger = {
+					has_character_flag = nu_accompaniment_reply_culture
+					NOT = {
+						has_character_flag = nu_accompaniment_reply_education
+						has_character_flag = nu_accompaniment_reply_faith
+					}
+				}
+
+				desc = nu_accompaniment.0001.desc_culture
+			}
+
+			triggered_desc = {
+				trigger = {
+					has_character_flag = nu_accompaniment_reply_education
+					NOT = {
+						has_character_flag = nu_accompaniment_reply_culture
+						has_character_flag = nu_accompaniment_reply_faith
+					}
+				}
+
+				desc = nu_accompaniment.0001.desc_education
+			}
+
+			triggered_desc = {
+				trigger = {
+					has_character_flag = nu_accompaniment_reply_faith
+					NOT = {
+						has_character_flag = nu_accompaniment_reply_culture
+						has_character_flag = nu_accompaniment_reply_education
+					}
+				}
+
+				desc = nu_accompaniment.0001.desc_faith
+			}
+
+			desc = nu_accompaniment.0001.desc_generic
+		}
+	}
+
+	left_portrait = {
+		character = scope:nu_accompaniment_sender
+	}
+
+	right_portrait = {
+		character = scope:nu_accompaniment_ward
+	}
+
+	option = {
+		name = nu_accompaniment.0001.a
+
+		remove_character_flag = nu_accompaniment_reply_culture
+		remove_character_flag = nu_accompaniment_reply_education
+		remove_character_flag = nu_accompaniment_reply_faith
+	}
+}

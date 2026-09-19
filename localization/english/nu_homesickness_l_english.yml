@@ -1,0 +1,7 @@
+﻿l_english:
+
+ nu_homesickness.0001.t:0 "I Want to Come Home"
+ nu_homesickness.0001.desc:0 "A message from [nu_homesick_child.GetFirstName] has reached me from the court of [nu_homesick_current_court.GetFirstName].\n\nDespite the time spent under the guardianship of [nu_homesick_guardian.GetFirstName], the distance from home seems to have become increasingly difficult to bear. The words are simple, but the request leaves little room for doubt: [nu_homesick_child.GetFirstName] wishes to return home and bring this education far from family to an end."
+
+ nu_homesickness.0001.a:0 "I will arrange the return home."
+ nu_homesickness.0001.b:0 "The education must continue."

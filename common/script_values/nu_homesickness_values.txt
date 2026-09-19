@@ -1,0 +1,236 @@
+﻿nu_homesickness_chance = {
+
+	value = 0
+
+
+	# =========================================================
+	# AGE
+	# =========================================================
+
+	if = {
+		limit = {
+			age <= 9
+		}
+
+		add = 8
+	}
+
+	else_if = {
+		limit = {
+			age <= 12
+		}
+
+		add = 6
+	}
+
+	else = {
+		# Ages 13-15
+		add = 4
+	}
+
+
+	# =========================================================
+	# FOREIGN CULTURAL ENVIRONMENT
+	# =========================================================
+
+	if = {
+		limit = {
+			exists = scope:nu_homesickness_current_culture
+			culture != scope:nu_homesickness_current_culture
+		}
+
+		multiply = 1.5
+	}
+
+
+	# =========================================================
+	# FOREIGN RELIGIOUS ENVIRONMENT
+	# =========================================================
+
+	if = {
+		limit = {
+			exists = scope:nu_homesickness_current_faith
+			faith != scope:nu_homesickness_current_faith
+		}
+
+		multiply = 1.25
+	}
+
+
+	# =========================================================
+	# CULTURAL SERVANTS
+	# =========================================================
+
+	if = {
+		limit = {
+			exists = scope:nu_homesickness_guardian
+			exists = var:nu_cultural_servants_guardian
+			var:nu_cultural_servants_guardian = scope:nu_homesickness_guardian
+		}
+
+		multiply = 0.50
+	}
+
+
+	# =========================================================
+	# RELIGIOUS ATTENDANT
+	# =========================================================
+
+	if = {
+		limit = {
+			exists = scope:nu_homesickness_guardian
+			exists = var:nu_religious_attendant_guardian
+			var:nu_religious_attendant_guardian = scope:nu_homesickness_guardian
+		}
+
+		multiply = 0.60
+	}
+
+
+	# =========================================================
+	# ADAPTATION
+	# =========================================================
+	#
+	# Deep exposure to either the local culture or faith makes
+	# the foreign environment increasingly feel like home.
+	# =========================================================
+
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					exists = scope:nu_homesickness_current_culture
+					exists = var:nu_culture_exposure_target
+					has_variable = nu_culture_exposure_score
+					var:nu_culture_exposure_target = scope:nu_homesickness_current_culture
+					var:nu_culture_exposure_score >= 50
+				}
+
+				AND = {
+					exists = scope:nu_homesickness_current_faith
+					exists = var:nu_faith_exposure_target
+					has_variable = nu_faith_exposure_score
+					var:nu_faith_exposure_target = scope:nu_homesickness_current_faith
+					var:nu_faith_exposure_score >= 50
+				}
+			}
+		}
+
+		multiply = 0.40
+	}
+
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					exists = scope:nu_homesickness_current_culture
+					exists = var:nu_culture_exposure_target
+					has_variable = nu_culture_exposure_score
+					var:nu_culture_exposure_target = scope:nu_homesickness_current_culture
+					var:nu_culture_exposure_score >= 30
+				}
+
+				AND = {
+					exists = scope:nu_homesickness_current_faith
+					exists = var:nu_faith_exposure_target
+					has_variable = nu_faith_exposure_score
+					var:nu_faith_exposure_target = scope:nu_homesickness_current_faith
+					var:nu_faith_exposure_score >= 30
+				}
+			}
+		}
+
+		multiply = 0.70
+	}
+
+    	# =========================================================
+	# PERSONALITY — V1
+	# =========================================================
+
+	# A shy child has a harder time building a new social world.
+	if = {
+		limit = {
+			has_trait = shy
+		}
+
+		multiply = 1.35
+	}
+
+	# Suspicion makes a foreign environment more difficult
+	# to accept as a safe place.
+	if = {
+		limit = {
+			has_trait = paranoid
+		}
+
+		multiply = 1.30
+	}
+
+	# Stubborn children remain more attached to what they
+	# already consider familiar.
+	if = {
+		limit = {
+			has_trait = stubborn
+		}
+
+		multiply = 1.20
+	}
+
+	# Gregarious children form new relationships more easily.
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+
+		multiply = 0.75
+	}
+
+	# Trust makes adjustment to a new household easier.
+	if = {
+		limit = {
+			has_trait = trusting
+		}
+
+		multiply = 0.80
+	}
+
+	# Fickle children are less anchored to their previous habits.
+	if = {
+		limit = {
+			has_trait = fickle
+		}
+
+		multiply = 0.80
+	}
+
+
+	# =========================================================
+	# RELIGIOUS PERSONALITY
+	# =========================================================
+	#
+	# These only matter when the child's current court actually
+	# follows another faith.
+	# =========================================================
+
+	if = {
+		limit = {
+			has_trait = zealous
+
+			exists = scope:nu_homesickness_current_faith
+			faith != scope:nu_homesickness_current_faith
+		}
+
+		multiply = 1.35
+	}
+
+	if = {
+		limit = {
+			has_trait = cynical
+
+			exists = scope:nu_homesickness_current_faith
+			faith != scope:nu_homesickness_current_faith
+		}
+
+		multiply = 0.80
+	}
+}

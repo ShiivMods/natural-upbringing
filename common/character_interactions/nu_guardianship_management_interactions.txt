@@ -1,0 +1,500 @@
+﻿nu_organize_ward_accompaniment_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	icon = child
+	interface_priority = 30
+
+	desc = nu_organize_ward_accompaniment_interaction_desc
+	send_name = NU_ORGANIZE_WARD_ACCOMPANIMENT_SEND
+	notification_text = NU_ORGANIZE_WARD_ACCOMPANIMENT_NOTIFICATION
+	greeting = positive
+
+
+	# =========================================================
+	# REDIRECT
+	# =========================================================
+
+	redirect = {
+		scope:recipient = {
+			if = {
+				limit = {
+					is_adult = no
+
+					OR = {
+						any_relation = {
+							type = guardian
+							always = yes
+						}
+
+						exists = var:ward_travelling_to_guardian
+						exists = var:ward_waiting_for_guardian
+					}
+				}
+
+				save_scope_as = secondary_recipient
+
+				if = {
+					limit = {
+						any_relation = {
+							type = guardian
+							always = yes
+						}
+					}
+
+					random_relation = {
+						type = guardian
+						save_scope_as = secondary_actor
+					}
+				}
+				else_if = {
+					limit = {
+						exists = var:ward_travelling_to_guardian
+					}
+
+					var:ward_travelling_to_guardian = {
+						save_scope_as = secondary_actor
+					}
+				}
+				else_if = {
+					limit = {
+						exists = var:ward_waiting_for_guardian
+					}
+
+					var:ward_waiting_for_guardian = {
+						save_scope_as = secondary_actor
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				exists = scope:secondary_actor
+			}
+
+			scope:secondary_actor = {
+				if = {
+					limit = {
+						exists = employer
+					}
+
+					employer = {
+						save_scope_as = recipient
+					}
+				}
+				else = {
+					save_scope_as = recipient
+				}
+			}
+		}
+	}
+
+
+	# =========================================================
+	# VISIBILITY
+	# =========================================================
+
+	is_shown = {
+		exists = scope:secondary_recipient
+		exists = scope:secondary_actor
+
+		scope:secondary_recipient = {
+			is_adult = no
+			age <= 14
+
+			OR = {
+				is_close_family_of = scope:actor
+				is_courtier_of = scope:actor
+
+				any_liege_or_above = {
+					this = scope:actor
+				}
+			}
+
+			OR = {
+				any_relation = {
+					type = guardian
+					this = scope:secondary_actor
+				}
+
+				AND = {
+					exists = var:ward_travelling_to_guardian
+					var:ward_travelling_to_guardian = scope:secondary_actor
+				}
+
+				AND = {
+					exists = var:ward_waiting_for_guardian
+					var:ward_waiting_for_guardian = scope:secondary_actor
+				}
+			}
+
+			# Keep the interaction available only while at least
+			# one new measure can still be added.
+			OR = {
+
+				AND = {
+					NOT = {
+						exists = var:nu_cultural_servants_guardian
+					}
+
+					OR = {
+						culture != scope:secondary_actor.culture
+						culture != scope:recipient.culture
+					}
+				}
+
+				NOT = {
+					exists = var:nu_quality_instruction_guardian
+				}
+
+				AND = {
+					NOT = {
+						exists = var:nu_religious_attendant_guardian
+					}
+
+					OR = {
+						faith != scope:secondary_actor.faith
+						faith != scope:recipient.faith
+					}
+				}
+			}
+		}
+	}
+
+
+	is_valid_showing_failures_only = {
+		scope:secondary_actor = {
+			is_alive = yes
+		}
+
+		scope:recipient = {
+			is_alive = yes
+		}
+	}
+
+
+	# =========================================================
+	# OPTIONS
+	#
+	# starts_enabled = no:
+	# every measure begins unchecked.
+	#
+	# can_be_changed:
+	# controls whether the checkbox itself can be changed.
+	# Existing measures are therefore visible but locked.
+	#
+	# is_valid:
+	# only handles the resource requirement.
+	# =========================================================
+
+	send_option = {
+		is_shown = {
+			always = yes
+		}
+
+		starts_enabled = {
+			always = no
+		}
+
+		can_be_changed = {
+			exists = scope:secondary_recipient
+			exists = scope:secondary_actor
+
+			scope:secondary_recipient = {
+				NOT = {
+					exists = var:nu_cultural_servants_guardian
+				}
+			}
+
+			OR = {
+				scope:secondary_recipient.culture != scope:secondary_actor.culture
+				scope:secondary_recipient.culture != scope:recipient.culture
+			}
+		}
+
+		is_valid = {
+			scope:actor.prestige >= scope:actor.minor_prestige_value
+		}
+
+		flag = nu_cultural_servants
+		localization = NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS
+		current_description = NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS_TT
+	}
+
+
+	send_option = {
+		is_shown = {
+			always = yes
+		}
+
+		starts_enabled = {
+			always = no
+		}
+
+		can_be_changed = {
+			exists = scope:secondary_recipient
+
+			scope:secondary_recipient = {
+				NOT = {
+					exists = var:nu_quality_instruction_guardian
+				}
+			}
+		}
+
+		is_valid = {
+			scope:actor.gold >= scope:actor.minor_gold_value
+		}
+
+		flag = nu_quality_instruction
+		localization = NU_GUARDIANSHIP_OPTION_QUALITY_INSTRUCTION
+		current_description = NU_GUARDIANSHIP_OPTION_QUALITY_INSTRUCTION_TT
+	}
+
+
+	send_option = {
+		is_shown = {
+			always = yes
+		}
+
+		starts_enabled = {
+			always = no
+		}
+
+		can_be_changed = {
+			exists = scope:secondary_recipient
+			exists = scope:secondary_actor
+
+			scope:secondary_recipient = {
+				NOT = {
+					exists = var:nu_religious_attendant_guardian
+				}
+			}
+
+			OR = {
+				scope:secondary_recipient.faith != scope:secondary_actor.faith
+				scope:secondary_recipient.faith != scope:recipient.faith
+			}
+		}
+
+		is_valid = {
+			scope:actor.piety >= scope:actor.minor_piety_value
+		}
+
+		flag = nu_religious_attendant
+		localization = NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT
+		current_description = NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT_TT
+	}
+
+	send_options_exclusive = no
+
+
+	# =========================================================
+	# ACCEPTANCE
+	# =========================================================
+
+	auto_accept = {
+		scope:recipient = scope:actor
+	}
+
+	ai_accept = {
+		base = 25
+
+		modifier = {
+			add = -15
+			scope:nu_cultural_servants = yes
+			desc = NU_AI_ACCEPT_CULTURAL_SERVANTS
+		}
+
+		modifier = {
+			add = 25
+			scope:nu_quality_instruction = yes
+			desc = NU_AI_ACCEPT_QUALITY_INSTRUCTION
+		}
+
+		modifier = {
+			add = -50
+			scope:nu_religious_attendant = yes
+			desc = NU_AI_ACCEPT_RELIGIOUS_ATTENDANT
+		}
+
+		opinion_modifier = {
+			opinion_target = scope:actor
+			who = scope:recipient
+			multiplier = 0.5
+			desc = AI_OPINION_REASON
+		}
+	}
+
+
+	# =========================================================
+	# EFFECT
+	# =========================================================
+
+	on_accept = {
+
+		# An empty interaction is harmless.
+		# No cost, variable or confirmation event is produced.
+		if = {
+			limit = {
+				OR = {
+					scope:nu_cultural_servants = yes
+					scope:nu_quality_instruction = yes
+					scope:nu_religious_attendant = yes
+				}
+			}
+
+			hidden_effect = {
+
+				scope:actor = {
+					remove_character_flag = nu_accompaniment_reply_culture
+					remove_character_flag = nu_accompaniment_reply_education
+					remove_character_flag = nu_accompaniment_reply_faith
+
+					set_variable = {
+						name = nu_accompaniment_reply_sender
+						value = scope:recipient
+					}
+
+					set_variable = {
+						name = nu_accompaniment_reply_ward
+						value = scope:secondary_recipient
+					}
+
+					if = {
+						limit = {
+							scope:nu_cultural_servants = yes
+						}
+
+						add_character_flag = nu_accompaniment_reply_culture
+					}
+
+					if = {
+						limit = {
+							scope:nu_quality_instruction = yes
+						}
+
+						add_character_flag = nu_accompaniment_reply_education
+					}
+
+					if = {
+						limit = {
+							scope:nu_religious_attendant = yes
+						}
+
+						add_character_flag = nu_accompaniment_reply_faith
+					}
+				}
+
+				nu_add_guardianship_options_effect = yes
+
+				if = {
+					limit = {
+						scope:recipient != scope:actor
+					}
+
+					scope:actor = {
+						trigger_event = nu_accompaniment.0001
+					}
+				}
+			}
+		}
+	}
+
+
+	# =========================================================
+	# AI
+	# =========================================================
+
+	ai_targets = {
+		ai_recipients = children
+		max = 10
+	}
+
+	ai_frequency = 12
+
+	ai_potential = {
+		any_child = {
+			is_adult = no
+			age <= 14
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+
+		modifier = {
+			factor = 0
+
+			NOT = {
+				nu_requested_ward_is_in_simulation_scope_trigger = yes
+			}
+		}
+
+		modifier = {
+			factor = 0
+
+			scope:secondary_recipient = {
+				NOT = {
+					is_child_of = scope:actor
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0
+
+			NOR = {
+				scope:nu_cultural_servants = yes
+				scope:nu_quality_instruction = yes
+				scope:nu_religious_attendant = yes
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+			scope:nu_cultural_servants = yes
+		}
+
+		modifier = {
+			factor = 0
+			scope:nu_quality_instruction = yes
+
+			OR = {
+				scope:actor.short_term_gold < scope:actor.medium_gold_value
+
+				scope:secondary_recipient = {
+					age >= 15
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.20
+			scope:nu_quality_instruction = yes
+		}
+
+		modifier = {
+			factor = 0
+			scope:nu_religious_attendant = yes
+
+			scope:secondary_recipient.faith != scope:actor.faith
+		}
+
+		modifier = {
+			factor = 1.15
+			scope:nu_religious_attendant = yes
+		}
+
+		modifier = {
+			factor = 1.35
+			scope:nu_religious_attendant = yes
+
+			scope:actor = {
+				OR = {
+					has_trait = zealous
+					ai_zeal >= 75
+				}
+			}
+		}
+	}
+}

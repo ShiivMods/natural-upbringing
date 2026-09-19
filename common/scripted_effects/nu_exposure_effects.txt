@@ -1,0 +1,440 @@
+﻿nu_update_exposure_tracking_effect = {
+
+	# ---------------------------------------------------------
+	# Find the child's guardian, if one exists.
+	# A child can only have one guardian in normal vanilla use.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+		}
+
+		random_relation = {
+			type = guardian
+			save_temporary_scope_as = nu_guardian
+		}
+	}
+
+
+	# =========================================================
+	# CULTURAL EXPOSURE
+	# =========================================================
+
+	# For now, the guardian is the primary cultural influence.
+	# If there is no culturally foreign guardian, use the court.
+	#
+	# This is NOT the final weighting system.
+	# Later, guardian, court, territory, language, parents, etc.
+	# will determine the strength of the exposure.
+
+	if = {
+		limit = {
+			exists = scope:nu_guardian
+			scope:nu_guardian.culture != root.culture
+		}
+
+		scope:nu_guardian.culture = {
+			save_temporary_scope_as = nu_culture_environment
+		}
+	}
+
+	else_if = {
+		limit = {
+			court_owner ?= {
+				culture != root.culture
+			}
+		}
+
+		court_owner.culture = {
+			save_temporary_scope_as = nu_culture_environment
+		}
+	}
+
+
+	# ---------------------------------------------------------
+	# We are currently exposed to a foreign culture.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			exists = scope:nu_culture_environment
+		}
+
+		# Same culture as last year:
+		# continue accumulating exposure.
+		if = {
+			limit = {
+				exists = var:nu_culture_exposure_target
+				var:nu_culture_exposure_target = scope:nu_culture_environment
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						has_variable = nu_culture_exposure_years
+					}
+				}
+
+				set_variable = {
+					name = nu_culture_exposure_years
+					value = 0
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						has_variable = nu_culture_exposure_score
+					}
+				}
+
+				set_variable = {
+					name = nu_culture_exposure_score
+					value = 0
+				}
+			}
+
+			change_variable = {
+				name = nu_culture_exposure_years
+				add = 1
+			}
+
+			change_variable = {
+				name = nu_culture_exposure_score
+				add = nu_cultural_exposure_yearly_gain
+			}
+
+			# Reaching these thresholds creates a lasting cultural memory.
+			if = {
+				limit = {
+					var:nu_culture_exposure_score >= 50
+				}
+
+				set_variable = {
+					name = nu_culture_exposure_floor
+					value = 50
+				}
+			}
+
+			else_if = {
+				limit = {
+					var:nu_culture_exposure_score >= 30
+
+					OR = {
+						NOT = {
+							has_variable = nu_culture_exposure_floor
+						}
+
+						var:nu_culture_exposure_floor < 30
+					}
+				}
+
+				set_variable = {
+					name = nu_culture_exposure_floor
+					value = 30
+				}
+			}
+		}
+
+		# New cultural environment:
+		# begin tracking the new culture from scratch.
+		else = {
+			set_variable = {
+				name = nu_culture_exposure_target
+				value = scope:nu_culture_environment
+			}
+
+			set_variable = {
+				name = nu_culture_exposure_years
+				value = 1
+			}
+
+			set_variable = {
+				name = nu_culture_exposure_score
+				value = nu_cultural_exposure_yearly_gain
+			}
+
+			# A new tracked culture starts with no established memory floor.
+			remove_variable = nu_culture_exposure_floor
+		}
+	}
+
+	# ---------------------------------------------------------
+	# The child has adopted the culture previously tracked.
+	# The old exposure is no longer relevant.
+	# ---------------------------------------------------------
+
+	else_if = {
+		limit = {
+			exists = var:nu_culture_exposure_target
+			var:nu_culture_exposure_target = root.culture
+		}
+
+		remove_variable = nu_culture_exposure_target
+		remove_variable = nu_culture_exposure_years
+		remove_variable = nu_culture_exposure_score
+		remove_variable = nu_culture_exposure_floor
+	}
+
+	# ---------------------------------------------------------
+	# No current foreign cultural influence.
+	# Previous exposure fades gradually.
+	# ---------------------------------------------------------
+
+	else_if = {
+		limit = {
+			has_variable = nu_culture_exposure_score
+		}
+
+		change_variable = {
+			name = nu_culture_exposure_score
+			add = -5
+		}
+
+		if = {
+			limit = {
+				has_variable = nu_culture_exposure_floor
+				var:nu_culture_exposure_floor >= 50
+				var:nu_culture_exposure_score < 50
+			}
+
+			set_variable = {
+				name = nu_culture_exposure_score
+				value = 50
+			}
+		}
+
+		else_if = {
+			limit = {
+				has_variable = nu_culture_exposure_floor
+				var:nu_culture_exposure_floor >= 30
+				var:nu_culture_exposure_score < 30
+			}
+
+			set_variable = {
+				name = nu_culture_exposure_score
+				value = 30
+			}
+		}
+
+		else_if = {
+			limit = {
+				var:nu_culture_exposure_score <= 0
+			}
+
+			remove_variable = nu_culture_exposure_target
+			remove_variable = nu_culture_exposure_years
+			remove_variable = nu_culture_exposure_score
+			remove_variable = nu_culture_exposure_floor
+		}
+	}
+
+
+	# =========================================================
+	# RELIGIOUS EXPOSURE
+	# =========================================================
+
+	if = {
+		limit = {
+			exists = scope:nu_guardian
+			scope:nu_guardian.faith != root.faith
+		}
+
+		scope:nu_guardian.faith = {
+			save_temporary_scope_as = nu_faith_environment
+		}
+	}
+
+	else_if = {
+		limit = {
+			court_owner ?= {
+				faith != root.faith
+			}
+		}
+
+		court_owner.faith = {
+			save_temporary_scope_as = nu_faith_environment
+		}
+	}
+
+
+	# ---------------------------------------------------------
+	# We are currently exposed to a foreign faith.
+	# ---------------------------------------------------------
+
+	if = {
+		limit = {
+			exists = scope:nu_faith_environment
+		}
+
+		# Same faith as last year:
+		# continue accumulating exposure.
+		if = {
+			limit = {
+				exists = var:nu_faith_exposure_target
+				var:nu_faith_exposure_target = scope:nu_faith_environment
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						has_variable = nu_faith_exposure_years
+					}
+				}
+
+				set_variable = {
+					name = nu_faith_exposure_years
+					value = 0
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						has_variable = nu_faith_exposure_score
+					}
+				}
+
+				set_variable = {
+					name = nu_faith_exposure_score
+					value = 0
+				}
+			}
+
+			change_variable = {
+				name = nu_faith_exposure_years
+				add = 1
+			}
+
+			change_variable = {
+				name = nu_faith_exposure_score
+				add = nu_religious_exposure_yearly_gain
+			}
+
+			if = {
+				limit = {
+					var:nu_faith_exposure_score >= 50
+				}
+
+				set_variable = {
+					name = nu_faith_exposure_floor
+					value = 50
+				}
+			}
+
+			else_if = {
+				limit = {
+					var:nu_faith_exposure_score >= 30
+
+					OR = {
+						NOT = {
+							has_variable = nu_faith_exposure_floor
+						}
+
+						var:nu_faith_exposure_floor < 30
+					}
+				}
+
+				set_variable = {
+					name = nu_faith_exposure_floor
+					value = 30
+				}
+			}
+		}
+
+		# New religious environment:
+		# begin tracking the new faith from scratch.
+		else = {
+			set_variable = {
+				name = nu_faith_exposure_target
+				value = scope:nu_faith_environment
+			}
+
+			set_variable = {
+				name = nu_faith_exposure_years
+				value = 1
+			}
+
+			set_variable = {
+				name = nu_faith_exposure_score
+				value = nu_religious_exposure_yearly_gain
+			}
+
+			remove_variable = nu_faith_exposure_floor
+		}
+	}
+
+	# ---------------------------------------------------------
+	# The child has adopted the faith previously tracked.
+	# The old exposure is no longer relevant.
+	# ---------------------------------------------------------
+
+	else_if = {
+		limit = {
+			exists = var:nu_faith_exposure_target
+			var:nu_faith_exposure_target = root.faith
+		}
+
+		remove_variable = nu_faith_exposure_target
+		remove_variable = nu_faith_exposure_years
+		remove_variable = nu_faith_exposure_score
+		remove_variable = nu_faith_exposure_floor
+	}
+
+	# ---------------------------------------------------------
+	# No current foreign religious influence.
+	# Previous exposure fades gradually.
+	# ---------------------------------------------------------
+
+	else_if = {
+		limit = {
+			has_variable = nu_faith_exposure_score
+		}
+
+		change_variable = {
+			name = nu_faith_exposure_score
+			add = -5
+		}
+
+		if = {
+			limit = {
+				has_variable = nu_faith_exposure_floor
+				var:nu_faith_exposure_floor >= 50
+				var:nu_faith_exposure_score < 50
+			}
+
+			set_variable = {
+				name = nu_faith_exposure_score
+				value = 50
+			}
+		}
+
+		else_if = {
+			limit = {
+				has_variable = nu_faith_exposure_floor
+				var:nu_faith_exposure_floor >= 30
+				var:nu_faith_exposure_score < 30
+			}
+
+			set_variable = {
+				name = nu_faith_exposure_score
+				value = 30
+			}
+		}
+
+		else_if = {
+			limit = {
+				var:nu_faith_exposure_score <= 0
+			}
+
+			remove_variable = nu_faith_exposure_target
+			remove_variable = nu_faith_exposure_years
+			remove_variable = nu_faith_exposure_score
+			remove_variable = nu_faith_exposure_floor
+		}
+	}
+}

@@ -1,0 +1,251 @@
+﻿nu_is_in_simulation_scope_trigger = {
+
+	# Monde entier
+	trigger_if = {
+		limit = {
+			has_game_rule = nu_scope_world
+		}
+		always = yes
+	}
+
+	# Royaume du joueur + royaumes souverains voisins
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_scope_neighboring_realms
+		}
+
+		any_player = {
+			OR = {
+				# La famille proche reste toujours simulée,
+				# même si elle vit actuellement à l'étranger.
+				is_close_family_of = root
+
+				# Même royaume souverain.
+				AND = {
+					root = { exists = top_liege }
+					top_liege = root.top_liege
+				}
+
+				# Royaume souverain voisin.
+				AND = {
+					root = { exists = top_liege }
+					any_neighboring_top_liege_realm_owner = {
+						this = root.top_liege
+					}
+				}
+			}
+		}
+	}
+
+	# Royaume du souverain dont dépend le joueur
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_scope_top_realm
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = root
+
+				AND = {
+					root = { exists = top_liege }
+					top_liege = root.top_liege
+				}
+			}
+		}
+	}
+
+	# Cour du joueur + famille proche
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_scope_player_court
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = root
+				is_in_the_same_court_as = root
+			}
+		}
+	}
+
+	# Famille proche uniquement
+	trigger_else = {
+		any_player = {
+			is_close_family_of = root
+		}
+	}
+}
+
+nu_interaction_ward_is_in_simulation_scope_trigger = {
+
+	exists = scope:secondary_actor
+
+	# Monde entier
+	trigger_if = {
+		limit = {
+			has_game_rule = nu_scope_world
+		}
+
+		always = yes
+	}
+
+	# Royaume du joueur + royaumes souverains voisins
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_scope_neighboring_realms
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = scope:secondary_actor
+
+				AND = {
+					scope:secondary_actor = {
+						exists = top_liege
+					}
+
+					top_liege = scope:secondary_actor.top_liege
+				}
+
+				AND = {
+					scope:secondary_actor = {
+						exists = top_liege
+					}
+
+					any_neighboring_top_liege_realm_owner = {
+						this = scope:secondary_actor.top_liege
+					}
+				}
+			}
+		}
+	}
+
+	# Royaume du souverain dont dépend le joueur
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_scope_top_realm
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = scope:secondary_actor
+
+				AND = {
+					scope:secondary_actor = {
+						exists = top_liege
+					}
+
+					top_liege = scope:secondary_actor.top_liege
+				}
+			}
+		}
+	}
+
+	# Cour du joueur + famille proche
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_scope_player_court
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = scope:secondary_actor
+				is_in_the_same_court_as = scope:secondary_actor
+			}
+		}
+	}
+
+	# Famille proche uniquement
+	trigger_else = {
+		any_player = {
+			is_close_family_of = scope:secondary_actor
+		}
+	}
+}
+nu_requested_ward_is_in_simulation_scope_trigger = {
+
+	exists = scope:secondary_recipient
+
+	# Monde entier
+	trigger_if = {
+		limit = {
+			has_game_rule = nu_scope_world
+		}
+
+		always = yes
+	}
+
+	# Royaume du joueur + royaumes souverains voisins
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_scope_neighboring_realms
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = scope:secondary_recipient
+
+				AND = {
+					scope:secondary_recipient = {
+						exists = top_liege
+					}
+
+					top_liege = scope:secondary_recipient.top_liege
+				}
+
+				AND = {
+					scope:secondary_recipient = {
+						exists = top_liege
+					}
+
+					any_neighboring_top_liege_realm_owner = {
+						this = scope:secondary_recipient.top_liege
+					}
+				}
+			}
+		}
+	}
+
+	# Royaume du souverain dont dépend le joueur
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_scope_top_realm
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = scope:secondary_recipient
+
+				AND = {
+					scope:secondary_recipient = {
+						exists = top_liege
+					}
+
+					top_liege = scope:secondary_recipient.top_liege
+				}
+			}
+		}
+	}
+
+	# Cour du joueur + famille proche
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_scope_player_court
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = scope:secondary_recipient
+				is_in_the_same_court_as = scope:secondary_recipient
+			}
+		}
+	}
+
+	# Famille proche uniquement
+	trigger_else = {
+		any_player = {
+			is_close_family_of = scope:secondary_recipient
+		}
+	}
+}

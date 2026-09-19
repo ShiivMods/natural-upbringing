@@ -1,0 +1,29 @@
+﻿l_english:
+ nu_debug_inspect_exposure_interaction: "Natural Upbringing: Inspect Exposure"
+ nu_debug_inspect_exposure_interaction_desc: "Displays Natural Upbringing's internal variables for this character."
+
+ nu_debug.0001.t: "Natural Upbringing — Debug"
+ nu_debug.0001.desc: "Current state of [nu_debug_child.GetShortUIName]:"
+
+ nu_debug.0001.culture: "\n\n#bold Cultural Exposure#!\nTarget: [nu_debug_culture_target.GetName]\nDuration: [nu_debug_child.MakeScope.Var('nu_culture_exposure_years').GetValue|0] years\nScore: [nu_debug_child.MakeScope.Var('nu_culture_exposure_score').GetValue|0]"
+ nu_debug.0001.culture_none: "\n\n#bold Cultural Exposure#!\nNo cultural exposure is currently recorded."
+
+ nu_debug.0001.faith: "\n\n#bold Religious Exposure#!\nTarget: [nu_debug_faith_target.GetName]\nDuration: [nu_debug_child.MakeScope.Var('nu_faith_exposure_years').GetValue|0] years\nScore: [nu_debug_child.MakeScope.Var('nu_faith_exposure_score').GetValue|0]"
+ nu_debug.0001.faith_none: "\n\n#bold Religious Exposure#!\nNo religious exposure is currently recorded."
+
+ nu_debug.0001.a: "Close"
+
+ nu_debug_force_homesickness_interaction: "Natural Upbringing: Force Homesickness"
+ nu_debug_force_homesickness_interaction_desc: "Forces this ward to ask to return home. Ignores random chance, minimum time abroad, and the normal request cooldown."
+
+ nu_debug_force_current_assimilation_interaction: "Natural Upbringing: Force Current Assimilation"
+ nu_debug_force_current_assimilation_interaction_desc: "Forces assimilation toward the currently recorded exposure."
+
+ nu_debug.0002.t: "Natural Upbringing — Forced Assimilation"
+ nu_debug.0002.desc: "[nu_debug_conversion_child.GetFirstName] currently has cultural exposure toward [nu_debug_conversion_culture.GetName] and religious exposure toward [nu_debug_conversion_faith.GetName].\n\nWhich assimilation do you want to force?"
+ nu_debug.0002.culture: "Force cultural assimilation: [nu_debug_conversion_culture.GetName]"
+ nu_debug.0002.faith: "Force religious assimilation: [nu_debug_conversion_faith.GetName]"
+ nu_debug.0002.cancel: "Cancel"
+
+ nu_debug_force_quality_request_interaction:0 "DEBUG - Force Additional Funds Request"
+ nu_debug_force_quality_request_interaction_desc:0 "Forces the additional funding request related to Quality Instruction."

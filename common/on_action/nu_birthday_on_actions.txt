@@ -1,0 +1,45 @@
+﻿on_birthday = {
+	on_actions = {
+		nu_on_child_birthday
+		nu_on_guardianship_adulthood_cleanup
+	}
+}
+
+nu_on_child_birthday = {
+	trigger = {
+		is_adult = no
+		age >= 4
+		is_travelling = no
+		nu_is_in_simulation_scope_trigger = yes
+	}
+
+	effect = {
+		nu_update_exposure_tracking_effect = yes
+		nu_quality_instruction_birthday_effect = yes
+		nu_check_natural_assimilation_effect = yes
+		nu_check_homesickness_effect = yes
+
+		remove_character_flag = nu_assimilation_happened_this_birthday
+	}
+}
+
+nu_on_guardianship_adulthood_cleanup = {
+	trigger = {
+		is_adult = yes
+
+		OR = {
+			exists = var:nu_cultural_servants_guardian
+			exists = var:nu_quality_instruction_guardian
+			exists = var:nu_religious_attendant_guardian
+			exists = var:nu_religious_contract_protection_guardian
+			exists = var:nu_guardianship_home_court_owner
+			has_variable = nu_homesickness_abroad_years
+			has_character_flag = nu_homesickness_request_pending
+			has_character_flag = nu_homesickness_cooldown
+		}
+	}
+
+	effect = {
+		nu_cleanup_guardianship_state_on_adulthood_effect = yes
+	}
+}

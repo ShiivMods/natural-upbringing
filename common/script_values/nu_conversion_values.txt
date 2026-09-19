@@ -1,0 +1,236 @@
+﻿nu_cultural_assimilation_chance = {
+	value = 0
+
+	if = {
+		limit = {
+			has_variable = nu_culture_exposure_score
+			var:nu_culture_exposure_score >= 90
+		}
+		add = 40
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_culture_exposure_score
+			var:nu_culture_exposure_score >= 75
+		}
+		add = 28
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_culture_exposure_score
+			var:nu_culture_exposure_score >= 60
+		}
+		add = 18
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_culture_exposure_score
+			var:nu_culture_exposure_score >= 45
+		}
+		add = 10
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_culture_exposure_score
+			var:nu_culture_exposure_score >= 30
+		}
+		add = 5
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_culture_exposure_score
+			var:nu_culture_exposure_score >= 15
+		}
+		add = 2
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_culture_exposure_score
+			var:nu_culture_exposure_score >= 5
+		}
+		add = 1
+	}
+
+	# =========================================================
+	# PERSONALITY — V1
+	# =========================================================
+	#
+	# Personality modifies the final probability of assimilation,
+	# not the amount of cultural exposure accumulated.
+	# =========================================================
+
+	# Stubborn characters are more resistant to replacing
+	# an identity they already consider their own.
+	if = {
+		limit = {
+			has_trait = stubborn
+		}
+
+		multiply = 0.75
+	}
+
+	# Fickle characters adapt more readily to a new identity.
+	if = {
+		limit = {
+			has_trait = fickle
+		}
+
+		multiply = 1.25
+	}
+
+	# Gregarious characters integrate more easily into a
+	# different social environment.
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+
+		multiply = 1.15
+	}
+
+	# Trusting characters are somewhat more receptive to
+	# the people shaping their upbringing.
+	if = {
+		limit = {
+			has_trait = trusting
+		}
+
+		multiply = 1.10
+	}
+
+	# Shy characters tend to remain more socially withdrawn.
+	if = {
+		limit = {
+			has_trait = shy
+		}
+
+		multiply = 0.90
+	}
+
+	# Suspicion makes full identification with a foreign
+	# environment less likely.
+	if = {
+		limit = {
+			has_trait = paranoid
+		}
+
+		multiply = 0.85
+	}
+}
+
+
+nu_religious_assimilation_chance = {
+	value = 0
+
+	if = {
+		limit = {
+			has_variable = nu_faith_exposure_score
+			var:nu_faith_exposure_score >= 90
+		}
+		add = 40
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_faith_exposure_score
+			var:nu_faith_exposure_score >= 75
+		}
+		add = 28
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_faith_exposure_score
+			var:nu_faith_exposure_score >= 60
+		}
+		add = 18
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_faith_exposure_score
+			var:nu_faith_exposure_score >= 45
+		}
+		add = 10
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_faith_exposure_score
+			var:nu_faith_exposure_score >= 30
+		}
+		add = 5
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_faith_exposure_score
+			var:nu_faith_exposure_score >= 15
+		}
+		add = 2
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_faith_exposure_score
+			var:nu_faith_exposure_score >= 5
+		}
+		add = 1
+	}
+
+	# =========================================================
+	# PERSONALITY — V1
+	# =========================================================
+
+	# Zealous characters strongly resist abandoning the faith
+	# they already regard as true.
+	if = {
+		limit = {
+			has_trait = zealous
+		}
+
+		multiply = 0.55
+	}
+
+	# Cynical characters are much less attached to inherited
+	# religious certainty.
+	if = {
+		limit = {
+			has_trait = cynical
+		}
+
+		multiply = 1.35
+	}
+
+	# Stubbornness also makes a change of faith less likely.
+	if = {
+		limit = {
+			has_trait = stubborn
+		}
+
+		multiply = 0.80
+	}
+
+	# Fickle characters are more receptive to changing beliefs.
+	if = {
+		limit = {
+			has_trait = fickle
+		}
+
+		multiply = 1.20
+	}
+
+	# Trust in one's social environment modestly facilitates
+	# religious assimilation.
+	if = {
+		limit = {
+			has_trait = trusting
+		}
+
+		multiply = 1.10
+	}
+
+	# Suspicious characters are less receptive to a foreign
+	# religious environment.
+	if = {
+		limit = {
+			has_trait = paranoid
+		}
+
+		multiply = 0.85
+	}
+}
