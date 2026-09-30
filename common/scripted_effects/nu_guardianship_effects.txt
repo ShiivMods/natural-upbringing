@@ -312,8 +312,8 @@ nu_add_guardianship_options_effect = {
 			scope:nu_religious_attendant = yes
 
 			OR = {
-				scope:secondary_actor.faith != scope:secondary_recipient.faith
-				scope:recipient.faith != scope:secondary_recipient.faith
+				scope:secondary_actor.rite != scope:secondary_recipient.rite
+				scope:recipient.rite != scope:secondary_recipient.rite
 			}
 
 			scope:secondary_recipient = {
