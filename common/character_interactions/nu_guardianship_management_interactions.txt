@@ -153,8 +153,8 @@
 					}
 
 					OR = {
-						faith != scope:secondary_actor.faith
-						faith != scope:recipient.faith
+						rite != scope:secondary_actor.rite
+						rite != scope:recipient.rite
 					}
 				}
 			}
@@ -271,8 +271,8 @@
 			}
 
 			OR = {
-				scope:secondary_recipient.faith != scope:secondary_actor.faith
-				scope:secondary_recipient.faith != scope:recipient.faith
+				scope:secondary_recipient.rite != scope:secondary_actor.rite
+				scope:secondary_recipient.rite != scope:recipient.rite
 			}
 		}
 
@@ -477,7 +477,7 @@
 			factor = 0
 			scope:nu_religious_attendant = yes
 
-			scope:secondary_recipient.faith != scope:actor.faith
+			scope:secondary_recipient.rite != scope:actor.rite
 		}
 
 		modifier = {
