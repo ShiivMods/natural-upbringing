@@ -163,7 +163,7 @@ nu_debug_force_current_assimilation_interaction = {
 		scope:recipient = {
 			OR = {
 				exists = var:nu_culture_exposure_target
-				exists = var:nu_faith_exposure_target
+				exists = var:nu_rite_exposure_target
 			}
 		}
 	}
@@ -175,7 +175,7 @@ nu_debug_force_current_assimilation_interaction = {
 			limit = {
 				scope:recipient = {
 					exists = var:nu_culture_exposure_target
-					exists = var:nu_faith_exposure_target
+					exists = var:nu_rite_exposure_target
 				}
 			}
 
@@ -211,7 +211,7 @@ nu_debug_force_current_assimilation_interaction = {
 		else_if = {
 			limit = {
 				scope:recipient = {
-					exists = var:nu_faith_exposure_target
+					exists = var:nu_rite_exposure_target
 				}
 			}
 
