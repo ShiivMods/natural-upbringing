@@ -163,7 +163,7 @@ nu_religious_exposure_yearly_gain = {
 		limit = {
 			court_owner ?= {
 				capital_province ?= {
-					faith = scope:nu_faith_environment.faith
+					rite = scope:nu_faith_environment
 				}
 			}
 		}
