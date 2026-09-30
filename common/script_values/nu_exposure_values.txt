@@ -131,7 +131,7 @@ nu_religious_exposure_yearly_gain = {
 	if = {
 		limit = {
 			exists = scope:nu_guardian
-			scope:nu_guardian.faith = scope:nu_faith_environment
+			scope:nu_guardian.rite = scope:nu_faith_environment
 		}
 
 		add = 2
@@ -146,7 +146,7 @@ nu_religious_exposure_yearly_gain = {
 	if = {
 		limit = {
 			court_owner ?= {
-				faith = scope:nu_faith_environment
+				rite = scope:nu_faith_environment
 			}
 		}
 
@@ -163,7 +163,7 @@ nu_religious_exposure_yearly_gain = {
 		limit = {
 			court_owner ?= {
 				capital_province ?= {
-					faith = scope:nu_faith_environment
+					faith = scope:nu_faith_environment.faith
 				}
 			}
 		}
