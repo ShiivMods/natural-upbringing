@@ -1,6 +1,6 @@
 ﻿l_english:
  NU_CULTURAL_SERVANTS_RELEVANT:0 "The child must be exposed to a different culture."
- NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "The child and their guardian must follow different faiths."
+ NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "The child and their guardian must follow different religious rites."
  NU_GUARDIANSHIP_MEASURE_NOT_ALREADY_ACTIVE:0 "This measure must not already be active for this guardian."
 
  NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS: "Send servants of their culture"
