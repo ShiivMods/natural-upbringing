@@ -238,13 +238,24 @@
 	# RELIGIOUS EXPOSURE
 	# =========================================================
 
+	# Compatibility migration from Natural Upbringing 1.1.
+	# The old target stored a faith scope; the current game uses
+	# rites for religious education, so restart that exposure safely.
+	if = {
+		limit = { exists = var:nu_faith_exposure_target }
+		remove_variable = nu_faith_exposure_target
+		remove_variable = nu_faith_exposure_years
+		remove_variable = nu_faith_exposure_score
+		remove_variable = nu_faith_exposure_floor
+	}
+
 	if = {
 		limit = {
 			exists = scope:nu_guardian
-			scope:nu_guardian.faith != root.faith
+			scope:nu_guardian.rite != root.rite
 		}
 
-		scope:nu_guardian.faith = {
+		scope:nu_guardian.rite = {
 			save_temporary_scope_as = nu_faith_environment
 		}
 	}
@@ -252,11 +263,11 @@
 	else_if = {
 		limit = {
 			court_owner ?= {
-				faith != root.faith
+				rite != root.rite
 			}
 		}
 
-		court_owner.faith = {
+		court_owner.rite = {
 			save_temporary_scope_as = nu_faith_environment
 		}
 	}
@@ -275,8 +286,8 @@
 		# continue accumulating exposure.
 		if = {
 			limit = {
-				exists = var:nu_faith_exposure_target
-				var:nu_faith_exposure_target = scope:nu_faith_environment
+				exists = var:nu_rite_exposure_target
+				var:nu_rite_exposure_target = scope:nu_faith_environment
 			}
 
 			if = {
@@ -350,7 +361,7 @@
 		# begin tracking the new faith from scratch.
 		else = {
 			set_variable = {
-				name = nu_faith_exposure_target
+				name = nu_rite_exposure_target
 				value = scope:nu_faith_environment
 			}
 
@@ -375,11 +386,11 @@
 
 	else_if = {
 		limit = {
-			exists = var:nu_faith_exposure_target
-			var:nu_faith_exposure_target = root.faith
+			exists = var:nu_rite_exposure_target
+			var:nu_rite_exposure_target = root.rite
 		}
 
-		remove_variable = nu_faith_exposure_target
+		remove_variable = nu_rite_exposure_target
 		remove_variable = nu_faith_exposure_years
 		remove_variable = nu_faith_exposure_score
 		remove_variable = nu_faith_exposure_floor
@@ -431,7 +442,7 @@
 				var:nu_faith_exposure_score <= 0
 			}
 
-			remove_variable = nu_faith_exposure_target
+			remove_variable = nu_rite_exposure_target
 			remove_variable = nu_faith_exposure_years
 			remove_variable = nu_faith_exposure_score
 			remove_variable = nu_faith_exposure_floor
