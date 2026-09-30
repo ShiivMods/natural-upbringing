@@ -45,10 +45,10 @@ nu_debug.0001 = {
 
 				if = {
 					limit = {
-						exists = var:nu_faith_exposure_target
+						exists = var:nu_rite_exposure_target
 					}
 
-					var:nu_faith_exposure_target = {
+					var:nu_rite_exposure_target = {
 						save_scope_as = nu_debug_faith_target
 					}
 				}
@@ -131,10 +131,10 @@ nu_debug.0002 = {
 
 				if = {
 					limit = {
-						exists = var:nu_faith_exposure_target
+						exists = var:nu_rite_exposure_target
 					}
 
-					var:nu_faith_exposure_target = {
+					var:nu_rite_exposure_target = {
 						save_scope_as = nu_debug_conversion_faith
 					}
 				}
