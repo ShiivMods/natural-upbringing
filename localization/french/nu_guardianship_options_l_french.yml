@@ -1,6 +1,6 @@
 ﻿l_french:
  NU_CULTURAL_SERVANTS_RELEVANT:0 "L'enfant doit être exposé à une culture différente."
- NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "L'enfant et son tuteur doivent être de foi différente."
+ NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "L'enfant et son tuteur doivent suivre des rites religieux différents."
  NU_GUARDIANSHIP_MEASURE_NOT_ALREADY_ACTIVE:0 "Cette mesure ne doit pas déjà être active pour ce tuteur."
 
  NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS: "Envoyer des serviteurs de sa culture"
