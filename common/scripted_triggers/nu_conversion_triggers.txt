@@ -34,7 +34,7 @@ nu_has_religious_assimilation_environment_trigger = {
 		# Or the local population around that court does.
 		court_owner ?= {
 			capital_province ?= {
-				faith = scope:nu_conversion_faith.faith
+				rite = scope:nu_conversion_faith
 			}
 		}
 	}
