@@ -156,10 +156,10 @@ nu_save_religious_assimilation_context_effect = {
 
 
 	# =========================================================
-	# FAITHS
+	# RITES
 	# =========================================================
 
-	faith = {
+	rite = {
 		save_temporary_scope_as = nu_previous_faith
 	}
 
@@ -211,7 +211,7 @@ nu_save_religious_assimilation_context_effect = {
 	if = {
 		limit = {
 			court_owner ?= {
-				faith = scope:nu_conversion_faith
+				rite = scope:nu_conversion_faith
 			}
 		}
 
@@ -222,7 +222,7 @@ nu_save_religious_assimilation_context_effect = {
 		limit = {
 			court_owner ?= {
 				capital_province ?= {
-					faith = scope:nu_conversion_faith
+					faith = scope:nu_conversion_faith.faith
 				}
 			}
 		}
@@ -321,6 +321,16 @@ nu_prepare_assimilation_event_context_effect = {
 				save_scope_as = nu_religious_assimilation_court_owner
 			}
 		}
+
+		# Religious target rite
+		if = {
+			limit = {
+				exists = var:nu_last_religious_assimilation_target
+			}
+			var:nu_last_religious_assimilation_target = {
+				save_scope_as = nu_religious_assimilation_target
+			}
+		}
 	}
 }
 
@@ -386,18 +396,18 @@ nu_check_natural_assimilation_effect = {
 
 	if = {
 		limit = {
-			exists = var:nu_faith_exposure_target
+			exists = var:nu_rite_exposure_target
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 5
 		}
 
-		var:nu_faith_exposure_target = {
+		var:nu_rite_exposure_target = {
 			save_temporary_scope_as = nu_conversion_faith
 		}
 
 		if = {
 			limit = {
-				faith != scope:nu_conversion_faith
+				rite != scope:nu_conversion_faith
 				nu_has_religious_assimilation_environment_trigger = yes
 
 				NOT = {
@@ -424,9 +434,9 @@ nu_check_natural_assimilation_effect = {
 				add_character_flag = nu_assimilation_happened_this_birthday
 
 				nu_save_religious_assimilation_context_effect = yes
-				set_character_faith = scope:nu_conversion_faith
+				convert_to_rite_with_consequences_effect = { RITE = scope:nu_conversion_faith }
 
-				remove_variable = nu_faith_exposure_target
+				remove_variable = nu_rite_exposure_target
 				remove_variable = nu_faith_exposure_years
 				remove_variable = nu_faith_exposure_score
 				remove_variable = nu_faith_exposure_floor
@@ -543,16 +553,16 @@ nu_debug_force_religious_assimilation_effect = {
 
 	if = {
 		limit = {
-			exists = var:nu_faith_exposure_target
+			exists = var:nu_rite_exposure_target
 		}
 
-		var:nu_faith_exposure_target = {
+		var:nu_rite_exposure_target = {
 			save_temporary_scope_as = nu_conversion_faith
 		}
 
 		if = {
 			limit = {
-				faith != scope:nu_conversion_faith
+				rite != scope:nu_conversion_faith
 			}
 
 			if = {
@@ -569,9 +579,9 @@ nu_debug_force_religious_assimilation_effect = {
 
 			nu_save_religious_assimilation_context_effect = yes
 
-			set_character_faith = scope:nu_conversion_faith
+			convert_to_rite_with_consequences_effect = { RITE = scope:nu_conversion_faith }
 
-			remove_variable = nu_faith_exposure_target
+			remove_variable = nu_rite_exposure_target
 			remove_variable = nu_faith_exposure_years
 			remove_variable = nu_faith_exposure_score
 			remove_variable = nu_faith_exposure_floor
