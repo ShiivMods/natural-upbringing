@@ -50,7 +50,7 @@
 				save_temporary_scope_as = nu_homesickness_current_culture
 			}
 
-			faith = {
+			rite = {
 				save_temporary_scope_as = nu_homesickness_current_faith
 			}
 		}
