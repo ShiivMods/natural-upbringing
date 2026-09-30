@@ -222,7 +222,7 @@ nu_save_religious_assimilation_context_effect = {
 		limit = {
 			court_owner ?= {
 				capital_province ?= {
-					faith = scope:nu_conversion_faith.faith
+					rite = scope:nu_conversion_faith
 				}
 			}
 		}
