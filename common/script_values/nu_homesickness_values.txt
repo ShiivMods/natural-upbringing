@@ -50,7 +50,7 @@
 	if = {
 		limit = {
 			exists = scope:nu_homesickness_current_faith
-			faith != scope:nu_homesickness_current_faith
+			rite != scope:nu_homesickness_current_faith
 		}
 
 		multiply = 1.25
@@ -108,9 +108,9 @@
 
 				AND = {
 					exists = scope:nu_homesickness_current_faith
-					exists = var:nu_faith_exposure_target
+					exists = var:nu_rite_exposure_target
 					has_variable = nu_faith_exposure_score
-					var:nu_faith_exposure_target = scope:nu_homesickness_current_faith
+					var:nu_rite_exposure_target = scope:nu_homesickness_current_faith
 					var:nu_faith_exposure_score >= 50
 				}
 			}
@@ -132,9 +132,9 @@
 
 				AND = {
 					exists = scope:nu_homesickness_current_faith
-					exists = var:nu_faith_exposure_target
+					exists = var:nu_rite_exposure_target
 					has_variable = nu_faith_exposure_score
-					var:nu_faith_exposure_target = scope:nu_homesickness_current_faith
+					var:nu_rite_exposure_target = scope:nu_homesickness_current_faith
 					var:nu_faith_exposure_score >= 30
 				}
 			}
@@ -217,7 +217,7 @@
 			has_trait = zealous
 
 			exists = scope:nu_homesickness_current_faith
-			faith != scope:nu_homesickness_current_faith
+			rite != scope:nu_homesickness_current_faith
 		}
 
 		multiply = 1.35
@@ -228,7 +228,7 @@
 			has_trait = cynical
 
 			exists = scope:nu_homesickness_current_faith
-			faith != scope:nu_homesickness_current_faith
+			rite != scope:nu_homesickness_current_faith
 		}
 
 		multiply = 0.80
