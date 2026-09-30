@@ -46,7 +46,7 @@ nu_apply_guardianship_options_effect = {
 			}
 		}
 
-		scope:actor = {
+		scope:puppet_or_actor = {
 			add_prestige = {
 				value = minor_prestige_value
 				multiply = -1
@@ -72,13 +72,13 @@ nu_apply_guardianship_options_effect = {
 
 			set_variable = {
 				name = nu_quality_instruction_sponsor
-				value = scope:actor
+				value = scope:puppet_or_actor
 			}
 
 			remove_character_flag = nu_quality_request_cooldown
 		}
 
-		scope:actor = {
+		scope:puppet_or_actor = {
 			remove_short_term_gold = minor_gold_value
 		}
 	}
@@ -100,7 +100,7 @@ nu_apply_guardianship_options_effect = {
 			}
 		}
 
-		scope:actor = {
+		scope:puppet_or_actor = {
 			add_piety = {
 				value = minor_piety_value
 				multiply = -1
