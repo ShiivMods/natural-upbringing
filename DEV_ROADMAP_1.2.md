@@ -125,6 +125,14 @@
 - Insensible supprime les gains de stress des réactions concernées sans supprimer leurs conséquences relationnelles.
 - Aucun gain de prestige, piété, or ou statistique ne doit être attaché à ces réactions.
 
+## État d'implémentation
+
+- [À tester en jeu] Nouveau système de réaction dominante aux assimilations culturelles et religieuses.
+- [À tester en jeu] Six familles de personnalité + réaction neutre de secours.
+- [À tester en jeu] Pondérations culture/religion distinctes, gestion des égalités et cas combiné culture + religion.
+- [À tester en jeu] Conséquences relationnelles et de stress, avec modificateurs pour Insensible, Sadique, Courageux et Zélé.
+- L'état de calcul est conservé dans des variables locales à chaque événement afin d'éviter les collisions entre plusieurs enfants ou plusieurs parents joueurs.
+
 ## Chantiers 1.2 déjà identifiés
 
 - Refonte des réactions du parent aux assimilations culturelles et religieuses.
