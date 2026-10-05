@@ -38,6 +38,21 @@
 - Faire un test intermédiaire isolé uniquement si une modification présente un risque élevé : chargement du mod, interaction vanilla centrale, état de tutelle, migration de sauvegarde ou autre risque de régression majeure.
 - Le système de réactions d'assimilation 1.2 est prévu pour être validé dans un test groupé avec les prochains chantiers.
 
+### Philosophie des Game Rules
+
+- Le fonctionnement de base de Natural Upbringing, hérité de la 1.0, reste toujours actif et ne peut pas être désactivé par règle de partie.
+- Font partie du socle du projet :
+  - exposition culturelle et religieuse naturelle ;
+  - assimilation culturelle et religieuse ;
+  - réactions RP liées à ces assimilations ;
+  - événements d'éducation Natural Upbringing.
+- Les Game Rules servent uniquement à activer ou désactiver les systèmes supplémentaires qui ne faisaient pas partie du concept de base.
+- Suppléments actuellement identifiés comme candidats à une règle :
+  - mesures d'accompagnement avancées de la tutelle ;
+  - mal du pays / homesickness.
+- Les notifications légères liées à une fonctionnalité supplémentaire doivent être rattachées à la règle de cette fonctionnalité plutôt que créer une règle microscopique dédiée.
+- La règle existante de portée de simulation reste un réglage de performance du cœur de NU et ne désactive pas le système lui-même.
+
 ### Compatibilité et philosophie générale
 
 - Natural Upbringing doit continuer à fonctionner avec les aventuriers / personnages sans terres autant que le permet le système vanilla.
@@ -161,7 +176,7 @@
 - Refonte des réactions du parent aux assimilations culturelles et religieuses.
 - Revoir l'accès aux options d'accompagnement pour les tutelles déjà existantes.
 - Ajouter des notifications / réactions pertinentes lorsque le pupille change réellement de culture ou de rite.
-- Revoir les Game Rules pour permettre de désactiver séparément les grandes fonctionnalités du mod.
+- Revoir les Game Rules afin de rendre désactivables uniquement les systèmes supplémentaires hors socle 1.0.
 - Ajouter de nouveaux événements d'éducation liés aux différents domaines d'éducation, avec événements normaux et rares.
 
 ## Notes pour le futur changelog
