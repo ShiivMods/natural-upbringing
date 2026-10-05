@@ -11,8 +11,7 @@ nu_assimilation.0001 = {
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
-		set_variable = { name = nu_assimilation_event_kind value = flag:culture }
+		set_local_variable = { name = nu_assimilation_event_kind value = flag:culture }
 		nu_prepare_cultural_assimilation_reaction_effect = yes
 		nu_select_cultural_assimilation_reaction_effect = yes
 	}
@@ -93,67 +92,60 @@ nu_assimilation.0001 = {
 		name = nu_assimilation.0001.rejection
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:rejection
+			local_var:nu_assimilation_reaction = flag:rejection
 		}
 		nu_apply_assimilation_rejection_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0001.mistrust
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:mistrust
+			local_var:nu_assimilation_reaction = flag:mistrust
 		}
 		nu_apply_assimilation_mistrust_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0001.acceptance
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:acceptance
+			local_var:nu_assimilation_reaction = flag:acceptance
 		}
 		nu_apply_assimilation_acceptance_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0001.reflection
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:reflection
+			local_var:nu_assimilation_reaction = flag:reflection
 		}
 		nu_apply_assimilation_reflection_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0001.pragmatism
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:pragmatism
+			local_var:nu_assimilation_reaction = flag:pragmatism
 		}
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0001.adaptation
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:adaptation
+			local_var:nu_assimilation_reaction = flag:adaptation
 		}
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0001.fallback
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:fallback
+			local_var:nu_assimilation_reaction = flag:fallback
 		}
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 }
 
@@ -168,8 +160,7 @@ nu_assimilation.0002 = {
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
-		set_variable = { name = nu_assimilation_event_kind value = flag:religion }
+		set_local_variable = { name = nu_assimilation_event_kind value = flag:religion }
 		nu_prepare_religious_assimilation_reaction_effect = yes
 		nu_select_religious_assimilation_reaction_effect = yes
 	}
@@ -250,67 +241,60 @@ nu_assimilation.0002 = {
 		name = nu_assimilation.0002.rejection
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:rejection
+			local_var:nu_assimilation_reaction = flag:rejection
 		}
 		nu_apply_assimilation_rejection_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0002.mistrust
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:mistrust
+			local_var:nu_assimilation_reaction = flag:mistrust
 		}
 		nu_apply_assimilation_mistrust_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0002.acceptance
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:acceptance
+			local_var:nu_assimilation_reaction = flag:acceptance
 		}
 		nu_apply_assimilation_acceptance_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0002.reflection
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:reflection
+			local_var:nu_assimilation_reaction = flag:reflection
 		}
 		nu_apply_assimilation_reflection_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0002.pragmatism
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:pragmatism
+			local_var:nu_assimilation_reaction = flag:pragmatism
 		}
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0002.adaptation
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:adaptation
+			local_var:nu_assimilation_reaction = flag:adaptation
 		}
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0002.fallback
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:fallback
+			local_var:nu_assimilation_reaction = flag:fallback
 		}
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 }
 
@@ -325,8 +309,7 @@ nu_assimilation.0003 = {
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
-		set_variable = { name = nu_assimilation_event_kind value = flag:combined }
+		set_local_variable = { name = nu_assimilation_event_kind value = flag:combined }
 		nu_prepare_cultural_assimilation_reaction_effect = yes
 		nu_prepare_religious_assimilation_reaction_effect = yes
 		nu_combine_assimilation_reactions_effect = yes
@@ -398,66 +381,59 @@ nu_assimilation.0003 = {
 		name = nu_assimilation.0003.rejection
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:rejection
+			local_var:nu_assimilation_reaction = flag:rejection
 		}
 		nu_apply_assimilation_rejection_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0003.mistrust
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:mistrust
+			local_var:nu_assimilation_reaction = flag:mistrust
 		}
 		nu_apply_assimilation_mistrust_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0003.acceptance
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:acceptance
+			local_var:nu_assimilation_reaction = flag:acceptance
 		}
 		nu_apply_assimilation_acceptance_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0003.reflection
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:reflection
+			local_var:nu_assimilation_reaction = flag:reflection
 		}
 		nu_apply_assimilation_reflection_consequence_effect = yes
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0003.pragmatism
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:pragmatism
+			local_var:nu_assimilation_reaction = flag:pragmatism
 		}
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0003.adaptation
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:adaptation
+			local_var:nu_assimilation_reaction = flag:adaptation
 		}
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0003.fallback
 
 		trigger = {
-			var:nu_assimilation_reaction = flag:fallback
+			local_var:nu_assimilation_reaction = flag:fallback
 		}
-		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 }
