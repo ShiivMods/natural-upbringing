@@ -42,6 +42,25 @@
 - Des exceptions sont possibles lorsque le parent peut raisonnablement intervenir à distance, mais elles doivent rester rares et justifiées.
 - Les propositions concrètes d'événements par domaine ne sont pas encore validées.
 
+### Premier lot d'événements généraux validé
+
+Les événements généraux racontent ce qui arrive à un enfant élevé à l'étranger. Le parent apprend généralement les faits après coup par lettre, messager, rapport ou rumeur. Il ne choisit pas à la place de l'enfant ce qui s'est produit.
+
+Premier lot retenu pour la 1.2 :
+- **Des nouvelles de mon enfant** : rapport général du tuteur sur l'adaptation après un certain temps à l'étranger. Variantes possibles : heureux, réservé, turbulent, nostalgique, très intégré.
+- **Une amitié inattendue** : l'enfant se rapproche d'un autre enfant de la cour étrangère. Amitié sincère, fréquentation douteuse ou ancienne rivalité devenue complicité.
+- **L'étranger de la cour** : l'enfant est confronté à des moqueries ou remarques sur son accent, ses coutumes ou ses habitudes. Sa personnalité détermine s'il se défend, ignore, tente de s'intégrer ou s'isole.
+- **Une coutume étrange** : première participation notable à une tradition locale. Enthousiasme, curiosité, incompréhension ou rejet peuvent légèrement influencer l'exposition culturelle.
+- **Quelques mots familiers** : une lettre de l'enfant laisse apparaître des expressions, références ou tournures propres à sa nouvelle cour. Sert notamment à rendre l'assimilation progressive visible avant un changement complet.
+- **Deux mondes** : l'enfant mélange les habitudes de sa famille d'origine et celles de son environnement actuel. L'événement doit pouvoir représenter enrichissement, confusion ou véritable identité hybride sans forcer une assimilation.
+
+Principes mécaniques :
+- plusieurs de ces événements peuvent être entièrement narratifs ;
+- éviter les récompenses automatiques de compétence ;
+- effets éventuels légers : stress, opinion, exposition, relation ou points d'éducation ;
+- les traits, l'âge, le tuteur et l'environnement de l'enfant déterminent principalement ce qui s'est produit ;
+- un événement peut être rapporté par le tuteur, directement par l'enfant ou par un tiers pour varier le point de vue.
+
 ### Arc spécial : Fugue de l'enfant
 
 - Prévoir un arc rare lié au mal du pays, accessible quel que soit le focus d'éducation.
