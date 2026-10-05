@@ -11,6 +11,10 @@ nu_assimilation.0001 = {
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
+		set_variable = { name = nu_assimilation_event_kind value = flag:culture }
+		nu_prepare_cultural_assimilation_reaction_effect = yes
+		nu_select_cultural_assimilation_reaction_effect = yes
 	}
 
 	title = nu_assimilation.0001.t
@@ -84,515 +88,72 @@ nu_assimilation.0001 = {
 	# can therefore receive four distinct reactions.
 	# =========================================================
 
+
 	option = {
-		name = nu_assimilation.0001.lustful
+		name = nu_assimilation.0001.rejection
 
 		trigger = {
-			has_trait = lustful
+			var:nu_assimilation_reaction = flag:rejection
 		}
+		nu_apply_assimilation_rejection_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0001.chaste
+		name = nu_assimilation.0001.mistrust
 
 		trigger = {
-			has_trait = chaste
+			var:nu_assimilation_reaction = flag:mistrust
 		}
+		nu_apply_assimilation_mistrust_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0001.gluttonous
+		name = nu_assimilation.0001.acceptance
 
 		trigger = {
-			has_trait = gluttonous
+			var:nu_assimilation_reaction = flag:acceptance
 		}
+		nu_apply_assimilation_acceptance_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0001.temperate
+		name = nu_assimilation.0001.reflection
 
 		trigger = {
-			has_trait = temperate
+			var:nu_assimilation_reaction = flag:reflection
 		}
+		nu_apply_assimilation_reflection_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0001.greedy
+		name = nu_assimilation.0001.pragmatism
 
 		trigger = {
-			has_trait = greedy
+			var:nu_assimilation_reaction = flag:pragmatism
 		}
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0001.generous
+		name = nu_assimilation.0001.adaptation
 
 		trigger = {
-			has_trait = generous
+			var:nu_assimilation_reaction = flag:adaptation
 		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.lazy
-
-		trigger = {
-			has_trait = lazy
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.diligent
-
-		trigger = {
-			has_trait = diligent
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.wrathful
-
-		trigger = {
-			has_trait = wrathful
-		}
-
-		add_stress = minor_stress_gain
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.calm
-
-		trigger = {
-			has_trait = calm
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.patient
-
-		trigger = {
-			has_trait = patient
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.impatient
-
-		trigger = {
-			has_trait = impatient
-		}
-
-		add_stress = minor_stress_gain
-	}
-
-	option = {
-		name = nu_assimilation.0001.arrogant
-
-		trigger = {
-			has_trait = arrogant
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.humble
-
-		trigger = {
-			has_trait = humble
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.deceitful
-
-		trigger = {
-			has_trait = deceitful
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.honest
-
-		trigger = {
-			has_trait = honest
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.craven
-
-		trigger = {
-			has_trait = craven
-		}
-
-		add_stress = minor_stress_gain
-	}
-
-	option = {
-		name = nu_assimilation.0001.brave
-
-		trigger = {
-			has_trait = brave
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.shy
-
-		trigger = {
-			has_trait = shy
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.gregarious
-
-		trigger = {
-			has_trait = gregarious
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.ambitious
-
-		trigger = {
-			has_trait = ambitious
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.content
-
-		trigger = {
-			has_trait = content
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.arbitrary
-
-		trigger = {
-			has_trait = arbitrary
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.just
-
-		trigger = {
-			has_trait = just
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.cynical
-
-		trigger = {
-			has_trait = cynical
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.zealous
-
-		trigger = {
-			has_trait = zealous
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.paranoid
-
-		trigger = {
-			has_trait = paranoid
-		}
-
-		add_stress = minor_stress_gain
-	}
-
-	option = {
-		name = nu_assimilation.0001.trusting
-
-		trigger = {
-			has_trait = trusting
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.compassionate
-
-		trigger = {
-			has_trait = compassionate
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 15
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.callous
-
-		trigger = {
-			has_trait = callous
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.sadistic
-
-		trigger = {
-			has_trait = sadistic
-		}
-
-		scope:nu_assimilated_child = {
-			add_stress = minor_stress_gain
-
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -20
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.stubborn
-
-		trigger = {
-			has_trait = stubborn
-		}
-
-		add_stress = minor_stress_gain
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -15
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.fickle
-
-		trigger = {
-			has_trait = fickle
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.vengeful
-
-		trigger = {
-			has_trait = vengeful
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -15
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.forgiving
-
-		trigger = {
-			has_trait = forgiving
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0001.eccentric
-
-		trigger = {
-			has_trait = eccentric
-		}
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0001.fallback
 
 		trigger = {
-			NOR = {
-				has_trait = lustful
-				has_trait = chaste
-				has_trait = gluttonous
-				has_trait = temperate
-				has_trait = greedy
-				has_trait = generous
-				has_trait = lazy
-				has_trait = diligent
-				has_trait = wrathful
-				has_trait = calm
-				has_trait = patient
-				has_trait = impatient
-				has_trait = arrogant
-				has_trait = humble
-				has_trait = deceitful
-				has_trait = honest
-				has_trait = craven
-				has_trait = brave
-				has_trait = shy
-				has_trait = gregarious
-				has_trait = ambitious
-				has_trait = content
-				has_trait = arbitrary
-				has_trait = just
-				has_trait = cynical
-				has_trait = zealous
-				has_trait = paranoid
-				has_trait = trusting
-				has_trait = compassionate
-				has_trait = callous
-				has_trait = sadistic
-				has_trait = stubborn
-				has_trait = fickle
-				has_trait = vengeful
-				has_trait = forgiving
-				has_trait = eccentric
-			}
+			var:nu_assimilation_reaction = flag:fallback
 		}
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 }
 
@@ -607,6 +168,10 @@ nu_assimilation.0002 = {
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
+		set_variable = { name = nu_assimilation_event_kind value = flag:religion }
+		nu_prepare_religious_assimilation_reaction_effect = yes
+		nu_select_religious_assimilation_reaction_effect = yes
 	}
 
 	title = nu_assimilation.0002.t
@@ -680,532 +245,72 @@ nu_assimilation.0002 = {
 	# can therefore receive four distinct reactions.
 	# =========================================================
 
+
 	option = {
-		name = nu_assimilation.0002.lustful
+		name = nu_assimilation.0002.rejection
 
 		trigger = {
-			has_trait = lustful
+			var:nu_assimilation_reaction = flag:rejection
 		}
+		nu_apply_assimilation_rejection_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0002.chaste
+		name = nu_assimilation.0002.mistrust
 
 		trigger = {
-			has_trait = chaste
+			var:nu_assimilation_reaction = flag:mistrust
 		}
+		nu_apply_assimilation_mistrust_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0002.gluttonous
+		name = nu_assimilation.0002.acceptance
 
 		trigger = {
-			has_trait = gluttonous
+			var:nu_assimilation_reaction = flag:acceptance
 		}
+		nu_apply_assimilation_acceptance_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0002.temperate
+		name = nu_assimilation.0002.reflection
 
 		trigger = {
-			has_trait = temperate
+			var:nu_assimilation_reaction = flag:reflection
 		}
+		nu_apply_assimilation_reflection_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0002.greedy
+		name = nu_assimilation.0002.pragmatism
 
 		trigger = {
-			has_trait = greedy
+			var:nu_assimilation_reaction = flag:pragmatism
 		}
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0002.generous
+		name = nu_assimilation.0002.adaptation
 
 		trigger = {
-			has_trait = generous
+			var:nu_assimilation_reaction = flag:adaptation
 		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.lazy
-
-		trigger = {
-			has_trait = lazy
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.diligent
-
-		trigger = {
-			has_trait = diligent
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.wrathful
-
-		trigger = {
-			has_trait = wrathful
-		}
-
-		add_stress = minor_stress_gain
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -15
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.calm
-
-		trigger = {
-			has_trait = calm
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.patient
-
-		trigger = {
-			has_trait = patient
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.impatient
-
-		trigger = {
-			has_trait = impatient
-		}
-
-		add_stress = minor_stress_gain
-	}
-
-	option = {
-		name = nu_assimilation.0002.arrogant
-
-		trigger = {
-			has_trait = arrogant
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.humble
-
-		trigger = {
-			has_trait = humble
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.deceitful
-
-		trigger = {
-			has_trait = deceitful
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.honest
-
-		trigger = {
-			has_trait = honest
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.craven
-
-		trigger = {
-			has_trait = craven
-		}
-
-		add_stress = minor_stress_gain
-	}
-
-	option = {
-		name = nu_assimilation.0002.brave
-
-		trigger = {
-			has_trait = brave
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.shy
-
-		trigger = {
-			has_trait = shy
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.gregarious
-
-		trigger = {
-			has_trait = gregarious
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.ambitious
-
-		trigger = {
-			has_trait = ambitious
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.content
-
-		trigger = {
-			has_trait = content
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.arbitrary
-
-		trigger = {
-			has_trait = arbitrary
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.just
-
-		trigger = {
-			has_trait = just
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.cynical
-
-		trigger = {
-			has_trait = cynical
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.zealous
-
-		trigger = {
-			has_trait = zealous
-		}
-
-		add_stress = medium_stress_gain
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -20
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.paranoid
-
-		trigger = {
-			has_trait = paranoid
-		}
-
-		add_stress = minor_stress_gain
-	}
-
-	option = {
-		name = nu_assimilation.0002.trusting
-
-		trigger = {
-			has_trait = trusting
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.compassionate
-
-		trigger = {
-			has_trait = compassionate
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 15
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.callous
-
-		trigger = {
-			has_trait = callous
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.sadistic
-
-		trigger = {
-			has_trait = sadistic
-		}
-
-		scope:nu_assimilated_child = {
-			add_stress = minor_stress_gain
-
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -20
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.stubborn
-
-		trigger = {
-			has_trait = stubborn
-		}
-
-		add_stress = minor_stress_gain
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -15
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.fickle
-
-		trigger = {
-			has_trait = fickle
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.vengeful
-
-		trigger = {
-			has_trait = vengeful
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -15
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.forgiving
-
-		trigger = {
-			has_trait = forgiving
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0002.eccentric
-
-		trigger = {
-			has_trait = eccentric
-		}
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0002.fallback
 
 		trigger = {
-			NOR = {
-				has_trait = lustful
-				has_trait = chaste
-				has_trait = gluttonous
-				has_trait = temperate
-				has_trait = greedy
-				has_trait = generous
-				has_trait = lazy
-				has_trait = diligent
-				has_trait = wrathful
-				has_trait = calm
-				has_trait = patient
-				has_trait = impatient
-				has_trait = arrogant
-				has_trait = humble
-				has_trait = deceitful
-				has_trait = honest
-				has_trait = craven
-				has_trait = brave
-				has_trait = shy
-				has_trait = gregarious
-				has_trait = ambitious
-				has_trait = content
-				has_trait = arbitrary
-				has_trait = just
-				has_trait = cynical
-				has_trait = zealous
-				has_trait = paranoid
-				has_trait = trusting
-				has_trait = compassionate
-				has_trait = callous
-				has_trait = sadistic
-				has_trait = stubborn
-				has_trait = fickle
-				has_trait = vengeful
-				has_trait = forgiving
-				has_trait = eccentric
-			}
+			var:nu_assimilation_reaction = flag:fallback
 		}
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 }
 
@@ -1220,6 +325,11 @@ nu_assimilation.0003 = {
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
+		set_variable = { name = nu_assimilation_event_kind value = flag:combined }
+		nu_prepare_cultural_assimilation_reaction_effect = yes
+		nu_prepare_religious_assimilation_reaction_effect = yes
+		nu_combine_assimilation_reactions_effect = yes
 	}
 
 	title = nu_assimilation.0003.t
@@ -1283,531 +393,71 @@ nu_assimilation.0003 = {
 	# can therefore receive four distinct reactions.
 	# =========================================================
 
+
 	option = {
-		name = nu_assimilation.0003.lustful
+		name = nu_assimilation.0003.rejection
 
 		trigger = {
-			has_trait = lustful
+			var:nu_assimilation_reaction = flag:rejection
 		}
+		nu_apply_assimilation_rejection_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0003.chaste
+		name = nu_assimilation.0003.mistrust
 
 		trigger = {
-			has_trait = chaste
+			var:nu_assimilation_reaction = flag:mistrust
 		}
+		nu_apply_assimilation_mistrust_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0003.gluttonous
+		name = nu_assimilation.0003.acceptance
 
 		trigger = {
-			has_trait = gluttonous
+			var:nu_assimilation_reaction = flag:acceptance
 		}
+		nu_apply_assimilation_acceptance_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0003.temperate
+		name = nu_assimilation.0003.reflection
 
 		trigger = {
-			has_trait = temperate
+			var:nu_assimilation_reaction = flag:reflection
 		}
+		nu_apply_assimilation_reflection_consequence_effect = yes
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0003.greedy
+		name = nu_assimilation.0003.pragmatism
 
 		trigger = {
-			has_trait = greedy
+			var:nu_assimilation_reaction = flag:pragmatism
 		}
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
-		name = nu_assimilation.0003.generous
+		name = nu_assimilation.0003.adaptation
 
 		trigger = {
-			has_trait = generous
+			var:nu_assimilation_reaction = flag:adaptation
 		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.lazy
-
-		trigger = {
-			has_trait = lazy
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.diligent
-
-		trigger = {
-			has_trait = diligent
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.wrathful
-
-		trigger = {
-			has_trait = wrathful
-		}
-
-		add_stress = medium_stress_gain
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -20
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.calm
-
-		trigger = {
-			has_trait = calm
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.patient
-
-		trigger = {
-			has_trait = patient
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.impatient
-
-		trigger = {
-			has_trait = impatient
-		}
-
-		add_stress = minor_stress_gain
-	}
-
-	option = {
-		name = nu_assimilation.0003.arrogant
-
-		trigger = {
-			has_trait = arrogant
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -15
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.humble
-
-		trigger = {
-			has_trait = humble
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.deceitful
-
-		trigger = {
-			has_trait = deceitful
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.honest
-
-		trigger = {
-			has_trait = honest
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.craven
-
-		trigger = {
-			has_trait = craven
-		}
-
-		add_stress = minor_stress_gain
-	}
-
-	option = {
-		name = nu_assimilation.0003.brave
-
-		trigger = {
-			has_trait = brave
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.shy
-
-		trigger = {
-			has_trait = shy
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.gregarious
-
-		trigger = {
-			has_trait = gregarious
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.ambitious
-
-		trigger = {
-			has_trait = ambitious
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.content
-
-		trigger = {
-			has_trait = content
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.arbitrary
-
-		trigger = {
-			has_trait = arbitrary
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.just
-
-		trigger = {
-			has_trait = just
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 5
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.cynical
-
-		trigger = {
-			has_trait = cynical
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.zealous
-
-		trigger = {
-			has_trait = zealous
-		}
-
-		add_stress = medium_stress_gain
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -25
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.paranoid
-
-		trigger = {
-			has_trait = paranoid
-		}
-
-		add_stress = medium_stress_gain
-	}
-
-	option = {
-		name = nu_assimilation.0003.trusting
-
-		trigger = {
-			has_trait = trusting
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.compassionate
-
-		trigger = {
-			has_trait = compassionate
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 20
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.callous
-
-		trigger = {
-			has_trait = callous
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -15
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.sadistic
-
-		trigger = {
-			has_trait = sadistic
-		}
-
-		scope:nu_assimilated_child = {
-			add_stress = medium_stress_gain
-
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -25
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.stubborn
-
-		trigger = {
-			has_trait = stubborn
-		}
-
-		add_stress = minor_stress_gain
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -20
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.fickle
-
-		trigger = {
-			has_trait = fickle
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.vengeful
-
-		trigger = {
-			has_trait = vengeful
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -20
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.forgiving
-
-		trigger = {
-			has_trait = forgiving
-		}
-
-		scope:nu_assimilated_child = {
-			add_opinion = {
-				target = root
-				modifier = trust_opinion
-				opinion = 10
-			}
-		}
-	}
-
-	option = {
-		name = nu_assimilation.0003.eccentric
-
-		trigger = {
-			has_trait = eccentric
-		}
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 
 	option = {
 		name = nu_assimilation.0003.fallback
 
 		trigger = {
-			NOR = {
-				has_trait = lustful
-				has_trait = chaste
-				has_trait = gluttonous
-				has_trait = temperate
-				has_trait = greedy
-				has_trait = generous
-				has_trait = lazy
-				has_trait = diligent
-				has_trait = wrathful
-				has_trait = calm
-				has_trait = patient
-				has_trait = impatient
-				has_trait = arrogant
-				has_trait = humble
-				has_trait = deceitful
-				has_trait = honest
-				has_trait = craven
-				has_trait = brave
-				has_trait = shy
-				has_trait = gregarious
-				has_trait = ambitious
-				has_trait = content
-				has_trait = arbitrary
-				has_trait = just
-				has_trait = cynical
-				has_trait = zealous
-				has_trait = paranoid
-				has_trait = trusting
-				has_trait = compassionate
-				has_trait = callous
-				has_trait = sadistic
-				has_trait = stubborn
-				has_trait = fickle
-				has_trait = vengeful
-				has_trait = forgiving
-				has_trait = eccentric
-			}
+			var:nu_assimilation_reaction = flag:fallback
 		}
+		nu_cleanup_assimilation_reaction_state_effect = yes
 	}
 }
