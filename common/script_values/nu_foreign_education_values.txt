@@ -1,0 +1,3 @@
+﻿nu_foreign_education_news_chance = {
+	value = 25
+}
