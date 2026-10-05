@@ -102,14 +102,10 @@
 			is_adult = no
 			age <= 14
 
-			OR = {
-				is_close_family_of = scope:actor
-				is_courtier_of = scope:actor
-
-				any_liege_or_above = {
-					this = scope:actor
-				}
-			}
+			# Only the child's own close family may organize these
+			# measures. Being a courtier, vassal-dependent child or
+			# hostage at the actor's court does not grant this authority.
+			is_close_family_of = scope:actor
 
 			OR = {
 				any_relation = {
