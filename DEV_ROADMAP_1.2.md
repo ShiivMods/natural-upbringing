@@ -61,6 +61,18 @@ Principes mécaniques :
 - les traits, l'âge, le tuteur et l'environnement de l'enfant déterminent principalement ce qui s'est produit ;
 - un événement peut être rapporté par le tuteur, directement par l'enfant ou par un tiers pour varier le point de vue.
 
+### État d'implémentation des nouvelles d'éducation à l'étranger
+
+- [À tester en jeu] Premier lot de six événements généraux implémenté.
+- [À tester en jeu] Déclenchement uniquement pour un enfant de 6 à 15 ans ayant un focus d'éducation, vivant réellement dans une cour différente de sa cour d'origine et auprès de son tuteur.
+- [À tester en jeu] Les événements sont envoyés uniquement aux parents joueurs sous forme de lettres ou nouvelles ; les actions de l'enfant sont résolues avant réception.
+- [À tester en jeu] Un événement général n'est pas ajouté le même anniversaire qu'une assimilation NU ou qu'une demande active liée au mal du pays.
+- [À tester en jeu] Cooldown commun provisoire de 2 ans.
+- [À ajuster après test] Chance provisoire de 25 % par anniversaire éligible.
+- [À tester en jeu] « Une amitié inattendue » crée une véritable relation d'amitié avec un enfant de la cour étrangère lorsque c'est possible.
+- [À tester en jeu] « L'étranger de la cour » et « Une coutume étrange » peuvent produire de très légers effets de stress ou d'exposition selon la personnalité.
+- [À tester en jeu] « Quelques mots familiers » exige une exposition culturelle déjà sensible ; « Deux mondes » exige une exposition plus profonde et ne peut apparaître qu'une fois par enfance.
+
 ### Arc spécial : Fugue de l'enfant
 
 - Prévoir un arc rare lié au mal du pays, accessible quel que soit le focus d'éducation.
