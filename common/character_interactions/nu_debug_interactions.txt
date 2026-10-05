@@ -313,3 +313,82 @@ nu_debug_force_quality_request_interaction = {
 		}
 	}
 }
+
+# -------------------------------------------------------------
+# FOREIGN EDUCATION EVENT MENU
+# -------------------------------------------------------------
+#
+# Opens a debug menu for one of the player's children who is
+# genuinely living abroad with a guardian.
+# -------------------------------------------------------------
+
+nu_debug_foreign_education_event_interaction = {
+	category = interaction_debug_admin
+	common_interaction = yes
+	icon = child
+
+	use_diplomatic_range = no
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+
+		scope:recipient = {
+			is_adult = no
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			is_child_of = scope:actor
+			age >= 6
+			is_adult = no
+
+			exists = var:nu_guardianship_home_court_owner
+			exists = court_owner
+
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+
+			trigger_if = {
+				limit = {
+					exists = var:nu_guardianship_home_court_owner
+					exists = court_owner
+				}
+
+				NOT = {
+					var:nu_guardianship_home_court_owner = {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
+
+			trigger_if = {
+				limit = {
+					exists = court_owner
+				}
+
+				any_relation = {
+					type = guardian
+
+					court_owner ?= {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			set_variable = {
+				name = nu_debug_education_event_target
+				value = scope:recipient
+			}
+
+			trigger_event = nu_debug.0003
+		}
+	}
+}
