@@ -182,3 +182,207 @@ nu_debug.0002 = {
 		name = nu_debug.0002.cancel
 	}
 }
+
+# =============================================================
+# FOREIGN EDUCATION EVENT DEBUG MENU
+# =============================================================
+
+nu_debug.0003 = {
+	type = character_event
+	theme = education
+
+	title = nu_debug.0003.t
+	desc = nu_debug.0003.desc
+
+	immediate = {
+		if = {
+			limit = {
+				exists = var:nu_debug_education_event_target
+			}
+
+			var:nu_debug_education_event_target = {
+				save_scope_as = nu_debug_education_child
+			}
+
+			remove_variable = nu_debug_education_event_target
+		}
+
+		if = {
+			limit = {
+				exists = scope:nu_debug_education_child
+			}
+
+			scope:nu_debug_education_child = {
+				save_scope_as = nu_foreign_education_child
+
+				random_relation = {
+					type = guardian
+					save_scope_as = nu_foreign_education_guardian
+				}
+
+				court_owner = {
+					save_scope_as = nu_foreign_education_current_court
+
+					culture = {
+						save_scope_as = nu_foreign_education_current_culture
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					exists = scope:nu_foreign_education_current_court
+				}
+
+				scope:nu_foreign_education_current_court = {
+					if = {
+						limit = {
+							any_courtier_or_guest = {
+								age >= 6
+								is_adult = no
+								this != scope:nu_debug_education_child
+								can_set_relation_friend_trigger = {
+									CHARACTER = scope:nu_debug_education_child
+								}
+							}
+						}
+
+						random_courtier_or_guest = {
+							limit = {
+								age >= 6
+								is_adult = no
+								this != scope:nu_debug_education_child
+								can_set_relation_friend_trigger = {
+									CHARACTER = scope:nu_debug_education_child
+								}
+							}
+
+							save_scope_as = nu_foreign_education_peer
+						}
+					}
+				}
+			}
+		}
+	}
+
+	left_portrait = {
+		character = scope:nu_debug_education_child
+	}
+
+
+	# ---------------------------------------------------------
+	# RANDOM
+	# ---------------------------------------------------------
+
+	option = {
+		name = nu_debug.0003.random
+
+		hidden_effect = {
+			random_list = {
+				20 = {
+					trigger_event = nu_foreign_education.0001
+				}
+
+				20 = {
+					trigger = {
+						exists = scope:nu_foreign_education_peer
+					}
+
+					scope:nu_debug_education_child = {
+						if = {
+							limit = {
+								can_set_relation_friend_trigger = {
+									CHARACTER = scope:nu_foreign_education_peer
+								}
+							}
+
+							set_relation_friend = {
+								reason = friend_childhood_random
+								target = scope:nu_foreign_education_peer
+							}
+						}
+					}
+
+					trigger_event = nu_foreign_education.0010
+				}
+
+				20 = {
+					trigger_event = nu_foreign_education.0020
+				}
+
+				20 = {
+					trigger_event = nu_foreign_education.0030
+				}
+
+				20 = {
+					trigger_event = nu_foreign_education.0040
+				}
+
+				20 = {
+					trigger_event = nu_foreign_education.0050
+				}
+			}
+		}
+	}
+
+
+	# ---------------------------------------------------------
+	# EXACT EVENT
+	# ---------------------------------------------------------
+
+	option = {
+		name = nu_debug.0003.report
+		trigger_event = nu_foreign_education.0001
+	}
+
+	option = {
+		name = nu_debug.0003.friendship
+
+		trigger = {
+			exists = scope:nu_foreign_education_peer
+		}
+
+		hidden_effect = {
+			scope:nu_debug_education_child = {
+				if = {
+					limit = {
+						can_set_relation_friend_trigger = {
+							CHARACTER = scope:nu_foreign_education_peer
+						}
+					}
+
+					set_relation_friend = {
+						reason = friend_childhood_random
+						target = scope:nu_foreign_education_peer
+					}
+				}
+			}
+		}
+
+		trigger_event = nu_foreign_education.0010
+	}
+
+	option = {
+		name = nu_debug.0003.foreigner
+		trigger_event = nu_foreign_education.0020
+	}
+
+	option = {
+		name = nu_debug.0003.custom
+		trigger_event = nu_foreign_education.0030
+	}
+
+	option = {
+		name = nu_debug.0003.words
+		trigger_event = nu_foreign_education.0040
+	}
+
+	option = {
+		name = nu_debug.0003.two_worlds
+		trigger_event = nu_foreign_education.0050
+	}
+
+	option = {
+		name = nu_debug.0003.cancel
+	}
+}
