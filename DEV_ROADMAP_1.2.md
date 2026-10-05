@@ -40,18 +40,20 @@
 
 ### Philosophie des Game Rules
 
-- Le fonctionnement de base de Natural Upbringing, hérité de la 1.0, reste toujours actif et ne peut pas être désactivé par règle de partie.
-- Font partie du socle du projet :
-  - exposition culturelle et religieuse naturelle ;
-  - assimilation culturelle et religieuse ;
+- La frontière entre le cœur du mod et les systèmes optionnels ne dépend pas de la version dans laquelle une fonctionnalité a été ajoutée.
+- Le cœur de Natural Upbringing correspond à tout ce qui concerne directement l'éducation, la tutelle, l'environnement éducatif et le développement naturel des enfants.
+- Tant qu'une fonctionnalité reste centrée sur l'éducation des enfants, elle fait partie du projet de base et ne doit pas être désactivable individuellement.
+- Font donc partie du socle du projet :
+  - exposition culturelle et religieuse naturelle des enfants ;
+  - assimilation culturelle et religieuse pendant l'enfance ;
   - réactions RP liées à ces assimilations ;
-  - événements d'éducation Natural Upbringing.
-- Les Game Rules servent uniquement à activer ou désactiver les systèmes supplémentaires qui ne faisaient pas partie du concept de base.
-- Suppléments actuellement identifiés comme candidats à une règle :
-  - mesures d'accompagnement avancées de la tutelle ;
-  - mal du pays / homesickness.
-- Les notifications légères liées à une fonctionnalité supplémentaire doivent être rattachées à la règle de cette fonctionnalité plutôt que créer une règle microscopique dédiée.
+  - événements d'éducation Natural Upbringing ;
+  - mesures d'accompagnement de la tutelle ;
+  - mal du pays / homesickness ;
+  - notifications et conséquences directement liées à ces systèmes.
 - La règle existante de portée de simulation reste un réglage de performance du cœur de NU et ne désactive pas le système lui-même.
+- Les Game Rules optionnelles seront réservées aux extensions qui restent cohérentes avec le mantra du mod mais sortent du scope direct de l'éducation des enfants.
+- Exemple prévu à terme : rendre les changements culturels plus organiques au-delà de l'éducation, pour d'autres personnages ou contextes. Ce type d'extension appartient à l'univers de Natural Upbringing, mais sort du projet de base et pourra être désactivable.
 
 ### Compatibilité et philosophie générale
 
@@ -176,7 +178,7 @@
 - Refonte des réactions du parent aux assimilations culturelles et religieuses.
 - Revoir l'accès aux options d'accompagnement pour les tutelles déjà existantes.
 - Ajouter des notifications / réactions pertinentes lorsque le pupille change réellement de culture ou de rite.
-- Revoir les Game Rules afin de rendre désactivables uniquement les systèmes supplémentaires hors socle 1.0.
+- Revoir les Game Rules uniquement lorsque des extensions hors scope direct de l'éducation des enfants seront ajoutées.
 - Ajouter de nouveaux événements d'éducation liés aux différents domaines d'éducation, avec événements normaux et rares.
 
 ## Notes pour le futur changelog
