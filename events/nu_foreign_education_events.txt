@@ -1,0 +1,280 @@
+﻿namespace = nu_foreign_education
+
+# =============================================================
+# 0001 - GENERAL ADAPTATION REPORT
+# =============================================================
+
+nu_foreign_education.0001 = {
+	type = letter_event
+	opening = nu_foreign_education.0001.opening
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						has_variable = nu_culture_exposure_score
+						var:nu_culture_exposure_score >= 30
+					}
+				}
+				desc = nu_foreign_education.0001.desc.integrated
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = gregarious
+							has_trait = trusting
+							has_trait = fickle
+						}
+					}
+				}
+				desc = nu_foreign_education.0001.desc.social
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = shy
+							has_trait = paranoid
+						}
+					}
+				}
+				desc = nu_foreign_education.0001.desc.reserved
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = wrathful
+							has_trait = stubborn
+						}
+					}
+				}
+				desc = nu_foreign_education.0001.desc.difficult
+			}
+			desc = nu_foreign_education.0001.desc.fallback
+		}
+	}
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_foreign_education.0001.a
+	}
+}
+
+
+# =============================================================
+# 0010 - UNEXPECTED FRIENDSHIP
+# =============================================================
+
+nu_foreign_education.0010 = {
+	type = letter_event
+	opening = nu_foreign_education.0010.opening
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = shy
+							has_trait = paranoid
+						}
+					}
+				}
+				desc = nu_foreign_education.0010.desc.reserved
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = gregarious
+							has_trait = trusting
+						}
+					}
+				}
+				desc = nu_foreign_education.0010.desc.social
+			}
+			desc = nu_foreign_education.0010.desc.fallback
+		}
+	}
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_foreign_education.0010.a
+	}
+}
+
+
+# =============================================================
+# 0020 - THE FOREIGNER AT COURT
+# =============================================================
+
+nu_foreign_education.0020 = {
+	type = letter_event
+	opening = nu_foreign_education.0020.opening
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = shy
+							has_trait = paranoid
+						}
+					}
+				}
+				desc = nu_foreign_education.0020.desc.withdrawn
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = brave
+							has_trait = wrathful
+							has_trait = stubborn
+						}
+					}
+				}
+				desc = nu_foreign_education.0020.desc.defiant
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = gregarious
+							has_trait = trusting
+							has_trait = fickle
+						}
+					}
+				}
+				desc = nu_foreign_education.0020.desc.adapting
+			}
+			desc = nu_foreign_education.0020.desc.fallback
+		}
+	}
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_foreign_education.0020.a
+	}
+}
+
+
+# =============================================================
+# 0030 - A STRANGE CUSTOM
+# =============================================================
+
+nu_foreign_education.0030 = {
+	type = letter_event
+	opening = nu_foreign_education.0030.opening
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = zealous
+							has_trait = stubborn
+						}
+					}
+				}
+				desc = nu_foreign_education.0030.desc.resistant
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = curious
+							has_trait = cynical
+						}
+					}
+				}
+				desc = nu_foreign_education.0030.desc.curious
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						OR = {
+							has_trait = gregarious
+							has_trait = trusting
+							has_trait = fickle
+						}
+					}
+				}
+				desc = nu_foreign_education.0030.desc.enthusiastic
+			}
+			desc = nu_foreign_education.0030.desc.fallback
+		}
+	}
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_foreign_education.0030.a
+	}
+}
+
+
+# =============================================================
+# 0040 - FAMILIAR WORDS
+# =============================================================
+
+nu_foreign_education.0040 = {
+	type = letter_event
+	opening = nu_foreign_education.0040.opening
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						knows_language_of_culture = scope:nu_foreign_education_current_culture
+					}
+				}
+				desc = nu_foreign_education.0040.desc.language
+			}
+			desc = nu_foreign_education.0040.desc.fallback
+		}
+	}
+	sender = scope:nu_foreign_education_child
+
+	option = {
+		name = nu_foreign_education.0040.a
+	}
+}
+
+
+# =============================================================
+# 0050 - TWO WORLDS
+# =============================================================
+
+nu_foreign_education.0050 = {
+	type = letter_event
+	opening = nu_foreign_education.0050.opening
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						exists = var:nu_cultural_servants_guardian
+						var:nu_cultural_servants_guardian = scope:nu_foreign_education_guardian
+					}
+				}
+				desc = nu_foreign_education.0050.desc.servants
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						has_variable = nu_culture_exposure_score
+						var:nu_culture_exposure_score >= 50
+					}
+				}
+				desc = nu_foreign_education.0050.desc.deep
+			}
+			desc = nu_foreign_education.0050.desc.fallback
+		}
+	}
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_foreign_education.0050.a
+	}
+}
