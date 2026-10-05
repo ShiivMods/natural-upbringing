@@ -51,3 +51,12 @@
  nu_assimilation.0003.adaptation:0 "A life may take many paths."
  nu_assimilation.0003.fallback:0 "So much has changed..."
 
+ # Guardian notifications
+ NU_GUARDIAN_ASSIMILATION_CULTURE_TITLE:0 "A New Culture for [nu_assimilated_child.GetFirstName]"
+ NU_GUARDIAN_ASSIMILATION_CULTURE_DESC:0 "Your ward, [nu_assimilated_child.GetFirstName], now belongs to the [nu_assimilated_child.GetCulture.GetName] culture. Over the course of their education, these customs gradually became their own."
+
+ NU_GUARDIAN_ASSIMILATION_RELIGION_TITLE:0 "A New Rite for [nu_assimilated_child.GetFirstName]"
+ NU_GUARDIAN_ASSIMILATION_RELIGION_DESC:0 "Your ward, [nu_assimilated_child.GetFirstName], now follows the [nu_assimilated_child.GetRite.GetName] rite. Their convictions gradually evolved over the course of their education."
+
+ NU_GUARDIAN_ASSIMILATION_BOTH_TITLE:0 "A New Identity for [nu_assimilated_child.GetFirstName]"
+ NU_GUARDIAN_ASSIMILATION_BOTH_DESC:0 "Your ward, [nu_assimilated_child.GetFirstName], now belongs to the [nu_assimilated_child.GetCulture.GetName] culture and follows the [nu_assimilated_child.GetRite.GetName] rite. Their education has profoundly shaped their identity."
