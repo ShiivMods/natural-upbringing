@@ -147,6 +147,15 @@
 - Cause : la visibilité acceptait les enfants simplement courtisans du joueur ou placés dans sa hiérarchie.
 - Correction retenue : limiter l'accès à la famille proche du joueur. La simple présence à la cour, le statut d'otage ou le fait d'être lié à un vassal ne suffit plus.
 
+### Notification du tuteur après assimilation
+
+- [À tester en jeu] Lorsqu'un pupille change réellement de culture ou de rite par le système NU, son tuteur joueur reçoit désormais une notification légère.
+- Le parent joueur conserve l'événement RP complet.
+- Si le tuteur est également le parent, aucune notification supplémentaire n'est envoyée afin d'éviter un doublon.
+- Si culture et religion changent au même moment sous le même tuteur, une seule notification combinée est envoyée.
+- Si, dans un cas inhabituel, les contextes culturels et religieux pointent vers deux tuteurs différents, chacun reçoit uniquement la notification correspondant au changement auquel il est lié.
+- Les tuteurs IA ne reçoivent pas d'événement ou de traitement inutile.
+
 ## Chantiers 1.2 déjà identifiés
 
 - Refonte des réactions du parent aux assimilations culturelles et religieuses.
