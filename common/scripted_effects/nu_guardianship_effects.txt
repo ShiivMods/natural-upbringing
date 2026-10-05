@@ -427,6 +427,10 @@ nu_cleanup_guardianship_state_on_adulthood_effect = {
 
 	remove_character_flag = nu_homesickness_request_pending
 	remove_character_flag = nu_homesickness_cooldown
+
+	remove_character_flag = nu_foreign_education_news_cooldown
+	remove_character_flag = nu_foreign_education_first_report_seen
+	remove_character_flag = nu_foreign_education_two_worlds_seen
 }
 
 nu_reset_previous_guardianship_state_effect = {
