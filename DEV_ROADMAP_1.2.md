@@ -42,6 +42,29 @@
 - Des exceptions sont possibles lorsque le parent peut raisonnablement intervenir à distance, mais elles doivent rester rares et justifiées.
 - Les propositions concrètes d'événements par domaine ne sont pas encore validées.
 
+### Cohérence du contexte de la cour étrangère
+
+- Les événements d'éducation à l'étranger doivent rester cohérents avec la cour dans laquelle vit réellement l'enfant.
+- Toutes les scènes n'ont pas besoin de dépendre du gouvernement : les événements universels restent disponibles partout.
+- Les événements dont le contenu suppose une organisation politique, économique ou sociale particulière doivent en revanche être filtrés ou disposer de variantes adaptées.
+- Le type de gouvernement de la cour d'accueil constitue un des principaux critères de contexte.
+- Les flags vanilla stables peuvent être utilisés, notamment :
+  - `government_is_tribal`
+  - `government_is_nomadic`
+  - `government_is_feudal`
+  - `government_is_clan`
+  - `government_is_administrative`
+  - `government_is_republic`
+  - ainsi que les gouvernements particuliers lorsque cela devient pertinent.
+- Éviter de dupliquer ces contrôles dans chaque événement : créer des scripted triggers NU réutilisables pour les grandes catégories de contexte.
+- Exemple :
+  - un événement de dispute, de lettre ou d'amitié peut être universel ;
+  - un événement d'Intendance portant sur des registres, une administration fiscale ou une économie urbaine doit exiger un contexte compatible ;
+  - une variante tribale peut parler de réserves, tributs, butin, troupeaux ou redistribution ;
+  - une variante nomade peut parler de troupeaux, provisions, campement, routes saisonnières ou partage des ressources.
+- Le contexte peut à terme inclure d'autres critères lorsque réellement utiles : rang de la cour, culture, rite, région, richesse, présence d'une cour royale ou d'institutions particulières.
+- Ne pas multiplier les conditions pour le simple réalisme : les utiliser uniquement lorsqu'elles empêchent une incohérence visible ou améliorent réellement la narration.
+
 ### Notifications des traits acquis à l'étranger
 
 - Lorsqu'un enfant réellement élevé à l'étranger acquiert un trait de personnalité pendant son éducation, son parent joueur doit en être informé.
