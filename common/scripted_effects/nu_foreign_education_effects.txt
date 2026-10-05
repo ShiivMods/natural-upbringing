@@ -1,0 +1,282 @@
+﻿# =============================================================
+# NATURAL UPBRINGING - FOREIGN EDUCATION NEWS
+# =============================================================
+#
+# Root: child
+#
+# These events are player-facing news about children genuinely
+# living abroad with their guardian. The child's actions are
+# resolved before the parent receives the letter.
+# =============================================================
+
+nu_foreign_education_news_chance = {
+	value = 25
+}
+
+nu_check_foreign_education_news_effect = {
+
+	if = {
+		limit = {
+			age >= 6
+			is_adult = no
+			has_education_focus_trigger = yes
+
+			exists = var:nu_guardianship_home_court_owner
+			exists = court_owner
+
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+
+			any_parent = {
+				is_alive = yes
+				is_ai = no
+			}
+
+			NOT = { has_character_flag = nu_foreign_education_news_cooldown }
+			NOT = { has_character_flag = nu_assimilation_happened_this_birthday }
+			NOT = { has_character_flag = nu_homesickness_request_pending }
+		}
+
+		random_relation = {
+			type = guardian
+			save_temporary_scope_as = nu_foreign_education_guardian
+		}
+
+		var:nu_guardianship_home_court_owner = {
+			save_temporary_scope_as = nu_foreign_education_home_court
+		}
+
+		court_owner = {
+			save_temporary_scope_as = nu_foreign_education_current_court
+			culture = {
+				save_temporary_scope_as = nu_foreign_education_current_culture
+			}
+		}
+
+		if = {
+			limit = {
+				# The child genuinely lives away from the recorded home court.
+				scope:nu_foreign_education_current_court != scope:nu_foreign_education_home_court
+
+				# The foreign court is actually the guardian's court.
+				scope:nu_foreign_education_guardian = {
+					court_owner ?= {
+						this = scope:nu_foreign_education_current_court
+					}
+				}
+			}
+
+			random = {
+				chance = nu_foreign_education_news_chance
+
+				add_character_flag = {
+					flag = nu_foreign_education_news_cooldown
+					years = 2
+				}
+
+				save_scope_as = nu_foreign_education_child
+
+				random_list = {
+
+					# -------------------------------------------------
+					# GENERAL ADAPTATION REPORT
+					# Always available, strongly favored the first time.
+					# -------------------------------------------------
+					30 = {
+						modifier = {
+							factor = 3
+							NOT = {
+								has_character_flag = nu_foreign_education_first_report_seen
+							}
+						}
+
+						add_character_flag = nu_foreign_education_first_report_seen
+
+						every_parent = {
+							limit = {
+								is_alive = yes
+								is_ai = no
+							}
+							trigger_event = nu_foreign_education.0001
+						}
+					}
+
+
+					# -------------------------------------------------
+					# UNEXPECTED FRIENDSHIP
+					# -------------------------------------------------
+					20 = {
+						trigger = {
+							scope:nu_foreign_education_current_court = {
+								any_courtier_or_guest = {
+									age >= 6
+									is_adult = no
+									this != root
+									can_set_relation_friend_trigger = { CHARACTER = root }
+								}
+							}
+						}
+
+						scope:nu_foreign_education_current_court = {
+							random_courtier_or_guest = {
+								limit = {
+									age >= 6
+									is_adult = no
+									this != root
+									can_set_relation_friend_trigger = { CHARACTER = root }
+								}
+								save_scope_as = nu_foreign_education_peer
+							}
+						}
+
+						if = {
+							limit = { exists = scope:nu_foreign_education_peer }
+							set_relation_friend = {
+								reason = friend_childhood_random
+								target = scope:nu_foreign_education_peer
+							}
+						}
+
+						every_parent = {
+							limit = {
+								is_alive = yes
+								is_ai = no
+							}
+							trigger_event = nu_foreign_education.0010
+						}
+					}
+
+
+					# -------------------------------------------------
+					# THE FOREIGNER AT COURT
+					# -------------------------------------------------
+					18 = {
+						trigger = {
+							scope:nu_foreign_education_current_culture != root.culture
+						}
+
+						if = {
+							limit = {
+								OR = {
+									has_trait = shy
+									has_trait = paranoid
+								}
+							}
+							add_stress = minor_stress_gain
+						}
+
+						else_if = {
+							limit = {
+								OR = {
+									has_trait = gregarious
+									has_trait = trusting
+									has_trait = fickle
+								}
+								has_variable = nu_culture_exposure_score
+							}
+							change_variable = {
+								name = nu_culture_exposure_score
+								add = 1
+							}
+						}
+
+						every_parent = {
+							limit = {
+								is_alive = yes
+								is_ai = no
+							}
+							trigger_event = nu_foreign_education.0020
+						}
+					}
+
+
+					# -------------------------------------------------
+					# A STRANGE CUSTOM
+					# -------------------------------------------------
+					18 = {
+						trigger = {
+							scope:nu_foreign_education_current_culture != root.culture
+						}
+
+						if = {
+							limit = {
+								OR = {
+									has_trait = curious
+									has_trait = gregarious
+									has_trait = trusting
+									has_trait = fickle
+								}
+								has_variable = nu_culture_exposure_score
+							}
+							change_variable = {
+								name = nu_culture_exposure_score
+								add = 1
+							}
+						}
+
+						every_parent = {
+							limit = {
+								is_alive = yes
+								is_ai = no
+							}
+							trigger_event = nu_foreign_education.0030
+						}
+					}
+
+
+					# -------------------------------------------------
+					# FAMILIAR WORDS
+					# Visible sign of established cultural exposure.
+					# -------------------------------------------------
+					12 = {
+						trigger = {
+							exists = var:nu_culture_exposure_target
+							has_variable = nu_culture_exposure_score
+							var:nu_culture_exposure_target = scope:nu_foreign_education_current_culture
+							var:nu_culture_exposure_score >= 20
+						}
+
+						every_parent = {
+							limit = {
+								is_alive = yes
+								is_ai = no
+							}
+							trigger_event = nu_foreign_education.0040
+						}
+					}
+
+
+					# -------------------------------------------------
+					# TWO WORLDS
+					# Deeper exposure, but the child has not fully
+					# assimilated yet.
+					# -------------------------------------------------
+					8 = {
+						trigger = {
+							NOT = {
+								has_character_flag = nu_foreign_education_two_worlds_seen
+							}
+							exists = var:nu_culture_exposure_target
+							has_variable = nu_culture_exposure_score
+							var:nu_culture_exposure_target = scope:nu_foreign_education_current_culture
+							var:nu_culture_exposure_score >= 30
+							culture != scope:nu_foreign_education_current_culture
+						}
+
+						add_character_flag = nu_foreign_education_two_worlds_seen
+
+						every_parent = {
+							limit = {
+								is_alive = yes
+								is_ai = no
+							}
+							trigger_event = nu_foreign_education.0050
+						}
+					}
+				}
+			}
+		}
+	}
+}
