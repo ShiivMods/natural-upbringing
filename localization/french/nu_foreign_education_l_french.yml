@@ -1,0 +1,43 @@
+﻿l_french:
+ nu_foreign_education.0001.opening:0 "Des nouvelles de [nu_foreign_education_child.GetFirstName]"
+ nu_foreign_education.0001.desc.integrated:0 "Je souhaitais vous donner des nouvelles de [nu_foreign_education_child.GetFirstName]. [nu_foreign_education_child.Custom('FR_IlElle')|U] paraît désormais très à l'aise parmi nous. Nos usages ne lui sont plus étrangers, et il arrive même que je doive me rappeler depuis combien de temps seulement [nu_foreign_education_child.Custom('FR_IlElle')] vit à notre cour."
+ nu_foreign_education.0001.desc.social:0 "[nu_foreign_education_child.GetFirstName] s'est rapidement fait une place à la cour. [nu_foreign_education_child.Custom('FR_IlElle')|U] converse volontiers avec ceux qui l'entourent, se mêle aux autres enfants et semble découvrir chaque jour quelque chose de nouveau avec enthousiasme."
+ nu_foreign_education.0001.desc.reserved:0 "[nu_foreign_education_child.GetFirstName] reste encore en retrait. [nu_foreign_education_child.Custom('FR_IlElle')|U] observe beaucoup, parle peu, et semble avoir besoin de temps avant d'accorder sa confiance. Rien d'alarmant, mais son adaptation se fait avec prudence."
+ nu_foreign_education.0001.desc.difficult:0 "[nu_foreign_education_child.GetFirstName] ne manque certainement pas de caractère. [nu_foreign_education_child.Custom('FR_IlElle')|U] conteste volontiers ce qui lui paraît étrange et défend avec vigueur les habitudes qu'on lui a enseignées chez vous. Son éducation progresse, non sans quelques discussions animées."
+ nu_foreign_education.0001.desc.fallback:0 "Je souhaitais vous rassurer au sujet de [nu_foreign_education_child.GetFirstName]. Son installation se poursuit normalement. Tout ici lui est encore un peu nouveau, mais chaque semaine rend la cour plus familière."
+ nu_foreign_education.0001.a:0 "Je prends bonne note de ces nouvelles."
+
+ nu_foreign_education.0010.opening:0 "Une amitié inattendue"
+ nu_foreign_education.0010.desc.reserved:0 "Une chose assez inattendue s'est produite. Malgré sa réserve habituelle, [nu_foreign_education_child.GetFirstName] s'est rapproché[nu_foreign_education_child.Custom('FR_E')] de [nu_foreign_education_peer.GetFirstName]. On les voit désormais souvent ensemble, parfois simplement assis à l'écart du reste de la cour."
+ nu_foreign_education.0010.desc.social:0 "[nu_foreign_education_child.GetFirstName] et [nu_foreign_education_peer.GetFirstName] sont devenus presque inséparables. Jeux, repas, leçons, ils trouvent toujours une raison de se retrouver. Cette amitié semble avoir beaucoup facilité l'intégration de votre enfant."
+ nu_foreign_education.0010.desc.fallback:0 "Je tenais à vous informer que [nu_foreign_education_child.GetFirstName] s'est lié[nu_foreign_education_child.Custom('FR_E')] d'amitié avec [nu_foreign_education_peer.GetFirstName]. Leur complicité s'est installée naturellement au fil des semaines."
+ nu_foreign_education.0010.a:0 "Voilà une nouvelle qui me rassure."
+
+ nu_foreign_education.0020.opening:0 "L'étranger de la cour"
+ nu_foreign_education.0020.desc.withdrawn:0 "Quelques enfants de la cour se sont récemment moqués de l'accent et des habitudes de [nu_foreign_education_child.GetFirstName]. [nu_foreign_education_child.Custom('FR_IlElle')|U] n'a pas répondu, mais s'est isolé[nu_foreign_education_child.Custom('FR_E')] durant le reste de la journée. L'incident semble l'avoir davantage touché[nu_foreign_education_child.Custom('FR_E')] qu'[nu_foreign_education_child.Custom('FR_IlElle')] ne veut bien l'admettre."
+ nu_foreign_education.0020.desc.defiant:0 "Certains enfants de la cour ont cru amusant de railler les coutumes de [nu_foreign_education_child.GetFirstName]. Ils ont vite découvert que votre enfant n'avait aucune intention de les laisser parler sans répondre. La discussion fut vive, mais le message semble avoir été compris."
+ nu_foreign_education.0020.desc.adapting:0 "Quelques plaisanteries ont été faites au sujet des habitudes étrangères de [nu_foreign_education_child.GetFirstName]. À ma surprise, [nu_foreign_education_child.Custom('FR_IlElle')] les a prises avec légèreté et a même retourné la plaisanterie. Depuis, [nu_foreign_education_child.Custom('FR_IlElle')] semble un peu moins être considéré[nu_foreign_education_child.Custom('FR_E')] comme l'étranger de la cour."
+ nu_foreign_education.0020.desc.fallback:0 "Les différences de coutumes ont fini par attirer quelques remarques à l'encontre de [nu_foreign_education_child.GetFirstName]. Rien de sérieux n'en est sorti, mais c'est la première fois que votre enfant semble avoir réellement pris conscience d'être ici l'étranger."
+ nu_foreign_education.0020.a:0 "J'espère que cette expérience lui servira."
+
+ nu_foreign_education.0030.opening:0 "Une coutume étrange"
+ nu_foreign_education.0030.desc.resistant:0 "À l'occasion d'une cérémonie locale, [nu_foreign_education_child.GetFirstName] a été invité[nu_foreign_education_child.Custom('FR_E')] à prendre part à une tradition de notre cour. [nu_foreign_education_child.Custom('FR_IlElle')|U] a accepté d'y assister, mais n'a guère caché son scepticisme et a tenu à rappeler que l'on faisait les choses autrement chez vous."
+ nu_foreign_education.0030.desc.curious:0 "[nu_foreign_education_child.GetFirstName] a récemment assisté à l'une de nos traditions locales. Là où d'autres se seraient contentés d'observer, votre enfant a multiplié les questions, cherchant à comprendre l'origine de chaque geste et la raison de chaque usage."
+ nu_foreign_education.0030.desc.enthusiastic:0 "Nous avons récemment convié [nu_foreign_education_child.GetFirstName] à participer à l'une de nos traditions locales. [nu_foreign_education_child.Custom('FR_IlElle')|U] s'y est prêté[nu_foreign_education_child.Custom('FR_E')] avec tant d'enthousiasme que plusieurs courtisans en ont oublié qu'il s'agissait pour [nu_foreign_education_child.Custom('FR_LuiElle')] d'une première fois."
+ nu_foreign_education.0030.desc.fallback:0 "[nu_foreign_education_child.GetFirstName] a récemment participé à l'une des traditions de notre cour. [nu_foreign_education_child.Custom('FR_IlElle')|U] s'est montré[nu_foreign_education_child.Custom('FR_E')] attentif[nu_foreign_education_child.Custom('FR_VE')] et respectueux[nu_foreign_education_child.Custom('FR_SE')], même si certaines de nos habitudes lui paraissent encore bien étranges."
+ nu_foreign_education.0030.a:0 "Ainsi découvre-t-on un autre monde."
+
+ nu_foreign_education.0040.opening:0 "Une lettre de [nu_foreign_education_child.GetFirstName]"
+ nu_foreign_education.0040.desc.language:0 "« Je vais bien. Les leçons continuent et je commence à comprendre bien mieux les gens d'ici. Je vous raconterai tout cela lorsque nous nous reverrons. »
+
+La lettre est banale en apparence. Pourtant, certaines tournures et quelques expressions employées par [nu_foreign_education_child.GetFirstName] ne sont pas celles que vous lui connaissiez. La langue et les habitudes de sa nouvelle cour commencent manifestement à déteindre sur sa façon de penser."
+ nu_foreign_education.0040.desc.fallback:0 "« Je vais bien. Les journées sont toujours très occupées ici. Je vous écrirai encore bientôt. »
+
+Rien d'inquiétant dans ces quelques lignes, mais quelque chose a changé. [nu_foreign_education_child.GetFirstName] emploie désormais des références et des manières de parler qui semblent venir tout droit de sa nouvelle cour."
+ nu_foreign_education.0040.a:0 "Même ses mots commencent à changer..."
+
+ nu_foreign_education.0050.opening:0 "Entre deux mondes"
+ nu_foreign_education.0050.desc.servants:0 "Je remarque depuis quelque temps quelque chose d'intéressant chez [nu_foreign_education_child.GetFirstName]. Les gens que vous avez envoyés avec [nu_foreign_education_child.Custom('FR_LuiElle')] ont préservé de nombreuses habitudes de votre foyer, tandis que notre cour lui en a enseigné de nouvelles. Votre enfant passe désormais de l'une à l'autre avec une étonnante facilité."
+ nu_foreign_education.0050.desc.deep:0 "[nu_foreign_education_child.GetFirstName] semble vivre entre deux mondes. Certaines de ses manières viennent encore clairement de chez vous, mais d'autres sont désormais si naturelles qu'on les croirait apprises depuis l'enfance. Il devient parfois difficile de dire où finit l'un de ses héritages et où commence l'autre."
+ nu_foreign_education.0050.desc.fallback:0 "Les habitudes de [nu_foreign_education_child.GetFirstName] deviennent difficiles à définir. [nu_foreign_education_child.Custom('FR_IlElle')|U] conserve certaines coutumes de son foyer d'origine, tout en adoptant spontanément celles de notre cour. Ce mélange ne semble plus lui paraître contradictoire."
+ nu_foreign_education.0050.a:0 "Deux mondes peuvent donc cohabiter."
