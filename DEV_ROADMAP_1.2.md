@@ -31,6 +31,29 @@
   - Courageux : peut atténuer la peur / le stress sans modifier à lui seul la position idéologique.
 - Luxurieux, Chaste, Glouton et Diligent restent hors du calcul principal tant qu'aucun rôle RP convaincant n'est défini.
 
+### Philosophie des événements d'éducation à l'étranger
+
+- Les nouveaux événements d'éducation NU concernent en priorité les enfants élevés à l'étranger.
+- Le parent joueur n'assiste généralement pas directement aux scènes d'éducation.
+- L'information lui parvient surtout par lettre, messager, rapport du tuteur, témoignage indirect ou rumeur.
+- Contrairement à un enfant élevé dans sa propre cour, le parent ne doit généralement pas pouvoir choisir comment la scène éducative se déroule.
+- Les choix du parent doivent donc surtout représenter une réaction, une réponse à une lettre ou une décision logistique/politique lorsque cela est réellement crédible.
+- Les événements doivent être résolus principalement par la personnalité, les compétences, le focus d'éducation et l'environnement de l'enfant et du tuteur.
+- Des exceptions sont possibles lorsque le parent peut raisonnablement intervenir à distance, mais elles doivent rester rares et justifiées.
+- Les propositions concrètes d'événements par domaine ne sont pas encore validées.
+
+### Arc spécial : Fugue de l'enfant
+
+- Prévoir un arc rare mêlant mal du pays et focus d'éducation Intrigue.
+- L'enfant élevé à l'étranger peut tenter de fuguer afin de rentrer chez lui par ses propres moyens.
+- L'arc se déroule en trois étapes :
+  1. Lettre annonçant la disparition / fugue de l'enfant.
+  2. Période de rumeurs, recherches et informations fragmentaires.
+  3. Finalité : l'enfant parvient à revenir de lui-même, est retrouvé avant d'y parvenir, échoue à rentrer, ou autre issue cohérente selon les circonstances.
+- Le parent ne contrôle pas directement les décisions prises par l'enfant pendant sa fuite.
+- Les compétences, traits, âge, durée du mal du pays, distance et contexte de voyage doivent pouvoir influencer les chances et les issues.
+- Cet arc doit rester suffisamment rare pour être mémorable.
+
 ### Stratégie de test
 
 - Par défaut, regrouper plusieurs chantiers cohérents avant de lancer CK3.
