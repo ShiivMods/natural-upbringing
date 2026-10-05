@@ -44,7 +44,7 @@
 
 ### Arc spécial : Fugue de l'enfant
 
-- Prévoir un arc rare mêlant mal du pays et focus d'éducation Intrigue.
+- Prévoir un arc rare lié au mal du pays, accessible quel que soit le focus d'éducation.
 - L'enfant élevé à l'étranger peut tenter de fuguer afin de rentrer chez lui par ses propres moyens.
 - L'arc se déroule en trois étapes :
   1. Lettre annonçant la disparition / fugue de l'enfant.
@@ -52,6 +52,12 @@
   3. Finalité : l'enfant parvient à revenir de lui-même, est retrouvé avant d'y parvenir, échoue à rentrer, ou autre issue cohérente selon les circonstances.
 - Le parent ne contrôle pas directement les décisions prises par l'enfant pendant sa fuite.
 - Les compétences, traits, âge, durée du mal du pays, distance et contexte de voyage doivent pouvoir influencer les chances et les issues.
+- Le focus d'éducation ne conditionne pas l'accès à la fugue, mais modifie fortement la manière dont l'enfant tente de rentrer et les événements intermédiaires :
+  - Diplomatie : convaincre des voyageurs, paysans ou notables de l'aider, avec risque de trop révéler son identité ;
+  - Martial : supporter les dangers physiques, intimidation, fuite ou défense ;
+  - Intendance : financer et organiser le voyage, avec risques d'arnaque ou de mauvaise gestion ;
+  - Intrigue : dissimuler son identité, éviter les recherches, mentir ou emprunter des chemins discrets ;
+  - Érudition : s'orienter, lire cartes et indications, comprendre les coutumes locales ou trouver des solutions raisonnées.
 - Cet arc doit rester suffisamment rare pour être mémorable.
 
 ### Stratégie de test
