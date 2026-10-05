@@ -9,9 +9,6 @@
 # resolved before the parent receives the letter.
 # =============================================================
 
-nu_foreign_education_news_chance = {
-	value = 25
-}
 
 nu_check_foreign_education_news_effect = {
 
