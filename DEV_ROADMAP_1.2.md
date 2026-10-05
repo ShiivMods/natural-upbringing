@@ -87,12 +87,43 @@
   - influence faible ou nulle pour la culture
   - Rejet +++++ pour la religion
 
-## Points à trancher avant implémentation
+## Logique de résolution validée
 
-- Définir le départage exact des égalités entre familles.
-- Définir le comportement de l'événement combiné culture + religion.
-- Définir les conséquences mécaniques exactes de chaque famille : stress, opinion, effets secondaires éventuels.
-- Définir précisément l'effet secondaire d'Insensible, Sadique et Courageux.
+- Une réaction dominante unique est calculée séparément pour la culture et la religion.
+- En cas d'égalité exacte entre familles pour un même domaine, un ordre déterministe départage les scores afin d'éviter un résultat aléatoire : Rejet / Colère, puis Inquiétude / Méfiance, Acceptation / Empathie, Réflexion / Retenue, Pragmatisme / Opportunisme, Détachement / Adaptation.
+- Pour un changement simultané de culture et de religion :
+  - si les deux domaines aboutissent à la même famille, cette réaction est retenue et légèrement renforcée ;
+  - sinon, la réaction ayant obtenu le score le plus élevé est retenue ;
+  - en cas d'égalité parfaite entre les deux domaines, la religion l'emporte pour un personnage Zélé ou Cynique ; sinon la culture sert de départage.
+- Si aucun trait pertinent ne donne de score, une réaction neutre de secours est utilisée.
+
+## Conséquences mécaniques validées
+
+- Rejet / Colère :
+  - opinion de l'enfant envers le parent : -10 par défaut ;
+  - stress léger pour le parent ;
+  - réaction combinée renforcée : opinion pouvant atteindre -15 et stress renforcé ;
+  - Sadique durcit la perte d'opinion jusqu'à -20 ;
+  - Zélé face à une assimilation religieuse peut atteindre -20 d'opinion et un stress moyen.
+- Inquiétude / Méfiance :
+  - stress léger par défaut ;
+  - stress moyen si culture et religion produisent toutes deux cette réaction ;
+  - Courageux réduit ce stress d'un niveau ;
+  - Insensible supprime la composante de stress.
+- Acceptation / Empathie :
+  - opinion de l'enfant envers le parent : +10 ;
+  - +15 si culture et religion produisent toutes deux cette réaction.
+- Réflexion / Retenue :
+  - réaction surtout narrative ;
+  - opinion de l'enfant envers le parent : +5.
+- Pragmatisme / Opportunisme :
+  - pas d'effet mécanique direct pour éviter d'en faire une source d'optimisation.
+- Détachement / Adaptation :
+  - pas d'effet mécanique direct.
+- Réaction neutre de secours :
+  - pas d'effet mécanique direct.
+- Insensible supprime les gains de stress des réactions concernées sans supprimer leurs conséquences relationnelles.
+- Aucun gain de prestige, piété, or ou statistique ne doit être attaché à ces réactions.
 
 ## Chantiers 1.2 déjà identifiés
 
