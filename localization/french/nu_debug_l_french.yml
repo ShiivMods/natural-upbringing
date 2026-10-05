@@ -27,3 +27,17 @@
 
  nu_debug_force_quality_request_interaction:0 "DEBUG - Forcer la demande de fonds"
  nu_debug_force_quality_request_interaction_desc:0 "Force le déclenchement de la demande de fonds supplémentaires liée à l'instruction de qualité."
+
+ nu_debug_foreign_education_event_interaction:0 "Natural Upbringing : Tester un événement éducatif"
+ nu_debug_foreign_education_event_interaction_desc:0 "Ouvre un menu permettant de lancer aléatoirement ou de choisir un événement éducatif lié à l'éducation à l'étranger."
+
+ nu_debug.0003.t:0 "Natural Upbringing — Événement éducatif"
+ nu_debug.0003.desc:0 "Quel événement voulez-vous lancer pour [nu_debug_education_child.GetFirstName] ?"
+ nu_debug.0003.random:0 "Lancer un événement aléatoire"
+ nu_debug.0003.report:0 "Des nouvelles de mon enfant"
+ nu_debug.0003.friendship:0 "Une amitié inattendue"
+ nu_debug.0003.foreigner:0 "L'étranger de la cour"
+ nu_debug.0003.custom:0 "Une coutume étrange"
+ nu_debug.0003.words:0 "Quelques mots familiers"
+ nu_debug.0003.two_worlds:0 "Entre deux mondes"
+ nu_debug.0003.cancel:0 "Annuler"
