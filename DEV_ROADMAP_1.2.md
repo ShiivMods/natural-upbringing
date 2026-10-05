@@ -61,6 +61,14 @@ Principes mécaniques :
 - les traits, l'âge, le tuteur et l'environnement de l'enfant déterminent principalement ce qui s'est produit ;
 - un événement peut être rapporté par le tuteur, directement par l'enfant ou par un tiers pour varier le point de vue.
 
+### Menu debug des événements éducatifs
+
+- [À tester en jeu] Une interaction debug sur un enfant élevé à l'étranger ouvre un menu de test des événements éducatifs.
+- Le menu permet soit de lancer aléatoirement l'un des événements généraux, soit de choisir directement parmi les six événements.
+- Les scopes nécessaires sont reconstruits automatiquement : enfant, tuteur, cour étrangère, culture locale et camarade de cour lorsque disponible.
+- L'événement « Une amitié inattendue » n'est proposé que si un enfant compatible existe dans la cour et crée réellement la relation d'amitié afin de reproduire le comportement naturel.
+- Ce menu est réservé au mode debug et ne modifie pas le fonctionnement normal du mod.
+
 ### État d'implémentation des nouvelles d'éducation à l'étranger
 
 - [À tester en jeu] Premier lot de six événements généraux implémenté.
