@@ -38,7 +38,7 @@ nu_check_foreign_education_news_effect = {
 
 		random_relation = {
 			type = guardian
-			save_temporary_scope_as = nu_foreign_education_guardian
+			save_scope_as = nu_foreign_education_guardian
 		}
 
 		var:nu_guardianship_home_court_owner = {
@@ -46,9 +46,9 @@ nu_check_foreign_education_news_effect = {
 		}
 
 		court_owner = {
-			save_temporary_scope_as = nu_foreign_education_current_court
+			save_scope_as = nu_foreign_education_current_court
 			culture = {
-				save_temporary_scope_as = nu_foreign_education_current_culture
+				save_scope_as = nu_foreign_education_current_culture
 			}
 		}
 
