@@ -499,7 +499,11 @@ nu_check_natural_assimilation_effect = {
 			}
 		}
 
-		# These flags are only needed to decide which event to send.
+		# Notify a player guardian with a lightweight message.
+		# Player parents already receive the full RP event above.
+		nu_notify_player_guardian_of_assimilation_effect = yes
+
+		# These flags are only needed to decide which event/message to send.
 		remove_character_flag = nu_culture_assimilated_this_birthday
 		remove_character_flag = nu_faith_assimilated_this_birthday
 	}
