@@ -5,7 +5,7 @@
  nu_foreign_education.0001.desc.reserved:0 "[nu_foreign_education_child.GetFirstName] still keeps somewhat apart. [nu_foreign_education_child.GetSheHe|U] watches much, speaks little, and seems to need time before granting trust. There is no cause for alarm, but adaptation is proceeding cautiously."
  nu_foreign_education.0001.desc.difficult:0 "[nu_foreign_education_child.GetFirstName] certainly does not lack character. [nu_foreign_education_child.GetSheHe|U] readily challenges what seems strange and fiercely defends the habits taught at home. The education progresses, though not without spirited discussion."
  nu_foreign_education.0001.desc.fallback:0 "I wished to reassure you about [nu_foreign_education_child.GetFirstName]. The settling-in continues normally. Much here remains new, but each week makes the court a little more familiar."
- nu_foreign_education.0001.a:0 "I am glad to have these news."
+ nu_foreign_education.0001.a:0 "I am glad to have this news."
 
  nu_foreign_education.0010.opening:0 "An Unexpected Friendship"
  nu_foreign_education.0010.desc.reserved:0 "Something rather unexpected has happened. Despite [nu_foreign_education_child.GetHerHis] usual reserve, [nu_foreign_education_child.GetFirstName] has grown close to [nu_foreign_education_peer.GetFirstName]. They are now often seen together, sometimes simply sitting apart from the rest of the court."
