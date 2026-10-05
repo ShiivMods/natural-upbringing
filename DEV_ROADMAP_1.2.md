@@ -42,6 +42,28 @@
 - Des exceptions sont possibles lorsque le parent peut raisonnablement intervenir à distance, mais elles doivent rester rares et justifiées.
 - Les propositions concrètes d'événements par domaine ne sont pas encore validées.
 
+### Philosophie des événements rares
+
+- Les événements rares ne sont pas de simples événements normaux avec une probabilité plus faible.
+- Ils doivent avoir un potentiel d'impact important sur la suite de la partie : succession, alliances, rivalités, guerre, loyauté, identité culturelle/religieuse, relation avec le tuteur ou le seigneur étranger, etc.
+- Leur rareté repose à la fois sur :
+  - une faible probabilité ;
+  - plusieurs prérequis précis et cohérents ;
+  - un contexte narratif déjà construit par l'éducation de l'enfant.
+- Exemple de structure validée :
+  - enfant non premier-né ;
+  - éducation martiale ;
+  - bonne Diplomatie ;
+  - Ambitieux ;
+  - possibilité rare de commencer à lever des soutiens pour revendiquer le titre de son parent.
+- Variante possible :
+  - enfant non premier-né ;
+  - éducation martiale ;
+  - assimilation culturelle et/ou religieuse étrangère ;
+  - soutien potentiel du seigneur ou de la cour où l'enfant a été élevé pour revendiquer le titre familial.
+- Ces événements peuvent devenir des arcs en plusieurs étapes et laisser des conséquences longtemps après la fin de l'éducation.
+- Leur conception est repoussée après les événements normaux afin de ne pas diluer le développement du système de base.
+
 ### Premier lot d'événements généraux validé
 
 Les événements généraux racontent ce qui arrive à un enfant élevé à l'étranger. Le parent apprend généralement les faits après coup par lettre, messager, rapport ou rumeur. Il ne choisit pas à la place de l'enfant ce qui s'est produit.
@@ -247,7 +269,7 @@ Principes mécaniques :
 - Revoir l'accès aux options d'accompagnement pour les tutelles déjà existantes.
 - Ajouter des notifications / réactions pertinentes lorsque le pupille change réellement de culture ou de rite.
 - Revoir les Game Rules uniquement lorsque des extensions hors scope direct de l'éducation des enfants seront ajoutées.
-- Ajouter de nouveaux événements d'éducation liés aux différents domaines d'éducation, avec événements normaux et rares.
+- Ajouter de nouveaux événements d'éducation liés aux différents domaines d'éducation. Priorité actuelle : événements normaux. Les événements rares à fort impact seront conçus ensuite comme arcs conditionnels.
 
 ## Notes pour le futur changelog
 
