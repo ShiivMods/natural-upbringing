@@ -18,6 +18,7 @@ nu_on_child_birthday = {
 		nu_quality_instruction_birthday_effect = yes
 		nu_check_natural_assimilation_effect = yes
 		nu_check_homesickness_effect = yes
+		nu_check_foreign_education_news_effect = yes
 
 		remove_character_flag = nu_assimilation_happened_this_birthday
 	}
