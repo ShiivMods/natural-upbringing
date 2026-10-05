@@ -31,6 +31,13 @@
   - Courageux : peut atténuer la peur / le stress sans modifier à lui seul la position idéologique.
 - Luxurieux, Chaste, Glouton et Diligent restent hors du calcul principal tant qu'aucun rôle RP convaincant n'est défini.
 
+### Stratégie de test
+
+- Par défaut, regrouper plusieurs chantiers cohérents avant de lancer CK3.
+- Éviter les micro-tests après chaque fichier ou sous-étape.
+- Faire un test intermédiaire isolé uniquement si une modification présente un risque élevé : chargement du mod, interaction vanilla centrale, état de tutelle, migration de sauvegarde ou autre risque de régression majeure.
+- Le système de réactions d'assimilation 1.2 est prévu pour être validé dans un test groupé avec les prochains chantiers.
+
 ### Compatibilité et philosophie générale
 
 - Natural Upbringing doit continuer à fonctionner avec les aventuriers / personnages sans terres autant que le permet le système vanilla.
