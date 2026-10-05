@@ -51,3 +51,12 @@
  nu_assimilation.0003.adaptation:0 "Une vie peut prendre bien des chemins."
  nu_assimilation.0003.fallback:0 "Tant de choses ont changé..."
 
+ # Notifications au tuteur
+ NU_GUARDIAN_ASSIMILATION_CULTURE_TITLE:0 "Une nouvelle culture pour [nu_assimilated_child.GetFirstName]"
+ NU_GUARDIAN_ASSIMILATION_CULTURE_DESC:0 "Votre pupille [nu_assimilated_child.GetFirstName] appartient désormais à la culture [nu_assimilated_child.GetCulture.GetName]. Au fil de son éducation, ces coutumes ont fini par devenir les siennes."
+
+ NU_GUARDIAN_ASSIMILATION_RELIGION_TITLE:0 "Un nouveau rite pour [nu_assimilated_child.GetFirstName]"
+ NU_GUARDIAN_ASSIMILATION_RELIGION_DESC:0 "Votre pupille [nu_assimilated_child.GetFirstName] suit désormais le rite [nu_assimilated_child.GetRite.GetName]. Ses convictions ont progressivement évolué au cours de son éducation."
+
+ NU_GUARDIAN_ASSIMILATION_BOTH_TITLE:0 "Une nouvelle identité pour [nu_assimilated_child.GetFirstName]"
+ NU_GUARDIAN_ASSIMILATION_BOTH_DESC:0 "Votre pupille [nu_assimilated_child.GetFirstName] appartient désormais à la culture [nu_assimilated_child.GetCulture.GetName] et suit le rite [nu_assimilated_child.GetRite.GetName]. Son éducation a profondément façonné son identité."
