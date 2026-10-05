@@ -1,0 +1,171 @@
+﻿# =============================================================
+# NATURAL UPBRINGING - GUARDIAN ASSIMILATION NOTIFICATIONS
+# =============================================================
+#
+# Root: assimilated child
+# Expects scope:nu_assimilated_child to point to root.
+#
+# Player parents already receive the full assimilation RP event.
+# A player guardian therefore receives only a lightweight interface
+# message, and only when they are not also the child's parent.
+# =============================================================
+
+nu_notify_player_guardian_of_assimilation_effect = {
+
+	# Cache the guardians recorded at the exact moment of assimilation.
+	if = {
+		limit = { exists = var:nu_last_cultural_assimilation_guardian }
+		var:nu_last_cultural_assimilation_guardian = {
+			save_temporary_scope_as = nu_notification_cultural_guardian
+		}
+	}
+
+	if = {
+		limit = { exists = var:nu_last_religious_assimilation_guardian }
+		var:nu_last_religious_assimilation_guardian = {
+			save_temporary_scope_as = nu_notification_religious_guardian
+		}
+	}
+
+
+	# =========================================================
+	# CULTURE + RELIGION
+	# =========================================================
+
+	if = {
+		limit = {
+			has_character_flag = nu_culture_assimilated_this_birthday
+			has_character_flag = nu_faith_assimilated_this_birthday
+		}
+
+		# Same guardian for both changes: one combined message.
+		if = {
+			limit = {
+				exists = scope:nu_notification_cultural_guardian
+				exists = scope:nu_notification_religious_guardian
+				scope:nu_notification_cultural_guardian = scope:nu_notification_religious_guardian
+			}
+
+			scope:nu_notification_cultural_guardian = {
+				if = {
+					limit = {
+						is_alive = yes
+						is_ai = no
+						NOT = { is_parent_of = scope:nu_assimilated_child }
+					}
+
+					send_interface_message = {
+						type = event_childhood_neutral_text
+						title = NU_GUARDIAN_ASSIMILATION_BOTH_TITLE
+						desc = NU_GUARDIAN_ASSIMILATION_BOTH_DESC
+						left_icon = scope:nu_assimilated_child
+					}
+				}
+			}
+		}
+
+		# Unusual fallback: if the stored guardians differ, notify each
+		# player guardian only about the assimilation they were linked to.
+		else = {
+			if = {
+				limit = { exists = scope:nu_notification_cultural_guardian }
+
+				scope:nu_notification_cultural_guardian = {
+					if = {
+						limit = {
+							is_alive = yes
+							is_ai = no
+							NOT = { is_parent_of = scope:nu_assimilated_child }
+						}
+
+						send_interface_message = {
+							type = event_childhood_neutral_text
+							title = NU_GUARDIAN_ASSIMILATION_CULTURE_TITLE
+							desc = NU_GUARDIAN_ASSIMILATION_CULTURE_DESC
+							left_icon = scope:nu_assimilated_child
+						}
+					}
+				}
+			}
+
+			if = {
+				limit = { exists = scope:nu_notification_religious_guardian }
+
+				scope:nu_notification_religious_guardian = {
+					if = {
+						limit = {
+							is_alive = yes
+							is_ai = no
+							NOT = { is_parent_of = scope:nu_assimilated_child }
+						}
+
+						send_interface_message = {
+							type = event_childhood_neutral_text
+							title = NU_GUARDIAN_ASSIMILATION_RELIGION_TITLE
+							desc = NU_GUARDIAN_ASSIMILATION_RELIGION_DESC
+							left_icon = scope:nu_assimilated_child
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	# =========================================================
+	# CULTURE ONLY
+	# =========================================================
+
+	else_if = {
+		limit = {
+			has_character_flag = nu_culture_assimilated_this_birthday
+			exists = scope:nu_notification_cultural_guardian
+		}
+
+		scope:nu_notification_cultural_guardian = {
+			if = {
+				limit = {
+					is_alive = yes
+					is_ai = no
+					NOT = { is_parent_of = scope:nu_assimilated_child }
+				}
+
+				send_interface_message = {
+					type = event_childhood_neutral_text
+					title = NU_GUARDIAN_ASSIMILATION_CULTURE_TITLE
+					desc = NU_GUARDIAN_ASSIMILATION_CULTURE_DESC
+					left_icon = scope:nu_assimilated_child
+				}
+			}
+		}
+	}
+
+
+	# =========================================================
+	# RELIGION ONLY
+	# =========================================================
+
+	else_if = {
+		limit = {
+			has_character_flag = nu_faith_assimilated_this_birthday
+			exists = scope:nu_notification_religious_guardian
+		}
+
+		scope:nu_notification_religious_guardian = {
+			if = {
+				limit = {
+					is_alive = yes
+					is_ai = no
+					NOT = { is_parent_of = scope:nu_assimilated_child }
+				}
+
+				send_interface_message = {
+					type = event_childhood_neutral_text
+					title = NU_GUARDIAN_ASSIMILATION_RELIGION_TITLE
+					desc = NU_GUARDIAN_ASSIMILATION_RELIGION_DESC
+					left_icon = scope:nu_assimilated_child
+				}
+			}
+		}
+	}
+}
