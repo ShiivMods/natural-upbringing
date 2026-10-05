@@ -1,0 +1,43 @@
+﻿l_english:
+ nu_foreign_education.0001.opening:0 "News of [nu_foreign_education_child.GetFirstName]"
+ nu_foreign_education.0001.desc.integrated:0 "I wished to send you news of [nu_foreign_education_child.GetFirstName]. [nu_foreign_education_child.GetSheHe|U] now seems entirely at ease among us. Our customs are no longer foreign to [nu_foreign_education_child.GetHerHim], and at times I have to remind myself how little time [nu_foreign_education_child.GetSheHe] has actually spent at our court."
+ nu_foreign_education.0001.desc.social:0 "[nu_foreign_education_child.GetFirstName] quickly found a place at court. [nu_foreign_education_child.GetSheHe|U] readily speaks with those around [nu_foreign_education_child.GetHerHim], joins the other children, and seems eager to discover something new each day."
+ nu_foreign_education.0001.desc.reserved:0 "[nu_foreign_education_child.GetFirstName] still keeps somewhat apart. [nu_foreign_education_child.GetSheHe|U] watches much, speaks little, and seems to need time before granting trust. There is no cause for alarm, but adaptation is proceeding cautiously."
+ nu_foreign_education.0001.desc.difficult:0 "[nu_foreign_education_child.GetFirstName] certainly does not lack character. [nu_foreign_education_child.GetSheHe|U] readily challenges what seems strange and fiercely defends the habits taught at home. The education progresses, though not without spirited discussion."
+ nu_foreign_education.0001.desc.fallback:0 "I wished to reassure you about [nu_foreign_education_child.GetFirstName]. The settling-in continues normally. Much here remains new, but each week makes the court a little more familiar."
+ nu_foreign_education.0001.a:0 "I am glad to have these news."
+
+ nu_foreign_education.0010.opening:0 "An Unexpected Friendship"
+ nu_foreign_education.0010.desc.reserved:0 "Something rather unexpected has happened. Despite [nu_foreign_education_child.GetHerHis] usual reserve, [nu_foreign_education_child.GetFirstName] has grown close to [nu_foreign_education_peer.GetFirstName]. They are now often seen together, sometimes simply sitting apart from the rest of the court."
+ nu_foreign_education.0010.desc.social:0 "[nu_foreign_education_child.GetFirstName] and [nu_foreign_education_peer.GetFirstName] have become nearly inseparable. Games, meals, lessons, they always find some reason to be together. This friendship seems to have greatly eased your child's adjustment."
+ nu_foreign_education.0010.desc.fallback:0 "I wished to inform you that [nu_foreign_education_child.GetFirstName] has formed a friendship with [nu_foreign_education_peer.GetFirstName]. Their companionship grew naturally over the passing weeks."
+ nu_foreign_education.0010.a:0 "That is reassuring news."
+
+ nu_foreign_education.0020.opening:0 "The Foreigner at Court"
+ nu_foreign_education.0020.desc.withdrawn:0 "Some children at court recently mocked [nu_foreign_education_child.GetFirstNamePossessive] accent and habits. [nu_foreign_education_child.GetSheHe|U] did not answer, but kept away from the others for the rest of the day. The incident seems to have hurt more than [nu_foreign_education_child.GetSheHe] wishes to admit."
+ nu_foreign_education.0020.desc.defiant:0 "Some children at court thought it amusing to mock [nu_foreign_education_child.GetFirstNamePossessive] customs. They quickly discovered that your child had no intention of letting them speak unanswered. The exchange grew heated, but the message appears to have been understood."
+ nu_foreign_education.0020.desc.adapting:0 "A few jokes were made about [nu_foreign_education_child.GetFirstNamePossessive] foreign habits. To my surprise, [nu_foreign_education_child.GetSheHe] took them lightly and even turned the joke back on the others. Since then, [nu_foreign_education_child.GetSheHe] seems a little less regarded as the outsider at court."
+ nu_foreign_education.0020.desc.fallback:0 "Differences in custom eventually drew a few remarks toward [nu_foreign_education_child.GetFirstName]. Nothing serious came of it, but this seems to be the first time your child truly became aware of being the foreigner here."
+ nu_foreign_education.0020.a:0 "I hope the experience serves [nu_foreign_education_child.GetHerHim] well."
+
+ nu_foreign_education.0030.opening:0 "A Strange Custom"
+ nu_foreign_education.0030.desc.resistant:0 "During a local ceremony, [nu_foreign_education_child.GetFirstName] was invited to take part in one of our traditions. [nu_foreign_education_child.GetSheHe|U] agreed to attend, but made little effort to hide [nu_foreign_education_child.GetHerHis] skepticism and was quick to remind us that things are done differently at home."
+ nu_foreign_education.0030.desc.curious:0 "[nu_foreign_education_child.GetFirstName] recently attended one of our local traditions. Where another child might simply have watched, yours asked question after question, eager to understand the origin of every gesture and the reason behind every custom."
+ nu_foreign_education.0030.desc.enthusiastic:0 "We recently invited [nu_foreign_education_child.GetFirstName] to take part in one of our local traditions. [nu_foreign_education_child.GetSheHe|U] joined with such enthusiasm that several courtiers nearly forgot it was [nu_foreign_education_child.GetHerHis] first time."
+ nu_foreign_education.0030.desc.fallback:0 "[nu_foreign_education_child.GetFirstName] recently took part in one of our court's traditions. [nu_foreign_education_child.GetSheHe|U] was attentive and respectful, even if some of our habits still seem quite strange."
+ nu_foreign_education.0030.a:0 "So another world becomes familiar."
+
+ nu_foreign_education.0040.opening:0 "A Letter from [nu_foreign_education_child.GetFirstName]"
+ nu_foreign_education.0040.desc.language:0 "“I am well. My lessons continue, and I am beginning to understand the people here much better. I will tell you everything when we see each other again.”
+
+The letter seems ordinary enough. Yet some turns of phrase and expressions used by [nu_foreign_education_child.GetFirstName] are not ones you remember. The language and habits of the new court are clearly beginning to shape the way your child thinks."
+ nu_foreign_education.0040.desc.fallback:0 "“I am well. The days are always very busy here. I will write again soon.”
+
+There is nothing worrying in those few lines, yet something has changed. [nu_foreign_education_child.GetFirstName] now uses references and manners of speech that seem to come directly from the new court."
+ nu_foreign_education.0040.a:0 "Even the words are beginning to change..."
+
+ nu_foreign_education.0050.opening:0 "Between Two Worlds"
+ nu_foreign_education.0050.desc.servants:0 "I have noticed something interesting about [nu_foreign_education_child.GetFirstName]. The people you sent along have preserved many habits of your household, while our court has taught new ones. Your child now moves between the two with remarkable ease."
+ nu_foreign_education.0050.desc.deep:0 "[nu_foreign_education_child.GetFirstName] seems to live between two worlds. Some mannerisms still clearly come from home, while others now appear so natural one might think they were learned from infancy. At times it is difficult to say where one inheritance ends and the other begins."
+ nu_foreign_education.0050.desc.fallback:0 "[nu_foreign_education_child.GetFirstNamePossessive] habits are becoming difficult to define. [nu_foreign_education_child.GetSheHe|U] keeps some customs from home while spontaneously adopting those of our court. The mixture no longer seems contradictory to [nu_foreign_education_child.GetHerHim]."
+ nu_foreign_education.0050.a:0 "Two worlds can coexist."
