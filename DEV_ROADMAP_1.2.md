@@ -42,6 +42,17 @@
 - Des exceptions sont possibles lorsque le parent peut raisonnablement intervenir à distance, mais elles doivent rester rares et justifiées.
 - Les propositions concrètes d'événements par domaine ne sont pas encore validées.
 
+### Notifications des traits acquis à l'étranger
+
+- Lorsqu'un enfant réellement élevé à l'étranger acquiert un trait de personnalité pendant son éducation, son parent joueur doit en être informé.
+- Cette notification fait partie du cœur des événements d'éducation NU : elle permet au parent de suivre concrètement l'évolution de l'enfant malgré son absence.
+- La nouvelle est présentée comme une lettre, un rapport du tuteur ou un témoignage venu de la cour étrangère.
+- Le parent ne rejoue pas la scène et ne choisit pas à la place de l'enfant comment le trait se forme.
+- L'implémentation doit s'appuyer autant que possible sur `on_trait_gained` afin d'éviter d'override les nombreux événements de personnalité vanilla et de rester compatible avec les futurs événements Paradox.
+- `on_trait_gained` indique le personnage et le trait obtenu, mais pas nécessairement l'événement précis qui l'a causé. NU utilisera donc un événement de nouvelles associé au trait obtenu plutôt qu'une copie de la scène vanilla.
+- La notification doit être légèrement différée et vérifier que le trait est toujours présent, car le système vanilla permet parfois au tuteur de remplacer le trait immédiatement après son acquisition.
+- À terme, les textes doivent pouvoir varier selon le trait et, lorsque le contexte disponible le permet, selon le tuteur, la culture, le rite ou l'environnement de la cour étrangère.
+
 ### Philosophie des événements rares
 
 - Les événements rares ne sont pas de simples événements normaux avec une probabilité plus faible.
