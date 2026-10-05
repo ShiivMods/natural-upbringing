@@ -140,6 +140,13 @@
 - [À tester en jeu] Conséquences relationnelles et de stress, avec modificateurs pour Insensible, Sadique, Courageux et Zélé.
 - L'état de calcul est conservé dans des variables locales à chaque événement afin d'éviter les collisions entre plusieurs enfants ou plusieurs parents joueurs.
 
+## Accompagnement des pupilles déjà sous tutelle
+
+- L'interaction d'accompagnement existe déjà et permet d'ajouter des mesures après la création d'une tutelle.
+- Bug identifié : l'interaction était trop permissive et pouvait apparaître sur des enfants sans lien réel avec le joueur, notamment des otages étrangers présents à sa cour.
+- Cause : la visibilité acceptait les enfants simplement courtisans du joueur ou placés dans sa hiérarchie.
+- Correction retenue : limiter l'accès à la famille proche du joueur. La simple présence à la cour, le statut d'otage ou le fait d'être lié à un vassal ne suffit plus.
+
 ## Chantiers 1.2 déjà identifiés
 
 - Refonte des réactions du parent aux assimilations culturelles et religieuses.
