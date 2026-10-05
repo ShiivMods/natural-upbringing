@@ -1,0 +1,723 @@
+﻿# =============================================================
+# NATURAL UPBRINGING 1.2 - ASSIMILATION REACTION SYSTEM
+# =============================================================
+#
+# The event recipient's personality is translated into six broad
+# reaction families. Cultural and religious scores are calculated
+# independently because the same trait does not necessarily carry
+# the same meaning in both contexts.
+#
+# Tie priority inside one domain:
+# rejection > mistrust > acceptance > reflection > pragmatism > adaptation
+# =============================================================
+
+nu_cleanup_assimilation_reaction_state_effect = {
+	remove_variable = nu_assimilation_event_kind
+	remove_variable = nu_assimilation_reaction
+	remove_variable = nu_combined_reaction_source
+
+	remove_variable = nu_cultural_reaction
+	remove_variable = nu_cultural_reaction_strength
+	remove_variable = nu_religious_reaction
+	remove_variable = nu_religious_reaction_strength
+
+	remove_variable = nu_cultural_reaction_rejection_score
+	remove_variable = nu_cultural_reaction_mistrust_score
+	remove_variable = nu_cultural_reaction_acceptance_score
+	remove_variable = nu_cultural_reaction_reflection_score
+	remove_variable = nu_cultural_reaction_pragmatism_score
+	remove_variable = nu_cultural_reaction_adaptation_score
+	remove_variable = nu_religious_reaction_rejection_score
+	remove_variable = nu_religious_reaction_mistrust_score
+	remove_variable = nu_religious_reaction_acceptance_score
+	remove_variable = nu_religious_reaction_reflection_score
+	remove_variable = nu_religious_reaction_pragmatism_score
+	remove_variable = nu_religious_reaction_adaptation_score
+
+	remove_character_flag = nu_combined_reaction_reinforced
+}
+
+nu_prepare_cultural_assimilation_reaction_effect = {
+	set_variable = { name = nu_cultural_reaction_rejection_score value = 0 }
+	set_variable = { name = nu_cultural_reaction_mistrust_score value = 0 }
+	set_variable = { name = nu_cultural_reaction_acceptance_score value = 0 }
+	set_variable = { name = nu_cultural_reaction_reflection_score value = 0 }
+	set_variable = { name = nu_cultural_reaction_pragmatism_score value = 0 }
+	set_variable = { name = nu_cultural_reaction_adaptation_score value = 0 }
+
+	if = {
+		limit = { has_trait = wrathful }
+		change_variable = { name = nu_cultural_reaction_rejection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = stubborn }
+		change_variable = { name = nu_cultural_reaction_rejection_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = vengeful }
+		change_variable = { name = nu_cultural_reaction_rejection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = arrogant }
+		change_variable = { name = nu_cultural_reaction_rejection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = paranoid }
+		change_variable = { name = nu_cultural_reaction_mistrust_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = craven }
+		change_variable = { name = nu_cultural_reaction_mistrust_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = shy }
+		change_variable = { name = nu_cultural_reaction_mistrust_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = compassionate }
+		change_variable = { name = nu_cultural_reaction_acceptance_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = forgiving }
+		change_variable = { name = nu_cultural_reaction_acceptance_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = humble }
+		change_variable = { name = nu_cultural_reaction_acceptance_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = trusting }
+		change_variable = { name = nu_cultural_reaction_acceptance_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = generous }
+		change_variable = { name = nu_cultural_reaction_acceptance_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = calm }
+		change_variable = { name = nu_cultural_reaction_reflection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = patient }
+		change_variable = { name = nu_cultural_reaction_reflection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = temperate }
+		change_variable = { name = nu_cultural_reaction_reflection_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = just }
+		change_variable = { name = nu_cultural_reaction_reflection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = honest }
+		change_variable = { name = nu_cultural_reaction_reflection_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = ambitious }
+		change_variable = { name = nu_cultural_reaction_pragmatism_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = greedy }
+		change_variable = { name = nu_cultural_reaction_pragmatism_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = deceitful }
+		change_variable = { name = nu_cultural_reaction_pragmatism_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = cynical }
+		change_variable = { name = nu_cultural_reaction_pragmatism_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = arbitrary }
+		change_variable = { name = nu_cultural_reaction_pragmatism_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = content }
+		change_variable = { name = nu_cultural_reaction_adaptation_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = fickle }
+		change_variable = { name = nu_cultural_reaction_adaptation_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = lazy }
+		change_variable = { name = nu_cultural_reaction_adaptation_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = gregarious }
+		change_variable = { name = nu_cultural_reaction_adaptation_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = eccentric }
+		change_variable = { name = nu_cultural_reaction_adaptation_score add = 2 }
+	}
+
+	if = {
+		limit = {
+			var:nu_cultural_reaction_rejection_score > 0
+			var:nu_cultural_reaction_rejection_score >= var:nu_cultural_reaction_mistrust_score
+			var:nu_cultural_reaction_rejection_score >= var:nu_cultural_reaction_acceptance_score
+			var:nu_cultural_reaction_rejection_score >= var:nu_cultural_reaction_reflection_score
+			var:nu_cultural_reaction_rejection_score >= var:nu_cultural_reaction_pragmatism_score
+			var:nu_cultural_reaction_rejection_score >= var:nu_cultural_reaction_adaptation_score
+		}
+		set_variable = { name = nu_cultural_reaction_reaction value = flag:rejection }
+		set_variable = { name = nu_cultural_reaction_reaction_strength value = var:nu_cultural_reaction_rejection_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction_mistrust_score > 0
+			var:nu_cultural_reaction_mistrust_score > var:nu_cultural_reaction_rejection_score
+			var:nu_cultural_reaction_mistrust_score >= var:nu_cultural_reaction_acceptance_score
+			var:nu_cultural_reaction_mistrust_score >= var:nu_cultural_reaction_reflection_score
+			var:nu_cultural_reaction_mistrust_score >= var:nu_cultural_reaction_pragmatism_score
+			var:nu_cultural_reaction_mistrust_score >= var:nu_cultural_reaction_adaptation_score
+		}
+		set_variable = { name = nu_cultural_reaction_reaction value = flag:mistrust }
+		set_variable = { name = nu_cultural_reaction_reaction_strength value = var:nu_cultural_reaction_mistrust_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction_acceptance_score > 0
+			var:nu_cultural_reaction_acceptance_score > var:nu_cultural_reaction_rejection_score
+			var:nu_cultural_reaction_acceptance_score > var:nu_cultural_reaction_mistrust_score
+			var:nu_cultural_reaction_acceptance_score >= var:nu_cultural_reaction_reflection_score
+			var:nu_cultural_reaction_acceptance_score >= var:nu_cultural_reaction_pragmatism_score
+			var:nu_cultural_reaction_acceptance_score >= var:nu_cultural_reaction_adaptation_score
+		}
+		set_variable = { name = nu_cultural_reaction_reaction value = flag:acceptance }
+		set_variable = { name = nu_cultural_reaction_reaction_strength value = var:nu_cultural_reaction_acceptance_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction_reflection_score > 0
+			var:nu_cultural_reaction_reflection_score > var:nu_cultural_reaction_rejection_score
+			var:nu_cultural_reaction_reflection_score > var:nu_cultural_reaction_mistrust_score
+			var:nu_cultural_reaction_reflection_score > var:nu_cultural_reaction_acceptance_score
+			var:nu_cultural_reaction_reflection_score >= var:nu_cultural_reaction_pragmatism_score
+			var:nu_cultural_reaction_reflection_score >= var:nu_cultural_reaction_adaptation_score
+		}
+		set_variable = { name = nu_cultural_reaction_reaction value = flag:reflection }
+		set_variable = { name = nu_cultural_reaction_reaction_strength value = var:nu_cultural_reaction_reflection_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction_pragmatism_score > 0
+			var:nu_cultural_reaction_pragmatism_score > var:nu_cultural_reaction_rejection_score
+			var:nu_cultural_reaction_pragmatism_score > var:nu_cultural_reaction_mistrust_score
+			var:nu_cultural_reaction_pragmatism_score > var:nu_cultural_reaction_acceptance_score
+			var:nu_cultural_reaction_pragmatism_score > var:nu_cultural_reaction_reflection_score
+			var:nu_cultural_reaction_pragmatism_score >= var:nu_cultural_reaction_adaptation_score
+		}
+		set_variable = { name = nu_cultural_reaction_reaction value = flag:pragmatism }
+		set_variable = { name = nu_cultural_reaction_reaction_strength value = var:nu_cultural_reaction_pragmatism_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction_adaptation_score > 0
+			var:nu_cultural_reaction_adaptation_score > var:nu_cultural_reaction_rejection_score
+			var:nu_cultural_reaction_adaptation_score > var:nu_cultural_reaction_mistrust_score
+			var:nu_cultural_reaction_adaptation_score > var:nu_cultural_reaction_acceptance_score
+			var:nu_cultural_reaction_adaptation_score > var:nu_cultural_reaction_reflection_score
+			var:nu_cultural_reaction_adaptation_score > var:nu_cultural_reaction_pragmatism_score
+		}
+		set_variable = { name = nu_cultural_reaction_reaction value = flag:adaptation }
+		set_variable = { name = nu_cultural_reaction_reaction_strength value = var:nu_cultural_reaction_adaptation_score }
+	}
+	else = {
+		set_variable = { name = nu_cultural_reaction_reaction value = flag:fallback }
+		set_variable = { name = nu_cultural_reaction_reaction_strength value = 0 }
+	}
+}
+
+nu_prepare_religious_assimilation_reaction_effect = {
+	set_variable = { name = nu_religious_reaction_rejection_score value = 0 }
+	set_variable = { name = nu_religious_reaction_mistrust_score value = 0 }
+	set_variable = { name = nu_religious_reaction_acceptance_score value = 0 }
+	set_variable = { name = nu_religious_reaction_reflection_score value = 0 }
+	set_variable = { name = nu_religious_reaction_pragmatism_score value = 0 }
+	set_variable = { name = nu_religious_reaction_adaptation_score value = 0 }
+
+	if = {
+		limit = { has_trait = wrathful }
+		change_variable = { name = nu_religious_reaction_rejection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = stubborn }
+		change_variable = { name = nu_religious_reaction_rejection_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = vengeful }
+		change_variable = { name = nu_religious_reaction_rejection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = arrogant }
+		change_variable = { name = nu_religious_reaction_rejection_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = zealous }
+		change_variable = { name = nu_religious_reaction_rejection_score add = 5 }
+	}
+	if = {
+		limit = { has_trait = paranoid }
+		change_variable = { name = nu_religious_reaction_mistrust_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = craven }
+		change_variable = { name = nu_religious_reaction_mistrust_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = shy }
+		change_variable = { name = nu_religious_reaction_mistrust_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = compassionate }
+		change_variable = { name = nu_religious_reaction_acceptance_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = forgiving }
+		change_variable = { name = nu_religious_reaction_acceptance_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = humble }
+		change_variable = { name = nu_religious_reaction_acceptance_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = trusting }
+		change_variable = { name = nu_religious_reaction_acceptance_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = generous }
+		change_variable = { name = nu_religious_reaction_acceptance_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = calm }
+		change_variable = { name = nu_religious_reaction_reflection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = patient }
+		change_variable = { name = nu_religious_reaction_reflection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = temperate }
+		change_variable = { name = nu_religious_reaction_reflection_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = just }
+		change_variable = { name = nu_religious_reaction_reflection_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = honest }
+		change_variable = { name = nu_religious_reaction_reflection_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = ambitious }
+		change_variable = { name = nu_religious_reaction_pragmatism_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = greedy }
+		change_variable = { name = nu_religious_reaction_pragmatism_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = deceitful }
+		change_variable = { name = nu_religious_reaction_pragmatism_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = cynical }
+		change_variable = { name = nu_religious_reaction_pragmatism_score add = 4 }
+	}
+	if = {
+		limit = { has_trait = arbitrary }
+		change_variable = { name = nu_religious_reaction_pragmatism_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = content }
+		change_variable = { name = nu_religious_reaction_adaptation_score add = 2 }
+	}
+	if = {
+		limit = { has_trait = fickle }
+		change_variable = { name = nu_religious_reaction_adaptation_score add = 3 }
+	}
+	if = {
+		limit = { has_trait = lazy }
+		change_variable = { name = nu_religious_reaction_adaptation_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = gregarious }
+		change_variable = { name = nu_religious_reaction_adaptation_score add = 1 }
+	}
+	if = {
+		limit = { has_trait = eccentric }
+		change_variable = { name = nu_religious_reaction_adaptation_score add = 2 }
+	}
+
+	if = {
+		limit = {
+			var:nu_religious_reaction_rejection_score > 0
+			var:nu_religious_reaction_rejection_score >= var:nu_religious_reaction_mistrust_score
+			var:nu_religious_reaction_rejection_score >= var:nu_religious_reaction_acceptance_score
+			var:nu_religious_reaction_rejection_score >= var:nu_religious_reaction_reflection_score
+			var:nu_religious_reaction_rejection_score >= var:nu_religious_reaction_pragmatism_score
+			var:nu_religious_reaction_rejection_score >= var:nu_religious_reaction_adaptation_score
+		}
+		set_variable = { name = nu_religious_reaction_reaction value = flag:rejection }
+		set_variable = { name = nu_religious_reaction_reaction_strength value = var:nu_religious_reaction_rejection_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_religious_reaction_mistrust_score > 0
+			var:nu_religious_reaction_mistrust_score > var:nu_religious_reaction_rejection_score
+			var:nu_religious_reaction_mistrust_score >= var:nu_religious_reaction_acceptance_score
+			var:nu_religious_reaction_mistrust_score >= var:nu_religious_reaction_reflection_score
+			var:nu_religious_reaction_mistrust_score >= var:nu_religious_reaction_pragmatism_score
+			var:nu_religious_reaction_mistrust_score >= var:nu_religious_reaction_adaptation_score
+		}
+		set_variable = { name = nu_religious_reaction_reaction value = flag:mistrust }
+		set_variable = { name = nu_religious_reaction_reaction_strength value = var:nu_religious_reaction_mistrust_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_religious_reaction_acceptance_score > 0
+			var:nu_religious_reaction_acceptance_score > var:nu_religious_reaction_rejection_score
+			var:nu_religious_reaction_acceptance_score > var:nu_religious_reaction_mistrust_score
+			var:nu_religious_reaction_acceptance_score >= var:nu_religious_reaction_reflection_score
+			var:nu_religious_reaction_acceptance_score >= var:nu_religious_reaction_pragmatism_score
+			var:nu_religious_reaction_acceptance_score >= var:nu_religious_reaction_adaptation_score
+		}
+		set_variable = { name = nu_religious_reaction_reaction value = flag:acceptance }
+		set_variable = { name = nu_religious_reaction_reaction_strength value = var:nu_religious_reaction_acceptance_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_religious_reaction_reflection_score > 0
+			var:nu_religious_reaction_reflection_score > var:nu_religious_reaction_rejection_score
+			var:nu_religious_reaction_reflection_score > var:nu_religious_reaction_mistrust_score
+			var:nu_religious_reaction_reflection_score > var:nu_religious_reaction_acceptance_score
+			var:nu_religious_reaction_reflection_score >= var:nu_religious_reaction_pragmatism_score
+			var:nu_religious_reaction_reflection_score >= var:nu_religious_reaction_adaptation_score
+		}
+		set_variable = { name = nu_religious_reaction_reaction value = flag:reflection }
+		set_variable = { name = nu_religious_reaction_reaction_strength value = var:nu_religious_reaction_reflection_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_religious_reaction_pragmatism_score > 0
+			var:nu_religious_reaction_pragmatism_score > var:nu_religious_reaction_rejection_score
+			var:nu_religious_reaction_pragmatism_score > var:nu_religious_reaction_mistrust_score
+			var:nu_religious_reaction_pragmatism_score > var:nu_religious_reaction_acceptance_score
+			var:nu_religious_reaction_pragmatism_score > var:nu_religious_reaction_reflection_score
+			var:nu_religious_reaction_pragmatism_score >= var:nu_religious_reaction_adaptation_score
+		}
+		set_variable = { name = nu_religious_reaction_reaction value = flag:pragmatism }
+		set_variable = { name = nu_religious_reaction_reaction_strength value = var:nu_religious_reaction_pragmatism_score }
+	}
+	else_if = {
+		limit = {
+			var:nu_religious_reaction_adaptation_score > 0
+			var:nu_religious_reaction_adaptation_score > var:nu_religious_reaction_rejection_score
+			var:nu_religious_reaction_adaptation_score > var:nu_religious_reaction_mistrust_score
+			var:nu_religious_reaction_adaptation_score > var:nu_religious_reaction_acceptance_score
+			var:nu_religious_reaction_adaptation_score > var:nu_religious_reaction_reflection_score
+			var:nu_religious_reaction_adaptation_score > var:nu_religious_reaction_pragmatism_score
+		}
+		set_variable = { name = nu_religious_reaction_reaction value = flag:adaptation }
+		set_variable = { name = nu_religious_reaction_reaction_strength value = var:nu_religious_reaction_adaptation_score }
+	}
+	else = {
+		set_variable = { name = nu_religious_reaction_reaction value = flag:fallback }
+		set_variable = { name = nu_religious_reaction_reaction_strength value = 0 }
+	}
+}
+
+nu_select_cultural_assimilation_reaction_effect = {
+	if = {
+		limit = { var:nu_cultural_reaction = flag:rejection }
+		set_variable = { name = nu_assimilation_reaction value = flag:rejection }
+	}
+	else_if = {
+		limit = { var:nu_cultural_reaction = flag:mistrust }
+		set_variable = { name = nu_assimilation_reaction value = flag:mistrust }
+	}
+	else_if = {
+		limit = { var:nu_cultural_reaction = flag:acceptance }
+		set_variable = { name = nu_assimilation_reaction value = flag:acceptance }
+	}
+	else_if = {
+		limit = { var:nu_cultural_reaction = flag:reflection }
+		set_variable = { name = nu_assimilation_reaction value = flag:reflection }
+	}
+	else_if = {
+		limit = { var:nu_cultural_reaction = flag:pragmatism }
+		set_variable = { name = nu_assimilation_reaction value = flag:pragmatism }
+	}
+	else_if = {
+		limit = { var:nu_cultural_reaction = flag:adaptation }
+		set_variable = { name = nu_assimilation_reaction value = flag:adaptation }
+	}
+	else_if = {
+		limit = { var:nu_cultural_reaction = flag:fallback }
+		set_variable = { name = nu_assimilation_reaction value = flag:fallback }
+	}
+}
+
+nu_select_religious_assimilation_reaction_effect = {
+	if = {
+		limit = { var:nu_religious_reaction = flag:rejection }
+		set_variable = { name = nu_assimilation_reaction value = flag:rejection }
+	}
+	else_if = {
+		limit = { var:nu_religious_reaction = flag:mistrust }
+		set_variable = { name = nu_assimilation_reaction value = flag:mistrust }
+	}
+	else_if = {
+		limit = { var:nu_religious_reaction = flag:acceptance }
+		set_variable = { name = nu_assimilation_reaction value = flag:acceptance }
+	}
+	else_if = {
+		limit = { var:nu_religious_reaction = flag:reflection }
+		set_variable = { name = nu_assimilation_reaction value = flag:reflection }
+	}
+	else_if = {
+		limit = { var:nu_religious_reaction = flag:pragmatism }
+		set_variable = { name = nu_assimilation_reaction value = flag:pragmatism }
+	}
+	else_if = {
+		limit = { var:nu_religious_reaction = flag:adaptation }
+		set_variable = { name = nu_assimilation_reaction value = flag:adaptation }
+	}
+	else_if = {
+		limit = { var:nu_religious_reaction = flag:fallback }
+		set_variable = { name = nu_assimilation_reaction value = flag:fallback }
+	}
+}
+
+nu_combine_assimilation_reactions_effect = {
+	remove_character_flag = nu_combined_reaction_reinforced
+	remove_variable = nu_combined_reaction_source
+
+	if = {
+		limit = {
+			var:nu_cultural_reaction = flag:rejection
+			var:nu_religious_reaction = flag:rejection
+		}
+		set_variable = { name = nu_assimilation_reaction value = flag:rejection }
+		set_variable = { name = nu_combined_reaction_source value = flag:both }
+		add_character_flag = nu_combined_reaction_reinforced
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction = flag:mistrust
+			var:nu_religious_reaction = flag:mistrust
+		}
+		set_variable = { name = nu_assimilation_reaction value = flag:mistrust }
+		set_variable = { name = nu_combined_reaction_source value = flag:both }
+		add_character_flag = nu_combined_reaction_reinforced
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction = flag:acceptance
+			var:nu_religious_reaction = flag:acceptance
+		}
+		set_variable = { name = nu_assimilation_reaction value = flag:acceptance }
+		set_variable = { name = nu_combined_reaction_source value = flag:both }
+		add_character_flag = nu_combined_reaction_reinforced
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction = flag:reflection
+			var:nu_religious_reaction = flag:reflection
+		}
+		set_variable = { name = nu_assimilation_reaction value = flag:reflection }
+		set_variable = { name = nu_combined_reaction_source value = flag:both }
+		add_character_flag = nu_combined_reaction_reinforced
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction = flag:pragmatism
+			var:nu_religious_reaction = flag:pragmatism
+		}
+		set_variable = { name = nu_assimilation_reaction value = flag:pragmatism }
+		set_variable = { name = nu_combined_reaction_source value = flag:both }
+		add_character_flag = nu_combined_reaction_reinforced
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction = flag:adaptation
+			var:nu_religious_reaction = flag:adaptation
+		}
+		set_variable = { name = nu_assimilation_reaction value = flag:adaptation }
+		set_variable = { name = nu_combined_reaction_source value = flag:both }
+		add_character_flag = nu_combined_reaction_reinforced
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction = flag:fallback
+			var:nu_religious_reaction = flag:fallback
+		}
+		set_variable = { name = nu_assimilation_reaction value = flag:fallback }
+		set_variable = { name = nu_combined_reaction_source value = flag:both }
+	}
+	else_if = {
+		limit = {
+			var:nu_cultural_reaction_strength > var:nu_religious_reaction_strength
+		}
+		nu_select_cultural_assimilation_reaction_effect = yes
+		set_variable = { name = nu_combined_reaction_source value = flag:cultural }
+	}
+	else_if = {
+		limit = {
+			var:nu_religious_reaction_strength > var:nu_cultural_reaction_strength
+		}
+		nu_select_religious_assimilation_reaction_effect = yes
+		set_variable = { name = nu_combined_reaction_source value = flag:religious }
+	}
+	else = {
+		if = {
+			limit = {
+				OR = {
+					has_trait = zealous
+					has_trait = cynical
+				}
+			}
+			nu_select_religious_assimilation_reaction_effect = yes
+			set_variable = { name = nu_combined_reaction_source value = flag:religious }
+		}
+		else = {
+			nu_select_cultural_assimilation_reaction_effect = yes
+			set_variable = { name = nu_combined_reaction_source value = flag:cultural }
+		}
+	}
+}
+
+# =============================================================
+# CONSEQUENCES
+# =============================================================
+
+nu_apply_assimilation_rejection_consequence_effect = {
+	if = {
+		limit = { NOT = { has_trait = callous } }
+
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_trait = zealous
+						OR = {
+							var:nu_assimilation_event_kind = flag:religion
+							AND = {
+								var:nu_assimilation_event_kind = flag:combined
+								OR = {
+									var:nu_combined_reaction_source = flag:religious
+									var:nu_combined_reaction_source = flag:both
+								}
+							}
+						}
+					}
+					has_character_flag = nu_combined_reaction_reinforced
+				}
+			}
+			add_stress = medium_stress_gain
+		}
+		else = {
+			add_stress = minor_stress_gain
+		}
+	}
+
+	scope:nu_assimilated_child = {
+		if = {
+			limit = {
+				root = {
+					OR = {
+						has_trait = sadistic
+						AND = {
+							has_trait = zealous
+							OR = {
+								var:nu_assimilation_event_kind = flag:religion
+								AND = {
+									var:nu_assimilation_event_kind = flag:combined
+									OR = {
+										var:nu_combined_reaction_source = flag:religious
+										var:nu_combined_reaction_source = flag:both
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -20
+			}
+		}
+		else_if = {
+			limit = { root = { has_character_flag = nu_combined_reaction_reinforced } }
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -15
+			}
+		}
+		else = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -10
+			}
+		}
+	}
+}
+
+nu_apply_assimilation_mistrust_consequence_effect = {
+	if = {
+		limit = { NOT = { has_trait = callous } }
+
+		if = {
+			limit = { has_character_flag = nu_combined_reaction_reinforced }
+			if = {
+				limit = { has_trait = brave }
+				add_stress = minor_stress_gain
+			}
+			else = {
+				add_stress = medium_stress_gain
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_trait = brave } }
+			add_stress = minor_stress_gain
+		}
+	}
+}
+
+nu_apply_assimilation_acceptance_consequence_effect = {
+	scope:nu_assimilated_child = {
+		if = {
+			limit = { root = { has_character_flag = nu_combined_reaction_reinforced } }
+			add_opinion = {
+				target = root
+				modifier = trust_opinion
+				opinion = 15
+			}
+		}
+		else = {
+			add_opinion = {
+				target = root
+				modifier = trust_opinion
+				opinion = 10
+			}
+		}
+	}
+}
+
+nu_apply_assimilation_reflection_consequence_effect = {
+	scope:nu_assimilated_child = {
+		add_opinion = {
+			target = root
+			modifier = trust_opinion
+			opinion = 5
+		}
+	}
+}
