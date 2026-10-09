@@ -1,0 +1,40 @@
+﻿on_trait_gained = {
+	on_actions = {
+		nu_on_foreign_child_personality_trait_gained
+	}
+}
+
+
+nu_on_foreign_child_personality_trait_gained = {
+
+	trigger = {
+		is_alive = yes
+
+		scope:trait = {
+			has_trait_category = personality
+		}
+
+		nu_is_genuinely_educated_abroad_trigger = yes
+
+		any_parent = {
+			is_alive = yes
+			is_ai = no
+		}
+	}
+
+	effect = {
+
+		# Preserve the exact trait that triggered this on_action.
+		# The delayed event will verify that the child still has it,
+		# because vanilla guardians can immediately replace a newly
+		# acquired personality trait.
+		scope:trait = {
+			save_scope_as = nu_foreign_personality_trait
+		}
+
+		trigger_event = {
+			id = nu_foreign_personality.0001
+			days = 1
+		}
+	}
+}
