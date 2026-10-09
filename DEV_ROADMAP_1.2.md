@@ -131,6 +131,144 @@ Principes mécaniques :
 - les traits, l'âge, le tuteur et l'environnement de l'enfant déterminent principalement ce qui s'est produit ;
 - un événement peut être rapporté par le tuteur, directement par l'enfant ou par un tiers pour varier le point de vue.
 
+
+### Cadrage validé du pack initial d'événements généraux
+
+Le pack initial doit comporter 8 événements généraux. Les effets d'exposition utilisent les systèmes NU existants afin de respecter les seuils, cibles et règles de suivi déjà en place. Pour la religion, les gains/pertes concernent l'exposition au rite.
+
+#### 1. Des nouvelles de mon enfant
+
+- Très intégré :
+  - +5 exposition culturelle ;
+  - +20 opinion mutuelle enfant / tuteur pendant 5 ans.
+- Sociable :
+  - +2 exposition culturelle ;
+  - +10 opinion mutuelle enfant / tuteur pendant 5 ans.
+- Réservé :
+  - -2 exposition culturelle.
+- Difficile :
+  - -3 exposition culturelle ;
+  - -5 opinion mutuelle enfant / tuteur pendant 5 ans ;
+  - 1 % de chance de déclencher l'arc de fugue si tous ses prérequis sont remplis ;
+  - si la fugue ne se déclenche pas, 10 % de chance de déclencher le mal du pays.
+- Fallback :
+  - aucun effet supplémentaire.
+
+Ordre validé pour la variante Difficile : tester d'abord la fugue si elle est possible, puis seulement le mal du pays si aucune fugue n'a été déclenchée.
+
+#### 2. Une amitié inattendue
+
+- La relation d'amitié est créée comme actuellement.
+- Réservé : +1 exposition culturelle.
+- Sociable : +3 exposition culturelle.
+- Fallback : +2 exposition culturelle.
+- Après création de l'amitié :
+  - 10 % de chance que l'amitié devienne une relation de meilleur ami si la relation est valide ;
+  - 5 % de chance qu'un béguin naisse si les prérequis d'attirance sont remplis.
+- Meilleur ami et béguin peuvent coexister si les règles CK3 le permettent.
+- Un béguin reste une relation unilatérale, conformément au fonctionnement vanilla.
+
+#### 3. L'étranger de la cour
+
+- Repli :
+  - -6 exposition culturelle ;
+  - conserver le stress mineur déjà prévu.
+- Défi :
+  - -3 exposition culturelle ;
+  - chance de créer une rivalité avec un enfant de la cour impliqué dans les moqueries.
+- Adaptation :
+  - +2 exposition culturelle.
+- Fallback :
+  - -1 exposition culturelle.
+
+#### 4. Une coutume étrange
+
+- Résistance :
+  - -2 exposition culturelle ;
+  - -2 exposition religieuse au rite.
+- Curiosité :
+  - si l'enfant est Curieux : +2 exposition culturelle et +2 exposition religieuse ;
+  - si la variante provient uniquement du trait Cynique : aucun gain d'exposition supplémentaire.
+- Enthousiasme :
+  - +3 exposition culturelle ;
+  - +3 exposition religieuse.
+- Fallback :
+  - neutre.
+
+#### 5. Quelques mots familiers
+
+- Fonctionnement actuel validé.
+
+#### 6. Entre deux mondes
+
+- Fonctionnement actuel validé.
+
+#### 7. Le béguin
+
+- Événement général dédié aux béguins formés dans la cour étrangère.
+- Peut aussi être atteint depuis d'autres événements, notamment Une amitié inattendue et Le Rival.
+- Prérequis :
+  - orientation sexuelle déjà définie par vanilla ;
+  - cible d'âge compatible ;
+  - cible non proche parente ;
+  - cible présente dans l'environnement étranger ;
+  - sexe de la cible compatible avec l'orientation de l'enfant.
+- Pour une attirance entre enfants du même sexe :
+  - vérifier la position religieuse des deux rites vis-à-vis de l'homosexualité ;
+  - si les deux rites l'acceptent, le béguin peut être rapporté normalement ;
+  - si au moins un rite la réprouve ou la criminalise, la relation de béguin existe mais reste secrète pour le parent.
+- Un béguin secret pourra être exploité plus tard par un événement distinct de découverte.
+- Le texte doit pouvoir varier selon l'origine du béguin : nouvelle attirance, ami devenu béguin, rival devenu béguin.
+
+#### 8. Le Rival
+
+- Ne peut se déclencher que si l'enfant possède déjà un rival pertinent dans sa cour étrangère.
+- L'événement raconte une nouvelle confrontation et peut faire évoluer la relation.
+- Issues possibles :
+  - rivalité inchangée ;
+  - réconciliation et transformation en amitié ;
+  - escalade et transformation en némésis ;
+  - transformation en béguin si les règles d'attirance sont remplies.
+- Les chances doivent être pondérées par la personnalité de l'enfant :
+  - Indulgent, Compatissant, Sociable, Confiant, traits similaires : favorisent la réconciliation ;
+  - Vengeur, Colérique, Sadique, Obstiné, traits similaires : favorisent la némésis ;
+  - le béguin dépend principalement de l'attirance et de la compatibilité sexuelle.
+- Les pourcentages exacts restent à cadrer avant implémentation.
+
+### Réponses du parent aux nouvelles d'éducation
+
+- Les réponses du parent ne doivent pas modifier rétroactivement ce qui est arrivé à l'enfant.
+- Elles reflètent le caractère du parent et peuvent avoir des effets sur le parent lui-même.
+- Réutiliser les six grandes familles déjà définies pour les réactions d'assimilation :
+  - Rejet / Colère ;
+  - Inquiétude / Méfiance ;
+  - Acceptation / Empathie ;
+  - Réflexion / Retenue ;
+  - Pragmatisme / Opportunisme ;
+  - Détachement / Adaptation.
+- La famille doit au minimum adapter la formulation de la réponse.
+- Les effets mécaniques, notamment gain ou perte de stress, ne sont ajoutés que lorsqu'ils sont narrativement justifiés.
+- Éviter de transformer chaque petite nouvelle en source automatique de stress ou de récompense.
+
+### Lettres lors de l'acquisition d'un trait de personnalité
+
+- Le système de notification différée reste validé.
+- Le texte actuel du trait Chaste doit être réécrit afin de supprimer la formulation « au contraire », qui suppose à tort une continuité avec une lettre précédente.
+- Nouvelle philosophie validée pour les 36 traits :
+  - ne plus se contenter d'un constat psychologique générique ;
+  - raconter un petit incident concret survenu à la cour étrangère ;
+  - montrer comment l'enfant a réagi ;
+  - conclure par le trait acquis.
+- Structure cible :
+  1. incident concret ;
+  2. comportement de l'enfant ;
+  3. constat du tuteur ;
+  4. trait acquis.
+- Les réponses du parent doivent également pouvoir varier selon sa propre personnalité.
+- Pour les lettres de traits, aller au-delà des seules six familles lorsque pertinent : tenir compte de la compatibilité ou opposition spécifique entre les traits du parent et le nouveau trait de l'enfant.
+- Les 36 textes seront revus individuellement avant modification du code/localisation.
+
+
 ### Menu debug des événements éducatifs
 
 - [À tester en jeu] Une interaction debug sur un enfant élevé à l'étranger ouvre un menu de test des événements éducatifs.
