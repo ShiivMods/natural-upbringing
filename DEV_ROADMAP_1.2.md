@@ -76,6 +76,18 @@
 - La notification doit être légèrement différée et vérifier que le trait est toujours présent, car le système vanilla permet parfois au tuteur de remplacer le trait immédiatement après son acquisition.
 - À terme, les textes doivent pouvoir varier selon le trait et, lorsque le contexte disponible le permet, selon le tuteur, la culture, le rite ou l'environnement de la cour étrangère.
 
+### État d'implémentation des notifications de personnalité
+
+- [À tester en jeu] `on_trait_gained` est maintenant écouté par NU sans override des événements vanilla.
+- [À tester en jeu] Seuls les traits appartenant à la catégorie `personality` sont concernés.
+- [À tester en jeu] La notification ne concerne que les enfants réellement élevés à l'étranger auprès de leur tuteur et ayant au moins un parent joueur vivant.
+- [À tester en jeu] Le trait obtenu est conservé dans le contexte d'un événement différé d'un jour.
+- [À tester en jeu] Après ce délai, NU vérifie que l'enfant possède toujours ce trait afin de laisser les systèmes vanilla de remplacement de trait se résoudre avant la notification.
+- [À tester en jeu] Si le trait est toujours présent, chaque parent joueur reçoit une lettre du tuteur indiquant le trait final acquis.
+- La notification est purement informative et n'ajoute aucun effet mécanique supplémentaire.
+- Un scripted trigger réutilisable, `nu_is_genuinely_educated_abroad_trigger`, centralise désormais la définition d'un enfant réellement élevé à l'étranger.
+- [À enrichir] Les textes pourront ensuite recevoir des variantes plus spécifiques selon le trait et le contexte de la cour sans modifier le moteur du système.
+
 ### Philosophie des événements rares
 
 - Les événements rares ne sont pas de simples événements normaux avec une probabilité plus faible.
