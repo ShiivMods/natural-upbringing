@@ -1,0 +1,6 @@
+﻿l_french:
+ nu_foreign_personality.0010.opening:0 "Des nouvelles de [nu_foreign_personality_child.GetFirstName]"
+ nu_foreign_personality.0010.desc:0 "Je crois qu'il est temps de vous faire part d'une évolution devenue difficile à ignorer chez [nu_foreign_personality_child.GetFirstName].
+
+Au fil des derniers mois, [nu_foreign_personality_child.Custom('FR_IlElle')] a montré un tempérament de plus en plus [nu_foreign_personality_trait.GetName( nu_foreign_personality_child )|l]. Ce qui pouvait encore sembler n'être qu'une humeur passagère paraît désormais s'être installé durablement dans son caractère."
+ nu_foreign_personality.0010.a:0 "Ainsi se forge son caractère."
