@@ -1,0 +1,78 @@
+﻿namespace = nu_foreign_personality
+
+
+# =============================================================
+# 0001 - DELAYED VALIDATION
+# =============================================================
+#
+# Root: child
+# scope:nu_foreign_personality_trait: trait that was just gained
+#
+# This event is hidden and delayed by one day so vanilla has time
+# to let the guardian replace the trait if an education event
+# allows it.
+# =============================================================
+
+nu_foreign_personality.0001 = {
+	type = character_event
+	hidden = yes
+
+	immediate = {
+
+		if = {
+			limit = {
+				is_alive = yes
+				is_adult = no
+
+				exists = scope:nu_foreign_personality_trait
+
+				has_trait = scope:nu_foreign_personality_trait
+
+				nu_is_genuinely_educated_abroad_trigger = yes
+
+				any_parent = {
+					is_alive = yes
+					is_ai = no
+				}
+			}
+
+			save_scope_as = nu_foreign_personality_child
+
+			random_relation = {
+				type = guardian
+				save_scope_as = nu_foreign_personality_guardian
+			}
+
+			court_owner = {
+				save_scope_as = nu_foreign_personality_current_court
+			}
+
+			every_parent = {
+				limit = {
+					is_alive = yes
+					is_ai = no
+				}
+
+				trigger_event = nu_foreign_personality.0010
+			}
+		}
+	}
+}
+
+
+# =============================================================
+# 0010 - LETTER TO THE PLAYER PARENT
+# =============================================================
+
+nu_foreign_personality.0010 = {
+	type = letter_event
+
+	opening = nu_foreign_personality.0010.opening
+	desc = nu_foreign_personality.0010.desc
+
+	sender = scope:nu_foreign_personality_guardian
+
+	option = {
+		name = nu_foreign_personality.0010.a
+	}
+}
