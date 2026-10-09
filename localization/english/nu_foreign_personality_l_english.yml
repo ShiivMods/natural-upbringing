@@ -1,0 +1,6 @@
+﻿l_english:
+ nu_foreign_personality.0010.opening:0 "News of [nu_foreign_personality_child.GetFirstName]"
+ nu_foreign_personality.0010.desc:0 "I believe it is time to tell you of a change in [nu_foreign_personality_child.GetFirstName] that has become difficult to ignore.
+
+Over the past months, [nu_foreign_personality_child.GetSheHe] has shown an increasingly [nu_foreign_personality_trait.GetName( nu_foreign_personality_child )] temperament. What might once have seemed a passing mood now appears to have settled into [nu_foreign_personality_child.GetHerHis] character."
+ nu_foreign_personality.0010.a:0 "So [nu_foreign_personality_child.GetHerHis] character takes shape."
