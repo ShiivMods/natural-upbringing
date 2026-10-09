@@ -179,6 +179,16 @@ Principes mécaniques :
 - Les Game Rules optionnelles seront réservées aux extensions qui restent cohérentes avec le mantra du mod mais sortent du scope direct de l'éducation des enfants.
 - Exemple prévu à terme : rendre les changements culturels plus organiques au-delà de l'éducation, pour d'autres personnages ou contextes. Ce type d'extension appartient à l'univers de Natural Upbringing, mais sort du projet de base et pourra être désactivable.
 
+### Compatibilité CK3 1.20.0.4
+
+- Hotfix 1.20.0.4 vérifié le 09/10/2026.
+- Le changelog officiel contient un correctif unique : un secondary recipient pouvait devenir indisponible après une interaction d'artefact, ce qui bloquait notamment certaines interactions d'éducation des enfants.
+- Ce correctif concerne donc indirectement le domaine de NU et semble correspondre au bug vanilla d'interactions de tutelle devenant invalides observé sous Crozier.
+- Aucun changement annoncé des systèmes d'éducation, traits, on_actions ou fichiers actuellement surchargés par Natural Upbringing.
+- Aucun ajustement de code NU identifié comme nécessaire pour 1.20.0.4 à ce stade.
+- Le descriptor reste volontairement sur `supported_version="1.20.0.3"` pendant le développement en cours.
+- Passer le descriptor à 1.20.0.4 au moment du prochain déploiement de NU, afin d'éviter une publication intermédiaire uniquement pour supprimer l'avertissement du launcher.
+
 ### Compatibilité et philosophie générale
 
 - Natural Upbringing doit continuer à fonctionner avec les aventuriers / personnages sans terres autant que le permet le système vanilla.
