@@ -68,7 +68,155 @@ nu_foreign_personality.0010 = {
 	type = letter_event
 
 	opening = nu_foreign_personality.0010.opening
-	desc = nu_foreign_personality.0010.desc
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:lustful }
+				desc = nu_foreign_personality.0010.desc.lustful
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:chaste }
+				desc = nu_foreign_personality.0010.desc.chaste
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:gluttonous }
+				desc = nu_foreign_personality.0010.desc.gluttonous
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:temperate }
+				desc = nu_foreign_personality.0010.desc.temperate
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:greedy }
+				desc = nu_foreign_personality.0010.desc.greedy
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:generous }
+				desc = nu_foreign_personality.0010.desc.generous
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:lazy }
+				desc = nu_foreign_personality.0010.desc.lazy
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:diligent }
+				desc = nu_foreign_personality.0010.desc.diligent
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:wrathful }
+				desc = nu_foreign_personality.0010.desc.wrathful
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:calm }
+				desc = nu_foreign_personality.0010.desc.calm
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:patient }
+				desc = nu_foreign_personality.0010.desc.patient
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:impatient }
+				desc = nu_foreign_personality.0010.desc.impatient
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:arrogant }
+				desc = nu_foreign_personality.0010.desc.arrogant
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:humble }
+				desc = nu_foreign_personality.0010.desc.humble
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:deceitful }
+				desc = nu_foreign_personality.0010.desc.deceitful
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:honest }
+				desc = nu_foreign_personality.0010.desc.honest
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:craven }
+				desc = nu_foreign_personality.0010.desc.craven
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:brave }
+				desc = nu_foreign_personality.0010.desc.brave
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:shy }
+				desc = nu_foreign_personality.0010.desc.shy
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:gregarious }
+				desc = nu_foreign_personality.0010.desc.gregarious
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:ambitious }
+				desc = nu_foreign_personality.0010.desc.ambitious
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:content }
+				desc = nu_foreign_personality.0010.desc.content
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:arbitrary }
+				desc = nu_foreign_personality.0010.desc.arbitrary
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:just }
+				desc = nu_foreign_personality.0010.desc.just
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:cynical }
+				desc = nu_foreign_personality.0010.desc.cynical
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:zealous }
+				desc = nu_foreign_personality.0010.desc.zealous
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:paranoid }
+				desc = nu_foreign_personality.0010.desc.paranoid
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:trusting }
+				desc = nu_foreign_personality.0010.desc.trusting
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:compassionate }
+				desc = nu_foreign_personality.0010.desc.compassionate
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:callous }
+				desc = nu_foreign_personality.0010.desc.callous
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:sadistic }
+				desc = nu_foreign_personality.0010.desc.sadistic
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:stubborn }
+				desc = nu_foreign_personality.0010.desc.stubborn
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:fickle }
+				desc = nu_foreign_personality.0010.desc.fickle
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:eccentric }
+				desc = nu_foreign_personality.0010.desc.eccentric
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:vengeful }
+				desc = nu_foreign_personality.0010.desc.vengeful
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_personality_trait = trait:forgiving }
+				desc = nu_foreign_personality.0010.desc.forgiving
+			}
+			desc = nu_foreign_personality.0010.desc.fallback
+		}
+	}
 
 	sender = scope:nu_foreign_personality_guardian
 
