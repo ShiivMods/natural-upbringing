@@ -34,7 +34,7 @@ nu_on_foreign_child_personality_trait_gained = {
 
 		trigger_event = {
 			id = nu_foreign_personality.0001
-			days = 1
+			days = 3
 		}
 	}
 }
