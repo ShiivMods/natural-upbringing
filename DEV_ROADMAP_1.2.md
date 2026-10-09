@@ -86,7 +86,9 @@
 - [À tester en jeu] Si le trait est toujours présent, chaque parent joueur reçoit une lettre du tuteur indiquant le trait final acquis.
 - La notification est purement informative et n'ajoute aucun effet mécanique supplémentaire.
 - Un scripted trigger réutilisable, `nu_is_genuinely_educated_abroad_trigger`, centralise désormais la définition d'un enfant réellement élevé à l'étranger.
-- [À enrichir] Les textes pourront ensuite recevoir des variantes plus spécifiques selon le trait et le contexte de la cour sans modifier le moteur du système.
+- [À tester en jeu] Les 36 traits de personnalité vanilla disposent désormais chacun d'une variante de lettre dédiée en français et en anglais.
+- Un fallback générique reste prévu pour les traits de personnalité ajoutés par un autre mod ou une future version du jeu.
+- [À enrichir ultérieurement si utile] Certaines variantes pourront encore tenir compte du contexte précis de la cour sans modifier le moteur du système.
 
 ### Philosophie des événements rares
 
