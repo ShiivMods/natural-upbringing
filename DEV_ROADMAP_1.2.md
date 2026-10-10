@@ -829,9 +829,11 @@ Principes validés :
 - le parent ne contrôle pas les décisions prises par l'enfant pendant la fugue.
 
 Chance de déclenchement :
-- la valeur initiale de 10 % est jugée trop élevée ;
-- proposition actuelle : 5 %, à valider avant implémentation ;
-- les déclenchements contextuels déjà prévus, notamment la variante « Difficile » de « Des nouvelles de mon enfant », restent soumis à l'interdiction d'une seconde fugue.
+- valeur validée : 5 % pour le déclenchement spontané ;
+- un seul jet spontané lorsqu'un enfant devient éligible après au moins 1 an de mal du pays ;
+- si ce jet échoue, il n'est pas répété automatiquement chaque mois ou chaque anniversaire ;
+- les déclenchements contextuels déjà prévus, notamment la variante « Difficile » de « Des nouvelles de mon enfant », peuvent toujours proposer leur propre très faible chance tant que l'enfant n'a jamais réellement fugué ;
+- dès qu'une fugue réelle commence, un flag permanent interdit toute nouvelle fugue dans cette version.
 
 Structure visible :
 1. La disparition.
@@ -871,9 +873,19 @@ Résolutions critiques :
 - certains échecs critiques cohérents avec le contexte peuvent comporter un risque exceptionnel de blessure grave ou de mort ;
 - la mort ne doit jamais être l'issue normale d'un échec critique.
 
-Piste privilégiée pour éviter de multiplier les jets critiques mensuels :
-- représenter les critiques par l'atteinte de seuils extrêmes de progression cumulée plutôt que par une forte probabilité indépendante chaque mois ;
-- valeur exacte des seuils et probabilités mensuelles à valider avant implémentation.
+Progression mensuelle validée :
+- Exécrable, 3 ou moins : 50 % échec, 35 % neutre, 15 % réussite ;
+- Mauvais, 4 à 6 : 35 % échec, 40 % neutre, 25 % réussite ;
+- Moyen, 7 à 9 : 25 % échec, 35 % neutre, 40 % réussite ;
+- Bon, 10 à 13 : 15 % échec, 30 % neutre, 55 % réussite ;
+- Excellent, 14 ou plus : 8 % échec, 22 % neutre, 70 % réussite ;
+- le palier est recalculé à partir de la compétence actuelle de l'enfant à chaque test mensuel.
+
+Résolutions critiques validées :
+- ne pas effectuer un jet critique indépendant chaque mois ;
+- progression cumulée de +4 : réussite critique, l'enfant parvient à rentrer avant la prochaine grande étape ;
+- progression cumulée de -4 : échec critique, l'enfant est retrouvé ou intercepté et ramené chez son tuteur ;
+- cela évite qu'une succession de nombreux jets mensuels rende les critiques artificiellement fréquentes.
 
 Variation par domaine :
 - Diplomatie : obtenir l'aide de voyageurs, paysans ou notables, convaincre, négocier, risque de révéler son identité ;
@@ -890,7 +902,7 @@ Retour réussi :
 
 ### Affichage de la fugue dans l'onglet Situations
 
-- piste technique validée à étudier : utiliser un Story Cycle visible plutôt qu'une grande Situation mondiale ;
+- direction technique validée : privilégier un Story Cycle visible plutôt qu'une grande Situation mondiale ;
 - les Story Cycles sont désormais affichés dans l'onglet Situations du jeu et peuvent montrer un personnage ainsi qu'une chaîne d'informations personnalisées ;
 - pendant une fugue active, le parent joueur pourrait voir une entrée dédiée contenant notamment :
   - l'enfant concerné ;
@@ -902,16 +914,45 @@ Retour réussi :
 - le Story Cycle se termine dès que la fugue est résolue.
 - évolution future hors 1.2 : utiliser cet espace pour suivre plus largement tous les enfants élevés à l'étranger et leur situation / ressenti.
 
-### Influence très légère sur l'acceptation culturelle
+### Influence globale très légère sur l'acceptation culturelle
 
-Nouvelle mécanique à conserver pour le développement :
-- un enfant qui grandit réellement dans une cour d'une autre culture contribue très légèrement à l'acceptation entre sa culture et celle de la cour d'accueil ;
+Principe validé :
+- cette mécanique fait partie du cœur de Natural Upbringing et n'est pas désactivable ;
+- tout enfant réellement élevé dans une cour d'une culture différente de la sienne contribue très légèrement à l'acceptation entre sa culture et celle de la cour d'accueil ;
+- le système s'applique aussi aux enfants IA selon son propre scope de simulation ;
 - cette contribution cesse immédiatement si l'enfant assimile la culture locale ;
-- elle cesse également lorsqu'il quitte durablement cette cour ou n'est plus dans la situation d'éducation étrangère concernée ;
-- objectif : représenter les liens humains créés par l'éducation trans-culturelle sans transformer la tutelle en outil d'optimisation de l'acceptation ;
-- ordre de grandeur proposé : environ +0,05 d'acceptation par année et par enfant ;
-- prévoir un plafond annuel par paire de cultures afin d'éviter l'exploitation via de nombreux pupilles ;
-- valeur finale et faisabilité des valeurs fractionnaires à vérifier avant implémentation.
+- elle cesse également lorsqu'il quitte durablement la cour étrangère ou n'est plus dans une situation d'éducation étrangère valide ;
+- objectif : représenter les liens humains créés par l'éducation interculturelle sans faire de la tutelle un outil d'optimisation.
+
+Équilibrage :
+- le gain doit être extrêmement faible, inférieur aux gains événementiels vanilla ordinaires ;
+- ordre de grandeur retenu pour équilibrage : environ +0,01 à +0,02 d'acceptation par année complète et par enfant ;
+- la valeur finale exacte sera choisie lors de l'implémentation / des tests ;
+- prévoir un plafond annuel par paire de cultures afin d'empêcher l'exploitation via un grand nombre de pupilles.
+
+Scope indépendant :
+- ajouter une Game Rule dédiée à la portée de cette mécanique ;
+- la mécanique reste toujours active, la règle ne modifie que son périmètre ;
+- réglages prévus :
+  - Suivre la portée générale de NU, réglage par défaut ;
+  - Famille proche uniquement ;
+  - Cour du joueur ;
+  - Royaume du souverain ;
+  - Royaume et royaumes voisins ;
+  - Monde entier.
+- ce scope indépendant permet de conserver une simulation éducative limitée tout en simulant, si désiré, les micro-effets culturels à plus grande échelle.
+
+### Catégorie de Game Rules Natural Upbringing
+
+- créer une catégorie personnalisée natural_upbringing dans l'interface vanilla des Game Rules ;
+- localisation FR : « Natural Upbringing » ;
+- les règles propres au mod doivent être regroupées dans cette catégorie plutôt que dispersées entre Culture, Foi et Ajustements ;
+- y placer au minimum :
+  - Portée de la simulation ;
+  - Portée de l'acceptation culturelle ;
+- conserver une interface native au jeu, sans créer de nouvel écran personnalisé ;
+- les futures Game Rules réellement nécessaires à NU rejoindront cette catégorie ;
+- ne pas transformer les fonctionnalités centrales d'éducation en options activables/désactivables individuellement.
 
 
 ### Stratégie de test
