@@ -235,6 +235,79 @@ Ordre validé pour la variante Difficile : tester d'abord la fugue si elle est p
   - le béguin dépend principalement de l'attirance et de la compatibilité sexuelle.
 - Les pourcentages exacts restent à cadrer avant implémentation.
 
+
+### Pondération validée de l'événement « Le Rival »
+
+Base de tirage :
+- rivalité inchangée : poids 60 ;
+- transformation en amitié : poids 20 ;
+- transformation en némésis : poids 15 ;
+- transformation en béguin : poids 5, uniquement si les conditions d'attirance sont remplies.
+
+Modificateurs de personnalité :
+- Amitié :
+  - Indulgent ×3 ;
+  - Compatissant, Sociable, Confiant ×2 ;
+  - Calme, Patient ×1,5 ;
+  - Vengeur ou Sadique ×0,25 ;
+  - Colérique ou Obstiné ×0,5.
+- Némésis :
+  - Vengeur ×3 ;
+  - Colérique ou Sadique ×2 ;
+  - Obstiné ou Paranoïaque ×1,5 ;
+  - Indulgent ou Compatissant ×0,25 ;
+  - Calme ×0,5.
+- Béguin :
+  - uniquement si les règles d'attirance sont remplies ;
+  - Luxurieux ×2 ;
+  - Inconstant ×1,5 ;
+  - l'orientation sexuelle reste le facteur déterminant principal.
+- Rivalité inchangée reste le résultat dominant lorsqu'aucun trait ne pousse fortement vers une évolution.
+
+### Réaction du parent aux traits acquis par l'enfant
+
+Ordre de résolution validé :
+1. si le parent possède le même trait que celui acquis par l'enfant, utiliser une réaction de reconnaissance généralement favorable ;
+2. si le parent possède un trait opposé vanilla au nouveau trait de l'enfant, utiliser une réaction plus forte de désaccord, inquiétude ou incompréhension ;
+3. sinon, utiliser les six familles de personnalité déjà définies pour déterminer la tonalité de la réponse.
+
+Principes :
+- ne pas écrire une matrice exhaustive de 36 × 36 réactions ;
+- exploiter les oppositions vanilla et les familles existantes pour conserver un système maintenable ;
+- les réponses restent centrées sur le parent et ne modifient pas rétroactivement ce qui est arrivé à l'enfant ;
+- la majorité des réponses peuvent rester purement RP ;
+- seuls les cas émotionnellement cohérents produisent un effet mécanique.
+
+Niveaux mécaniques retenus :
+- forte satisfaction / reconnaissance : petite perte de stress ;
+- réaction neutre ou analytique : aucun effet ;
+- inquiétude / désapprobation : petit gain de stress ;
+- opposition forte : gain de stress moyen.
+
+Aucun gain d'or, prestige, piété ou statistique ne doit être attaché à ces réactions.
+
+Les oppositions directes s'appuient sur les oppositions vanilla, notamment :
+- Luxurieux / Chaste ;
+- Glouton / Tempérant ;
+- Cupide / Généreux ;
+- Paresseux / Diligent ;
+- Colérique / Calme ;
+- Patient / Impatient ;
+- Arrogant / Humble ;
+- Fourbe / Honnête ;
+- Lâche / Brave ;
+- Timide / Sociable ;
+- Ambitieux / Satisfait ;
+- Arbitraire / Juste ;
+- Cynique / Zélé ;
+- Paranoïaque / Confiant ;
+- Compatissant / Insensible / Sadique ;
+- Obstiné / Inconstant / Excentrique ;
+- Vengeur / Indulgent.
+
+Les noms FR des traits sont toujours récupérés depuis la localisation vanilla CK3.
+
+
 ### Réponses du parent aux nouvelles d'éducation
 
 - Les réponses du parent ne doivent pas modifier rétroactivement ce qui est arrivé à l'enfant.
