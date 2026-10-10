@@ -884,7 +884,13 @@ Progression mensuelle validée :
 Résolutions critiques validées :
 - ne pas effectuer un jet critique indépendant chaque mois ;
 - progression cumulée de +4 : réussite critique, l'enfant parvient à rentrer avant la prochaine grande étape ;
-- progression cumulée de -4 : échec critique, l'enfant est retrouvé ou intercepté et ramené chez son tuteur ;
+- progression cumulée de -4 : déclenche un sous-jet caché d'échec critique ;
+- l'échec critique n'a donc pas un résultat ou un texte unique : le sous-jet détermine la gravité réelle de l'issue ;
+- résultat neutre de l'échec critique : l'enfant est retrouvé / intercepté puis ramené chez son tuteur ;
+- résultat aggravé : blessure, épuisement sévère, vol, capture temporaire ou autre conséquence cohérente avec le domaine utilisé ;
+- résultat exceptionnel : blessure grave ou mort lorsque le contexte permet réellement une issue létale ;
+- chaque résultat possède son propre texte visible, et les formulations doivent également varier selon le domaine d'éducation ;
+- la mort doit rester un sous-résultat exceptionnel de l'échec critique, jamais son issue par défaut ;
 - cela évite qu'une succession de nombreux jets mensuels rende les critiques artificiellement fréquentes.
 
 Variation par domaine :
