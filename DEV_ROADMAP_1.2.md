@@ -970,6 +970,22 @@ Scope indépendant :
 - ne pas transformer les fonctionnalités centrales d'éducation en options activables/désactivables individuellement.
 
 
+### Philosophie des réactions adaptatives
+
+- objectif de design : les événements Natural Upbringing doivent s'intégrer au fonctionnement vanilla au point de sembler naturellement issus du jeu de base ;
+- les choix du joueur restent accessibles, sauf impossibilité logique réelle ;
+- les traits ne doivent pas bloquer artificiellement les options du joueur ;
+- les familles de personnalité servent principalement à adapter :
+  - la formulation des réponses ;
+  - les gains ou pertes de stress ;
+  - les conséquences relationnelles ;
+  - l'intensité émotionnelle de la réaction ;
+- agir à contre-caractère reste possible, mais peut produire du stress ou une réaction plus difficile, conformément à la philosophie vanilla ;
+- privilégier les six familles de traits déjà définies comme architecture générale ;
+- n'utiliser des overrides individuels que lorsqu'un trait précis est particulièrement pertinent pour la scène ;
+- ce principe s'applique notamment au choix du parent après le retour réussi d'un enfant fugueur : accepter son retour ou le renvoyer chez son tuteur.
+
+
 ### Stratégie de test
 
 - Par défaut, regrouper plusieurs chantiers cohérents avant de lancer CK3.
