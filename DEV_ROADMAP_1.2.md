@@ -818,21 +818,101 @@ Hooks :
 
 ### Arc spécial : Fugue de l'enfant
 
-- Prévoir un arc rare lié au mal du pays, accessible quel que soit le focus d'éducation.
-- L'enfant élevé à l'étranger peut tenter de fuguer afin de rentrer chez lui par ses propres moyens.
-- L'arc se déroule en trois étapes :
-  1. Lettre annonçant la disparition / fugue de l'enfant.
-  2. Période de rumeurs, recherches et informations fragmentaires.
-  3. Finalité : l'enfant parvient à revenir de lui-même, est retrouvé avant d'y parvenir, échoue à rentrer, ou autre issue cohérente selon les circonstances.
-- Le parent ne contrôle pas directement les décisions prises par l'enfant pendant sa fuite.
-- Les compétences, traits, âge, durée du mal du pays, distance et contexte de voyage doivent pouvoir influencer les chances et les issues.
-- Le focus d'éducation ne conditionne pas l'accès à la fugue, mais modifie fortement la manière dont l'enfant tente de rentrer et les événements intermédiaires :
-  - Diplomatie : convaincre des voyageurs, paysans ou notables de l'aider, avec risque de trop révéler son identité ;
-  - Martial : supporter les dangers physiques, intimidation, fuite ou défense ;
-  - Intendance : financer et organiser le voyage, avec risques d'arnaque ou de mauvaise gestion ;
-  - Intrigue : dissimuler son identité, éviter les recherches, mentir ou emprunter des chemins discrets ;
-  - Érudition : s'orienter, lire cartes et indications, comprendre les coutumes locales ou trouver des solutions raisonnées.
-- Cet arc doit rester suffisamment rare pour être mémorable.
+Principes validés :
+- arc rare lié au mal du pays ;
+- âge minimum : 12 ans ;
+- mal du pays présent depuis au moins 1 an ;
+- l'enfant doit toujours être réellement élevé à l'étranger ;
+- une seule fugue réelle maximum par enfant dans cette version ;
+- une prochaine version pourra ajouter un événement spécifique permettant exceptionnellement une seconde fugue ;
+- le focus d'éducation ne conditionne pas l'accès à la fugue, mais détermine la compétence utilisée pour progresser pendant la fuite ;
+- le parent ne contrôle pas les décisions prises par l'enfant pendant la fugue.
+
+Chance de déclenchement :
+- la valeur initiale de 10 % est jugée trop élevée ;
+- proposition actuelle : 5 %, à valider avant implémentation ;
+- les déclenchements contextuels déjà prévus, notamment la variante « Difficile » de « Des nouvelles de mon enfant », restent soumis à l'interdiction d'une seconde fugue.
+
+Structure visible :
+1. La disparition.
+2. Après un délai aléatoire de 2 à 4 mois : Recherches / rumeurs.
+3. Après un nouveau délai aléatoire de 3 à 5 mois : Conclusion.
+- durée normale de chaîne visible : environ 5 à 9 mois ;
+- une résolution critique peut terminer la chaîne plus tôt.
+
+Progression cachée mensuelle :
+- dès le début de la fugue, un test mécanique caché est effectué environ une fois par mois ;
+- ces tests ne génèrent pas d'événement visible et servent uniquement à représenter la progression réelle de l'enfant entre les grandes nouvelles ;
+- la compétence utilisée est celle correspondant au focus d'éducation actuel :
+  - Diplomatie ;
+  - Martial ;
+  - Intendance ;
+  - Intrigue ;
+  - Érudition ;
+- le palier est recalculé à partir de la valeur actuelle de la compétence de l'enfant.
+
+Paliers de compétence validés :
+- Exécrable : 3 ou moins ;
+- Mauvais : 4 à 6 ;
+- Moyen : 7 à 9 ;
+- Bon : 10 à 13 ;
+- Excellent : 14 ou plus.
+
+Variable cachée de progression :
+- départ à 0 ;
+- réussite mensuelle : +1 ;
+- échec mensuel : -1 ;
+- neutre : 0 ;
+- la progression cumulée doit influencer les nouvelles intermédiaires et la conclusion.
+
+Résolutions critiques :
+- une réussite critique signifie que l'enfant parvient à rentrer chez lui avant la prochaine étape prévue ;
+- un échec critique signifie qu'il est retrouvé / intercepté et ramené chez son tuteur ;
+- certains échecs critiques cohérents avec le contexte peuvent comporter un risque exceptionnel de blessure grave ou de mort ;
+- la mort ne doit jamais être l'issue normale d'un échec critique.
+
+Piste privilégiée pour éviter de multiplier les jets critiques mensuels :
+- représenter les critiques par l'atteinte de seuils extrêmes de progression cumulée plutôt que par une forte probabilité indépendante chaque mois ;
+- valeur exacte des seuils et probabilités mensuelles à valider avant implémentation.
+
+Variation par domaine :
+- Diplomatie : obtenir l'aide de voyageurs, paysans ou notables, convaincre, négocier, risque de révéler son identité ;
+- Martial : supporter les dangers physiques, se défendre, intimider ou fuir ;
+- Intendance : gérer argent, provisions, transport et itinéraire, avec risques d'arnaque ou de mauvaise gestion ;
+- Intrigue : cacher son identité, mentir, éviter les recherches et emprunter des routes discrètes ;
+- Érudition : s'orienter, exploiter cartes et indications, comprendre les coutumes locales et raisonner son trajet.
+
+Retour réussi :
+- si l'enfant rentre chez lui, le parent peut décider de le laisser rester ou de le renvoyer auprès de son tuteur ;
+- laisser l'enfant rester met fin à la tutelle étrangère et au mal du pays ;
+- le renvoyer malgré sa fugue doit avoir des conséquences relationnelles et émotionnelles fortes ;
+- aucune nouvelle fugue n'est possible dans cette version après une première fugue réelle.
+
+### Affichage de la fugue dans l'onglet Situations
+
+- piste technique validée à étudier : utiliser un Story Cycle visible plutôt qu'une grande Situation mondiale ;
+- les Story Cycles sont désormais affichés dans l'onglet Situations du jeu et peuvent montrer un personnage ainsi qu'une chaîne d'informations personnalisées ;
+- pendant une fugue active, le parent joueur pourrait voir une entrée dédiée contenant notamment :
+  - l'enfant concerné ;
+  - le temps écoulé depuis sa disparition ;
+  - son domaine d'éducation ;
+  - un état qualitatif de la recherche / progression ;
+  - éventuellement la dernière information connue ;
+- ne pas afficher directement la valeur brute de progression cachée : privilégier une description qualitative ;
+- le Story Cycle se termine dès que la fugue est résolue.
+- évolution future hors 1.2 : utiliser cet espace pour suivre plus largement tous les enfants élevés à l'étranger et leur situation / ressenti.
+
+### Influence très légère sur l'acceptation culturelle
+
+Nouvelle mécanique à conserver pour le développement :
+- un enfant qui grandit réellement dans une cour d'une autre culture contribue très légèrement à l'acceptation entre sa culture et celle de la cour d'accueil ;
+- cette contribution cesse immédiatement si l'enfant assimile la culture locale ;
+- elle cesse également lorsqu'il quitte durablement cette cour ou n'est plus dans la situation d'éducation étrangère concernée ;
+- objectif : représenter les liens humains créés par l'éducation trans-culturelle sans transformer la tutelle en outil d'optimisation de l'acceptation ;
+- ordre de grandeur proposé : environ +0,05 d'acceptation par année et par enfant ;
+- prévoir un plafond annuel par paire de cultures afin d'éviter l'exploitation via de nombreux pupilles ;
+- valeur finale et faisabilité des valeurs fractionnaires à vérifier avant implémentation.
+
 
 ### Stratégie de test
 
