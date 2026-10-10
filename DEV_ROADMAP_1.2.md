@@ -558,6 +558,244 @@ Rival → Béguin :
 - Les textes pourront encore recevoir de petites corrections de style ou d'accord lors de l'intégration FR/EN, sans changer leur scène ni leur intention.
 
 
+
+### Pack validé d'événements normaux liés aux 5 domaines d'éducation
+
+Philosophie générale :
+- premier pack : 10 événements, soit 2 par focus d'éducation ;
+- uniquement disponibles si l'enfant possède le focus correspondant ;
+- les événements racontent ce que l'enfant vit réellement à l'étranger ;
+- le parent reçoit la nouvelle après résolution des actions de l'enfant ;
+- le parent ne contrôle pas rétroactivement les décisions de l'enfant ;
+- les résultats sont influencés par les traits de personnalité, traits d'enfance, aptitude correspondante et relation avec le tuteur ;
+- effets d'éducation sobres :
+  - +2 points = réussite particulièrement formatrice ;
+  - +1 point = expérience utile ;
+  - 0 = échec ou expérience sans bénéfice scolaire direct ;
+  - aucun point négatif pour ces événements normaux ;
+- les points sont ajoutés à la variable vanilla correspondant au focus courant ;
+- les variantes structurelles doivent respecter le contexte de la cour : gouvernement, mode de vie, institutions et ressources disponibles.
+
+#### Diplomatie 1 : Entre deux querelles
+
+Un conflit éclate entre deux jeunes de la cour et l'enfant tente spontanément de s'interposer.
+
+Résultats :
+- Médiateur efficace :
+  - favorisé par Sociable, Patient, Compatissant, Juste et bonne Diplomatie ;
+  - +2 points Diplomatie ;
+  - petite opinion positive du tuteur envers l'enfant ;
+  - possibilité légère de progression relationnelle positive avec un protagoniste.
+- Compromis imparfait :
+  - résultat normal ;
+  - +1 point Diplomatie.
+- Jette de l'huile sur le feu :
+  - favorisé par Colérique, Arrogant, Arbitraire, Impatient ;
+  - aucun point ;
+  - petite perte d'opinion tuteur → enfant ;
+  - stress mineur possible selon personnalité.
+
+#### Diplomatie 2 : Un visage venu d'ailleurs
+
+L'enfant échange avec un visiteur ou jeune personnage extérieur à sa cour habituelle.
+
+Résultats :
+- À l'aise avec l'étranger :
+  - favorisé par Sociable, Confiant, Curieux ;
+  - +1 point Diplomatie ;
+  - +1 exposition culturelle ;
+  - petite chance de relation positive avec le visiteur si un personnage persistant pertinent existe.
+- Maladroit mais instructif :
+  - +1 point Diplomatie.
+- Fermeture :
+  - favorisée par Timide, Paranoïaque, éventuellement Zélé selon contexte ;
+  - aucun bonus.
+
+#### Martial 1 : Le terrain plutôt que les livres
+
+L'enfant comprend mieux l'enseignement martial par la pratique que par la théorie.
+
+Résultats :
+- Très à l'aise :
+  - favorisé par Brave, Diligent, Obstiné et traits d'enfance martiaux pertinents ;
+  - +2 points Martial ;
+  - petite opinion positive du tuteur ;
+  - faible chance de +1 Prouesse si la scène justifie réellement un progrès physique notable.
+- Progression normale :
+  - +1 point Martial ;
+  - très faible chance de +1 Prouesse uniquement si le résultat et le contexte le justifient.
+- Mauvaise discipline :
+  - favorisée par Paresseux, Impatient, Arrogant ;
+  - aucun point supplémentaire ;
+  - pas de gain de Prouesse.
+
+Les gains de Prouesse ne doivent jamais devenir systématiques : ils représentent un progrès physique concret et exceptionnel, pas une récompense attachée automatiquement à l'événement.
+
+#### Martial 2 : Un coup de trop
+
+Un entraînement ou jeu martial devient plus sérieux que prévu.
+
+Résultats :
+- Retient son coup :
+  - favorisé par Calme, Patient, Compatissant ;
+  - +1 point Martial ;
+  - opinion positive avec l'autre enfant ;
+  - progression vers amitié possible.
+- Va jusqu'au bout :
+  - favorisé par Brave, Colérique, Obstiné ;
+  - +1 point Martial ;
+  - opinion négative avec l'autre enfant ;
+  - faible chance de rivalité ;
+  - faible chance de +1 Prouesse si la performance martiale le justifie.
+- Prend plaisir à dominer :
+  - Sadique fortement favorisé ;
+  - +1 point Martial possible ;
+  - probabilité de rivalité renforcée ;
+  - +1 Prouesse possible uniquement si la scène correspond réellement à une amélioration physique démontrée.
+
+Aucun gain automatique de Prouesse et aucun bonus supérieur à +1 dans ces événements normaux.
+
+#### Intendance 1 : Quelque chose ne compte pas
+
+L'enfant remarque une incohérence dans les ressources ou la gestion de la cour.
+
+Le contenu varie selon le contexte :
+- féodal / administratif / république : comptes, dépenses, taxes, stocks ;
+- tribal : tribut, réserves, butin, redistribution ;
+- nomade : troupeaux, provisions, routes saisonnières, réserves.
+
+Résultats :
+- Trouve réellement l'erreur :
+  - favorisé par Diligent, Cupide, Juste, Patient ;
+  - +2 points Intendance ;
+  - opinion positive du tuteur.
+- Bonne intuition, mauvaise conclusion :
+  - +1 point Intendance.
+- Accusation trop rapide :
+  - favorisée par Paranoïaque, Arbitraire, Impatient ;
+  - aucun bonus ;
+  - stress léger ou opinion négative possible.
+
+#### Intendance 2 : Faire durer les réserves
+
+L'enfant assiste à une décision de répartition de ressources limitées.
+
+Résultats :
+- Bonne solution :
+  - favorisée par Tempérant, Diligent, Patient, Généreux selon le contexte ;
+  - +2 points Intendance ;
+  - +1 exposition culturelle.
+- Apprentissage :
+  - +1 point Intendance ;
+  - +1 exposition culturelle.
+- Mauvaise priorité :
+  - favorisée par Glouton, Cupide, Arbitraire selon contexte ;
+  - aucun point.
+
+#### Intrigue 1 : Ce n'était pas destiné à ses oreilles
+
+L'enfant surprend une conversation ou une information qui ne lui était pas destinée.
+
+Résultats :
+- Garde l'information :
+  - favorisé par Fourbe, Paranoïaque, Calme ;
+  - +2 points Intrigue ;
+  - possibilité de gagner un hook faible contre la personne concernée si l'information fournit réellement un levier crédible ;
+  - la cible peut être un membre de la cour étrangère ou le tuteur lui-même.
+- Révèle l'information au tuteur :
+  - favorisé par Honnête, Confiant, Compatissant ;
+  - +1 point Intrigue ;
+  - opinion positive du tuteur possible ;
+  - si l'information est exploitable, le tuteur peut lui aussi obtenir un hook faible contre la personne concernée ;
+  - l'enfant peut conserver son propre hook lorsque cela reste cohérent : révéler une information n'efface pas nécessairement le fait qu'il la connaît.
+- Se fait remarquer :
+  - aucun bonus ;
+  - gêne ou stress léger possible ;
+  - aucun hook si l'information n'a pas pu être réellement comprise ou conservée.
+
+Les hooks ne sont pas nécessairement annoncés au parent joueur dans la lettre. Ils peuvent exister comme conséquence cachée et devenir pertinents plus tard.
+
+Aucun hook fort n'est accordé par ces événements normaux.
+
+#### Intrigue 2 : Je sais quelque chose que tu ignores
+
+L'enfant utilise volontairement une information pour influencer quelqu'un.
+
+Résultats :
+- Manipulation réussie :
+  - favorisée par Fourbe, Patient, Ambitieux ;
+  - +2 points Intrigue ;
+  - légère opinion négative de la cible ;
+  - possibilité d'obtenir un hook faible approprié sur la cible si l'information constitue un levier crédible ;
+  - faible chance de rivalité selon cible et personnalités.
+- Négociation subtile :
+  - +1 point Intrigue ;
+  - hook faible possible mais plus rare que dans la réussite complète.
+- Retour de bâton :
+  - favorisé par Arrogant, Impatient ou Honnête selon la manière ;
+  - aucun point ;
+  - opinion négative avec la cible ;
+  - petite chance de rivalité ;
+  - pas de hook gagné.
+
+Le système doit utiliser un type de hook faible cohérent avec la scène et vérifier que le hook peut légalement être ajouté avant de le créer.
+
+#### Érudition 1 : Deux enseignements, deux vérités
+
+L'enfant découvre une contradiction entre ce qu'on lui enseignait chez lui et ce qu'il apprend dans la cour étrangère.
+
+Résultats :
+- Cherche à comprendre les deux :
+  - favorisé par Curieux, Patient, Cynique ;
+  - +2 points Érudition ;
+  - +1 exposition culturelle ;
+  - +1 exposition au rite si la contradiction est religieuse.
+- Accepte l'enseignement local :
+  - favorisé par Confiant ou forte intégration ;
+  - +1 point Érudition ;
+  - +1 exposition correspondante.
+- Rejette fermement :
+  - favorisé par Zélé, Obstiné ;
+  - +1 point Érudition ;
+  - -1 exposition étrangère correspondante.
+
+Même la résistance peut donc améliorer l'éducation sans favoriser l'assimilation.
+
+#### Érudition 2 : Pourquoi ?
+
+Une question de l'enfant transforme une leçon courte en longue discussion.
+
+Résultats :
+- Questionnement fécond :
+  - favorisé par Curieux, Patient, Diligent ;
+  - +2 points Érudition ;
+  - opinion du tuteur modulée par sa propre personnalité.
+- Bonne curiosité :
+  - +1 point Érudition.
+- Questionne pour contester :
+  - favorisé par Arrogant, Obstiné, Cynique ;
+  - +1 point Érudition ;
+  - petite perte d'opinion du tuteur possible.
+
+Le trait Cynique peut donc être très favorable à l'apprentissage tout en rendant l'enfant difficile à enseigner.
+
+### Effets spéciaux du pack par focus
+
+Prouesse :
+- réservée aux événements Martial lorsque la scène représente réellement une progression physique ;
+- gain maximal normal : +1 ;
+- toujours rare et conditionnel ;
+- jamais accordée automatiquement à chaque succès martial.
+
+Hooks :
+- réservés aux événements Intrigue lorsque l'enfant découvre ou exploite une information fournissant un véritable levier ;
+- peuvent viser un membre de la cour étrangère ou le tuteur ;
+- si l'enfant révèle l'information au tuteur, le tuteur peut lui aussi obtenir un hook faible sur la cible ;
+- l'enfant peut conserver son hook lorsque cela reste cohérent ;
+- les hooks peuvent rester cachés dans la présentation au parent joueur ;
+- aucun hook fort dans ce pack d'événements normaux.
+
+
 ### Menu debug des événements éducatifs
 
 - [À tester en jeu] Une interaction debug sur un enfant élevé à l'étranger ouvre un menu de test des événements éducatifs.
