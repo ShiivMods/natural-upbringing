@@ -323,6 +323,218 @@ Les noms FR des traits sont toujours récupérés depuis la localisation vanilla
 - Les effets mécaniques, notamment gain ou perte de stress, ne sont ajoutés que lorsqu'ils sont narrativement justifiés.
 - Éviter de transformer chaque petite nouvelle en source automatique de stress ou de récompense.
 
+
+### Réactions parentales validées pour les 8 événements généraux
+
+Principe général :
+- la réponse du parent commente ce qui est arrivé sans modifier rétroactivement l'événement de l'enfant ;
+- la formulation dépend d'abord de la famille de personnalité du parent ;
+- certains traits particulièrement pertinents peuvent prendre priorité sur la famille générale ;
+- les effets mécaniques restent limités au stress du parent lorsque cela est narrativement justifié ;
+- éviter les récompenses systématiques ou les effets sur or, prestige, piété ou statistiques.
+
+#### 1. Des nouvelles de mon enfant
+
+Très intégré :
+- Rejet / Colère : inquiétude face à une intégration trop forte, petit stress ;
+- Inquiétude / Méfiance : intégration jugée trop rapide, petit stress ;
+- Acceptation / Empathie : rassuré de savoir l'enfant heureux, petite perte de stress ;
+- Réflexion / Retenue : réaction neutre et mesurée ;
+- Pragmatisme / Opportunisme : voit l'utilité future de cette adaptation ;
+- Détachement / Adaptation : considère cette évolution comme naturelle.
+
+Sociable :
+- Rejet : accepte les amitiés tant que l'enfant n'oublie pas les siens ;
+- Méfiance : s'interroge sur les fréquentations ;
+- Acceptation : rassuré que l'enfant ne soit pas seul, petite perte de stress ;
+- Réflexion : considère que la familiarité avec la cour passe par les relations ;
+- Pragmatisme : voit la valeur future de bonnes relations ;
+- Adaptation : constate que l'enfant sait se débrouiller seul.
+
+Réservé :
+- Rejet : se rassure du fait que l'enfant ne soit pas absorbé par la cour étrangère ;
+- Méfiance : s'inquiète de l'isolement, petit stress ;
+- Acceptation : espère que l'enfant trouvera quelqu'un à qui se confier, petit stress possible ;
+- Réflexion : considère que certains enfants ont besoin de davantage de temps ;
+- Pragmatisme : estime que l'enfant devra tout de même apprendre à vivre parmi eux ;
+- Adaptation : fait confiance au rythme de l'enfant.
+
+Difficile :
+- Rejet : remet en cause la cour étrangère plutôt que l'enfant ;
+- Méfiance : voit ses craintes confirmées, petit stress ;
+- Acceptation : craint que l'enfant ne souffre davantage qu'on ne le dit, petit stress ;
+- Réflexion : cherche la raison de cette résistance ;
+- Pragmatisme : considère que l'enfant doit apprendre quand céder et quand tenir bon ;
+- Adaptation : suppose que l'enfant finira par trouver sa place.
+
+Fallback :
+- réponse neutre commune possible.
+
+#### 2. Une amitié inattendue
+
+- Rejet / Colère : accepte la relation tant que l'enfant n'oublie pas les siens ;
+- Inquiétude / Méfiance : s'interroge sur l'identité et l'influence de l'autre enfant, petit stress possible pour les personnalités très méfiantes ;
+- Acceptation / Empathie : rassuré que l'enfant ait trouvé quelqu'un, petite perte de stress ;
+- Réflexion / Retenue : voit l'amitié d'enfance comme potentiellement durable ;
+- Pragmatisme / Opportunisme : pense à l'utilité future de cette relation ;
+- Détachement / Adaptation : considère l'amitié comme normale.
+
+Si l'amitié devient meilleure amitié :
+- renforcer légèrement les réactions positives, prudentes ou opportunistes.
+
+Si l'amitié devient béguin :
+- utiliser la logique de réaction du Béguin.
+
+#### 3. L'étranger de la cour
+
+Repli :
+- Rejet / Colère : colère contre ceux qui traitent l'enfant ainsi, petit stress ;
+- Inquiétude / Méfiance : voit ses craintes confirmées, petit stress ;
+- Acceptation / Empathie : regret de ne pas pouvoir soutenir directement l'enfant, petit stress ;
+- Réflexion / Retenue : considère l'épreuve comme formatrice ;
+- Pragmatisme / Opportunisme : estime que l'enfant doit apprendre à supporter ce regard ;
+- Détachement / Adaptation : minimise l'incident comme une cruauté passagère.
+
+Défi :
+- Rejet : satisfaction que l'enfant ne se soit pas laissé humilier, petite perte de stress possible ;
+- Méfiance : craint une escalade ;
+- Acceptation : accepte la défense de soi mais souhaite éviter une guerre personnelle ;
+- Réflexion : voit l'enfant apprendre à défendre son identité ;
+- Pragmatisme : voit une leçon utile de fermeté ;
+- Adaptation : considère que l'enfant a trouvé sa propre manière de répondre.
+
+Si une rivalité apparaît :
+- ajouter une réaction spécifique de préoccupation ou, pour un parent Vengeur, de soutien à la mémoire de l'affront.
+
+Adaptation :
+- Rejet : craint que l'enfant banalise ce qui le distingue ;
+- Méfiance : estime que l'enfant s'adapte peut-être trop bien ;
+- Acceptation : rassuré de voir l'enfant capable d'en rire, petite perte de stress ;
+- Réflexion : valorise la capacité à désamorcer sans s'effacer ;
+- Pragmatisme : voit une compétence sociale utile ;
+- Adaptation : constate simplement que l'enfant apprend vite.
+
+#### 4. Une coutume étrange
+
+Résistance :
+- Rejet / Colère : satisfait que l'enfant conserve les usages familiaux, petite perte de stress possible ;
+- Inquiétude / Méfiance : craint qu'on cherche à lui imposer davantage ;
+- Acceptation / Empathie : souhaiterait davantage de compréhension avant rejet ;
+- Réflexion / Retenue : considère la comparaison des usages comme un apprentissage ;
+- Pragmatisme / Opportunisme : estime qu'un rejet pur nuit à la compréhension de la cour ;
+- Détachement / Adaptation : suppose que l'enfant s'habituera peut-être avec le temps.
+
+Curiosité :
+- Rejet : trouve que l'enfant s'intéresse peut-être trop aux usages locaux ;
+- Méfiance : considère certaines curiosités potentiellement dangereuses ;
+- Acceptation : encourage à comprendre avant de juger, petite perte de stress possible ;
+- Réflexion : valorise fortement la démarche, petite perte de stress ;
+- Pragmatisme : voit l'intérêt de comprendre les usages pour comprendre les gens ;
+- Adaptation : considère cela comme une exploration naturelle.
+
+Enthousiasme :
+- Rejet : regrette que l'enfant ne montre pas la même ferveur pour ses propres traditions, petit stress ;
+- Méfiance : s'inquiète de l'influence de la cour, petit stress possible ;
+- Acceptation : rassuré de voir l'enfant découvrir avec joie, petite perte de stress ;
+- Réflexion : voit une occasion de comprendre d'autres manières de vivre ;
+- Pragmatisme : voit un avantage à maîtriser les usages de la cour étrangère ;
+- Adaptation : constate que l'enfant semble déjà à l'aise.
+
+Override Zélé :
+- si la coutume touche à un rite différent, la réaction religieuse peut prendre priorité sur la famille générale ;
+- une exposition religieuse étrangère peut provoquer petit ou moyen stress selon l'écart religieux.
+
+#### 5. Quelques mots familiers
+
+Événement volontairement léger :
+- Rejet / Colère : remarque avec gêne que même la manière de parler change ;
+- Inquiétude / Méfiance : reconnaît de moins en moins certaines expressions ;
+- Acceptation / Empathie : reste surtout heureux de reconnaître l'enfant derrière les nouvelles habitudes ;
+- Réflexion / Retenue : considère l'influence linguistique comme naturelle ;
+- Pragmatisme / Opportunisme : voit l'avantage de mieux comprendre la manière de penser locale ;
+- Détachement / Adaptation : banalise quelques expressions étrangères.
+
+Par défaut, aucun effet mécanique. Petit stress possible uniquement pour des cas très marqués.
+
+#### 6. Entre deux mondes
+
+- Rejet / Colère : craint une perte d'identité, petit stress ;
+- Inquiétude / Méfiance : craint que l'enfant n'appartienne pleinement à aucun monde, petit stress ;
+- Acceptation / Empathie : accepte que l'enfant n'ait pas à choisir, petite perte de stress ;
+- Réflexion / Retenue : voit une identité nouvelle façonnée par deux environnements ;
+- Pragmatisme / Opportunisme : voit un avantage à comprendre deux mondes ;
+- Détachement / Adaptation : considère cette double appartenance comme parfaitement vivable.
+
+Si des serviteurs culturels ont été envoyés :
+- Rejet : se rassure de voir une part du foyer préservée ;
+- Acceptation : se réjouit d'avoir laissé quelque chose de chez eux à l'enfant ;
+- Pragmatisme : considère que les précautions prises avant le départ ont été utiles.
+
+#### 7. Le béguin
+
+Si le béguin est secret :
+- aucune réaction parentale, car le parent n'en a pas connaissance.
+
+Si le béguin est connu :
+- Rejet / Colère : considère que l'enfant n'a pas été envoyé là-bas pour cela ;
+- Inquiétude / Méfiance : veut en savoir davantage sur l'autre enfant ;
+- Acceptation / Empathie : réaction attendrie, petite perte de stress ;
+- Réflexion / Retenue : considère les premiers attachements avec recul ;
+- Pragmatisme / Opportunisme : s'intéresse immédiatement à la famille et au statut de l'autre enfant ;
+- Détachement / Adaptation : banalise le béguin d'enfance.
+
+Overrides possibles :
+- parent Chaste : gêne ou désapprobation légère ;
+- parent Luxurieux : amusement ou encouragement, neutre ou petite perte de stress ;
+- parent Paranoïaque : craint que l'attachement soit exploité, petit stress ;
+- parent Ambitieux : peut voir l'intérêt politique d'un béguin vers une famille importante.
+
+Pour un béguin homosexuel connu :
+- si le rite du parent l'accepte, réaction normale ;
+- si le rite le réprouve, la réaction religieuse peut prendre priorité ;
+- parent Zélé : désapprobation forte, stress moyen possible ;
+- parent Compatissant dans un rite hostile : réaction protectrice possible malgré le conflit religieux.
+
+#### 8. Le Rival
+
+Rivalité inchangée :
+- Rejet / Colère : encourage l'enfant à ne pas se laisser marcher dessus ;
+- Inquiétude / Méfiance : juge la querelle trop longue, petit stress possible ;
+- Acceptation / Empathie : souhaite une réconciliation ;
+- Réflexion / Retenue : considère que certaines inimitiés s'éteignent avec le temps ;
+- Pragmatisme / Opportunisme : voit un rival comme une source d'apprentissage ;
+- Détachement / Adaptation : suppose qu'ils finiront peut-être par se lasser.
+
+Rival → Ami :
+- Rejet : surpris par le retournement ;
+- Méfiance : prudence face à une réconciliation soudaine ;
+- Acceptation : soulagé, petite perte de stress ;
+- Réflexion : valorise le pardon ;
+- Pragmatisme : voit la valeur d'un ancien rival devenu allié ;
+- Adaptation : considère que les querelles d'enfants changent vite.
+- Parent Vengeur : désapprouve le pardon trop rapide, petit stress ;
+- Parent Indulgent : satisfait de la réconciliation, petite perte de stress.
+
+Rival → Némésis :
+- Rejet / Colère : constate que la querelle est devenue sérieuse ;
+- Inquiétude / Méfiance : craint la création d'un véritable ennemi, petit stress ;
+- Acceptation / Empathie : regrette l'absence de pardon, petit ou moyen stress ;
+- Réflexion / Retenue : souligne qu'une rancune si jeune peut durer longtemps ;
+- Pragmatisme / Opportunisme : insiste sur la nécessité de connaître la valeur de l'adversaire ;
+- Détachement / Adaptation : espère qu'ils grandiront avant leur haine.
+- Parent Vengeur : peut comprendre ou approuver la rancune, neutre ou petite perte de stress ;
+- Parent Compatissant : forte inquiétude, stress moyen.
+
+Rival → Béguin :
+- reprendre la logique du Béguin ;
+- variantes possibles :
+  - Réflexion : le cœur prend parfois des chemins étranges ;
+  - Adaptation : manière inattendue de mettre fin à une rivalité ;
+  - Méfiance : passage rapide de la haine à l'affection jugé inquiétant ;
+  - Pragmatisme : considère au moins la rivalité comme désamorcée.
+- si le béguin doit rester secret, aucune notification au parent.
+
+
 ### Lettres lors de l'acquisition d'un trait de personnalité
 
 - Le système de notification différée reste validé.
