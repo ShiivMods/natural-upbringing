@@ -266,7 +266,11 @@ Ordre validé pour la variante Difficile : tester d'abord la fugue si elle est p
   4. trait acquis.
 - Les réponses du parent doivent également pouvoir varier selon sa propre personnalité.
 - Pour les lettres de traits, aller au-delà des seules six familles lorsque pertinent : tenir compte de la compatibilité ou opposition spécifique entre les traits du parent et le nouveau trait de l'enfant.
-- Les 36 textes seront revus individuellement avant modification du code/localisation.
+- Les 36 scènes narratives ont été revues et validées comme base de travail avant implémentation.
+- Chaque lettre doit raconter un incident concret révélant progressivement le trait, puis conclure par le trait acquis.
+- Les noms de traits affichés en français doivent reprendre strictement la localisation vanilla CK3, sans traduction manuelle. Exemple vérifié : `brave` = « Brave » en français.
+- Le texte du trait Chaste est validé dans sa nouvelle version sans la formulation « au contraire ».
+- Les textes pourront encore recevoir de petites corrections de style ou d'accord lors de l'intégration FR/EN, sans changer leur scène ni leur intention.
 
 
 ### Menu debug des événements éducatifs
