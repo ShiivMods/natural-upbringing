@@ -903,8 +903,17 @@ Variation par domaine :
 Retour réussi :
 - si l'enfant rentre chez lui, le parent peut décider de le laisser rester ou de le renvoyer auprès de son tuteur ;
 - laisser l'enfant rester met fin à la tutelle étrangère et au mal du pays ;
-- le renvoyer malgré sa fugue doit avoir des conséquences relationnelles et émotionnelles fortes ;
+- accepter son retour augmente l'opinion de l'enfant envers le parent ;
+- le renvoyer auprès de son tuteur diminue l'opinion de l'enfant envers le parent ;
+- les réactions et effets secondaires du choix du parent sont adaptatifs selon sa personnalité, sur le même principe que les autres réactions parentales de NU ;
+- le choix du parent ne modifie pas rétroactivement la réussite de la fugue elle-même ;
 - aucune nouvelle fugue n'est possible dans cette version après une première fugue réelle.
+
+Prestige lié à l'issue :
+- une fugue réussie et un retour effectif au foyer accordent du prestige à l'enfant, indépendamment du choix ultérieur du parent ;
+- une fugue échouée retire une petite quantité de prestige à l'enfant ;
+- le prestige représente la réputation acquise ou perdue par l'enfant à la suite de cette aventure ;
+- les valeurs exactes restent à équilibrer, avec une préférence pour les échelles vanilla mineures ou moyennes plutôt que des nombres arbitraires.
 
 ### Affichage de la fugue dans l'onglet Situations
 
