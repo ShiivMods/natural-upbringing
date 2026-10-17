@@ -1,0 +1,642 @@
+﻿# =============================================================
+# NATURAL UPBRINGING - RUNAWAY ARC
+# =============================================================
+# Root is the runaway child unless noted otherwise.
+# =============================================================
+
+
+nu_check_spontaneous_runaway_effect = {
+	if = {
+		limit = {
+			nu_can_roll_spontaneous_runaway_trigger = yes
+		}
+
+		# Exactly one spontaneous roll when the child first becomes eligible.
+		add_character_flag = nu_runaway_spontaneous_check_done
+
+		random = {
+			chance = nu_spontaneous_runaway_chance
+			nu_start_runaway_effect = yes
+		}
+	}
+}
+
+
+nu_start_runaway_effect = {
+	if = {
+		limit = {
+			nu_can_start_runaway_trigger = yes
+		}
+
+		add_character_flag = nu_runaway_active
+		add_character_flag = nu_runaway_happened
+
+		set_variable = { name = nu_runaway_score value = 0 }
+		set_variable = { name = nu_runaway_months value = 0 }
+
+		random_list = {
+			1 = { set_variable = { name = nu_runaway_search_month value = 2 } }
+			1 = { set_variable = { name = nu_runaway_search_month value = 3 } }
+			1 = { set_variable = { name = nu_runaway_search_month value = 4 } }
+		}
+
+		set_variable = {
+			name = nu_runaway_end_month
+			value = var:nu_runaway_search_month
+		}
+		random_list = {
+			1 = { change_variable = { name = nu_runaway_end_month add = 3 } }
+			1 = { change_variable = { name = nu_runaway_end_month add = 4 } }
+			1 = { change_variable = { name = nu_runaway_end_month add = 5 } }
+		}
+
+		random_relation = {
+			type = guardian
+			save_temporary_scope_as = nu_runaway_guardian_scope
+		}
+		if = {
+			limit = { exists = scope:nu_runaway_guardian_scope }
+			set_variable = {
+				name = nu_runaway_guardian
+				value = scope:nu_runaway_guardian_scope
+			}
+		}
+
+		# One parent owns the eventual decision, preventing duplicate
+		# multiplayer choices. Prefer a player parent.
+		if = {
+			limit = {
+				any_parent = {
+					is_alive = yes
+					is_ai = no
+				}
+			}
+			random_parent = {
+				limit = {
+					is_alive = yes
+					is_ai = no
+				}
+				save_temporary_scope_as = nu_runaway_decision_parent_scope
+			}
+		}
+		else = {
+			random_parent = {
+				limit = { is_alive = yes }
+				save_temporary_scope_as = nu_runaway_decision_parent_scope
+			}
+		}
+
+		if = {
+			limit = { exists = scope:nu_runaway_decision_parent_scope }
+			set_variable = {
+				name = nu_runaway_decision_parent
+				value = scope:nu_runaway_decision_parent_scope
+			}
+		}
+
+		nu_update_runaway_public_status_effect = yes
+
+		save_scope_as = nu_runaway_child
+
+		# Only create a visible story for a player parent. The hidden
+		# monthly mechanics run on the child independently.
+		if = {
+			limit = {
+				exists = scope:nu_runaway_decision_parent_scope
+				scope:nu_runaway_decision_parent_scope = {
+					is_ai = no
+				}
+			}
+
+			scope:nu_runaway_decision_parent_scope = {
+				create_story = {
+					type = nu_runaway_story
+					save_scope_as = nu_runaway_story_scope
+				}
+
+				scope:nu_runaway_story_scope = {
+					set_variable = {
+						name = nu_runaway_child
+						value = scope:nu_runaway_child
+					}
+					if = {
+						limit = { exists = scope:nu_runaway_guardian_scope }
+						set_variable = {
+							name = nu_runaway_guardian
+							value = scope:nu_runaway_guardian_scope
+						}
+					}
+				}
+			}
+
+			set_variable = {
+				name = nu_runaway_story_owner
+				value = scope:nu_runaway_decision_parent_scope
+			}
+		}
+
+		# Every player parent may learn of the disappearance, but only
+		# the designated parent will make the return decision.
+		every_parent = {
+			limit = {
+				is_alive = yes
+				is_ai = no
+			}
+			trigger_event = nu_runaway.0001
+		}
+
+		trigger_event = {
+			id = nu_runaway.9000
+			days = 30
+		}
+	}
+}
+
+
+nu_update_runaway_public_status_effect = {
+	remove_character_flag = nu_runaway_status_danger
+	remove_character_flag = nu_runaway_status_worry
+	remove_character_flag = nu_runaway_status_uncertain
+	remove_character_flag = nu_runaway_status_encouraging
+	remove_character_flag = nu_runaway_status_near_home
+
+	if = {
+		limit = {
+			has_variable = nu_runaway_score
+			var:nu_runaway_score <= -2
+		}
+		add_character_flag = nu_runaway_status_danger
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_runaway_score
+			var:nu_runaway_score = -1
+		}
+		add_character_flag = nu_runaway_status_worry
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_runaway_score
+			var:nu_runaway_score = 0
+		}
+		add_character_flag = nu_runaway_status_uncertain
+	}
+	else_if = {
+		limit = {
+			has_variable = nu_runaway_score
+			var:nu_runaway_score = 1
+		}
+		add_character_flag = nu_runaway_status_encouraging
+	}
+	else = {
+		add_character_flag = nu_runaway_status_near_home
+	}
+}
+
+
+nu_runaway_monthly_roll_effect = {
+
+	# Execrable: current focus skill 0-3.
+	if = {
+		limit = {
+			OR = {
+				AND = { has_focus = education_diplomacy diplomacy <= 3 }
+				AND = { has_focus = education_martial martial <= 3 }
+				AND = { has_focus = education_stewardship stewardship <= 3 }
+				AND = { has_focus = education_intrigue intrigue <= 3 }
+				AND = { has_focus = education_learning learning <= 3 }
+			}
+		}
+		random_list = {
+			50 = { change_variable = { name = nu_runaway_score add = -1 } }
+			35 = {}
+			15 = { change_variable = { name = nu_runaway_score add = 1 } }
+		}
+	}
+
+	# Mauvais: 4-6.
+	else_if = {
+		limit = {
+			OR = {
+				AND = { has_focus = education_diplomacy diplomacy <= 6 }
+				AND = { has_focus = education_martial martial <= 6 }
+				AND = { has_focus = education_stewardship stewardship <= 6 }
+				AND = { has_focus = education_intrigue intrigue <= 6 }
+				AND = { has_focus = education_learning learning <= 6 }
+			}
+		}
+		random_list = {
+			35 = { change_variable = { name = nu_runaway_score add = -1 } }
+			40 = {}
+			25 = { change_variable = { name = nu_runaway_score add = 1 } }
+		}
+	}
+
+	# Moyen: 7-9.
+	else_if = {
+		limit = {
+			OR = {
+				AND = { has_focus = education_diplomacy diplomacy <= 9 }
+				AND = { has_focus = education_martial martial <= 9 }
+				AND = { has_focus = education_stewardship stewardship <= 9 }
+				AND = { has_focus = education_intrigue intrigue <= 9 }
+				AND = { has_focus = education_learning learning <= 9 }
+			}
+		}
+		random_list = {
+			25 = { change_variable = { name = nu_runaway_score add = -1 } }
+			35 = {}
+			40 = { change_variable = { name = nu_runaway_score add = 1 } }
+		}
+	}
+
+	# Bon: 10-13.
+	else_if = {
+		limit = {
+			OR = {
+				AND = { has_focus = education_diplomacy diplomacy <= 13 }
+				AND = { has_focus = education_martial martial <= 13 }
+				AND = { has_focus = education_stewardship stewardship <= 13 }
+				AND = { has_focus = education_intrigue intrigue <= 13 }
+				AND = { has_focus = education_learning learning <= 13 }
+			}
+		}
+		random_list = {
+			15 = { change_variable = { name = nu_runaway_score add = -1 } }
+			30 = {}
+			55 = { change_variable = { name = nu_runaway_score add = 1 } }
+		}
+	}
+
+	# Excellent: 14+.
+	else = {
+		random_list = {
+			8 = { change_variable = { name = nu_runaway_score add = -1 } }
+			22 = {}
+			70 = { change_variable = { name = nu_runaway_score add = 1 } }
+		}
+	}
+
+	nu_update_runaway_public_status_effect = yes
+}
+
+
+nu_runaway_monthly_progress_effect = {
+	if = {
+		limit = { has_character_flag = nu_runaway_active }
+
+		change_variable = {
+			name = nu_runaway_months
+			add = 1
+		}
+
+		nu_runaway_monthly_roll_effect = yes
+
+		if = {
+			limit = { var:nu_runaway_score >= 4 }
+			nu_resolve_runaway_critical_success_effect = yes
+		}
+		else_if = {
+			limit = { var:nu_runaway_score <= -4 }
+			nu_resolve_runaway_critical_failure_effect = yes
+		}
+		else = {
+			if = {
+				limit = {
+					NOT = { has_character_flag = nu_runaway_search_reported }
+					var:nu_runaway_months >= var:nu_runaway_search_month
+				}
+				add_character_flag = nu_runaway_search_reported
+				save_scope_as = nu_runaway_child
+				every_parent = {
+					limit = {
+						is_alive = yes
+						is_ai = no
+					}
+					trigger_event = nu_runaway.0010
+				}
+			}
+
+			if = {
+				limit = {
+					has_character_flag = nu_runaway_active
+					var:nu_runaway_months >= var:nu_runaway_end_month
+				}
+				nu_resolve_runaway_normal_effect = yes
+			}
+		}
+	}
+}
+
+
+nu_end_runaway_story_effect = {
+	save_scope_as = nu_runaway_resolving_child
+
+	if = {
+		limit = {
+			exists = var:nu_runaway_story_owner
+		}
+		var:nu_runaway_story_owner = {
+			random_owned_story = {
+				limit = {
+					story_type = nu_runaway_story
+					exists = var:nu_runaway_child
+					var:nu_runaway_child = scope:nu_runaway_resolving_child
+				}
+				end_story = yes
+			}
+		}
+	}
+}
+
+
+nu_clear_runaway_active_state_effect = {
+	nu_end_runaway_story_effect = yes
+
+	remove_character_flag = nu_runaway_active
+	remove_character_flag = nu_runaway_search_reported
+
+	remove_character_flag = nu_runaway_status_danger
+	remove_character_flag = nu_runaway_status_worry
+	remove_character_flag = nu_runaway_status_uncertain
+	remove_character_flag = nu_runaway_status_encouraging
+	remove_character_flag = nu_runaway_status_near_home
+
+	remove_variable = nu_runaway_score
+	remove_variable = nu_runaway_months
+	remove_variable = nu_runaway_search_month
+	remove_variable = nu_runaway_end_month
+	remove_variable = nu_runaway_story_owner
+}
+
+
+nu_prepare_runaway_resolution_scopes_effect = {
+	save_scope_as = nu_runaway_child
+
+	if = {
+		limit = { exists = var:nu_runaway_guardian }
+		var:nu_runaway_guardian = {
+			save_scope_as = nu_runaway_guardian
+		}
+	}
+
+	if = {
+		limit = {
+			exists = var:nu_runaway_decision_parent
+			var:nu_runaway_decision_parent = {
+				is_alive = yes
+			}
+		}
+		var:nu_runaway_decision_parent = {
+			save_scope_as = nu_runaway_decision_parent
+		}
+	}
+	else_if = {
+		limit = {
+			any_parent = { is_alive = yes }
+		}
+		random_parent = {
+			limit = { is_alive = yes }
+			save_scope_as = nu_runaway_decision_parent
+		}
+	}
+}
+
+
+nu_finish_runaway_resolution_cleanup_effect = {
+	remove_variable = nu_runaway_guardian
+	remove_variable = nu_runaway_decision_parent
+}
+
+
+nu_resolve_runaway_critical_success_effect = {
+	nu_prepare_runaway_resolution_scopes_effect = yes
+
+	add_character_flag = {
+		flag = nu_runaway_result_critical_success
+		days = 14
+	}
+	add_prestige = medium_prestige_gain
+
+	nu_clear_runaway_active_state_effect = yes
+
+	if = {
+		limit = { exists = scope:nu_runaway_decision_parent }
+		scope:nu_runaway_decision_parent = {
+			trigger_event = nu_runaway.0100
+		}
+	}
+
+	nu_finish_runaway_resolution_cleanup_effect = yes
+}
+
+
+nu_resolve_runaway_normal_effect = {
+	nu_prepare_runaway_resolution_scopes_effect = yes
+
+	if = {
+		limit = { var:nu_runaway_score >= 1 }
+
+		if = {
+			limit = { var:nu_runaway_score >= 3 }
+			add_character_flag = { flag = nu_runaway_result_success days = 14 }
+		}
+		else_if = {
+			limit = { var:nu_runaway_score = 2 }
+			add_character_flag = { flag = nu_runaway_result_helped days = 14 }
+		}
+		else = {
+			add_character_flag = { flag = nu_runaway_result_escorted days = 14 }
+		}
+
+		add_prestige = minor_prestige_gain
+		nu_clear_runaway_active_state_effect = yes
+
+		if = {
+			limit = { exists = scope:nu_runaway_decision_parent }
+			scope:nu_runaway_decision_parent = {
+				trigger_event = nu_runaway.0100
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { var:nu_runaway_score = 0 }
+			add_character_flag = { flag = nu_runaway_result_failure_safe days = 14 }
+		}
+		else_if = {
+			limit = { var:nu_runaway_score = -1 }
+			add_character_flag = { flag = nu_runaway_result_failure_difficulty days = 14 }
+			add_stress = minor_stress_gain
+		}
+		else_if = {
+			limit = { var:nu_runaway_score = -2 }
+			add_character_flag = { flag = nu_runaway_result_failure_serious days = 14 }
+			add_stress = minor_stress_gain
+		}
+		else = {
+			add_character_flag = { flag = nu_runaway_result_failure_severe days = 14 }
+			nu_apply_runaway_severe_consequence_effect = yes
+		}
+
+		add_prestige = minor_prestige_loss
+		nu_clear_runaway_active_state_effect = yes
+
+		every_parent = {
+			limit = {
+				is_alive = yes
+				is_ai = no
+			}
+			trigger_event = nu_runaway.0200
+		}
+	}
+
+	nu_finish_runaway_resolution_cleanup_effect = yes
+}
+
+
+nu_apply_runaway_aggravated_consequence_effect = {
+	if = {
+		limit = { has_focus = education_martial }
+		increase_wounds_no_death_effect = { REASON = fight }
+	}
+	else = {
+		add_stress = minor_stress_gain
+	}
+}
+
+
+nu_apply_runaway_severe_consequence_effect = {
+	if = {
+		limit = { has_focus = education_diplomacy }
+		add_stress = medium_stress_gain
+	}
+	else_if = {
+		limit = { has_focus = education_martial }
+		add_trait = wounded_2
+	}
+	else_if = {
+		limit = { has_focus = education_stewardship }
+		add_stress = medium_stress_gain
+		increase_wounds_no_death_effect = { REASON = lost_in_the_forest }
+	}
+	else_if = {
+		limit = { has_focus = education_intrigue }
+		add_stress = medium_stress_gain
+		increase_wounds_no_death_effect = { REASON = fight }
+	}
+	else = {
+		add_stress = medium_stress_gain
+		increase_wounds_no_death_effect = { REASON = lost_in_the_forest }
+	}
+}
+
+
+nu_resolve_runaway_critical_failure_effect = {
+	nu_prepare_runaway_resolution_scopes_effect = yes
+
+	# Severity matrix depends on the current education focus.
+	if = {
+		limit = { has_focus = education_diplomacy }
+		random_list = {
+			80 = { add_character_flag = { flag = nu_runaway_critical_safe days = 14 } }
+			18 = {
+				add_character_flag = { flag = nu_runaway_critical_aggravated days = 14 }
+				nu_apply_runaway_aggravated_consequence_effect = yes
+			}
+			2 = {
+				add_character_flag = { flag = nu_runaway_critical_severe days = 14 }
+				nu_apply_runaway_severe_consequence_effect = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { has_focus = education_martial }
+		random_list = {
+			55 = { add_character_flag = { flag = nu_runaway_critical_safe days = 14 } }
+			30 = {
+				add_character_flag = { flag = nu_runaway_critical_aggravated days = 14 }
+				nu_apply_runaway_aggravated_consequence_effect = yes
+			}
+			12 = {
+				add_character_flag = { flag = nu_runaway_critical_severe days = 14 }
+				nu_apply_runaway_severe_consequence_effect = yes
+			}
+			3 = { add_character_flag = { flag = nu_runaway_critical_death days = 14 } }
+		}
+	}
+	else_if = {
+		limit = { has_focus = education_stewardship }
+		random_list = {
+			70 = { add_character_flag = { flag = nu_runaway_critical_safe days = 14 } }
+			25 = {
+				add_character_flag = { flag = nu_runaway_critical_aggravated days = 14 }
+				nu_apply_runaway_aggravated_consequence_effect = yes
+			}
+			4 = {
+				add_character_flag = { flag = nu_runaway_critical_severe days = 14 }
+				nu_apply_runaway_severe_consequence_effect = yes
+			}
+			1 = { add_character_flag = { flag = nu_runaway_critical_death days = 14 } }
+		}
+	}
+	else_if = {
+		limit = { has_focus = education_intrigue }
+		random_list = {
+			75 = { add_character_flag = { flag = nu_runaway_critical_safe days = 14 } }
+			21 = {
+				add_character_flag = { flag = nu_runaway_critical_aggravated days = 14 }
+				nu_apply_runaway_aggravated_consequence_effect = yes
+			}
+			3 = {
+				add_character_flag = { flag = nu_runaway_critical_severe days = 14 }
+				nu_apply_runaway_severe_consequence_effect = yes
+			}
+			1 = { add_character_flag = { flag = nu_runaway_critical_death days = 14 } }
+		}
+	}
+	else = {
+		random_list = {
+			65 = { add_character_flag = { flag = nu_runaway_critical_safe days = 14 } }
+			27 = {
+				add_character_flag = { flag = nu_runaway_critical_aggravated days = 14 }
+				nu_apply_runaway_aggravated_consequence_effect = yes
+			}
+			6 = {
+				add_character_flag = { flag = nu_runaway_critical_severe days = 14 }
+				nu_apply_runaway_severe_consequence_effect = yes
+			}
+			2 = { add_character_flag = { flag = nu_runaway_critical_death days = 14 } }
+		}
+	}
+
+	add_prestige = minor_prestige_loss
+	nu_clear_runaway_active_state_effect = yes
+
+	if = {
+		limit = { has_character_flag = nu_runaway_critical_death }
+
+		every_parent = {
+			limit = {
+				is_alive = yes
+				is_ai = no
+			}
+			trigger_event = nu_runaway.0300
+		}
+
+		death = {
+			death_reason = death_accident
+		}
+	}
+	else = {
+		every_parent = {
+			limit = {
+				is_alive = yes
+				is_ai = no
+			}
+			trigger_event = nu_runaway.0300
+		}
+	}
+
+	nu_finish_runaway_resolution_cleanup_effect = yes
+}
