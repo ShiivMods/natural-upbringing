@@ -22,3 +22,13 @@ nu_foreign_education_parent_rejection_opinion = {
 	opinion = -10
 	years = 5
 }
+
+nu_runaway_parent_accepted_return = {
+	opinion = 20
+	years = 10
+}
+
+nu_runaway_parent_sent_back = {
+	opinion = -25
+	years = 10
+}
