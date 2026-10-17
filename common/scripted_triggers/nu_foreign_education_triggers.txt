@@ -78,8 +78,10 @@ nu_foreign_crush_is_reportable_trigger = {
 			rite = {
 				rite_has_parameter = homosexuality_accepted
 			}
-			$CHARACTER$.rite = {
-				rite_has_parameter = homosexuality_accepted
+			$CHARACTER$ = {
+				rite = {
+					rite_has_parameter = homosexuality_accepted
+				}
 			}
 		}
 	}
