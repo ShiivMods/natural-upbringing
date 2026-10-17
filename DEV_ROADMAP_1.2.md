@@ -1188,6 +1188,22 @@ Scope indépendant :
 - Revoir les Game Rules uniquement lorsque des extensions hors scope direct de l'éducation des enfants seront ajoutées.
 - Ajouter de nouveaux événements d'éducation liés aux différents domaines d'éducation. Priorité actuelle : événements normaux. Les événements rares à fort impact seront conçus ensuite comme arcs conditionnels.
 
+## Document de validation final
+
+- une fois le cadrage fonctionnel et narratif de la 1.2 terminé, créer un document séparé `VALIDATION_1.2.md` ;
+- ce document ne remplace pas la roadmap : il sert de synthèse courte avant implémentation finale / validation globale ;
+- il doit reprendre uniquement les décisions réellement importantes à relire :
+  - mécaniques ;
+  - probabilités et seuils ;
+  - effets ;
+  - réactions adaptatives ;
+  - conséquences ;
+  - textes ou formulations majeurs ;
+  - points encore discutables ;
+- chaque point doit pouvoir être facilement confirmé, modifié ou reporté ;
+- l'objectif est de permettre une dernière passe de validation sans devoir relire toute la roadmap ni l'historique de discussion ;
+- après validation, le document sert de référence de cadrage pendant l'implémentation et les tests.
+
 ## Notes pour le futur changelog
 
 Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du développement, convertir uniquement les fonctionnalités réellement implémentées et testées en notes de version FR/EN.
