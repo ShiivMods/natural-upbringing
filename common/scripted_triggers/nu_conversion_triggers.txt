@@ -48,13 +48,13 @@ nu_has_belief_assimilation_environment_trigger = {
 
 		# The child's current court follows the target faith.
 		court_owner ?= {
-			rite = scope:nu_conversion_belief
+			faith = scope:nu_conversion_belief
 		}
 
 		# Or the local population around that court does.
 		court_owner ?= {
 			capital_province ?= {
-				rite = scope:nu_conversion_belief
+				faith = scope:nu_conversion_belief
 			}
 		}
 	}
