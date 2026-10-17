@@ -1,0 +1,628 @@
+﻿namespace = nu_focus_education
+
+# =============================================================
+# NATURAL UPBRINGING 1.2 - EDUCATION FOCUS NEWS
+# =============================================================
+# The child's mechanics have already been resolved before these
+# letters are sent. Hidden education/exposure rolls are therefore
+# never exposed in the player-facing options.
+# =============================================================
+
+nu_focus_education.0100 = {
+	type = letter_event
+	opening = nu_focus_education.0100.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_strong } }
+				desc = nu_focus_education.0100.desc.strong
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_mixed } }
+				desc = nu_focus_education.0100.desc.mixed
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_bad } }
+				desc = nu_focus_education.0100.desc.bad
+			}
+			desc = nu_focus_education.0100.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0100.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0100.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0100.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0100.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0100.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0100.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0100.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
+
+
+nu_focus_education.0110 = {
+	type = letter_event
+	opening = nu_focus_education.0110.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_strong } }
+				desc = nu_focus_education.0110.desc.strong
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_mixed } }
+				desc = nu_focus_education.0110.desc.mixed
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_bad } }
+				desc = nu_focus_education.0110.desc.bad
+			}
+			desc = nu_focus_education.0110.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0110.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0110.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0110.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0110.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0110.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0110.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0110.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
+
+
+nu_focus_education.0120 = {
+	type = letter_event
+	opening = nu_focus_education.0120.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_strong } }
+				desc = nu_focus_education.0120.desc.strong
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_mixed } }
+				desc = nu_focus_education.0120.desc.mixed
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_bad } }
+				desc = nu_focus_education.0120.desc.bad
+			}
+			desc = nu_focus_education.0120.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0120.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0120.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0120.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0120.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0120.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0120.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0120.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
+
+
+nu_focus_education.0130 = {
+	type = letter_event
+	opening = nu_focus_education.0130.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_restrained } }
+				desc = nu_focus_education.0130.desc.restrained
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_forceful } }
+				desc = nu_focus_education.0130.desc.forceful
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_sadistic } }
+				desc = nu_focus_education.0130.desc.sadistic
+			}
+			desc = nu_focus_education.0130.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0130.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0130.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0130.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0130.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0130.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0130.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0130.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
+
+
+nu_focus_education.0140 = {
+	type = letter_event
+	opening = nu_focus_education.0140.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_strong } }
+				desc = nu_focus_education.0140.desc.strong
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_mixed } }
+				desc = nu_focus_education.0140.desc.mixed
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_bad } }
+				desc = nu_focus_education.0140.desc.bad
+			}
+			desc = nu_focus_education.0140.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0140.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0140.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0140.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0140.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0140.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0140.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0140.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
+
+
+nu_focus_education.0150 = {
+	type = letter_event
+	opening = nu_focus_education.0150.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_strong } }
+				desc = nu_focus_education.0150.desc.strong
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_mixed } }
+				desc = nu_focus_education.0150.desc.mixed
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_bad } }
+				desc = nu_focus_education.0150.desc.bad
+			}
+			desc = nu_focus_education.0150.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0150.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0150.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0150.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0150.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0150.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0150.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0150.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
+
+
+nu_focus_education.0160 = {
+	type = letter_event
+	opening = nu_focus_education.0160.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_strong } }
+				desc = nu_focus_education.0160.desc.strong
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_mixed } }
+				desc = nu_focus_education.0160.desc.mixed
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_bad } }
+				desc = nu_focus_education.0160.desc.bad
+			}
+			desc = nu_focus_education.0160.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0160.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0160.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0160.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0160.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0160.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0160.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0160.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
+
+
+nu_focus_education.0170 = {
+	type = letter_event
+	opening = nu_focus_education.0170.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_strong } }
+				desc = nu_focus_education.0170.desc.strong
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_mixed } }
+				desc = nu_focus_education.0170.desc.mixed
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_bad } }
+				desc = nu_focus_education.0170.desc.bad
+			}
+			desc = nu_focus_education.0170.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0170.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0170.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0170.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0170.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0170.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0170.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0170.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
+
+
+nu_focus_education.0180 = {
+	type = letter_event
+	opening = nu_focus_education.0180.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_strong } }
+				desc = nu_focus_education.0180.desc.strong
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_local } }
+				desc = nu_focus_education.0180.desc.local
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_reject } }
+				desc = nu_focus_education.0180.desc.reject
+			}
+			desc = nu_focus_education.0180.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0180.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0180.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0180.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0180.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0180.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0180.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0180.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
+
+
+nu_focus_education.0190 = {
+	type = letter_event
+	opening = nu_focus_education.0190.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_strong } }
+				desc = nu_focus_education.0190.desc.strong
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_mixed } }
+				desc = nu_focus_education.0190.desc.mixed
+			}
+			triggered_desc = {
+				trigger = { scope:nu_foreign_education_child = { has_character_flag = nu_focus_outcome_bad } }
+				desc = nu_focus_education.0190.desc.bad
+			}
+			desc = nu_focus_education.0190.desc.fallback
+		}
+	}
+
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_focus_education.0190.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0190.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0190.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_focus_education.0190.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_focus_education.0190.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_focus_education.0190.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_focus_education.0190.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
+	}
+}
