@@ -1911,7 +1911,9 @@ offer_ward_interaction = {
 			exists = scope:secondary_actor
 			exists = scope:secondary_recipient
 			OR = {
+				scope:secondary_actor.faith != scope:secondary_recipient.faith
 				scope:secondary_actor.rite != scope:secondary_recipient.rite
+				scope:secondary_actor.faith != scope:recipient.faith
 				scope:secondary_actor.rite != scope:recipient.rite
 			}
 		}
