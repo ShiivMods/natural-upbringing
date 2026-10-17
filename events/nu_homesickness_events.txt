@@ -148,6 +148,20 @@ nu_homesickness.0001 = {
 					opinion = -25
 				}
 
+				if = {
+					limit = { has_variable = nu_homesickness_severity }
+					change_variable = {
+						name = nu_homesickness_severity
+						add = 1
+					}
+				}
+				else = {
+					set_variable = {
+						name = nu_homesickness_severity
+						value = 2
+					}
+				}
+
 				remove_character_flag = nu_homesickness_request_pending
 			}
 		}
@@ -164,8 +178,8 @@ nu_homesickness.0001 = {
 			}
 		}
 
-		# The three-year cooldown remains active.
-		# Additional personality-dependent consequences come in the trait pass.
+		# Homesickness remains active. No further request is sent for this
+		# continuous guardianship state.
 
 		stress_impact = {
 			compassionate = medium_stress_impact_gain
