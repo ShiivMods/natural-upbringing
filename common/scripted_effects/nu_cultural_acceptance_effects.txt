@@ -1,0 +1,69 @@
+﻿nu_apply_foreign_education_cultural_acceptance_effect = {
+
+	# Root: child. The effect represents one full year spent being
+	# genuinely educated in a court of another culture.
+	if = {
+		limit = {
+			nu_is_genuinely_educated_abroad_trigger = yes
+			nu_is_in_cultural_acceptance_scope_trigger = yes
+			exists = court_owner
+			culture != court_owner.culture
+		}
+
+		culture = {
+			save_temporary_scope_as = nu_acceptance_source_culture
+		}
+
+		court_owner.culture = {
+			save_temporary_scope_as = nu_acceptance_target_culture
+		}
+
+		# Enforce a rolling one-year cap of ten contributions for the
+		# same unordered culture pair, i.e. +0.10 maximum.
+		if = {
+			limit = {
+				NOT = {
+					any_living_character = {
+						count >= 10
+						has_character_flag = nu_acceptance_contributed_this_year
+						OR = {
+							AND = {
+								exists = var:nu_acceptance_source_culture
+								exists = var:nu_acceptance_target_culture
+								var:nu_acceptance_source_culture = scope:nu_acceptance_source_culture
+								var:nu_acceptance_target_culture = scope:nu_acceptance_target_culture
+							}
+							AND = {
+								exists = var:nu_acceptance_source_culture
+								exists = var:nu_acceptance_target_culture
+								var:nu_acceptance_source_culture = scope:nu_acceptance_target_culture
+								var:nu_acceptance_target_culture = scope:nu_acceptance_source_culture
+							}
+						}
+					}
+				}
+			}
+
+			scope:nu_acceptance_source_culture = {
+				change_cultural_acceptance = {
+					target = scope:nu_acceptance_target_culture
+					value = 0.01
+					desc = nu_foreign_education_cultural_acceptance_desc
+				}
+			}
+
+			set_variable = {
+				name = nu_acceptance_source_culture
+				value = scope:nu_acceptance_source_culture
+			}
+			set_variable = {
+				name = nu_acceptance_target_culture
+				value = scope:nu_acceptance_target_culture
+			}
+			add_character_flag = {
+				flag = nu_acceptance_contributed_this_year
+				years = 1
+			}
+		}
+	}
+}
