@@ -149,7 +149,9 @@
 					}
 
 					OR = {
+						faith != scope:secondary_actor.faith
 						rite != scope:secondary_actor.rite
+						faith != scope:recipient.faith
 						rite != scope:recipient.rite
 					}
 				}
@@ -267,7 +269,9 @@
 			}
 
 			OR = {
+				scope:secondary_recipient.faith != scope:secondary_actor.faith
 				scope:secondary_recipient.rite != scope:secondary_actor.rite
+				scope:secondary_recipient.faith != scope:recipient.faith
 				scope:secondary_recipient.rite != scope:recipient.rite
 			}
 		}
