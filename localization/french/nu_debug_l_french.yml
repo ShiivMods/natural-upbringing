@@ -45,3 +45,6 @@
  nu_debug.0003.words:0 "Quelques mots familiers"
  nu_debug.0003.two_worlds:0 "Entre deux mondes"
  nu_debug.0003.cancel:0 "Annuler"
+
+ nu_debug_force_runaway_interaction:0 "Natural Upbringing : Forcer une fugue"
+ nu_debug_force_runaway_interaction_desc:0 "Force le démarrage de l'arc de fugue sur cet enfant en lui donnant, si nécessaire, l'état minimal de mal du pays requis."
