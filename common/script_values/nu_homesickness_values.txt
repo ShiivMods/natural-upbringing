@@ -44,16 +44,27 @@
 
 
 	# =========================================================
-	# FOREIGN RELIGIOUS ENVIRONMENT
+	# FOREIGN FAITH / RITE ENVIRONMENT
 	# =========================================================
 
+	# A different faith is a stronger source of disorientation.
 	if = {
 		limit = {
 			exists = scope:nu_homesickness_current_faith
-			rite != scope:nu_homesickness_current_faith
+			faith != scope:nu_homesickness_current_faith
 		}
 
 		multiply = 1.25
+	}
+
+	# A different rite within the same faith still matters, but less.
+	else_if = {
+		limit = {
+			exists = scope:nu_homesickness_current_rite
+			rite != scope:nu_homesickness_current_rite
+		}
+
+		multiply = 1.10
 	}
 
 
@@ -108,9 +119,17 @@
 
 				AND = {
 					exists = scope:nu_homesickness_current_faith
+					exists = var:nu_belief_exposure_target
+					has_variable = nu_belief_exposure_score
+					var:nu_belief_exposure_target = scope:nu_homesickness_current_faith
+					var:nu_belief_exposure_score >= 50
+				}
+
+				AND = {
+					exists = scope:nu_homesickness_current_rite
 					exists = var:nu_rite_exposure_target
 					has_variable = nu_faith_exposure_score
-					var:nu_rite_exposure_target = scope:nu_homesickness_current_faith
+					var:nu_rite_exposure_target = scope:nu_homesickness_current_rite
 					var:nu_faith_exposure_score >= 50
 				}
 			}
@@ -132,9 +151,17 @@
 
 				AND = {
 					exists = scope:nu_homesickness_current_faith
+					exists = var:nu_belief_exposure_target
+					has_variable = nu_belief_exposure_score
+					var:nu_belief_exposure_target = scope:nu_homesickness_current_faith
+					var:nu_belief_exposure_score >= 30
+				}
+
+				AND = {
+					exists = scope:nu_homesickness_current_rite
 					exists = var:nu_rite_exposure_target
 					has_variable = nu_faith_exposure_score
-					var:nu_rite_exposure_target = scope:nu_homesickness_current_faith
+					var:nu_rite_exposure_target = scope:nu_homesickness_current_rite
 					var:nu_faith_exposure_score >= 30
 				}
 			}
@@ -207,30 +234,42 @@
 	# =========================================================
 	# RELIGIOUS PERSONALITY
 	# =========================================================
-	#
-	# These only matter when the child's current court actually
-	# follows another faith.
-	# =========================================================
 
 	if = {
 		limit = {
 			has_trait = zealous
-
 			exists = scope:nu_homesickness_current_faith
-			rite != scope:nu_homesickness_current_faith
+			faith != scope:nu_homesickness_current_faith
 		}
 
 		multiply = 1.35
+	}
+	else_if = {
+		limit = {
+			has_trait = zealous
+			exists = scope:nu_homesickness_current_rite
+			rite != scope:nu_homesickness_current_rite
+		}
+
+		multiply = 1.15
 	}
 
 	if = {
 		limit = {
 			has_trait = cynical
-
 			exists = scope:nu_homesickness_current_faith
-			rite != scope:nu_homesickness_current_faith
+			faith != scope:nu_homesickness_current_faith
 		}
 
 		multiply = 0.80
+	}
+	else_if = {
+		limit = {
+			has_trait = cynical
+			exists = scope:nu_homesickness_current_rite
+			rite != scope:nu_homesickness_current_rite
+		}
+
+		multiply = 0.90
 	}
 }
