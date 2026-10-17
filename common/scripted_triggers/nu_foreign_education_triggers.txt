@@ -41,3 +41,46 @@
 		}
 	}
 }
+
+
+# Root: child. CHARACTER: potential crush.
+nu_can_form_foreign_crush_with_trigger = {
+	is_adult = no
+	age > childhood_education_start_age
+	OR = {
+		has_sexuality = heterosexual
+		has_sexuality = bisexual
+		has_sexuality = homosexual
+	}
+	is_attracted_to_gender_of = $CHARACTER$
+	NOT = { has_relation_crush = $CHARACTER$ }
+
+	$CHARACTER$ = {
+		is_adult = no
+		age > childhood_education_start_age
+		age >= root.age_dif_child_down
+		age <= root.age_dif_child_up
+		this != root
+		is_imprisoned = no
+		is_close_family_of_root_trigger = no
+	}
+}
+
+
+# Root: child. CHARACTER: crush.
+# Different-sex crushes can be reported normally. Same-sex crushes
+# remain private unless both children's rites accept homosexuality.
+nu_foreign_crush_is_reportable_trigger = {
+	OR = {
+		sex_opposite_of = $CHARACTER$
+		AND = {
+			sex_same_as = $CHARACTER$
+			rite = {
+				rite_has_parameter = homosexuality_accepted
+			}
+			$CHARACTER$.rite = {
+				rite_has_parameter = homosexuality_accepted
+			}
+		}
+	}
+}
