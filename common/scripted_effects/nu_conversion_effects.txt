@@ -646,6 +646,97 @@ nu_debug_force_cultural_assimilation_effect = {
 }
 
 
+nu_debug_force_belief_assimilation_effect = {
+
+	if = {
+		limit = {
+			exists = var:nu_belief_exposure_target
+		}
+
+		var:nu_belief_exposure_target = {
+			save_temporary_scope_as = nu_conversion_belief
+		}
+
+		if = {
+			limit = {
+				faith != scope:nu_conversion_belief
+			}
+
+			# Prefer the rite actually shaping the child's exposure.
+			if = {
+				limit = {
+					exists = scope:nu_guardian
+					scope:nu_guardian.faith = scope:nu_conversion_belief
+				}
+
+				scope:nu_guardian.rite = {
+					save_temporary_scope_as = nu_conversion_faith
+				}
+			}
+
+			else_if = {
+				limit = {
+					court_owner ?= {
+						faith = scope:nu_conversion_belief
+					}
+				}
+
+				court_owner.rite = {
+					save_temporary_scope_as = nu_conversion_faith
+				}
+			}
+
+			# Debug fallback for a valid tracked faith whose original
+			# guardian or court context is no longer available.
+			else = {
+				scope:nu_conversion_belief.main_rite = {
+					save_temporary_scope_as = nu_conversion_faith
+				}
+			}
+
+			if = {
+				limit = {
+					exists = scope:nu_conversion_faith
+				}
+
+				if = {
+					limit = {
+						has_variable = nu_belief_exposure_years
+						var:nu_belief_exposure_years <= 3
+					}
+
+					add_character_flag = {
+						flag = nu_recent_religious_assimilation_rapid
+						months = 1
+					}
+				}
+
+				add_character_flag = nu_belief_assimilated_this_birthday
+				add_character_flag = {
+					flag = nu_recent_belief_assimilation
+					months = 1
+				}
+				add_character_flag = nu_assimilation_happened_this_birthday
+
+				nu_save_religious_assimilation_context_effect = yes
+				convert_to_rite_with_consequences_effect = { RITE = scope:nu_conversion_faith }
+
+				remove_variable = nu_belief_exposure_target
+				remove_variable = nu_belief_exposure_years
+				remove_variable = nu_belief_exposure_score
+				remove_variable = nu_belief_exposure_floor
+
+				# A faith conversion already establishes a rite of that faith.
+				remove_variable = nu_rite_exposure_target
+				remove_variable = nu_faith_exposure_years
+				remove_variable = nu_faith_exposure_score
+				remove_variable = nu_faith_exposure_floor
+			}
+		}
+	}
+}
+
+
 nu_debug_force_religious_assimilation_effect = {
 
 	if = {
