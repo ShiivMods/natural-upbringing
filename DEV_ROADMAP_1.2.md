@@ -943,6 +943,18 @@ Intrigue :
 - sévère : engagement sur une route ou dans une zone trop difficile, grave affaiblissement ;
 - mort : plusieurs causes distinctes, par exemple perte prolongée, froid ou isolement.
 
+#### Continuité de la tutelle pendant la fugue
+
+- la fugue ne met pas automatiquement fin à la tutelle étrangère ;
+- pendant l'arc, l'enfant reste considéré par Natural Upbringing comme un pupille de son tuteur tant qu'aucune résolution ne le ramène réellement chez lui ;
+- l'exposition culturelle et religieuse liée à cette tutelle ne doit donc pas être interrompue simplement parce que la fugue est en cours ;
+- en cas d'échec standard, l'enfant est retrouvé puis ramené chez son tuteur et la tutelle continue normalement ;
+- les exceptions dépendent de la branche narrative exacte de l'événement ;
+- certaines résolutions peuvent conduire ailleurs qu'au retour chez le tuteur, par exemple un enfant retenu contre rançon par un autre seigneur ;
+- dans un cas de ce type, le joueur peut devoir payer ou résoudre la situation, puis l'enfant peut être ramené directement au foyer ;
+- tout retour effectif au foyer met fin à la continuité automatique de la tutelle étrangère et doit appliquer les règles normales de retour de NU ;
+- ne pas imposer une règle unique du type « tout échec retourne chez le tuteur » lorsque l'événement spécifique justifie une autre résolution.
+
 #### Retour réussi et choix du parent
 
 - si l'enfant rentre chez lui, le parent peut décider de le laisser rester ou de le renvoyer auprès de son tuteur ;
