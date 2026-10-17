@@ -1,0 +1,455 @@
+﻿namespace = nu_runaway
+
+
+# =============================================================
+# 0001 - DISAPPEARANCE
+# =============================================================
+
+nu_runaway.0001 = {
+	type = letter_event
+	opening = nu_runaway.0001.opening
+	desc = nu_runaway.0001.desc
+	sender = scope:nu_runaway_guardian
+
+	option = {
+		name = nu_runaway.0001.a
+	}
+}
+
+
+# =============================================================
+# 0010 - SEARCHES AND RUMORS
+# =============================================================
+
+nu_runaway.0010 = {
+	type = letter_event
+	opening = nu_runaway.0010.opening
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_status_danger
+					}
+				}
+				desc = nu_runaway.0010.desc.danger
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_status_worry
+					}
+				}
+				desc = nu_runaway.0010.desc.worry
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_status_encouraging
+					}
+				}
+				desc = nu_runaway.0010.desc.encouraging
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_status_near_home
+					}
+				}
+				desc = nu_runaway.0010.desc.near_home
+			}
+			desc = nu_runaway.0010.desc.uncertain
+		}
+	}
+	sender = scope:nu_runaway_guardian
+
+	option = {
+		name = nu_runaway.0010.a
+	}
+}
+
+
+# =============================================================
+# 0100 - SUCCESSFUL RETURN, PARENT DECISION
+# =============================================================
+
+nu_runaway.0100 = {
+	type = character_event
+	theme = family
+
+	title = nu_runaway.0100.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_critical_success
+					}
+				}
+				desc = nu_runaway.0100.desc.critical
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_success
+					}
+				}
+				desc = nu_runaway.0100.desc.success
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_helped
+					}
+				}
+				desc = nu_runaway.0100.desc.helped
+			}
+			desc = nu_runaway.0100.desc.escorted
+		}
+	}
+
+	left_portrait = {
+		character = scope:nu_runaway_child
+	}
+
+	right_portrait = {
+		character = scope:nu_runaway_guardian
+	}
+
+	option = {
+		name = nu_runaway.0100.a
+
+		if = {
+			limit = {
+				exists = scope:nu_runaway_child
+				exists = scope:nu_runaway_guardian
+				scope:nu_runaway_child = {
+					is_alive = yes
+					any_relation = {
+						type = guardian
+						this = scope:nu_runaway_guardian
+					}
+				}
+			}
+
+			scope:nu_runaway_child = {
+				add_opinion = {
+					target = root
+					modifier = nu_runaway_parent_accepted_return
+				}
+			}
+
+			remove_guardian_effect = {
+				GUARDIAN = scope:nu_runaway_guardian
+				WARD = scope:nu_runaway_child
+				RETURN_WARD = yes
+				HIDE_OPINION = yes
+			}
+
+			scope:nu_runaway_child = {
+				remove_variable = nu_homesickness_abroad_years
+				nu_clear_homesickness_effect = yes
+			}
+		}
+
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			callous = minor_stress_impact_gain
+			stubborn = minor_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 70
+			modifier = { add = 50 has_trait = compassionate }
+			modifier = { add = 20 has_trait = trusting }
+			modifier = { add = -40 has_trait = callous }
+			modifier = { add = -25 has_trait = stubborn }
+			modifier = { add = -15 has_trait = ambitious }
+		}
+	}
+
+	option = {
+		name = nu_runaway.0100.b
+
+		if = {
+			limit = {
+				exists = scope:nu_runaway_child
+				scope:nu_runaway_child = {
+					is_alive = yes
+				}
+			}
+
+			scope:nu_runaway_child = {
+				add_stress = medium_stress_gain
+
+				add_opinion = {
+					target = root
+					modifier = nu_runaway_parent_sent_back
+				}
+
+				if = {
+					limit = { has_variable = nu_homesickness_severity }
+					change_variable = {
+						name = nu_homesickness_severity
+						add = 2
+					}
+				}
+				else = {
+					set_variable = {
+						name = nu_homesickness_severity
+						value = 3
+					}
+				}
+
+				if = {
+					limit = {
+						NOT = { has_character_flag = nu_homesickness_active }
+					}
+					add_character_flag = nu_homesickness_active
+				}
+
+				if = {
+					limit = {
+						NOT = { has_variable = nu_homesickness_active_years }
+					}
+					set_variable = {
+						name = nu_homesickness_active_years
+						value = 1
+					}
+				}
+			}
+		}
+
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			callous = miniscule_stress_impact_loss
+			stubborn = minor_stress_impact_loss
+			ambitious = miniscule_stress_impact_loss
+		}
+
+		ai_chance = {
+			base = 30
+			modifier = { add = 50 has_trait = callous }
+			modifier = { add = 30 has_trait = stubborn }
+			modifier = { add = 20 has_trait = ambitious }
+			modifier = { add = -30 has_trait = compassionate }
+			modifier = { add = -10 has_trait = trusting }
+		}
+	}
+}
+
+
+# =============================================================
+# 0200 - NORMAL FAILURE
+# =============================================================
+
+nu_runaway.0200 = {
+	type = letter_event
+	opening = nu_runaway.0200.opening
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_failure_severe
+						has_focus = education_diplomacy
+					}
+				}
+				desc = nu_runaway.0200.desc.severe_diplomacy
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_failure_severe
+						has_focus = education_martial
+					}
+				}
+				desc = nu_runaway.0200.desc.severe_martial
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_failure_severe
+						has_focus = education_stewardship
+					}
+				}
+				desc = nu_runaway.0200.desc.severe_stewardship
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_failure_severe
+						has_focus = education_intrigue
+					}
+				}
+				desc = nu_runaway.0200.desc.severe_intrigue
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_failure_severe
+						has_focus = education_learning
+					}
+				}
+				desc = nu_runaway.0200.desc.severe_learning
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_failure_serious
+					}
+				}
+				desc = nu_runaway.0200.desc.serious
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_runaway_child = {
+						has_character_flag = nu_runaway_result_failure_difficulty
+					}
+				}
+				desc = nu_runaway.0200.desc.difficulty
+			}
+			desc = nu_runaway.0200.desc.safe
+		}
+	}
+
+	sender = scope:nu_runaway_guardian
+
+	option = {
+		name = nu_runaway.0200.a
+	}
+}
+
+
+# =============================================================
+# 0300 - CRITICAL FAILURE
+# =============================================================
+
+nu_runaway.0300 = {
+	type = letter_event
+	opening = nu_runaway.0300.opening
+
+	desc = {
+		first_valid = {
+			# Death, one cause per education domain.
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_death has_focus = education_martial } }
+				desc = nu_runaway.0300.desc.death_martial
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_death has_focus = education_stewardship } }
+				desc = nu_runaway.0300.desc.death_stewardship
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_death has_focus = education_intrigue } }
+				desc = nu_runaway.0300.desc.death_intrigue
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_death has_focus = education_learning } }
+				desc = nu_runaway.0300.desc.death_learning
+			}
+
+			# Severe.
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_severe has_focus = education_diplomacy } }
+				desc = nu_runaway.0300.desc.severe_diplomacy
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_severe has_focus = education_martial } }
+				desc = nu_runaway.0300.desc.severe_martial
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_severe has_focus = education_stewardship } }
+				desc = nu_runaway.0300.desc.severe_stewardship
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_severe has_focus = education_intrigue } }
+				desc = nu_runaway.0300.desc.severe_intrigue
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_severe has_focus = education_learning } }
+				desc = nu_runaway.0300.desc.severe_learning
+			}
+
+			# Aggravated.
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_aggravated has_focus = education_diplomacy } }
+				desc = nu_runaway.0300.desc.aggravated_diplomacy
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_aggravated has_focus = education_martial } }
+				desc = nu_runaway.0300.desc.aggravated_martial
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_aggravated has_focus = education_stewardship } }
+				desc = nu_runaway.0300.desc.aggravated_stewardship
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_aggravated has_focus = education_intrigue } }
+				desc = nu_runaway.0300.desc.aggravated_intrigue
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_character_flag = nu_runaway_critical_aggravated has_focus = education_learning } }
+				desc = nu_runaway.0300.desc.aggravated_learning
+			}
+
+			# Safe returns.
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_focus = education_diplomacy } }
+				desc = nu_runaway.0300.desc.safe_diplomacy
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_focus = education_martial } }
+				desc = nu_runaway.0300.desc.safe_martial
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_focus = education_stewardship } }
+				desc = nu_runaway.0300.desc.safe_stewardship
+			}
+			triggered_desc = {
+				trigger = { scope:nu_runaway_child = { has_focus = education_intrigue } }
+				desc = nu_runaway.0300.desc.safe_intrigue
+			}
+			desc = nu_runaway.0300.desc.safe_learning
+		}
+	}
+
+	sender = scope:nu_runaway_guardian
+
+	option = {
+		name = nu_runaway.0300.a
+	}
+}
+
+
+# =============================================================
+# 9000 - HIDDEN MONTHLY PROGRESSION
+# =============================================================
+
+nu_runaway.9000 = {
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_character_flag = nu_runaway_active
+				is_alive = yes
+			}
+
+			nu_runaway_monthly_progress_effect = yes
+
+			if = {
+				limit = {
+					has_character_flag = nu_runaway_active
+					is_alive = yes
+				}
+				trigger_event = {
+					id = nu_runaway.9000
+					days = 30
+				}
+			}
+		}
+	}
+}
