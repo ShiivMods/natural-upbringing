@@ -468,7 +468,7 @@
 	else_if = {
 		limit = {
 			court_owner ?= {
-				rite != root.faith
+				faith != root.faith
 			}
 		}
 
