@@ -249,9 +249,13 @@
 		remove_variable = nu_faith_exposure_floor
 	}
 
+	# Rite exposure exists only inside the child's current faith.
+	# If the surrounding faith itself is different, the child gains
+	# faith exposure instead and the foreign rite does not accelerate it.
 	if = {
 		limit = {
 			exists = scope:nu_guardian
+			scope:nu_guardian.faith = root.faith
 			scope:nu_guardian.rite != root.rite
 		}
 
@@ -263,6 +267,7 @@
 	else_if = {
 		limit = {
 			court_owner ?= {
+				faith = root.faith
 				rite != root.rite
 			}
 		}
@@ -274,7 +279,7 @@
 
 
 	# ---------------------------------------------------------
-	# We are currently exposed to a foreign faith.
+	# We are currently exposed to a foreign rite within our own faith.
 	# ---------------------------------------------------------
 
 	if = {
@@ -282,7 +287,7 @@
 			exists = scope:nu_faith_environment
 		}
 
-		# Same faith as last year:
+		# Same rite as last year:
 		# continue accumulating exposure.
 		if = {
 			limit = {
@@ -357,8 +362,8 @@
 			}
 		}
 
-		# New religious environment:
-		# begin tracking the new faith from scratch.
+		# New rite environment:
+		# begin tracking the new rite from scratch.
 		else = {
 			set_variable = {
 				name = nu_rite_exposure_target
@@ -380,7 +385,7 @@
 	}
 
 	# ---------------------------------------------------------
-	# The child has adopted the faith previously tracked.
+	# The child has adopted the rite previously tracked.
 	# The old exposure is no longer relevant.
 	# ---------------------------------------------------------
 
