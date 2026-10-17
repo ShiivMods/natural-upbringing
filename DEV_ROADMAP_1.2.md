@@ -40,7 +40,7 @@
 - Les choix du parent doivent donc surtout représenter une réaction, une réponse à une lettre ou une décision logistique/politique lorsque cela est réellement crédible.
 - Les événements doivent être résolus principalement par la personnalité, les compétences, le focus d'éducation et l'environnement de l'enfant et du tuteur.
 - Des exceptions sont possibles lorsque le parent peut raisonnablement intervenir à distance, mais elles doivent rester rares et justifiées.
-- Les propositions concrètes d'événements par domaine ne sont pas encore validées.
+- Le premier pack de 10 événements par domaine est désormais validé plus bas dans ce document.
 
 ### Cohérence du contexte de la cour étrangère
 
@@ -110,7 +110,7 @@
   - assimilation culturelle et/ou religieuse étrangère ;
   - soutien potentiel du seigneur ou de la cour où l'enfant a été élevé pour revendiquer le titre familial.
 - Ces événements peuvent devenir des arcs en plusieurs étapes et laisser des conséquences longtemps après la fin de l'éducation.
-- Leur conception est repoussée après les événements normaux afin de ne pas diluer le développement du système de base.
+- Leur conception et leur implémentation sont reportées à la 1.2.1. La 1.2 contient déjà suffisamment de nouveaux systèmes et d'événements, notamment l'arc de fugue.
 
 ### Premier lot d'événements généraux validé
 
@@ -226,14 +226,14 @@ Ordre validé pour la variante Difficile : tester d'abord la fugue si elle est p
 - L'événement raconte une nouvelle confrontation et peut faire évoluer la relation.
 - Issues possibles :
   - rivalité inchangée ;
-  - réconciliation et transformation en amitié ;
-  - escalade et transformation en némésis ;
-  - transformation en béguin si les règles d'attirance sont remplies.
+  - réconciliation et transformation en amitié : la relation Rival disparaît, conformément aux relations opposées vanilla ;
+  - escalade et transformation en némésis : la relation Rival est remplacée par Némésis, conformément aux relations opposées vanilla ;
+  - apparition d'un béguin si les règles d'attirance sont remplies : le Béguin s'ajoute sans supprimer la rivalité, car Rival et Béguin sont compatibles dans les définitions vanilla ; ce comportement est validé pour la 1.2.
 - Les chances doivent être pondérées par la personnalité de l'enfant :
   - Indulgent, Compatissant, Sociable, Confiant, traits similaires : favorisent la réconciliation ;
   - Vengeur, Colérique, Sadique, Obstiné, traits similaires : favorisent la némésis ;
   - le béguin dépend principalement de l'attirance et de la compatibilité sexuelle.
-- Les pourcentages exacts restent à cadrer avant implémentation.
+- La pondération exacte est validée dans la section dédiée ci-dessous.
 
 
 ### Pondération validée de l'événement « Le Rival »
@@ -816,6 +816,12 @@ Hooks :
 - [À tester en jeu] « L'étranger de la cour » et « Une coutume étrange » peuvent produire de très légers effets de stress ou d'exposition selon la personnalité.
 - [À tester en jeu] « Quelques mots familiers » exige une exposition culturelle déjà sensible ; « Deux mondes » exige une exposition plus profonde et ne peut apparaître qu'une fois par enfance.
 
+### Finitions du pack d'événements de focus
+
+- Les réactions parentales précises aux 10 événements de focus seront définies selon les six familles de traits déjà validées, en restant plus légères que pour les grands événements généraux.
+- Les petites probabilités encore qualitatives sont laissées à l'équilibrage de conception avant implémentation : rivalité, progression d'amitié, +1 Prouesse contextuel et hooks faibles.
+- Ces valeurs devront rester modestes, cohérentes avec vanilla et seront reprises explicitement dans `VALIDATION_1.2.md` avant implémentation définitive.
+
 ### Mal du pays persistant
 
 - [Décision validée] Le mal du pays devient un état persistant, distinct de la simple demande de retour au foyer.
@@ -842,7 +848,10 @@ Principes validés :
 - le parent ne contrôle pas les décisions prises par l'enfant pendant la fugue.
 
 Chance de déclenchement :
-- valeur validée : 5 % pour le déclenchement spontané ;
+- valeur de base validée : 5 % pour le déclenchement spontané ;
+- cette chance doit être modulée par la personnalité de l'enfant ;
+- les traits cohérents avec une fuite autonome augmentent la probabilité, tandis que les traits craintifs ou fortement inhibiteurs la réduisent ;
+- exemple validé : un enfant Lâche doit être nettement moins susceptible de fuguer qu'un enfant Brave, Obstiné, Colérique ou particulièrement déterminé ;
 - un seul jet spontané lorsqu'un enfant devient éligible après au moins 1 an de mal du pays ;
 - si ce jet échoue, il n'est pas répété automatiquement chaque mois ou chaque anniversaire ;
 - les déclenchements contextuels déjà prévus, notamment la variante « Difficile » de « Des nouvelles de mon enfant », peuvent toujours proposer leur propre très faible chance tant que l'enfant n'a jamais réellement fugué ;
@@ -950,12 +959,27 @@ Intrigue :
 - sévère : engagement sur une route ou dans une zone trop difficile, grave affaiblissement ;
 - mort : plusieurs causes distinctes, par exemple perte prolongée, froid ou isolement.
 
+#### Continuité de la tutelle pendant la fugue
+
+- la fugue ne met pas automatiquement fin à la tutelle étrangère ;
+- pendant l'arc, l'enfant reste considéré par Natural Upbringing comme un pupille de son tuteur tant qu'aucune résolution ne le ramène réellement chez lui ;
+- l'exposition culturelle et religieuse liée à cette tutelle ne doit donc pas être interrompue simplement parce que la fugue est en cours ;
+- en cas d'échec standard, l'enfant est retrouvé puis ramené chez son tuteur et la tutelle continue normalement ;
+- les exceptions dépendent de la branche narrative exacte de l'événement ;
+- certaines résolutions peuvent conduire ailleurs qu'au retour chez le tuteur, par exemple un enfant retenu contre rançon par un autre seigneur ;
+- dans un cas de ce type, le joueur peut devoir payer ou résoudre la situation, puis l'enfant peut être ramené directement au foyer ;
+- tout retour effectif au foyer met fin à la continuité automatique de la tutelle étrangère et doit appliquer les règles normales de retour de NU ;
+- ne pas imposer une règle unique du type « tout échec retourne chez le tuteur » lorsque l'événement spécifique justifie une autre résolution.
+
 #### Retour réussi et choix du parent
 
 - si l'enfant rentre chez lui, le parent peut décider de le laisser rester ou de le renvoyer auprès de son tuteur ;
 - laisser l'enfant rester met fin à la tutelle étrangère et au mal du pays ;
 - accepter son retour augmente l'opinion de l'enfant envers le parent ;
 - le renvoyer auprès de son tuteur diminue l'opinion de l'enfant envers le parent ;
+- si l'enfant est renvoyé après avoir réussi à rentrer, son mal du pays est renforcé plutôt que supprimé ;
+- cette aggravation doit avoir des conséquences émotionnelles fortes, mais aucune seconde fugue réelle n'est possible en 1.2 ;
+- la possibilité d'une seconde fugue est reportée à la 1.2.1 et sera liée aux futurs événements rares, qui pourront augmenter fortement sa probabilité lorsque le contexte narratif le justifie ;
 - les réactions et effets secondaires du choix du parent utilisent les six familles de traits déjà définies ;
 - les options restent accessibles au joueur, les traits adaptent principalement texte, stress, opinion et tonalité, conformément au fonctionnement vanilla ;
 - agir à contre-caractère reste donc possible mais peut produire du stress ;
@@ -967,7 +991,9 @@ Prestige lié à l'issue :
 - réussite critique à +4 : gain de prestige moyen pour l'enfant ;
 - fugue échouée : perte de prestige mineure pour l'enfant ;
 - le prestige est appliqué indépendamment du choix ultérieur du parent ;
-- la mort n'ajoute pas de perte de prestige supplémentaire.
+- la mort n'ajoute pas de perte de prestige supplémentaire ;
+- lorsqu'une mort pendant la fugue déclenche déjà des conséquences vanilla appropriées, notamment deuil, stress ou réactions familiales, NU laisse CK3 les gérer ;
+- ne pas doubler artificiellement les conséquences vanilla, sauf exception spécifique nécessaire à la cohérence de l'arc.
 
 
 ### Affichage de la fugue dans l'onglet Situations
@@ -996,9 +1022,10 @@ Principe validé :
 
 Équilibrage :
 - le gain doit être extrêmement faible, inférieur aux gains événementiels vanilla ordinaires ;
-- ordre de grandeur retenu pour équilibrage : environ +0,01 à +0,02 d'acceptation par année complète et par enfant ;
-- la valeur finale exacte sera choisie lors de l'implémentation / des tests ;
-- prévoir un plafond annuel par paire de cultures afin d'empêcher l'exploitation via un grand nombre de pupilles.
+- valeur de départ validée : +0,01 d'acceptation par année complète et par enfant ;
+- plafond annuel validé : +0,10 par paire de cultures ;
+- ces valeurs restent réévaluables après test en jeu si elles se révèlent trop faibles ou trop fortes ;
+- le plafond empêche l'exploitation via un grand nombre de pupilles.
 
 Scope indépendant :
 - ajouter une Game Rule dédiée à la portée de cette mécanique ;
@@ -1201,15 +1228,26 @@ Scope indépendant :
 - Revoir les Game Rules uniquement lorsque des extensions hors scope direct de l'éducation des enfants seront ajoutées.
 - Ajouter de nouveaux événements d'éducation liés aux différents domaines d'éducation. Priorité actuelle : événements normaux. Les événements rares à fort impact seront conçus ensuite comme arcs conditionnels.
 
-## Notes pour le futur changelog
+## Document de validation final
 
-Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du développement, convertir uniquement les fonctionnalités réellement implémentées et testées en notes de version FR/EN.
-
+- une fois le cadrage fonctionnel et narratif de la 1.2 terminé, créer un document séparé `VALIDATION_1.2.md` ;
+- ce document ne remplace pas la roadmap : il sert de synthèse courte avant implémentation finale / validation globale ;
+- il doit reprendre uniquement les décisions réellement importantes à relire :
+  - mécaniques ;
+  - probabilités et seuils ;
+  - effets ;
+  - réactions adaptatives ;
+  - conséquences ;
+  - textes ou formulations majeurs ;
+  - points encore discutables ;
+- chaque point doit pouvoir être facilement confirmé, modifié ou reporté ;
+- l'objectif est de permettre une dernière passe de validation sans devoir relire toute la roadmap ni l'historique de discussion ;
+- après validation, le document sert de référence de cadrage pendant l'implémentation et les tests.
 
 ## Extension Crozier : exposition distincte à la foi et au rite (1.2)
 
 - [À tester en jeu] Le suivi de l'exposition à un rite est conservé avec ses variables actuelles (`nu_rite_exposure_target` et `nu_faith_exposure_*`) afin de ne pas réinitialiser les sauvegardes de développement.
-- [À tester en jeu] La nouvelle exposition à une foi différente est indépendante, via `nu_belief_exposure_*`. Elle reprend les gains, seuils et chances du modèle religieux actuel.
+- [À tester en jeu] La nouvelle exposition à une foi différente est indépendante, via `nu_belief_exposure_*`.
 - [À tester en jeu] Hiérarchie religieuse stricte : la foi est évaluée avant le rite.
 - [À tester en jeu] Si la foi de l'environnement éducatif est différente de celle de l'enfant, seule l'exposition à la foi progresse. Le rite étranger n'ajoute aucune exposition séparée et n'accélère donc jamais la conversion religieuse.
 - [À tester en jeu] Si la foi est identique mais le rite différent, seule l'exposition au rite progresse.
@@ -1223,12 +1261,13 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - [À tester en jeu] Lettres parentales différenciées et notifications de tuteur sans doublon, y compris lorsque l'assimilation culturelle survient au même anniversaire.
 - [À tester en jeu] Le mal du pays distingue désormais une foi différente d'un simple rite différent au sein de la même foi. Une foi étrangère pèse davantage ; un rite étranger produit un effet plus faible mais réel.
 - [À tester en jeu] Les outils de debug distinguent désormais Culture, Foi et Rite pour l'inspection et l'assimilation forcée.
-- [Validation statique] Les comparaisons de scopes foi / rite du nouveau système ont été auditées et les comparaisons de type incorrect identifiées ont été corrigées.
-- [Validation statique] Les fichiers texte du mod sur cette branche utilisent tous un BOM UTF-8.
 - [Décision validée] À niveau d'exposition comparable, le rite est plus facile à assimiler qu'une foi complète.
 - Table de conversion de foi : score 5/15/30/45/60/75/90 -> 1/2/5/10/18/28/40 %.
 - Table de changement de rite : score 5/15/30/45/60/75/90 -> 2/4/8/15/25/38/55 %.
-- Modificateurs de personnalité pour la foi : Zélé x0,55 ; Cynique x1,35 ; Obstiné x0,80 ; Versatile x1,20 ; Confiant x1,10 ; Paranoïaque x0,85.
-- Modificateurs de personnalité pour le rite : Zélé x0,75 ; Cynique x1,20 ; Obstiné x0,90 ; Versatile x1,15 ; Confiant x1,10 ; Paranoïaque x0,90.
+- Modificateurs de personnalité pour la foi : Zélé x0,55 ; Cynique x1,35 ; Obstiné x0,80 ; Inconstant x1,20 ; Confiant x1,10 ; Paranoïaque x0,85.
+- Modificateurs de personnalité pour le rite : Zélé x0,75 ; Cynique x1,20 ; Obstiné x0,90 ; Inconstant x1,15 ; Confiant x1,10 ; Paranoïaque x0,90.
 - Ces valeurs sont validées comme point de départ et restent réévaluables uniquement si les tests groupés montrent un déséquilibre manifeste.
-- Ce développement reste non publié jusqu'à la campagne de tests générale de la 1.2.
+
+## Notes pour le futur changelog
+
+Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du développement, convertir uniquement les fonctionnalités réellement implémentées et testées en notes de version FR/EN.
