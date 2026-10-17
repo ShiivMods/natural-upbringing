@@ -17,9 +17,9 @@
  nu_assimilation.0001.context_court:0 "\n\nLa vie à la cour de [nu_cultural_assimilation_court_owner.GetFirstName] semble avoir profondément façonné [nu_assimilated_child.GetFirstName]."
  nu_assimilation.0001.context_guardian:0 "\n\nL'influence de [nu_cultural_assimilation_guardian.GetFirstName] semble avoir joué un rôle déterminant dans cette évolution."
 
- nu_assimilation.0002.context_guardian_court_attendant:0 "\n\nMême l'accompagnement religieux prévu pour préserver sa foi n'aura pas suffi. Sous la tutelle de [nu_religious_assimilation_guardian.GetFirstName], à la cour de [nu_religious_assimilation_court_owner.GetFirstName], de nouvelles convictions ont fini par prendre racine."
- nu_assimilation.0002.context_guardian_court:0 "\n\nL'influence de [nu_religious_assimilation_guardian.GetFirstName] et la vie à la cour de [nu_religious_assimilation_court_owner.GetFirstName] semblent avoir nourri cette nouvelle foi."
- nu_assimilation.0002.context_court:0 "\n\nLa vie à la cour de [nu_religious_assimilation_court_owner.GetFirstName] semble avoir nourri peu à peu ces nouvelles convictions."
+ nu_assimilation.0002.context_guardian_court_attendant:0 "\n\nMême l'accompagnement religieux prévu pour préserver nos traditions n'aura pas suffi. Sous la tutelle de [nu_religious_assimilation_guardian.GetFirstName], à la cour de [nu_religious_assimilation_court_owner.GetFirstName], d'autres pratiques religieuses ont peu à peu pris racine."
+ nu_assimilation.0002.context_guardian_court:0 "\n\nL'influence de [nu_religious_assimilation_guardian.GetFirstName] et la vie à la cour de [nu_religious_assimilation_court_owner.GetFirstName] semblent avoir façonné cette évolution."
+ nu_assimilation.0002.context_court:0 "\n\nLa vie à la cour de [nu_religious_assimilation_court_owner.GetFirstName] semble avoir progressivement favorisé ces nouvelles pratiques."
  nu_assimilation.0002.context_guardian:0 "\n\nL'influence de [nu_religious_assimilation_guardian.GetFirstName] semble avoir joué un rôle déterminant dans cette évolution spirituelle."
 
  nu_assimilation.0003.context_guardian_court:0 "\n\nSous la tutelle de [nu_cultural_assimilation_guardian.GetFirstName], à la cour de [nu_cultural_assimilation_court_owner.GetFirstName], [nu_assimilated_child.GetFirstName] semble avoir trouvé bien davantage qu'un simple lieu d'éducation."
