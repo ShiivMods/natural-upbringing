@@ -163,66 +163,20 @@ nu_debug_force_current_assimilation_interaction = {
 		scope:recipient = {
 			OR = {
 				exists = var:nu_culture_exposure_target
+				exists = var:nu_belief_exposure_target
 				exists = var:nu_rite_exposure_target
 			}
 		}
 	}
 
 	on_accept = {
-
-		# Both exposure types exist: let the player choose.
-		if = {
-			limit = {
-				scope:recipient = {
-					exists = var:nu_culture_exposure_target
-					exists = var:nu_rite_exposure_target
-				}
+		scope:actor = {
+			set_variable = {
+				name = nu_debug_conversion_target
+				value = scope:recipient
 			}
 
-			scope:actor = {
-				set_variable = {
-					name = nu_debug_conversion_target
-					value = scope:recipient
-				}
-
-				trigger_event = nu_debug.0002
-			}
-		}
-
-		# Culture only.
-		else_if = {
-			limit = {
-				scope:recipient = {
-					exists = var:nu_culture_exposure_target
-				}
-			}
-
-			scope:recipient = {
-				save_scope_as = nu_assimilated_child
-				nu_debug_force_cultural_assimilation_effect = yes
-			}
-
-			scope:actor = {
-				trigger_event = nu_assimilation.0001
-			}
-		}
-
-		# Faith only.
-		else_if = {
-			limit = {
-				scope:recipient = {
-					exists = var:nu_rite_exposure_target
-				}
-			}
-
-			scope:recipient = {
-				save_scope_as = nu_assimilated_child
-				nu_debug_force_religious_assimilation_effect = yes
-			}
-
-			scope:actor = {
-				trigger_event = nu_assimilation.0002
-			}
+			trigger_event = nu_debug.0002
 		}
 	}
 }
