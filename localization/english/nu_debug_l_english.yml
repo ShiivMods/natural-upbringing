@@ -48,3 +48,21 @@
 
  nu_debug_force_runaway_interaction:0 "Natural Upbringing: Force Runaway"
  nu_debug_force_runaway_interaction_desc:0 "Forces the runaway arc to begin for this child, granting the minimum required homesickness state when necessary."
+
+ nu_debug.0003.crush:0 "The Crush"
+ nu_debug.0003.rival:0 "The Rival"
+ nu_debug.0003.focus:0 "Education focus events..."
+
+ nu_debug.0004.t:0 "Natural Upbringing: Focus Event"
+ nu_debug.0004.desc:0 "Choose an event matching [nu_debug_education_child.GetFirstNamePossessive] current education focus."
+ nu_debug.0004.diplomacy_quarrels:0 "Diplomacy: Between Two Quarrels"
+ nu_debug.0004.diplomacy_visitor:0 "Diplomacy: A Face From Elsewhere"
+ nu_debug.0004.martial_field:0 "Martial: The Field Rather Than the Books"
+ nu_debug.0004.martial_blow:0 "Martial: One Blow Too Many"
+ nu_debug.0004.stewardship_count:0 "Stewardship: Something Does Not Add Up"
+ nu_debug.0004.stewardship_reserves:0 "Stewardship: Making Supplies Last"
+ nu_debug.0004.intrigue_overheard:0 "Intrigue: Not Meant for Their Ears"
+ nu_debug.0004.intrigue_leverage:0 "Intrigue: I Know Something You Do Not"
+ nu_debug.0004.learning_teachings:0 "Learning: Two Teachings, Two Truths"
+ nu_debug.0004.learning_why:0 "Learning: Why?"
+ nu_debug.0004.back:0 "Back"
