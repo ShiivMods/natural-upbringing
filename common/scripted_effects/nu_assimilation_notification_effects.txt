@@ -169,3 +169,40 @@ nu_notify_player_guardian_of_assimilation_effect = {
 		}
 	}
 }
+
+
+# Distinct faith conversion. No rite-only guardian toast is emitted
+# for this same conversion, even when the child's culture also changes.
+nu_notify_player_guardian_of_belief_assimilation_effect = {
+	if = {
+		limit = { exists = var:nu_last_religious_assimilation_guardian }
+		var:nu_last_religious_assimilation_guardian = {
+			if = {
+				limit = {
+					is_alive = yes
+					is_ai = no
+					NOT = { is_parent_of = scope:nu_assimilated_child }
+				}
+				if = {
+					limit = {
+						scope:nu_assimilated_child = { has_character_flag = nu_culture_assimilated_this_birthday }
+					}
+					send_interface_message = {
+						type = event_childhood_neutral_text
+						title = NU_GUARDIAN_ASSIMILATION_CULTURE_BELIEF_TITLE
+						desc = NU_GUARDIAN_ASSIMILATION_CULTURE_BELIEF_DESC
+						left_icon = scope:nu_assimilated_child
+					}
+				}
+				else = {
+					send_interface_message = {
+						type = event_childhood_neutral_text
+						title = NU_GUARDIAN_ASSIMILATION_BELIEF_TITLE
+						desc = NU_GUARDIAN_ASSIMILATION_BELIEF_DESC
+						left_icon = scope:nu_assimilated_child
+					}
+				}
+			}
+		}
+	}
+}
