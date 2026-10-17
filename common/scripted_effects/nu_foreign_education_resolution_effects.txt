@@ -457,16 +457,16 @@ nu_resolve_rival_news_effect = {
 			}
 
 			set_relation_crush = scope:nu_foreign_education_rival
-			add_character_flag = {
-				flag = nu_rival_news_crush
-				days = 7
-			}
 
 			if = {
 				limit = {
 					nu_foreign_crush_is_reportable_trigger = {
 						CHARACTER = scope:nu_foreign_education_rival
 					}
+				}
+				add_character_flag = {
+					flag = nu_rival_news_crush
+					days = 7
 				}
 				add_character_flag = {
 					flag = nu_foreign_crush_reportable
@@ -478,6 +478,12 @@ nu_resolve_rival_news_effect = {
 				}
 			}
 			else = {
+				# The relationship exists mechanically, but the parent
+				# must not learn anything that reveals the secret crush.
+				add_character_flag = {
+					flag = nu_rival_news_unchanged
+					days = 7
+				}
 				set_variable = {
 					name = nu_secret_foreign_crush
 					value = scope:nu_foreign_education_rival
