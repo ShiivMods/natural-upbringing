@@ -1191,3 +1191,15 @@ Scope indépendant :
 ## Notes pour le futur changelog
 
 Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du développement, convertir uniquement les fonctionnalités réellement implémentées et testées en notes de version FR/EN.
+
+
+## Extension Crozier : exposition distincte à la foi et au rite (1.2)
+
+- [À tester en jeu] Le suivi de l'exposition à un rite est conservé avec ses variables actuelles (`nu_rite_exposure_target` et `nu_faith_exposure_*`) afin de ne pas réinitialiser les sauvegardes de développement.
+- [À tester en jeu] La nouvelle exposition à une foi différente est indépendante, via `nu_belief_exposure_*`. Elle reprend les gains, seuils et chances du modèle religieux actuel.
+- [À tester en jeu] Lorsqu'un enfant et son tuteur partagent la même foi, seul un changement de rite est possible.
+- [À tester en jeu] Si leurs fois diffèrent, une conversion éventuelle adopte le rite du tuteur et par conséquent sa foi.
+- [À tester en jeu] La protection religieuse contractuelle interdit les deux types d'assimilation.
+- [À tester en jeu] Lettres parentales différenciées et notifications de tuteur sans doublon, y compris lorsque l'assimilation culturelle survient au même anniversaire.
+- [À affiner après tests groupés] Ajuster séparément les probabilités et la sensibilité des parents aux changements de rite.
+- Ce développement reste non publié jusqu'à la campagne de tests générale de la 1.2.
