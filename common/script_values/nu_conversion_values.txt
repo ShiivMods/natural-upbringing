@@ -52,7 +52,7 @@
 	}
 
 	# =========================================================
-	# PERSONALITY — V1
+	# PERSONALITY - V1
 	# =========================================================
 	#
 	# Personality modifies the final probability of assimilation,
@@ -255,7 +255,7 @@ nu_belief_assimilation_chance = {
 	}
 
 	# =========================================================
-	# PERSONALITY — V1
+	# PERSONALITY - V1
 	# =========================================================
 
 	# Zealous characters strongly resist abandoning the faith
