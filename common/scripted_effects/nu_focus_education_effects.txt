@@ -1,0 +1,585 @@
+﻿# =============================================================
+# NATURAL UPBRINGING - FOCUS EDUCATION EVENT RESOLUTION
+# Root: child
+# =============================================================
+
+nu_add_focus_education_points_effect = {
+	if = {
+		limit = { has_focus = education_diplomacy }
+		if = {
+			limit = { NOT = { has_variable = education_diplomacy_variable } }
+			set_variable = { name = education_diplomacy_variable value = 0 }
+		}
+		change_variable = { name = education_diplomacy_variable add = $VALUE$ }
+	}
+	else_if = {
+		limit = { has_focus = education_martial }
+		if = {
+			limit = { NOT = { has_variable = education_martial_variable } }
+			set_variable = { name = education_martial_variable value = 0 }
+		}
+		change_variable = { name = education_martial_variable add = $VALUE$ }
+	}
+	else_if = {
+		limit = { has_focus = education_stewardship }
+		if = {
+			limit = { NOT = { has_variable = education_stewardship_variable } }
+			set_variable = { name = education_stewardship_variable value = 0 }
+		}
+		change_variable = { name = education_stewardship_variable add = $VALUE$ }
+	}
+	else_if = {
+		limit = { has_focus = education_intrigue }
+		if = {
+			limit = { NOT = { has_variable = education_intrigue_variable } }
+			set_variable = { name = education_intrigue_variable value = 0 }
+		}
+		change_variable = { name = education_intrigue_variable add = $VALUE$ }
+	}
+	else_if = {
+		limit = { has_focus = education_learning }
+		if = {
+			limit = { NOT = { has_variable = education_learning_variable } }
+			set_variable = { name = education_learning_variable value = 0 }
+		}
+		change_variable = { name = education_learning_variable add = $VALUE$ }
+	}
+}
+
+
+nu_clear_focus_outcome_flags_effect = {
+	remove_character_flag = nu_focus_outcome_strong
+	remove_character_flag = nu_focus_outcome_mixed
+	remove_character_flag = nu_focus_outcome_bad
+	remove_character_flag = nu_focus_outcome_restrained
+	remove_character_flag = nu_focus_outcome_forceful
+	remove_character_flag = nu_focus_outcome_sadistic
+	remove_character_flag = nu_focus_outcome_local
+	remove_character_flag = nu_focus_outcome_reject
+}
+
+
+nu_set_focus_outcome_flag_effect = {
+	add_character_flag = {
+		flag = $FLAG$
+		days = 7
+	}
+}
+
+
+# Diplomacy 1: Between Two Quarrels
+nu_resolve_focus_diplomacy_quarrels_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = gregarious
+				has_trait = patient
+				has_trait = compassionate
+				has_trait = just
+				diplomacy >= 12
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_strong }
+		nu_add_focus_education_points_effect = { VALUE = 2 }
+
+		if = {
+			limit = { exists = scope:nu_focus_target }
+			random = {
+				chance = 10
+				add_opinion = {
+					target = scope:nu_focus_target
+					modifier = nu_foreign_education_social_opinion
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = wrathful
+				has_trait = arrogant
+				has_trait = arbitrary
+				has_trait = impatient
+				diplomacy <= 5
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_bad }
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_mixed }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+	}
+}
+
+
+# Diplomacy 2: A Face From Elsewhere
+nu_resolve_focus_diplomacy_visitor_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = gregarious
+				has_trait = trusting
+				has_trait = curious
+				diplomacy >= 11
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_strong }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+		nu_change_current_cultural_exposure_effect = { VALUE = 1 }
+
+		if = {
+			limit = { exists = scope:nu_focus_target }
+			random = {
+				chance = 7
+				add_opinion = {
+					target = scope:nu_focus_target
+					modifier = nu_foreign_education_parent_support_opinion
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = shy
+				has_trait = paranoid
+				diplomacy <= 5
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_bad }
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_mixed }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+	}
+}
+
+
+# Martial 1: The Field Instead of Books
+nu_resolve_focus_martial_field_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = brave
+				has_trait = diligent
+				has_trait = stubborn
+				martial >= 12
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_strong }
+		nu_add_focus_education_points_effect = { VALUE = 2 }
+		random = {
+			chance = 10
+			add_prowess_skill = 1
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = lazy
+				has_trait = impatient
+				has_trait = arrogant
+				martial <= 5
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_bad }
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_mixed }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+		random = {
+			chance = 3
+			add_prowess_skill = 1
+		}
+	}
+}
+
+
+# Martial 2: One Blow Too Many
+nu_resolve_focus_martial_blow_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = { has_trait = sadistic }
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_sadistic }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+
+		if = {
+			limit = {
+				exists = scope:nu_focus_peer
+				can_set_relation_rival_even_if_teen_trigger = { CHARACTER = scope:nu_focus_peer }
+			}
+			random = {
+				chance = 20
+				set_relation_rival = scope:nu_focus_peer
+			}
+		}
+		random = {
+			chance = 7
+			add_prowess_skill = 1
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = calm
+				has_trait = patient
+				has_trait = compassionate
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_restrained }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+
+		if = {
+			limit = {
+				exists = scope:nu_focus_peer
+				can_set_relation_friend_trigger = { CHARACTER = scope:nu_focus_peer }
+			}
+			random = {
+				chance = 10
+				set_relation_friend = {
+					reason = friend_childhood_random
+					target = scope:nu_focus_peer
+				}
+			}
+		}
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_forceful }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+
+		if = {
+			limit = {
+				exists = scope:nu_focus_peer
+				can_set_relation_rival_even_if_teen_trigger = { CHARACTER = scope:nu_focus_peer }
+			}
+			random = {
+				chance = 10
+				set_relation_rival = scope:nu_focus_peer
+			}
+		}
+		random = {
+			chance = 7
+			add_prowess_skill = 1
+		}
+	}
+}
+
+
+# Stewardship 1: Something Does Not Add Up
+nu_resolve_focus_stewardship_count_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = diligent
+				has_trait = greedy
+				has_trait = just
+				has_trait = patient
+				stewardship >= 12
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_strong }
+		nu_add_focus_education_points_effect = { VALUE = 2 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = paranoid
+				has_trait = arbitrary
+				has_trait = impatient
+				stewardship <= 5
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_bad }
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_mixed }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+	}
+}
+
+
+# Stewardship 2: Making Supplies Last
+nu_resolve_focus_stewardship_reserves_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = temperate
+				has_trait = diligent
+				has_trait = patient
+				has_trait = generous
+				stewardship >= 12
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_strong }
+		nu_add_focus_education_points_effect = { VALUE = 2 }
+		nu_change_current_cultural_exposure_effect = { VALUE = 1 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = gluttonous
+				has_trait = greedy
+				has_trait = arbitrary
+				stewardship <= 5
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_bad }
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_mixed }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+		nu_change_current_cultural_exposure_effect = { VALUE = 1 }
+	}
+}
+
+
+# Intrigue 1: Not Meant for Their Ears
+nu_resolve_focus_intrigue_overheard_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = deceitful
+				has_trait = paranoid
+				has_trait = calm
+				intrigue >= 12
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_strong }
+		nu_add_focus_education_points_effect = { VALUE = 2 }
+
+		if = {
+			limit = {
+				exists = scope:nu_focus_target
+				can_add_hook = {
+					target = scope:nu_focus_target
+					type = favor_hook
+				}
+			}
+			random = {
+				chance = 12
+				add_hook = {
+					target = scope:nu_focus_target
+					type = favor_hook
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = honest
+				has_trait = trusting
+				has_trait = compassionate
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_mixed }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+
+		if = {
+			limit = {
+				exists = scope:nu_focus_target
+				exists = scope:nu_foreign_education_guardian
+				scope:nu_foreign_education_guardian = {
+					can_add_hook = {
+						target = scope:nu_focus_target
+						type = favor_hook
+					}
+				}
+			}
+			random = {
+				chance = 8
+				scope:nu_foreign_education_guardian = {
+					add_hook = {
+						target = scope:nu_focus_target
+						type = favor_hook
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = { intrigue <= 5 }
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_bad }
+		add_stress = minor_stress_gain
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_mixed }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+	}
+}
+
+
+# Intrigue 2: I Know Something You Do Not
+nu_resolve_focus_intrigue_leverage_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = deceitful
+				has_trait = patient
+				has_trait = ambitious
+				intrigue >= 12
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_strong }
+		nu_add_focus_education_points_effect = { VALUE = 2 }
+
+		if = {
+			limit = {
+				exists = scope:nu_focus_target
+				can_add_hook = {
+					target = scope:nu_focus_target
+					type = favor_hook
+				}
+			}
+			random = {
+				chance = 15
+				add_hook = {
+					target = scope:nu_focus_target
+					type = favor_hook
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = arrogant
+				has_trait = impatient
+				has_trait = honest
+				intrigue <= 5
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_bad }
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_mixed }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+
+		if = {
+			limit = {
+				exists = scope:nu_focus_target
+				can_add_hook = {
+					target = scope:nu_focus_target
+					type = favor_hook
+				}
+			}
+			random = {
+				chance = 8
+				add_hook = {
+					target = scope:nu_focus_target
+					type = favor_hook
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = scope:nu_focus_target
+			can_set_relation_rival_even_if_teen_trigger = {
+				CHARACTER = scope:nu_focus_target
+			}
+		}
+		random = {
+			chance = 10
+			set_relation_rival = scope:nu_focus_target
+		}
+	}
+}
+
+
+# Learning 1: Two Teachings, Two Truths
+nu_resolve_focus_learning_teachings_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = curious
+				has_trait = patient
+				has_trait = cynical
+				learning >= 12
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_strong }
+		nu_add_focus_education_points_effect = { VALUE = 2 }
+		nu_change_current_cultural_exposure_effect = { VALUE = 1 }
+		nu_change_current_religious_exposure_effect = { VALUE = 1 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = zealous
+				has_trait = stubborn
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_reject }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+		nu_change_current_religious_exposure_effect = { VALUE = -1 }
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_local }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+		nu_change_current_cultural_exposure_effect = { VALUE = 1 }
+		nu_change_current_religious_exposure_effect = { VALUE = 1 }
+	}
+}
+
+
+# Learning 2: Why?
+nu_resolve_focus_learning_why_effect = {
+	nu_clear_focus_outcome_flags_effect = yes
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = curious
+				has_trait = patient
+				has_trait = diligent
+				learning >= 12
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_strong }
+		nu_add_focus_education_points_effect = { VALUE = 2 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = arrogant
+				has_trait = stubborn
+				has_trait = cynical
+			}
+		}
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_bad }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+
+		if = {
+			limit = { exists = scope:nu_foreign_education_guardian }
+			scope:nu_foreign_education_guardian = {
+				add_opinion = {
+					target = root
+					modifier = nu_foreign_education_difficult_opinion
+				}
+			}
+		}
+	}
+	else = {
+		nu_set_focus_outcome_flag_effect = { FLAG = nu_focus_outcome_mixed }
+		nu_add_focus_education_points_effect = { VALUE = 1 }
+	}
+}
