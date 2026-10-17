@@ -1,0 +1,79 @@
+﻿l_french:
+
+ nu_runaway.0001.opening:0 "Une disparition"
+ nu_runaway.0001.desc:0 "[nu_runaway_guardian.GetFirstName] m'écrit avec une nouvelle que je redoutais sans réellement l'attendre. [nu_runaway_child.GetFirstName] a disparu de la cour. Quelques affaires manquent avec [nu_runaway_child.Custom('FR_LuiElle')], suffisamment pour écarter l'idée d'un simple retard.
+
+Tout indique que mon enfant a décidé de tenter le chemin du retour par ses propres moyens."
+ nu_runaway.0001.a:0 "Retrouvez [nu_runaway_child.GetFirstName]."
+
+ nu_runaway.0010.opening:0 "Des nouvelles de la recherche"
+ nu_runaway.0010.desc.danger:0 "Les recherches se poursuivent, mais les dernières traces de [nu_runaway_child.GetFirstName] sont inquiétantes. Des témoins évoquent un enfant fatigué et mal préparé, aperçu loin des routes les plus sûres."
+ nu_runaway.0010.desc.worry:0 "Quelques témoignages permettent de reconstituer une partie du trajet de [nu_runaway_child.GetFirstName]. Rien n'indique encore un danger immédiat, mais le chemin suivi semble plus difficile qu'il ne l'avait sans doute imaginé."
+ nu_runaway.0010.desc.uncertain:0 "Les recherches n'ont produit que des informations contradictoires. Certains jurent avoir vu [nu_runaway_child.GetFirstName], d'autres décrivent un enfant qui ne lui ressemble guère. Pour l'instant, impossible de savoir où mon enfant se trouve réellement."
+ nu_runaway.0010.desc.encouraging:0 "Plusieurs indices concordent enfin. [nu_runaway_child.GetFirstName] semble avoir avancé dans la bonne direction et avoir réussi jusqu'ici à éviter les principaux dangers de la route."
+ nu_runaway.0010.desc.near_home:0 "Les dernières informations sont encourageantes. Tout laisse penser que [nu_runaway_child.GetFirstName] s'est considérablement rapproché[nu_runaway_child.Custom('FR_E')] du foyer."
+ nu_runaway.0010.a:0 "Continuez les recherches."
+
+ nu_runaway.0100.t:0 "Le chemin du retour"
+ nu_runaway.0100.desc.critical:0 "Contre toute attente, [nu_runaway_child.GetFirstName] est parvenu[nu_runaway_child.Custom('FR_E')] jusqu'à nous sans que les recherches ne réussissent à le rattraper. Fatigué[nu_runaway_child.Custom('FR_E')], amaigri[nu_runaway_child.Custom('FR_E')] par le voyage mais fier[nu_runaway_child.Custom('FR_E')] d'avoir tenu bon, mon enfant se tient maintenant devant moi."
+ nu_runaway.0100.desc.success:0 "Après des semaines d'absence, [nu_runaway_child.GetFirstName] a finalement atteint le foyer. Le voyage fut long, mais mon enfant a réussi à retrouver seul[nu_runaway_child.Custom('FR_E')] le chemin jusqu'à nous."
+ nu_runaway.0100.desc.helped:0 "[nu_runaway_child.GetFirstName] est enfin de retour. La plus grande partie du trajet a été accomplie seul[nu_runaway_child.Custom('FR_E')], avant qu'une aide bienvenue ne lui permette de franchir les dernières étapes en sécurité."
+ nu_runaway.0100.desc.escorted:0 "[nu_runaway_child.GetFirstName] n'était plus très loin lorsque des voyageurs l'ont reconnu[nu_runaway_child.Custom('FR_E')] et ont accepté de l'escorter jusqu'à nous. Mon enfant a malgré tout parcouru une distance que je n'aurais jamais cru possible."
+ nu_runaway.0100.a:0 "Cela suffit. [nu_runaway_child.GetFirstName] reste à la maison."
+ nu_runaway.0100.b:0 "Son éducation n'est pas terminée. [nu_runaway_child.GetFirstName] doit repartir."
+
+ nu_runaway.0200.opening:0 "La fugue prend fin"
+ nu_runaway.0200.desc.safe:0 "[nu_runaway_child.GetFirstName] a finalement été retrouvé[nu_runaway_child.Custom('FR_E')] avant d'avoir pu atteindre le foyer. Les recherches l'ont ramené[nu_runaway_child.Custom('FR_E')] auprès de [nu_runaway_guardian.GetFirstName], sain[nu_runaway_child.Custom('FR_E')] et sauf[nu_runaway_child.Custom('FR_E')], mais manifestement déçu[nu_runaway_child.Custom('FR_E')]."
+ nu_runaway.0200.desc.difficulty:0 "[nu_runaway_child.GetFirstName] a été retrouvé[nu_runaway_child.Custom('FR_E')] épuisé[nu_runaway_child.Custom('FR_E')] et désorienté[nu_runaway_child.Custom('FR_E')]. Rien de grave ne lui est arrivé, mais il était temps que les recherches aboutissent. [nu_runaway_guardian.GetFirstName] l'a repris[nu_runaway_child.Custom('FR_E')] sous sa garde."
+ nu_runaway.0200.desc.serious:0 "La tentative de [nu_runaway_child.GetFirstName] s'est terminée dans de mauvaises conditions. Sans ressources et incapable de poursuivre seul[nu_runaway_child.Custom('FR_E')], mon enfant a dû accepter l'aide de ceux qui le cherchaient et a été ramené[nu_runaway_child.Custom('FR_E')] auprès de son tuteur."
+ nu_runaway.0200.desc.severe_diplomacy:0 "[nu_runaway_child.GetFirstName] a fait confiance aux mauvaises personnes. Pendant plusieurs jours, des adultes ont profité de son nom et de sa situation avant que les recherches ne permettent de le récupérer. Mon enfant est désormais revenu auprès de [nu_runaway_guardian.GetFirstName], profondément secoué[nu_runaway_child.Custom('FR_E')]."
+ nu_runaway.0200.desc.severe_martial:0 "La détermination de [nu_runaway_child.GetFirstName] l'a mené trop loin. Une mauvaise chute au cours du trajet l'a laissé[nu_runaway_child.Custom('FR_E')] sérieusement blessé[nu_runaway_child.Custom('FR_E')], et les recherches l'ont retrouvé[nu_runaway_child.Custom('FR_E')] avant qu'il ne puisse repartir."
+ nu_runaway.0200.desc.severe_stewardship:0 "Les provisions de [nu_runaway_child.GetFirstName] ont fini par manquer bien avant le foyer. Plusieurs jours de privation et d'épuisement ont sérieusement affaibli mon enfant avant qu'on ne le retrouve."
+ nu_runaway.0200.desc.severe_intrigue:0 "En cherchant à rester invisible, [nu_runaway_child.GetFirstName] a fini par attirer l'attention de personnes bien moins bienveillantes que les recherches lancées pour le retrouver. Il a fallu du temps avant de pouvoir le récupérer, éprouvé[nu_runaway_child.Custom('FR_E')] et blessé[nu_runaway_child.Custom('FR_E')]."
+ nu_runaway.0200.desc.severe_learning:0 "Une erreur d'itinéraire a conduit [nu_runaway_child.GetFirstName] vers une route bien trop difficile. Lorsqu'on l'a retrouvé[nu_runaway_child.Custom('FR_E')], mon enfant était épuisé[nu_runaway_child.Custom('FR_E')] et sérieusement blessé[nu_runaway_child.Custom('FR_E')]."
+ nu_runaway.0200.a:0 "Au moins, [nu_runaway_child.Custom('FR_IlElle')] est en vie."
+
+ nu_runaway.0300.opening:0 "La route tourne mal"
+ nu_runaway.0300.desc.safe_diplomacy:0 "[nu_runaway_child.GetFirstName] a fini par confier son histoire à quelqu'un qui a reconnu son nom et prévenu les recherches. Son voyage s'arrête là, et [nu_runaway_guardian.GetFirstName] l'a repris[nu_runaway_child.Custom('FR_E')] sous sa garde."
+ nu_runaway.0300.desc.safe_martial:0 "À bout de forces après avoir voulu avancer trop vite, [nu_runaway_child.GetFirstName] n'a plus pu éviter ceux qui le recherchaient. Mon enfant a été ramené[nu_runaway_child.Custom('FR_E')] auprès de son tuteur sans blessure grave."
+ nu_runaway.0300.desc.safe_stewardship:0 "L'argent et les provisions de [nu_runaway_child.GetFirstName] se sont épuisés. Contraint[nu_runaway_child.Custom('FR_E')] de demander de l'aide, mon enfant a été reconnu[nu_runaway_child.Custom('FR_E')] puis ramené[nu_runaway_child.Custom('FR_E')] auprès de [nu_runaway_guardian.GetFirstName]."
+ nu_runaway.0300.desc.safe_intrigue:0 "Une contradiction dans l'histoire inventée par [nu_runaway_child.GetFirstName] a suffi. Son identité a été reconnue et les recherches ont rapidement mis fin à la fugue."
+ nu_runaway.0300.desc.safe_learning:0 "Une mauvaise interprétation des indications a envoyé [nu_runaway_child.GetFirstName] dans la mauvaise direction. En demandant son chemin, mon enfant a fini par être reconnu[nu_runaway_child.Custom('FR_E')] et ramené[nu_runaway_child.Custom('FR_E')] auprès de son tuteur."
+
+ nu_runaway.0300.desc.aggravated_diplomacy:0 "[nu_runaway_child.GetFirstName] a accordé sa confiance à des gens qui ont surtout vu une occasion de profiter de sa situation. Quelques biens ont disparu avant que les recherches ne le retrouvent, humilié[nu_runaway_child.Custom('FR_E')] mais sain[nu_runaway_child.Custom('FR_E')] et sauf[nu_runaway_child.Custom('FR_E')]."
+ nu_runaway.0300.desc.aggravated_martial:0 "Une confrontation sur la route a laissé [nu_runaway_child.GetFirstName] blessé[nu_runaway_child.Custom('FR_E')]. L'incident a toutefois attiré suffisamment d'attention pour que les recherches finissent par le localiser."
+ nu_runaway.0300.desc.aggravated_stewardship:0 "Une mauvaise transaction a coûté à [nu_runaway_child.GetFirstName] une grande partie de ses maigres ressources. Épuisé[nu_runaway_child.Custom('FR_E')] et presque sans rien, mon enfant a été retrouvé avant que la situation ne s'aggrave."
+ nu_runaway.0300.desc.aggravated_intrigue:0 "Les mensonges de [nu_runaway_child.GetFirstName] ont attiré l'attention de quelqu'un qui a compris qu'il y avait davantage à obtenir qu'une simple histoire. Après quelques heures d'intimidation, l'arrivée des recherches a finalement mis fin à l'incident."
+ nu_runaway.0300.desc.aggravated_learning:0 "[nu_runaway_child.GetFirstName] a perdu plusieurs jours à suivre une route mal comprise. L'épuisement l'a finalement forcé[nu_runaway_child.Custom('FR_E')] à s'arrêter et a permis aux recherches de le rattraper."
+
+ nu_runaway.0300.desc.severe_diplomacy:0 "Des adultes ont retenu [nu_runaway_child.GetFirstName] plusieurs jours en espérant obtenir quelque chose de son nom. Les recherches ont fini par le récupérer, mais l'expérience a profondément marqué mon enfant."
+ nu_runaway.0300.desc.severe_martial:0 "[nu_runaway_child.GetFirstName] a voulu franchir seul[nu_runaway_child.Custom('FR_E')] un passage dangereux. Une chute violente a mis fin au voyage et laissé mon enfant grièvement blessé[nu_runaway_child.Custom('FR_E')]."
+ nu_runaway.0300.desc.severe_stewardship:0 "Les réserves de [nu_runaway_child.GetFirstName] se sont épuisées loin de tout secours. La faim et l'exposition l'ont gravement affaibli[nu_runaway_child.Custom('FR_E')] avant que les recherches ne le retrouvent."
+ nu_runaway.0300.desc.severe_intrigue:0 "À force de dissimuler son identité, [nu_runaway_child.GetFirstName] a fini entre les mains de personnes dangereuses qui n'avaient aucune intention de le laisser repartir librement. Les recherches l'ont récupéré[nu_runaway_child.Custom('FR_E')] blessé[nu_runaway_child.Custom('FR_E')] et profondément éprouvé[nu_runaway_child.Custom('FR_E')]."
+ nu_runaway.0300.desc.severe_learning:0 "Une erreur de route a conduit [nu_runaway_child.GetFirstName] dans une région trop difficile à traverser seul[nu_runaway_child.Custom('FR_E')]. Le froid, l'épuisement et une mauvaise chute ont laissé mon enfant grièvement blessé[nu_runaway_child.Custom('FR_E')]."
+
+ nu_runaway.0300.desc.death_martial:0 "Les recherches ont retrouvé la trace de [nu_runaway_child.GetFirstName] au pied d'un passage escarpé. Mon enfant a tenté de franchir seul un obstacle qu'il n'aurait jamais dû affronter. La chute ne lui a laissé aucune chance."
+ nu_runaway.0300.desc.death_stewardship:0 "Les provisions de [nu_runaway_child.GetFirstName] se sont épuisées dans une région isolée. Lorsque les recherches ont enfin retrouvé mon enfant, le froid et la faim avaient déjà eu raison de lui."
+ nu_runaway.0300.desc.death_intrigue:0 "En cherchant à disparaître aux yeux de tous, [nu_runaway_child.GetFirstName] a croisé des individus auxquels il aurait mieux valu ne jamais révéler sa vulnérabilité. Les recherches ont retrouvé mon enfant trop tard."
+ nu_runaway.0300.desc.death_learning:0 "Une mauvaise route a emmené [nu_runaway_child.GetFirstName] loin des chemins fréquentés. Plusieurs jours d'errance, le froid et l'épuisement ont fini par rendre tout retour impossible."
+ nu_runaway.0300.a:0 "Quelle terrible route..."
+
+ nu_runaway_story:0 "Fugue de [Story.MakeScope.Var('nu_runaway_child').Char.GetFirstName]"
+ NU_RUNAWAY_CHILD_LABEL:0 "Enfant disparu"
+ NU_RUNAWAY_STORY_PRACTICAL_INFORMATION_STRING:0 "[Story.MakeScope.Var('nu_runaway_child').Char.GetFirstName] a quitté la cour de son tuteur pour tenter de rentrer au foyer.
+
+Temps écoulé : [Story.MakeScope.Var('nu_runaway_child').Char.MakeScope.Var('nu_runaway_months').GetValue|0] mois
+Intérêt d'éducation : [Story.MakeScope.Var('nu_runaway_child').Char.GetFocus.GetName]
+État : [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayStatus')]
+Dernières informations : [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayLatestInfo')]"
+
+ nu_runaway_status_danger_loc:0 "En grande difficulté"
+ nu_runaway_status_worry_loc:0 "Pistes inquiétantes"
+ nu_runaway_status_uncertain_loc:0 "Situation incertaine"
+ nu_runaway_status_encouraging_loc:0 "Progression encourageante"
+ nu_runaway_status_near_home_loc:0 "Se rapproche du foyer"
+ nu_runaway_latest_search_loc:0 "des témoins et des traces ont permis aux recherches de mieux reconstituer son trajet"
+ nu_runaway_latest_disappearance_loc:0 "aucune information fiable depuis sa disparition"
+
+ nu_runaway_parent_accepted_return:0 "Retour accepté"
+ nu_runaway_parent_sent_back:0 "Renvoyé auprès de son tuteur"
