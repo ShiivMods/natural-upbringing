@@ -1,6 +1,6 @@
 ﻿l_english:
  NU_CULTURAL_SERVANTS_RELEVANT:0 "The child must be exposed to a different culture."
- NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "The child and their guardian must follow different religious rites."
+ NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "The child must be exposed to a different faith or rite."
  NU_GUARDIANSHIP_MEASURE_NOT_ALREADY_ACTIVE:0 "This measure must not already be active for this guardian."
 
  NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS: "Send servants of their culture"
@@ -10,7 +10,7 @@
  NU_GUARDIANSHIP_OPTION_QUALITY_INSTRUCTION_TT:0 "Additional tutors and resources will be devoted to the child's education, ensuring that particular care is given to their studies.\n\nCost: [gold_i] [GetPlayer.MakeScope.ScriptValue('minor_gold_value')|0]"
 
  NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT: "Provide religious accompaniment"
- NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT_TT:0 "A religious attendant will ensure that the child remains in contact with the faith in which they were raised throughout their guardianship.\n\nInitial cost: [piety_i] [GetPlayer.MakeScope.ScriptValue('minor_piety_value')|0]"
+ NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT_TT:0 "A religious attendant will ensure that the child remains in contact with their original faith and rite throughout their guardianship.\n\nInitial cost: [piety_i] [GetPlayer.MakeScope.ScriptValue('minor_piety_value')|0]"
 
  NU_AI_ACCEPT_CULTURAL_SERVANTS:0 "Cultural servants accompanying the ward: $VALUE|=+0$"
  NU_AI_ACCEPT_QUALITY_INSTRUCTION:0 "Quality education funded: $VALUE|=+0$"
