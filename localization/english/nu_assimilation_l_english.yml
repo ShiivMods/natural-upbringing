@@ -4,13 +4,13 @@
  nu_assimilation.0001.desc_rapid:0 "A letter from [nu_assimilated_child.GetFirstName] has reached me. Its lines overflow with an almost surprising enthusiasm for the customs and ways discovered far from home. In so little time, what was once a foreign world seems to have become [nu_assimilated_child.GetHerHis] own.\n\nThere can now be little doubt that [nu_assimilated_child.GetFirstName] considers [nu_assimilated_child.GetHerselfHimself] part of the [nu_assimilated_child.GetCulture.GetName] culture."
  nu_assimilation.0001.desc:0 "The latest news from [nu_assimilated_child.GetFirstName] confirms what the passing years had already begun to suggest. The habits, language, and customs of [nu_assimilated_child.GetHerHis] surroundings have gradually taken root.\n\n[nu_assimilated_child.GetFirstName] now belongs to the [nu_assimilated_child.GetCulture.GetName] culture."
 
- nu_assimilation.0002.t:0 "The Rite of [nu_assimilated_child.GetFirstName]"
+ nu_assimilation.0002.t:0 "A Spiritual Change"
  nu_assimilation.0002.desc_rapid:0 "A letter from [nu_assimilated_child.GetFirstName] has reached me, filled with a new and unexpected fervor. Barely a few years have been enough for beliefs once foreign to [nu_assimilated_child.GetHerHim] to become deeply familiar.\n\n[nu_assimilated_child.GetFirstName] now follows the [nu_religious_assimilation_target.GetName] rite."
  nu_assimilation.0002.desc:0 "The letters from [nu_assimilated_child.GetFirstName] had been changing for some time. The references, prayers, and convictions woven into them had slowly begun to reveal this transformation.\n\n[nu_assimilated_child.GetFirstName] now follows the [nu_religious_assimilation_target.GetName] rite."
 
  nu_assimilation.0003.t:0 "A New Identity"
- nu_assimilation.0003.desc_rapid:0 "The latest letter from [nu_assimilated_child.GetFirstName] is almost unrecognizable for the intensity of the enthusiasm within it. In only a few years, the customs and beliefs of [nu_assimilated_child.GetHerHis] new surroundings seem to have been embraced completely.\n\n[nu_assimilated_child.GetFirstName] now belongs to the [nu_assimilated_child.GetCulture.GetName] culture and follows the [nu_religious_assimilation_target.GetName] faith."
- nu_assimilation.0003.desc:0 "Over time, the news from [nu_assimilated_child.GetFirstName] had begun to suggest a transformation deeper than simple adaptation to a foreign court. That change is now unmistakable.\n\n[nu_assimilated_child.GetFirstName] belongs to the [nu_assimilated_child.GetCulture.GetName] culture and follows the [nu_religious_assimilation_target.GetName] faith."
+ nu_assimilation.0003.desc_rapid:0 "The latest letter from [nu_assimilated_child.GetFirstName] is almost unrecognizable for the intensity of the enthusiasm within it. In only a few years, the customs and beliefs of [nu_assimilated_child.GetHerHis] new surroundings seem to have been embraced completely.\n\n[nu_assimilated_child.GetFirstName] now belongs to the [nu_assimilated_child.GetCulture.GetName] culture and follows the [nu_religious_assimilation_target.GetName] rite."
+ nu_assimilation.0003.desc:0 "Over time, the news from [nu_assimilated_child.GetFirstName] had begun to suggest a transformation deeper than simple adaptation to a foreign court. That change is now unmistakable.\n\n[nu_assimilated_child.GetFirstName] belongs to the [nu_assimilated_child.GetCulture.GetName] culture and follows the [nu_religious_assimilation_target.GetName] rite."
 
  nu_assimilation.0001.context_guardian_court_servants:0 "\n\nAnd yet, even the servants sent to preserve our customs were not enough. Under the guardianship of [nu_cultural_assimilation_guardian.GetFirstName], at the court of [nu_cultural_assimilation_court_owner.GetFirstName], this new identity ultimately took root."
  nu_assimilation.0001.context_guardian_court:0 "\n\nThe influence of [nu_cultural_assimilation_guardian.GetFirstName], together with life at the court of [nu_cultural_assimilation_court_owner.GetFirstName], seems to have profoundly shaped [nu_assimilated_child.GetFirstName]."
@@ -35,15 +35,15 @@
  nu_assimilation.0001.adaptation:0 "Customs change. Life goes on."
  nu_assimilation.0001.fallback:0 "Time will tell me what to make of this."
 
- nu_assimilation.0002.rejection:0 "I cannot accept [nu_assimilated_child.GetFirstName] abandoning our faith like this."
+ nu_assimilation.0002.rejection:0 "My child should not abandon our traditions so lightly."
  nu_assimilation.0002.mistrust:0 "Who convinced them of all this while they were beyond my sight?"
  nu_assimilation.0002.acceptance:0 "Their conscience is their own, and [nu_assimilated_child.GetFirstName] remains my child."
- nu_assimilation.0002.reflection:0 "Faith should not be judged in anger."
+ nu_assimilation.0002.reflection:0 "I should understand this change before judging it."
  nu_assimilation.0002.pragmatism:0 "This conversion may also open doors for them."
  nu_assimilation.0002.adaptation:0 "Beliefs change with the years."
  nu_assimilation.0002.fallback:0 "I will need time to understand this change."
 
- nu_assimilation.0003.rejection:0 "Did everything have to disappear, our customs and our faith alike?"
+ nu_assimilation.0003.rejection:0 "Have our customs and our beliefs changed so completely?"
  nu_assimilation.0003.mistrust:0 "[nu_assimilated_child.GetFirstName] was reshaped far from my sight."
  nu_assimilation.0003.acceptance:0 "Whatever has changed, [nu_assimilated_child.GetFirstName] remains my child."
  nu_assimilation.0003.reflection:0 "[nu_assimilated_child.GetFirstName] has changed. I should understand before I judge."
@@ -60,3 +60,13 @@
 
  NU_GUARDIAN_ASSIMILATION_BOTH_TITLE:0 "A New Identity for [nu_assimilated_child.GetFirstName]"
  NU_GUARDIAN_ASSIMILATION_BOTH_DESC:0 "Your ward, [nu_assimilated_child.GetFirstName], now belongs to the [nu_assimilated_child.GetCulture.GetName] culture and follows the [nu_assimilated_child.GetRite.GetName] rite. Their education has profoundly shaped their identity."
+
+# NU 1.2: independent conversion of faith
+ nu_assimilation.0002.desc_belief:0 "The letters from [nu_assimilated_child.GetFirstName] reveal a deeper transformation than a change of rite. [nu_assimilated_child.GetFirstName] now professes the [nu_assimilated_child.GetFaith.GetName] faith and follows the [nu_assimilated_child.GetRite.GetName] rite."
+ nu_assimilation.0002.desc_belief_rapid:0 "Far sooner than expected, [nu_assimilated_child.GetFirstName] has embraced the [nu_assimilated_child.GetFaith.GetName] faith and the [nu_assimilated_child.GetRite.GetName] rite."
+ nu_assimilation.0003.desc_belief:0 "[nu_assimilated_child.GetFirstName] now belongs to the [nu_assimilated_child.GetCulture.GetName] culture and professes the [nu_assimilated_child.GetFaith.GetName] faith, following the [nu_assimilated_child.GetRite.GetName] rite."
+ nu_assimilation.0003.desc_belief_rapid:0 "In remarkably little time, [nu_assimilated_child.GetFirstName] has embraced the [nu_assimilated_child.GetCulture.GetName] culture and the [nu_assimilated_child.GetFaith.GetName] faith, following the [nu_assimilated_child.GetRite.GetName] rite."
+ NU_GUARDIAN_ASSIMILATION_BELIEF_TITLE:0 "A New Faith"
+ NU_GUARDIAN_ASSIMILATION_BELIEF_DESC:0 "Your ward [nu_assimilated_child.GetFirstName] has adopted the [nu_assimilated_child.GetFaith.GetName] faith and now follows the [nu_assimilated_child.GetRite.GetName] rite."
+ NU_GUARDIAN_ASSIMILATION_CULTURE_BELIEF_TITLE:0 "A New Culture and Faith"
+ NU_GUARDIAN_ASSIMILATION_CULTURE_BELIEF_DESC:0 "Your ward [nu_assimilated_child.GetFirstName] now belongs to the [nu_assimilated_child.GetCulture.GetName] culture, professes the [nu_assimilated_child.GetFaith.GetName] faith and follows the [nu_assimilated_child.GetRite.GetName] rite."
