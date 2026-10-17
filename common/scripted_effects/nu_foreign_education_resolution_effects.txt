@@ -1,0 +1,489 @@
+﻿# =============================================================
+# NATURAL UPBRINGING - FOREIGN EDUCATION EVENT RESOLUTION
+# =============================================================
+# Root is always the child. Mechanics are resolved before the
+# parent receives the corresponding letter. Exposure changes are
+# intentionally hidden from the player-facing event.
+# =============================================================
+
+
+nu_apply_mutual_guardian_opinion_effect = {
+	if = {
+		limit = {
+			exists = scope:nu_foreign_education_guardian
+		}
+
+		add_opinion = {
+			target = scope:nu_foreign_education_guardian
+			modifier = $MODIFIER$
+		}
+
+		scope:nu_foreign_education_guardian = {
+			add_opinion = {
+				target = root
+				modifier = $MODIFIER$
+			}
+		}
+	}
+}
+
+
+nu_resolve_general_adaptation_report_effect = {
+
+	remove_character_flag = nu_foreign_report_integrated
+	remove_character_flag = nu_foreign_report_social
+	remove_character_flag = nu_foreign_report_reserved
+	remove_character_flag = nu_foreign_report_difficult
+	remove_character_flag = nu_foreign_report_fallback
+
+	if = {
+		limit = {
+			has_variable = nu_culture_exposure_score
+			var:nu_culture_exposure_score >= 30
+		}
+
+		add_character_flag = {
+			flag = nu_foreign_report_integrated
+			days = 7
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = 5 }
+		nu_apply_mutual_guardian_opinion_effect = {
+			MODIFIER = nu_foreign_education_integrated_opinion
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = gregarious
+				has_trait = trusting
+				has_trait = fickle
+			}
+		}
+
+		add_character_flag = {
+			flag = nu_foreign_report_social
+			days = 7
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = 2 }
+		nu_apply_mutual_guardian_opinion_effect = {
+			MODIFIER = nu_foreign_education_social_opinion
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = shy
+				has_trait = paranoid
+			}
+		}
+
+		add_character_flag = {
+			flag = nu_foreign_report_reserved
+			days = 7
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = -2 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = wrathful
+				has_trait = stubborn
+			}
+		}
+
+		add_character_flag = {
+			flag = nu_foreign_report_difficult
+			days = 7
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = -3 }
+		nu_apply_mutual_guardian_opinion_effect = {
+			MODIFIER = nu_foreign_education_difficult_opinion
+		}
+
+		# Contextual fugue is checked first. If it does not happen,
+		# this difficult report can be the first onset of homesickness.
+		if = {
+			limit = {
+				nu_can_start_runaway_trigger = yes
+			}
+			random = {
+				chance = 1
+				nu_start_runaway_effect = yes
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { has_character_flag = nu_runaway_active }
+				NOT = { has_character_flag = nu_homesickness_active }
+			}
+			random = {
+				chance = 10
+				nu_begin_homesickness_effect = yes
+			}
+		}
+	}
+	else = {
+		add_character_flag = {
+			flag = nu_foreign_report_fallback
+			days = 7
+		}
+	}
+}
+
+
+nu_resolve_unexpected_friendship_effect = {
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = shy
+				has_trait = paranoid
+			}
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = 1 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = gregarious
+				has_trait = trusting
+			}
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = 3 }
+	}
+	else = {
+		nu_change_current_cultural_exposure_effect = { VALUE = 2 }
+	}
+
+	if = {
+		limit = {
+			exists = scope:nu_foreign_education_peer
+			can_set_relation_best_friend_trigger = {
+				CHARACTER = scope:nu_foreign_education_peer
+			}
+		}
+		random = {
+			chance = 10
+			set_relation_best_friend = {
+				reason = best_friend_helped_pen_memory
+				copy_reason = friend
+				target = scope:nu_foreign_education_peer
+			}
+		}
+	}
+
+	# Independent from the Best Friend roll, so both can coexist.
+	if = {
+		limit = {
+			exists = scope:nu_foreign_education_peer
+			nu_can_form_foreign_crush_with_trigger = {
+				CHARACTER = scope:nu_foreign_education_peer
+			}
+		}
+		random = {
+			chance = 5
+			set_relation_crush = scope:nu_foreign_education_peer
+
+			if = {
+				limit = {
+					nu_foreign_crush_is_reportable_trigger = {
+						CHARACTER = scope:nu_foreign_education_peer
+					}
+				}
+				add_character_flag = {
+					flag = nu_foreign_crush_from_friendship
+					days = 7
+				}
+				add_character_flag = {
+					flag = nu_foreign_crush_reportable
+					days = 7
+				}
+			}
+			else = {
+				set_variable = {
+					name = nu_secret_foreign_crush
+					value = scope:nu_foreign_education_peer
+				}
+				add_character_flag = nu_secret_foreign_crush_active
+			}
+		}
+	}
+}
+
+
+nu_resolve_foreigner_at_court_effect = {
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = shy
+				has_trait = paranoid
+			}
+		}
+		add_stress = minor_stress_gain
+		nu_change_current_cultural_exposure_effect = { VALUE = -6 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = brave
+				has_trait = wrathful
+				has_trait = stubborn
+			}
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = -3 }
+
+		if = {
+			limit = {
+				exists = scope:nu_foreign_education_peer
+				can_set_relation_rival_even_if_teen_trigger = {
+					CHARACTER = scope:nu_foreign_education_peer
+				}
+			}
+			random = {
+				chance = 10
+				set_relation_rival = scope:nu_foreign_education_peer
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = gregarious
+				has_trait = trusting
+				has_trait = fickle
+			}
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = 2 }
+	}
+	else = {
+		nu_change_current_cultural_exposure_effect = { VALUE = -1 }
+	}
+}
+
+
+nu_resolve_strange_custom_effect = {
+
+	if = {
+		limit = {
+			OR = {
+				has_trait = zealous
+				has_trait = stubborn
+			}
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = -2 }
+		nu_change_current_religious_exposure_effect = { VALUE = -2 }
+	}
+	else_if = {
+		limit = {
+			has_trait = curious
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = 2 }
+		nu_change_current_religious_exposure_effect = { VALUE = 2 }
+	}
+	else_if = {
+		limit = {
+			has_trait = cynical
+		}
+		# Cynicism alone produces curiosity in the text but no
+		# automatic integration gain.
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = gregarious
+				has_trait = trusting
+				has_trait = fickle
+			}
+		}
+		nu_change_current_cultural_exposure_effect = { VALUE = 3 }
+		nu_change_current_religious_exposure_effect = { VALUE = 3 }
+	}
+}
+
+
+nu_make_foreign_crush_effect = {
+	# Expects scope:nu_foreign_education_peer.
+	if = {
+		limit = {
+			exists = scope:nu_foreign_education_peer
+			nu_can_form_foreign_crush_with_trigger = {
+				CHARACTER = scope:nu_foreign_education_peer
+			}
+		}
+
+		set_relation_crush = scope:nu_foreign_education_peer
+
+		if = {
+			limit = {
+				nu_foreign_crush_is_reportable_trigger = {
+					CHARACTER = scope:nu_foreign_education_peer
+				}
+			}
+			add_character_flag = {
+				flag = nu_foreign_crush_reportable
+				days = 7
+			}
+		}
+		else = {
+			set_variable = {
+				name = nu_secret_foreign_crush
+				value = scope:nu_foreign_education_peer
+			}
+			add_character_flag = nu_secret_foreign_crush_active
+		}
+	}
+}
+
+
+nu_resolve_rival_news_effect = {
+	# Expects scope:nu_foreign_education_rival.
+	remove_character_flag = nu_rival_news_unchanged
+	remove_character_flag = nu_rival_news_friend
+	remove_character_flag = nu_rival_news_nemesis
+	remove_character_flag = nu_rival_news_crush
+
+	random_list = {
+		60 = {
+			add_character_flag = {
+				flag = nu_rival_news_unchanged
+				days = 7
+			}
+		}
+
+		20 = {
+			modifier = {
+				factor = 3
+				has_trait = forgiving
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_trait = compassionate
+					has_trait = gregarious
+					has_trait = trusting
+				}
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_trait = calm
+					has_trait = patient
+				}
+			}
+			modifier = {
+				factor = 0.25
+				OR = {
+					has_trait = vengeful
+					has_trait = sadistic
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_trait = wrathful
+					has_trait = stubborn
+				}
+			}
+
+			remove_relation_rival = scope:nu_foreign_education_rival
+			set_relation_friend = {
+				reason = friend_childhood_random
+				target = scope:nu_foreign_education_rival
+			}
+			add_character_flag = {
+				flag = nu_rival_news_friend
+				days = 7
+			}
+		}
+
+		15 = {
+			trigger = {
+				can_set_relation_nemesis_even_if_teen_trigger = {
+					CHARACTER = scope:nu_foreign_education_rival
+				}
+			}
+			modifier = {
+				factor = 3
+				has_trait = vengeful
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_trait = wrathful
+					has_trait = sadistic
+				}
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_trait = stubborn
+					has_trait = paranoid
+				}
+			}
+			modifier = {
+				factor = 0.25
+				OR = {
+					has_trait = forgiving
+					has_trait = compassionate
+				}
+			}
+			modifier = {
+				factor = 0.5
+				has_trait = calm
+			}
+
+			set_relation_nemesis = scope:nu_foreign_education_rival
+			add_character_flag = {
+				flag = nu_rival_news_nemesis
+				days = 7
+			}
+		}
+
+		5 = {
+			trigger = {
+				nu_can_form_foreign_crush_with_trigger = {
+					CHARACTER = scope:nu_foreign_education_rival
+				}
+			}
+			modifier = {
+				factor = 2
+				has_trait = lustful
+			}
+			modifier = {
+				factor = 1.5
+				has_trait = fickle
+			}
+
+			set_relation_crush = scope:nu_foreign_education_rival
+			add_character_flag = {
+				flag = nu_rival_news_crush
+				days = 7
+			}
+
+			if = {
+				limit = {
+					nu_foreign_crush_is_reportable_trigger = {
+						CHARACTER = scope:nu_foreign_education_rival
+					}
+				}
+				add_character_flag = {
+					flag = nu_foreign_crush_reportable
+					days = 7
+				}
+				add_character_flag = {
+					flag = nu_foreign_crush_from_rivalry
+					days = 7
+				}
+			}
+			else = {
+				set_variable = {
+					name = nu_secret_foreign_crush
+					value = scope:nu_foreign_education_rival
+				}
+				add_character_flag = nu_secret_foreign_crush_active
+			}
+		}
+	}
+}
