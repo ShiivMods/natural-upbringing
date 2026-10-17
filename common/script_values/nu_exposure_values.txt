@@ -233,7 +233,7 @@ nu_belief_exposure_yearly_gain = {
 	if = {
 		limit = {
 			court_owner ?= {
-				rite = scope:nu_belief_environment
+				faith = scope:nu_belief_environment
 			}
 		}
 
@@ -250,7 +250,7 @@ nu_belief_exposure_yearly_gain = {
 		limit = {
 			court_owner ?= {
 				capital_province ?= {
-					rite = scope:nu_belief_environment
+					faith = scope:nu_belief_environment
 				}
 			}
 		}
