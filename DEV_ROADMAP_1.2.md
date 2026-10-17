@@ -1212,5 +1212,10 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - [À tester en jeu] Les outils de debug distinguent désormais Culture, Foi et Rite pour l'inspection et l'assimilation forcée.
 - [Validation statique] Les comparaisons de scopes foi / rite du nouveau système ont été auditées et les comparaisons de type incorrect identifiées ont été corrigées.
 - [Validation statique] Les fichiers texte du mod sur cette branche utilisent tous un BOM UTF-8.
-- [À affiner après tests groupés] Le rite doit être plus facile à assimiler qu'une foi complète à niveau d'exposition comparable ; les probabilités exactes seront équilibrées lors des tests groupés.
+- [Décision validée] À niveau d'exposition comparable, le rite est plus facile à assimiler qu'une foi complète.
+- Table de conversion de foi : score 5/15/30/45/60/75/90 -> 1/2/5/10/18/28/40 %.
+- Table de changement de rite : score 5/15/30/45/60/75/90 -> 2/4/8/15/25/38/55 %.
+- Modificateurs de personnalité pour la foi : Zélé x0,55 ; Cynique x1,35 ; Obstiné x0,80 ; Versatile x1,20 ; Confiant x1,10 ; Paranoïaque x0,85.
+- Modificateurs de personnalité pour le rite : Zélé x0,75 ; Cynique x1,20 ; Obstiné x0,90 ; Versatile x1,15 ; Confiant x1,10 ; Paranoïaque x0,90.
+- Ces valeurs sont validées comme point de départ et restent réévaluables uniquement si les tests groupés montrent un déséquilibre manifeste.
 - Ce développement reste non publié jusqu'à la campagne de tests générale de la 1.2.
