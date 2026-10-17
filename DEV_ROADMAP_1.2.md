@@ -1203,11 +1203,14 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - [À tester en jeu] Si foi et rite sont identiques, aucune exposition religieuse étrangère n'est créée.
 - [À tester en jeu] Lors d'une conversion vers une foi étrangère, l'enfant adopte nécessairement aussi un rite de cette foi, en priorité celui du tuteur ou de l'environnement qui a produit l'exposition. Ce changement de rite est une conséquence de la conversion de foi, pas une seconde assimilation indépendante.
 - [À tester en jeu] La protection religieuse contractuelle interdit les deux types d'assimilation.
+- [Décision validée] L'accompagnement religieux protège avec la même intensité contre l'exposition à une autre foi et contre l'exposition à un autre rite.
+- [Décision validée] Foi et rite sont complémentaires mais suivent des pistes d'exposition mutuellement exclusives : une différence de foi prend toujours priorité ; l'exposition au rite n'existe que lorsque la foi est déjà identique.
+- [Décision validée] Les événements qui donnent de l'exposition religieuse suivent la même hiérarchie : foi différente -> exposition à la foi ; même foi mais rite différent -> exposition au rite ; jamais les deux à la fois.
+- [Décision validée] Un changement complet de foi est narrativement et mécaniquement plus important qu'un simple changement de rite. Les réactions parentales utilisent les mêmes familles de personnalité, mais leur intensité doit être supérieure pour une conversion de foi.
 - [À tester en jeu] Lettres parentales différenciées et notifications de tuteur sans doublon, y compris lorsque l'assimilation culturelle survient au même anniversaire.
 - [À tester en jeu] Le mal du pays distingue désormais une foi différente d'un simple rite différent au sein de la même foi. Une foi étrangère pèse davantage ; un rite étranger produit un effet plus faible mais réel.
-- [À tester en jeu] L'accompagnement religieux protège désormais à la fois contre l'exposition à une autre foi et contre l'exposition à un autre rite.
 - [À tester en jeu] Les outils de debug distinguent désormais Culture, Foi et Rite pour l'inspection et l'assimilation forcée.
 - [Validation statique] Les comparaisons de scopes foi / rite du nouveau système ont été auditées et les comparaisons de type incorrect identifiées ont été corrigées.
 - [Validation statique] Les fichiers texte du mod sur cette branche utilisent tous un BOM UTF-8.
-- [À affiner après tests groupés] Ajuster séparément les probabilités et la sensibilité des parents aux changements de rite.
+- [À affiner après tests groupés] Le rite doit être plus facile à assimiler qu'une foi complète à niveau d'exposition comparable ; les probabilités exactes seront équilibrées lors des tests groupés.
 - Ce développement reste non publié jusqu'à la campagne de tests générale de la 1.2.
