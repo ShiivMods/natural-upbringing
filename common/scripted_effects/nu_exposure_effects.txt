@@ -249,10 +249,23 @@
 		remove_variable = nu_faith_exposure_floor
 	}
 
-	# Rite exposure exists only inside the child's current faith.
-	# If the surrounding faith itself is different, the child gains
-	# faith exposure instead and the foreign rite does not accelerate it.
+	# Resolve one religious environment only.
+	# Guardian influence has priority over the surrounding court.
+	# Once that source is selected, faith is evaluated before rite:
+	# - different faith -> faith exposure only;
+	# - same faith, different rite -> rite exposure only.
 	if = {
+		limit = {
+			exists = scope:nu_guardian
+			scope:nu_guardian.faith != root.faith
+		}
+
+		scope:nu_guardian.faith = {
+			save_temporary_scope_as = nu_belief_environment
+		}
+	}
+
+	else_if = {
 		limit = {
 			exists = scope:nu_guardian
 			scope:nu_guardian.faith = root.faith
@@ -261,6 +274,18 @@
 
 		scope:nu_guardian.rite = {
 			save_temporary_scope_as = nu_faith_environment
+		}
+	}
+
+	else_if = {
+		limit = {
+			court_owner ?= {
+				faith != root.faith
+			}
+		}
+
+		court_owner.faith = {
+			save_temporary_scope_as = nu_belief_environment
 		}
 	}
 
@@ -458,30 +483,6 @@
 	# FAITH EXPOSURE (separate from the legacy RITE exposure)
 	# =========================================================
 	# Keep rite variables for compatibility with existing 1.2 saves.
-
-	if = {
-		limit = {
-			exists = scope:nu_guardian
-			scope:nu_guardian.faith != root.faith
-		}
-
-		scope:nu_guardian.faith = {
-			save_temporary_scope_as = nu_belief_environment
-		}
-	}
-
-	else_if = {
-		limit = {
-			court_owner ?= {
-				faith != root.faith
-			}
-		}
-
-		court_owner.faith = {
-			save_temporary_scope_as = nu_belief_environment
-		}
-	}
-
 
 	# ---------------------------------------------------------
 	# We are currently exposed to a foreign faith.
