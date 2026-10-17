@@ -300,6 +300,8 @@ nu_check_foreign_education_news_effect = {
 								limit = { is_alive = yes is_ai = no }
 								trigger_event = nu_foreign_education.0080
 							}
+						}
+					}
 
 
 					# -------------------------------------------------
@@ -493,8 +495,6 @@ nu_check_foreign_education_news_effect = {
 						every_parent = {
 							limit = { is_alive = yes is_ai = no }
 							trigger_event = nu_focus_education.0190
-						}
-					}
 						}
 					}
 				}
