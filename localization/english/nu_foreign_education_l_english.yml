@@ -43,3 +43,22 @@ There is nothing worrying in those few lines, yet something has changed. [nu_for
  nu_foreign_education.0050.a:0 "Two worlds can coexist."
 
  nu_foreign_education_cultural_acceptance_desc:0 "A child's education across two cultures"
+
+ nu_foreign_education.0070.opening:0 "An Unexpected Feeling"
+ nu_foreign_education.0070.desc.new:0 "At first I thought this was merely another acquaintance at court, but [nu_foreign_education_child.GetFirstName] clearly pays unusual attention to [nu_foreign_education_peer.GetFirstName]. The lingering looks and excuses to remain nearby have become difficult to ignore."
+ nu_foreign_education.0070.desc.friend:0 "The friendship between [nu_foreign_education_child.GetFirstName] and [nu_foreign_education_peer.GetFirstName] seems to have taken a new turn. Their companionship remains, but [nu_foreign_education_child.GetFirstName] plainly no longer looks upon [nu_foreign_education_peer.GetFirstName] as merely a friend."
+ nu_foreign_education.0070.desc.rival:0 "The rivalry between [nu_foreign_education_child.GetFirstName] and [nu_foreign_education_peer.GetFirstName] is becoming increasingly difficult to define. The provocations have not stopped, yet something else now seems mixed into their strange fascination with one another."
+ nu_foreign_education.0070.a:0 "That is worth remembering."
+
+ nu_foreign_education.0080.opening:0 "The Rival"
+ nu_foreign_education.0080.desc.unchanged:0 "The rivalry between [nu_foreign_education_child.GetFirstName] and [nu_foreign_education_rival.GetFirstName] shows no sign of fading. Each now seems to know exactly how to irritate the other, and neither appears willing to give ground."
+ nu_foreign_education.0080.desc.friend:0 "After so many disputes, [nu_foreign_education_child.GetFirstName] and [nu_foreign_education_rival.GetFirstName] have finally found common ground. Their old rivalry appears to have become a genuine friendship, perhaps born from the respect they learned through opposing one another."
+ nu_foreign_education.0080.desc.nemesis:0 "The tension between [nu_foreign_education_child.GetFirstName] and [nu_foreign_education_rival.GetFirstName] has crossed a new threshold. What still resembled a childish rivalry has become a deep hostility that neither lessons nor reprimands seem able to calm."
+ nu_foreign_education.0080.desc.crush:0 "The rivalry between [nu_foreign_education_child.GetFirstName] and [nu_foreign_education_rival.GetFirstName] remains, but their attention toward one another now seems considerably more complicated than simple hostility."
+ nu_foreign_education.0080.a:0 "Children sometimes find strange paths."
+
+ nu_foreign_education_integrated_opinion:0 "Thriving at Court"
+ nu_foreign_education_social_opinion:0 "Settling In Well"
+ nu_foreign_education_difficult_opinion:0 "Difficult Adjustment"
+ nu_foreign_education_parent_support_opinion:0 "Supported During Education"
+ nu_foreign_education_parent_rejection_opinion:0 "Disappointed by a Parent's Reaction"
