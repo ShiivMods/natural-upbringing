@@ -1,0 +1,79 @@
+﻿l_english:
+
+ nu_runaway.0001.opening:0 "A Disappearance"
+ nu_runaway.0001.desc:0 "[nu_runaway_guardian.GetFirstName] writes with news I feared without ever truly expecting. [nu_runaway_child.GetFirstName] has vanished from court. A few belongings disappeared as well, enough to rule out a simple delay.
+
+Everything suggests that my child has decided to attempt the journey home alone."
+ nu_runaway.0001.a:0 "Find [nu_runaway_child.GetFirstName]."
+
+ nu_runaway.0010.opening:0 "News From the Search"
+ nu_runaway.0010.desc.danger:0 "The search continues, but the latest traces of [nu_runaway_child.GetFirstName] are troubling. Witnesses speak of a tired and poorly prepared child seen far from the safer roads."
+ nu_runaway.0010.desc.worry:0 "A few accounts now allow part of [nu_runaway_child.GetFirstNamePossessive] route to be reconstructed. Nothing yet points to immediate danger, but the path seems harder than my child likely imagined."
+ nu_runaway.0010.desc.uncertain:0 "The search has produced only contradictory reports. Some swear they saw [nu_runaway_child.GetFirstName], while others describe a child who hardly resembles mine. For now, no one knows where my child truly is."
+ nu_runaway.0010.desc.encouraging:0 "Several clues finally agree. [nu_runaway_child.GetFirstName] appears to have moved in the right direction and has so far avoided the greatest dangers of the road."
+ nu_runaway.0010.desc.near_home:0 "The latest reports are encouraging. Everything suggests that [nu_runaway_child.GetFirstName] has come considerably closer to home."
+ nu_runaway.0010.a:0 "Keep searching."
+
+ nu_runaway.0100.t:0 "The Road Home"
+ nu_runaway.0100.desc.critical:0 "Against every expectation, [nu_runaway_child.GetFirstName] has reached us without the search ever catching up. Tired and worn thin by the journey but proud of having endured it, my child now stands before me."
+ nu_runaway.0100.desc.success:0 "After weeks away, [nu_runaway_child.GetFirstName] has finally reached home. The journey was long, but my child managed to find the way back without being caught."
+ nu_runaway.0100.desc.helped:0 "[nu_runaway_child.GetFirstName] is finally home. Most of the journey was completed alone before timely help made the final stages safe."
+ nu_runaway.0100.desc.escorted:0 "[nu_runaway_child.GetFirstName] was not far away when travelers recognized my child and agreed to provide an escort home. Even so, the distance already covered was more than I would ever have believed possible."
+ nu_runaway.0100.a:0 "Enough. [nu_runaway_child.GetFirstName] stays home."
+ nu_runaway.0100.b:0 "The education is not finished. [nu_runaway_child.GetFirstName] must return."
+
+ nu_runaway.0200.opening:0 "The Runaway Ends"
+ nu_runaway.0200.desc.safe:0 "[nu_runaway_child.GetFirstName] has finally been found before reaching home. The search returned my child to [nu_runaway_guardian.GetFirstName], safe and unharmed, though plainly disappointed."
+ nu_runaway.0200.desc.difficulty:0 "[nu_runaway_child.GetFirstName] was found exhausted and disoriented. Nothing serious had happened, but the search ended none too soon. [nu_runaway_guardian.GetFirstName] has taken my child back into their care."
+ nu_runaway.0200.desc.serious:0 "[nu_runaway_child.GetFirstNamePossessive] attempt ended badly. Without resources and unable to continue alone, my child had to accept help from those searching and was returned to the guardian."
+ nu_runaway.0200.desc.severe_diplomacy:0 "[nu_runaway_child.GetFirstName] trusted the wrong people. For several days, adults took advantage of the name and circumstances before the search recovered my child. [nu_runaway_guardian.GetFirstName] has my child back, deeply shaken."
+ nu_runaway.0200.desc.severe_martial:0 "[nu_runaway_child.GetFirstNamePossessive] determination carried the journey too far. A hard fall caused serious injury, and the search found my child before any attempt to continue."
+ nu_runaway.0200.desc.severe_stewardship:0 "[nu_runaway_child.GetFirstNamePossessive] provisions ran out long before home. Several days of hunger and exhaustion badly weakened my child before the search found them."
+ nu_runaway.0200.desc.severe_intrigue:0 "Trying to remain unseen, [nu_runaway_child.GetFirstName] eventually drew the attention of people far less kindly than those searching. It took time to recover my child, shaken and injured."
+ nu_runaway.0200.desc.severe_learning:0 "A mistake in the route led [nu_runaway_child.GetFirstName] onto a path far too difficult. When the search found my child, exhaustion and serious injuries had already taken their toll."
+ nu_runaway.0200.a:0 "At least my child is alive."
+
+ nu_runaway.0300.opening:0 "The Road Turns Bad"
+ nu_runaway.0300.desc.safe_diplomacy:0 "[nu_runaway_child.GetFirstName] eventually trusted someone with the story, and that person recognized the name and alerted the search. The journey ends there, with [nu_runaway_guardian.GetFirstName] taking my child back into their care."
+ nu_runaway.0300.desc.safe_martial:0 "Exhausted after pushing too hard, [nu_runaway_child.GetFirstName] could no longer avoid those searching. My child was returned to the guardian without serious injury."
+ nu_runaway.0300.desc.safe_stewardship:0 "[nu_runaway_child.GetFirstNamePossessive] money and provisions ran out. Forced to ask for help, my child was recognized and returned to [nu_runaway_guardian.GetFirstName]."
+ nu_runaway.0300.desc.safe_intrigue:0 "A contradiction in [nu_runaway_child.GetFirstNamePossessive] invented story was enough. The identity was recognized and the search quickly brought the runaway to an end."
+ nu_runaway.0300.desc.safe_learning:0 "A mistaken reading of directions sent [nu_runaway_child.GetFirstName] the wrong way. Asking for directions eventually led to recognition and a return to the guardian."
+
+ nu_runaway.0300.desc.aggravated_diplomacy:0 "[nu_runaway_child.GetFirstName] placed trust in people who mostly saw a chance to exploit the situation. A few belongings vanished before the search found my child, humiliated but safe."
+ nu_runaway.0300.desc.aggravated_martial:0 "A confrontation on the road left [nu_runaway_child.GetFirstName] injured. The incident also drew enough attention for the search to locate my child."
+ nu_runaway.0300.desc.aggravated_stewardship:0 "A poor transaction cost [nu_runaway_child.GetFirstName] much of the limited resources available. Exhausted and nearly empty-handed, my child was found before matters became worse."
+ nu_runaway.0300.desc.aggravated_intrigue:0 "[nu_runaway_child.GetFirstNamePossessive] lies attracted someone who understood there was more to gain than a simple story. After hours of intimidation, the arrival of the search finally ended the incident."
+ nu_runaway.0300.desc.aggravated_learning:0 "[nu_runaway_child.GetFirstName] lost several days following a misunderstood route. Exhaustion eventually forced a stop and allowed the search to catch up."
+
+ nu_runaway.0300.desc.severe_diplomacy:0 "Adults kept [nu_runaway_child.GetFirstName] for several days, hoping to gain something from the name. The search eventually recovered my child, but the experience has left a deep mark."
+ nu_runaway.0300.desc.severe_martial:0 "[nu_runaway_child.GetFirstName] tried to cross a dangerous passage alone. A violent fall ended the journey and left my child severely injured."
+ nu_runaway.0300.desc.severe_stewardship:0 "[nu_runaway_child.GetFirstNamePossessive] supplies ran out far from help. Hunger and exposure badly weakened my child before the search arrived."
+ nu_runaway.0300.desc.severe_intrigue:0 "By hiding the identity too well, [nu_runaway_child.GetFirstName] fell into the hands of dangerous people with no intention of allowing an easy departure. The search recovered my child injured and deeply shaken."
+ nu_runaway.0300.desc.severe_learning:0 "A wrong route led [nu_runaway_child.GetFirstName] into country too difficult to cross alone. Cold, exhaustion, and a bad fall left my child severely injured."
+
+ nu_runaway.0300.desc.death_martial:0 "The search found [nu_runaway_child.GetFirstNamePossessive] trail below a steep passage. My child tried to cross an obstacle that should never have been faced alone. The fall left no chance of survival."
+ nu_runaway.0300.desc.death_stewardship:0 "[nu_runaway_child.GetFirstNamePossessive] provisions ran out in an isolated region. By the time the search finally found my child, cold and hunger had already taken their toll."
+ nu_runaway.0300.desc.death_intrigue:0 "Trying to disappear from everyone's sight, [nu_runaway_child.GetFirstName] encountered people who should never have been allowed to see such vulnerability. The search found my child too late."
+ nu_runaway.0300.desc.death_learning:0 "A wrong road carried [nu_runaway_child.GetFirstName] far from traveled paths. Days of wandering, cold, and exhaustion eventually made any return impossible."
+ nu_runaway.0300.a:0 "What a terrible road..."
+
+ nu_runaway_story:0 "[Story.MakeScope.Var('nu_runaway_child').Char.GetFirstNamePossessive] Runaway"
+ NU_RUNAWAY_CHILD_LABEL:0 "Missing Child"
+ NU_RUNAWAY_STORY_PRACTICAL_INFORMATION_STRING:0 "[Story.MakeScope.Var('nu_runaway_child').Char.GetFirstName] left the guardian's court and is trying to return home.
+
+Time elapsed: [Story.MakeScope.Var('nu_runaway_child').Char.MakeScope.Var('nu_runaway_months').GetValue|0] months
+Education focus: [Story.MakeScope.Var('nu_runaway_child').Char.GetFocus.GetName]
+Status: [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayStatus')]
+Latest information: [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayLatestInfo')]"
+
+ nu_runaway_status_danger_loc:0 "In serious difficulty"
+ nu_runaway_status_worry_loc:0 "Troubling signs"
+ nu_runaway_status_uncertain_loc:0 "Situation uncertain"
+ nu_runaway_status_encouraging_loc:0 "Encouraging progress"
+ nu_runaway_status_near_home_loc:0 "Approaching home"
+ nu_runaway_latest_search_loc:0 "witnesses and traces have allowed the search to reconstruct more of the route"
+ nu_runaway_latest_disappearance_loc:0 "no reliable information since the disappearance"
+
+ nu_runaway_parent_accepted_return:0 "Return Accepted"
+ nu_runaway_parent_sent_back:0 "Sent Back to the Guardian"
