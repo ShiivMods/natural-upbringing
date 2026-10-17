@@ -845,13 +845,8 @@ Structure visible :
 Progression cachée mensuelle :
 - dès le début de la fugue, un test mécanique caché est effectué environ une fois par mois ;
 - ces tests ne génèrent pas d'événement visible et servent uniquement à représenter la progression réelle de l'enfant entre les grandes nouvelles ;
-- la compétence utilisée est celle correspondant au focus d'éducation actuel :
-  - Diplomatie ;
-  - Martial ;
-  - Intendance ;
-  - Intrigue ;
-  - Érudition ;
-- le palier est recalculé à partir de la valeur actuelle de la compétence de l'enfant.
+- la compétence utilisée est celle correspondant au focus d'éducation actuel ;
+- le palier est recalculé à partir de la valeur actuelle de la compétence de l'enfant à chaque test mensuel.
 
 Paliers de compétence validés :
 - Exécrable : 3 ou moins ;
@@ -860,38 +855,30 @@ Paliers de compétence validés :
 - Bon : 10 à 13 ;
 - Excellent : 14 ou plus.
 
+Progression mensuelle validée :
+- Exécrable : 50 % échec, 35 % neutre, 15 % réussite ;
+- Mauvais : 35 % échec, 40 % neutre, 25 % réussite ;
+- Moyen : 25 % échec, 35 % neutre, 40 % réussite ;
+- Bon : 15 % échec, 30 % neutre, 55 % réussite ;
+- Excellent : 8 % échec, 22 % neutre, 70 % réussite.
+
 Variable cachée de progression :
 - départ à 0 ;
 - réussite mensuelle : +1 ;
 - échec mensuel : -1 ;
 - neutre : 0 ;
-- la progression cumulée doit influencer les nouvelles intermédiaires et la conclusion.
+- la progression cumulée influence les nouvelles intermédiaires et la conclusion ;
+- progression cumulée de +4 : réussite critique immédiate, l'enfant parvient à rentrer avant la prochaine grande étape ;
+- progression cumulée de -4 : déclenche un sous-jet caché d'échec critique.
 
-Résolutions critiques :
-- une réussite critique signifie que l'enfant parvient à rentrer chez lui avant la prochaine étape prévue ;
-- un échec critique signifie qu'il est retrouvé / intercepté et ramené chez son tuteur ;
-- certains échecs critiques cohérents avec le contexte peuvent comporter un risque exceptionnel de blessure grave ou de mort ;
-- la mort ne doit jamais être l'issue normale d'un échec critique.
-
-Progression mensuelle validée :
-- Exécrable, 3 ou moins : 50 % échec, 35 % neutre, 15 % réussite ;
-- Mauvais, 4 à 6 : 35 % échec, 40 % neutre, 25 % réussite ;
-- Moyen, 7 à 9 : 25 % échec, 35 % neutre, 40 % réussite ;
-- Bon, 10 à 13 : 15 % échec, 30 % neutre, 55 % réussite ;
-- Excellent, 14 ou plus : 8 % échec, 22 % neutre, 70 % réussite ;
-- le palier est recalculé à partir de la compétence actuelle de l'enfant à chaque test mensuel.
-
-Résolutions critiques validées :
-- ne pas effectuer un jet critique indépendant chaque mois ;
-- progression cumulée de +4 : réussite critique, l'enfant parvient à rentrer avant la prochaine grande étape ;
-- progression cumulée de -4 : déclenche un sous-jet caché d'échec critique ;
-- l'échec critique n'a donc pas un résultat ou un texte unique : le sous-jet détermine la gravité réelle de l'issue ;
-- résultat neutre de l'échec critique : l'enfant est retrouvé / intercepté puis ramené chez son tuteur ;
-- résultat aggravé : blessure, épuisement sévère, vol, capture temporaire ou autre conséquence cohérente avec le domaine utilisé ;
-- résultat exceptionnel : blessure grave ou mort lorsque le contexte permet réellement une issue létale ;
-- chaque résultat possède son propre texte visible, et les formulations doivent également varier selon le domaine d'éducation ;
-- la mort doit rester un sous-résultat exceptionnel de l'échec critique, jamais son issue par défaut ;
-- cela évite qu'une succession de nombreux jets mensuels rende les critiques artificiellement fréquentes.
+Résolution normale si aucun seuil critique n'est atteint avant la conclusion :
+- +3 : retour réussi ;
+- +2 : retour réussi avec aide sur la dernière partie du trajet ;
+- +1 : l'enfant est presque arrivé et est finalement aidé / escorté jusqu'au foyer ;
+- 0 : l'enfant est retrouvé et ramené au tuteur ;
+- -1 : l'enfant est retrouvé en difficulté puis ramené au tuteur ;
+- -2 : échec sérieux avec conséquence mineure possible ;
+- -3 : échec sévère, avec conséquence adaptée au domaine, puis retour au tuteur.
 
 Variation par domaine :
 - Diplomatie : obtenir l'aide de voyageurs, paysans ou notables, convaincre, négocier, risque de révéler son identité ;
@@ -900,20 +887,75 @@ Variation par domaine :
 - Intrigue : cacher son identité, mentir, éviter les recherches et emprunter des routes discrètes ;
 - Érudition : s'orienter, exploiter cartes et indications, comprendre les coutumes locales et raisonner son trajet.
 
-Retour réussi :
+#### Sous-jet d'échec critique validé
+
+Un échec critique n'utilise jamais un texte générique unique. À -4, un sous-jet caché détermine la gravité et la cause de l'échec, puis le texte visible est choisi dans un pool correspondant au domaine et au sous-résultat.
+
+Probabilités par domaine :
+- Diplomatie : 80 % ramené sain et sauf, 18 % échec aggravé, 2 % échec sévère, 0 % mort ;
+- Martial : 55 % ramené sain et sauf, 30 % échec aggravé, 12 % échec sévère, 3 % mort ;
+- Intendance : 70 % ramené sain et sauf, 25 % échec aggravé, 4 % échec sévère, 1 % mort ;
+- Intrigue : 75 % ramené sain et sauf, 21 % échec aggravé, 3 % échec sévère, 1 % mort ;
+- Érudition : 65 % ramené sain et sauf, 27 % échec aggravé, 6 % échec sévère, 2 % mort.
+
+Principes :
+- « ramené sain et sauf » : fin de la fugue, retour au tuteur, perte mineure de prestige ;
+- échec aggravé : conséquence non nécessairement médicale, par exemple stress, épuisement, vol, humiliation, capture temporaire ou perte de ressources ;
+- échec sévère : conséquence durable ou médicale cohérente avec la scène, par exemple blessure ou affaiblissement important ;
+- mort : issue exceptionnelle uniquement lorsque le contexte narratif rend une issue létale crédible ;
+- chaque niveau doit disposer de plusieurs localisations, et particulièrement les morts et échecs sévères ;
+- le texte final doit toujours refléter la cause réelle déterminée par le sous-jet.
+
+Diplomatie :
+- sain et sauf : confiance accordée à la mauvaise personne, identité reconnue, dénonciation ou remise aux recherches ;
+- aggravé : promesses mal placées, manipulation par des adultes, vol ou rétention intéressée ;
+- sévère : retenu plusieurs jours ou utilisé comme moyen d'obtenir une récompense, avec fort stress ;
+- aucune mort directe prévue pour ce domaine dans le sous-jet normal.
+
+Martial :
+- sain et sauf : rattrapé après épuisement ou incapable de poursuivre ;
+- aggravé : chute, confrontation ou effort physique causant une blessure légère ;
+- sévère : accident ou confrontation entraînant une blessure sérieuse ;
+- mort : plusieurs causes distinctes au minimum, par exemple chute, violence ou exposition au froid / épuisement.
+
+Intendance :
+- sain et sauf : argent ou provisions épuisés, obligation de demander de l'aide ;
+- aggravé : arnaque, vol, mauvaise transaction ou perte des ressources ;
+- sévère : privation prolongée, faim ou épuisement important ;
+- mort : uniquement si l'absence réelle de ressources conduit à une situation cohérente de faim, exposition ou isolement.
+
+Intrigue :
+- sain et sauf : mensonge incohérent, identité percée, piste retrouvée ;
+- aggravé : intimidation, interrogatoire, chantage ou mauvaise rencontre ;
+- sévère : retenu par des individus dangereux avant d'être retrouvé ;
+- mort : extrêmement rare, liée à une rencontre dangereuse provoquée par le besoin de rester clandestin ;
+- une bonne ou mauvaise scène d'Intrigue peut à terme laisser des conséquences relationnelles ou des hooks, sans en faire une récompense automatique.
+
+Érudition :
+- sain et sauf : erreur d'itinéraire ou mauvaise interprétation des indications ;
+- aggravé : plusieurs jours d'errance et épuisement ;
+- sévère : engagement sur une route ou dans une zone trop difficile, grave affaiblissement ;
+- mort : plusieurs causes distinctes, par exemple perte prolongée, froid ou isolement.
+
+#### Retour réussi et choix du parent
+
 - si l'enfant rentre chez lui, le parent peut décider de le laisser rester ou de le renvoyer auprès de son tuteur ;
 - laisser l'enfant rester met fin à la tutelle étrangère et au mal du pays ;
 - accepter son retour augmente l'opinion de l'enfant envers le parent ;
 - le renvoyer auprès de son tuteur diminue l'opinion de l'enfant envers le parent ;
-- les réactions et effets secondaires du choix du parent sont adaptatifs selon sa personnalité, sur le même principe que les autres réactions parentales de NU ;
+- les réactions et effets secondaires du choix du parent utilisent les six familles de traits déjà définies ;
+- les options restent accessibles au joueur, les traits adaptent principalement texte, stress, opinion et tonalité, conformément au fonctionnement vanilla ;
+- agir à contre-caractère reste donc possible mais peut produire du stress ;
 - le choix du parent ne modifie pas rétroactivement la réussite de la fugue elle-même ;
 - aucune nouvelle fugue n'est possible dans cette version après une première fugue réelle.
 
 Prestige lié à l'issue :
-- une fugue réussie et un retour effectif au foyer accordent du prestige à l'enfant, indépendamment du choix ultérieur du parent ;
-- une fugue échouée retire une petite quantité de prestige à l'enfant ;
-- le prestige représente la réputation acquise ou perdue par l'enfant à la suite de cette aventure ;
-- les valeurs exactes restent à équilibrer, avec une préférence pour les échelles vanilla mineures ou moyennes plutôt que des nombres arbitraires.
+- retour réussi normal : gain de prestige mineur pour l'enfant ;
+- réussite critique à +4 : gain de prestige moyen pour l'enfant ;
+- fugue échouée : perte de prestige mineure pour l'enfant ;
+- le prestige est appliqué indépendamment du choix ultérieur du parent ;
+- la mort n'ajoute pas de perte de prestige supplémentaire.
+
 
 ### Affichage de la fugue dans l'onglet Situations
 
