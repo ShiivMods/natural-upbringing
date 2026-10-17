@@ -15,6 +15,7 @@ nu_on_child_birthday = {
 
 	effect = {
 		nu_update_exposure_tracking_effect = yes
+		nu_apply_foreign_education_cultural_acceptance_effect = yes
 		nu_quality_instruction_birthday_effect = yes
 		nu_check_natural_assimilation_effect = yes
 		nu_check_homesickness_effect = yes
