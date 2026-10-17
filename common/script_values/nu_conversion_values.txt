@@ -127,7 +127,7 @@ nu_religious_assimilation_chance = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 90
 		}
-		add = 85
+		add = 55
 	}
 	else_if = {
 		limit = {
@@ -141,96 +141,61 @@ nu_religious_assimilation_chance = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 60
 		}
-		add = 45
+		add = 25
 	}
 	else_if = {
 		limit = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 45
 		}
-		add = 25
+		add = 15
 	}
 	else_if = {
 		limit = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 30
 		}
-		add = 5
+		add = 8
 	}
 	else_if = {
 		limit = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 15
 		}
-		add = 2
+		add = 4
 	}
 	else_if = {
 		limit = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 5
 		}
-		add = 1
+		add = 2
 	}
 
-	# =========================================================
-	# PERSONALITY — V1
-	# =========================================================
-
-	# Zealous characters strongly resist abandoning the faith
-	# they already regard as true.
+	# Rite changes are easier than full faith conversions, while
+	# personality modifiers remain deliberately milder.
 	if = {
-		limit = {
-			has_trait = zealous
-		}
-
+		limit = { has_trait = zealous }
 		multiply = 0.75
 	}
-
-	# Cynical characters are much less attached to inherited
-	# religious certainty.
 	if = {
-		limit = {
-			has_trait = cynical
-		}
-
-		multiply = 1.15
-	}
-
-	# Stubbornness also makes a change of faith less likely.
-	if = {
-		limit = {
-			has_trait = stubborn
-		}
-
-		multiply = 0.90
-	}
-
-	# Fickle characters are more receptive to changing beliefs.
-	if = {
-		limit = {
-			has_trait = fickle
-		}
-
+		limit = { has_trait = cynical }
 		multiply = 1.20
 	}
-
-	# Trust in one's social environment modestly facilitates
-	# religious assimilation.
 	if = {
-		limit = {
-			has_trait = trusting
-		}
-
+		limit = { has_trait = stubborn }
+		multiply = 0.90
+	}
+	if = {
+		limit = { has_trait = fickle }
+		multiply = 1.15
+	}
+	if = {
+		limit = { has_trait = trusting }
 		multiply = 1.10
 	}
-
-	# Suspicious characters are less receptive to a foreign
-	# religious environment.
 	if = {
-		limit = {
-			has_trait = paranoid
-		}
-
+		limit = { has_trait = paranoid }
 		multiply = 0.90
 	}
 }
