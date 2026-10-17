@@ -1,5 +1,6 @@
 ﻿nu_clear_homesickness_effect = {
 	remove_variable = nu_homesickness_active_years
+	remove_variable = nu_homesickness_severity
 	remove_character_flag = nu_homesickness_active
 	remove_character_flag = nu_homesickness_request_pending
 
@@ -29,6 +30,10 @@ nu_begin_homesickness_effect = {
 		set_variable = {
 			name = nu_homesickness_active_years
 			value = 0
+		}
+		set_variable = {
+			name = nu_homesickness_severity
+			value = 1
 		}
 		add_character_flag = nu_homesickness_request_pending
 
