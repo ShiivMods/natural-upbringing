@@ -44,7 +44,7 @@ nu_debug_inspect_exposure_interaction = {
 # FORCE HOMESICKNESS REQUEST
 # -------------------------------------------------------------
 #
-# This bypasses RNG and the normal cooldown.
+# This bypasses RNG and the normal onset timing.
 # It does NOT create a fake situation: the child must genuinely
 # be living away from home in their guardian's court.
 # -------------------------------------------------------------
@@ -131,16 +131,98 @@ nu_debug_force_homesickness_interaction = {
 			court_owner = {
 				save_scope_as = nu_homesick_current_court
 			}
+
+			# Rebuild the real persistent state instead of merely
+			# displaying the old one-shot request event.
+			if = {
+				limit = {
+					NOT = { has_character_flag = nu_homesickness_active }
+				}
+				add_character_flag = nu_homesickness_active
+				set_variable = {
+					name = nu_homesickness_active_years
+					value = 0
+				}
+				set_variable = {
+					name = nu_homesickness_severity
+					value = 1
+				}
+			}
+
+			add_character_flag = nu_homesickness_request_pending
 		}
 
-		# Deliberately bypass:
-		# - nu_homesickness_chance
-		# - nu_homesickness_cooldown
-		# - minimum years abroad
-		#
-		# This interaction exists to test the event itself.
+		# Deliberately bypass the normal chance and minimum duration.
+		# The actor is used as the receiving parent for deterministic testing.
 		scope:actor = {
 			trigger_event = nu_homesickness.0001
+		}
+	}
+}
+
+
+# -------------------------------------------------------------
+# FORCE RUNAWAY ARC
+# -------------------------------------------------------------
+
+nu_debug_force_runaway_interaction = {
+	category = interaction_debug_admin
+	common_interaction = yes
+	icon = child
+
+	use_diplomatic_range = no
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+		scope:recipient = {
+			is_adult = no
+			age >= 12
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			is_child_of = scope:actor
+			has_education_focus_trigger = yes
+			nu_is_genuinely_educated_abroad_trigger = yes
+			NOT = { has_character_flag = nu_runaway_active }
+			NOT = { has_character_flag = nu_runaway_happened }
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			# Give the child the minimum real homesickness state expected
+			# by the arc, then start it through the normal effect.
+			if = {
+				limit = {
+					NOT = { has_character_flag = nu_homesickness_active }
+				}
+				add_character_flag = nu_homesickness_active
+				set_variable = {
+					name = nu_homesickness_active_years
+					value = 1
+				}
+				set_variable = {
+					name = nu_homesickness_severity
+					value = 1
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { has_variable = nu_homesickness_active_years }
+						var:nu_homesickness_active_years < 1
+					}
+				}
+				set_variable = {
+					name = nu_homesickness_active_years
+					value = 1
+				}
+			}
+
+			nu_start_runaway_effect = yes
 		}
 	}
 }
