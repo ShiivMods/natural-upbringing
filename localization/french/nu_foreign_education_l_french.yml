@@ -43,3 +43,22 @@ Rien d'inquiétant dans ces quelques lignes, mais quelque chose a changé. [nu_f
  nu_foreign_education.0050.a:0 "Deux mondes peuvent donc cohabiter."
 
  nu_foreign_education_cultural_acceptance_desc:0 "Éducation d'un enfant entre deux cultures"
+
+ nu_foreign_education.0070.opening:0 "Un sentiment inattendu"
+ nu_foreign_education.0070.desc.new:0 "Je pensais qu'il ne s'agissait au départ que d'une nouvelle connaissance de la cour, mais [nu_foreign_education_child.GetFirstName] porte manifestement une attention particulière à [nu_foreign_education_peer.GetFirstName]. Les regards insistants et les prétextes pour rester à proximité sont devenus difficiles à ignorer."
+ nu_foreign_education.0070.desc.friend:0 "L'amitié entre [nu_foreign_education_child.GetFirstName] et [nu_foreign_education_peer.GetFirstName] semble avoir pris une tournure nouvelle. Leur complicité est toujours là, mais [nu_foreign_education_child.GetFirstName] ne regarde manifestement plus [nu_foreign_education_peer.GetFirstName] comme un simple ami."
+ nu_foreign_education.0070.desc.rival:0 "La rivalité entre [nu_foreign_education_child.GetFirstName] et [nu_foreign_education_peer.GetFirstName] devient de plus en plus difficile à définir. Les provocations n'ont pas cessé, mais quelque chose d'autre semble désormais se mêler à leur étrange fascination mutuelle."
+ nu_foreign_education.0070.a:0 "Voilà qui mérite d'être gardé à l'esprit."
+
+ nu_foreign_education.0080.opening:0 "Le Rival"
+ nu_foreign_education.0080.desc.unchanged:0 "La rivalité entre [nu_foreign_education_child.GetFirstName] et [nu_foreign_education_rival.GetFirstName] ne montre aucun signe d'apaisement. Chacun semble désormais connaître exactement les manières d'irriter l'autre, et ni l'un ni l'autre ne paraît disposé à céder."
+ nu_foreign_education.0080.desc.friend:0 "Après tant de disputes, [nu_foreign_education_child.GetFirstName] et [nu_foreign_education_rival.GetFirstName] ont fini par trouver un terrain d'entente. Leur ancienne rivalité semble s'être transformée en une véritable amitié, née peut-être précisément du respect qu'ils ont appris à se porter."
+ nu_foreign_education.0080.desc.nemesis:0 "Les tensions entre [nu_foreign_education_child.GetFirstName] et [nu_foreign_education_rival.GetFirstName] ont franchi un nouveau seuil. Ce qui ressemblait encore à une rivalité d'enfants est devenu une hostilité profonde que ni les leçons ni les remontrances ne semblent pouvoir calmer."
+ nu_foreign_education.0080.desc.crush:0 "La rivalité entre [nu_foreign_education_child.GetFirstName] et [nu_foreign_education_rival.GetFirstName] demeure, mais leur attention l'un envers l'autre paraît désormais bien plus compliquée qu'une simple hostilité."
+ nu_foreign_education.0080.a:0 "Les enfants trouvent parfois d'étranges chemins."
+
+ nu_foreign_education_integrated_opinion:0 "Très bien intégré à la cour"
+ nu_foreign_education_social_opinion:0 "Bonne adaptation à la cour"
+ nu_foreign_education_difficult_opinion:0 "Adaptation difficile à la cour"
+ nu_foreign_education_parent_support_opinion:0 "Soutien pendant son éducation"
+ nu_foreign_education_parent_rejection_opinion:0 "Déçu par la réaction de son parent"
