@@ -731,6 +731,11 @@ nu_debug_force_belief_assimilation_effect = {
 				remove_variable = nu_faith_exposure_years
 				remove_variable = nu_faith_exposure_score
 				remove_variable = nu_faith_exposure_floor
+
+				# These flags are normally cleaned by the birthday pipeline.
+				# Debug forcing bypasses that pipeline, so clean them here.
+				remove_character_flag = nu_belief_assimilated_this_birthday
+				remove_character_flag = nu_assimilation_happened_this_birthday
 			}
 		}
 	}
