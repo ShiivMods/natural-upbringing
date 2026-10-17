@@ -110,7 +110,7 @@
   - assimilation culturelle et/ou religieuse étrangère ;
   - soutien potentiel du seigneur ou de la cour où l'enfant a été élevé pour revendiquer le titre familial.
 - Ces événements peuvent devenir des arcs en plusieurs étapes et laisser des conséquences longtemps après la fin de l'éducation.
-- Leur conception est repoussée après les événements normaux afin de ne pas diluer le développement du système de base.
+- Leur conception et leur implémentation sont reportées à la 1.2.1. La 1.2 contient déjà suffisamment de nouveaux systèmes et d'événements, notamment l'arc de fugue.
 
 ### Premier lot d'événements généraux validé
 
@@ -226,9 +226,9 @@ Ordre validé pour la variante Difficile : tester d'abord la fugue si elle est p
 - L'événement raconte une nouvelle confrontation et peut faire évoluer la relation.
 - Issues possibles :
   - rivalité inchangée ;
-  - réconciliation et transformation en amitié ;
-  - escalade et transformation en némésis ;
-  - transformation en béguin si les règles d'attirance sont remplies.
+  - réconciliation et transformation en amitié : la relation Rival disparaît, conformément aux relations opposées vanilla ;
+  - escalade et transformation en némésis : la relation Rival est remplacée par Némésis, conformément aux relations opposées vanilla ;
+  - apparition d'un béguin si les règles d'attirance sont remplies : le Béguin s'ajoute sans supprimer la rivalité, car Rival et Béguin sont compatibles dans les définitions vanilla.
 - Les chances doivent être pondérées par la personnalité de l'enfant :
   - Indulgent, Compatissant, Sociable, Confiant, traits similaires : favorisent la réconciliation ;
   - Vengeur, Colérique, Sadique, Obstiné, traits similaires : favorisent la némésis ;
@@ -815,6 +815,12 @@ Hooks :
 - [À tester en jeu] « Une amitié inattendue » crée une véritable relation d'amitié avec un enfant de la cour étrangère lorsque c'est possible.
 - [À tester en jeu] « L'étranger de la cour » et « Une coutume étrange » peuvent produire de très légers effets de stress ou d'exposition selon la personnalité.
 - [À tester en jeu] « Quelques mots familiers » exige une exposition culturelle déjà sensible ; « Deux mondes » exige une exposition plus profonde et ne peut apparaître qu'une fois par enfance.
+
+### Finitions du pack d'événements de focus
+
+- Les réactions parentales précises aux 10 événements de focus seront définies selon les six familles de traits déjà validées, en restant plus légères que pour les grands événements généraux.
+- Les petites probabilités encore qualitatives sont laissées à l'équilibrage de conception avant implémentation : rivalité, progression d'amitié, +1 Prouesse contextuel et hooks faibles.
+- Ces valeurs devront rester modestes, cohérentes avec vanilla et seront reprises explicitement dans `VALIDATION_1.2.md` avant implémentation définitive.
 
 ### Arc spécial : Fugue de l'enfant
 
