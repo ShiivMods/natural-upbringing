@@ -228,7 +228,7 @@ Ordre validé pour la variante Difficile : tester d'abord la fugue si elle est p
   - rivalité inchangée ;
   - réconciliation et transformation en amitié : la relation Rival disparaît, conformément aux relations opposées vanilla ;
   - escalade et transformation en némésis : la relation Rival est remplacée par Némésis, conformément aux relations opposées vanilla ;
-  - apparition d'un béguin si les règles d'attirance sont remplies : le Béguin s'ajoute sans supprimer la rivalité, car Rival et Béguin sont compatibles dans les définitions vanilla.
+  - apparition d'un béguin si les règles d'attirance sont remplies : le Béguin s'ajoute sans supprimer la rivalité, car Rival et Béguin sont compatibles dans les définitions vanilla ; ce comportement est validé pour la 1.2.
 - Les chances doivent être pondérées par la personnalité de l'enfant :
   - Indulgent, Compatissant, Sociable, Confiant, traits similaires : favorisent la réconciliation ;
   - Vengeur, Colérique, Sadique, Obstiné, traits similaires : favorisent la némésis ;
@@ -835,7 +835,10 @@ Principes validés :
 - le parent ne contrôle pas les décisions prises par l'enfant pendant la fugue.
 
 Chance de déclenchement :
-- valeur validée : 5 % pour le déclenchement spontané ;
+- valeur de base validée : 5 % pour le déclenchement spontané ;
+- cette chance doit être modulée par la personnalité de l'enfant ;
+- les traits cohérents avec une fuite autonome augmentent la probabilité, tandis que les traits craintifs ou fortement inhibiteurs la réduisent ;
+- exemple validé : un enfant Lâche doit être nettement moins susceptible de fuguer qu'un enfant Brave, Obstiné, Colérique ou particulièrement déterminé ;
 - un seul jet spontané lorsqu'un enfant devient éligible après au moins 1 an de mal du pays ;
 - si ce jet échoue, il n'est pas répété automatiquement chaque mois ou chaque anniversaire ;
 - les déclenchements contextuels déjà prévus, notamment la variante « Difficile » de « Des nouvelles de mon enfant », peuvent toujours proposer leur propre très faible chance tant que l'enfant n'a jamais réellement fugué ;
@@ -961,6 +964,9 @@ Intrigue :
 - laisser l'enfant rester met fin à la tutelle étrangère et au mal du pays ;
 - accepter son retour augmente l'opinion de l'enfant envers le parent ;
 - le renvoyer auprès de son tuteur diminue l'opinion de l'enfant envers le parent ;
+- si l'enfant est renvoyé après avoir réussi à rentrer, son mal du pays est renforcé plutôt que supprimé ;
+- cette aggravation doit avoir des conséquences émotionnelles et augmenter la pression vers une nouvelle tentative de fuite selon la personnalité de l'enfant ;
+- point restant à trancher : cette logique entre en conflit avec la limite actuelle d'une seule fugue réelle maximum par enfant en 1.2 ; décider explicitement si une seconde fugue devient possible dans ce cas précis ou si cette conséquence est reportée à la 1.2.1 ;
 - les réactions et effets secondaires du choix du parent utilisent les six familles de traits déjà définies ;
 - les options restent accessibles au joueur, les traits adaptent principalement texte, stress, opinion et tonalité, conformément au fonctionnement vanilla ;
 - agir à contre-caractère reste donc possible mais peut produire du stress ;
@@ -972,7 +978,9 @@ Prestige lié à l'issue :
 - réussite critique à +4 : gain de prestige moyen pour l'enfant ;
 - fugue échouée : perte de prestige mineure pour l'enfant ;
 - le prestige est appliqué indépendamment du choix ultérieur du parent ;
-- la mort n'ajoute pas de perte de prestige supplémentaire.
+- la mort n'ajoute pas de perte de prestige supplémentaire ;
+- lorsqu'une mort pendant la fugue déclenche déjà des conséquences vanilla appropriées, notamment deuil, stress ou réactions familiales, NU laisse CK3 les gérer ;
+- ne pas doubler artificiellement les conséquences vanilla, sauf exception spécifique nécessaire à la cohérence de l'arc.
 
 
 ### Affichage de la fugue dans l'onglet Situations
@@ -1001,9 +1009,10 @@ Principe validé :
 
 Équilibrage :
 - le gain doit être extrêmement faible, inférieur aux gains événementiels vanilla ordinaires ;
-- ordre de grandeur retenu pour équilibrage : environ +0,01 à +0,02 d'acceptation par année complète et par enfant ;
-- la valeur finale exacte sera choisie lors de l'implémentation / des tests ;
-- prévoir un plafond annuel par paire de cultures afin d'empêcher l'exploitation via un grand nombre de pupilles.
+- valeur de départ validée : +0,01 d'acceptation par année complète et par enfant ;
+- plafond annuel validé : +0,10 par paire de cultures ;
+- ces valeurs restent réévaluables après test en jeu si elles se révèlent trop faibles ou trop fortes ;
+- le plafond empêche l'exploitation via un grand nombre de pupilles.
 
 Scope indépendant :
 - ajouter une Game Rule dédiée à la portée de cette mécanique ;
