@@ -15,3 +15,25 @@
 
  setting_nu_scope_world: "#high Monde entier#!"
  setting_nu_scope_world_desc: "Natural Upbringing simule tous les enfants éligibles du monde. Cette option offre la simulation la plus complète, au prix d'un impact potentiel plus important sur les performances."
+
+ game_rule_category_natural_upbringing:0 "Natural Upbringing"
+
+ rule_nu_cultural_acceptance_scope:0 "Natural Upbringing : Portée de l'acceptation culturelle"
+
+ setting_nu_acceptance_scope_follow_simulation:0 "#high Suivre la portée générale de NU#!"
+ setting_nu_acceptance_scope_follow_simulation_desc:0 "L'influence très légère de l'éducation étrangère sur l'acceptation culturelle utilise la même portée que la simulation générale de Natural Upbringing. #bold Option recommandée et utilisée par défaut.#!"
+
+ setting_nu_acceptance_scope_close_family:0 "#high Famille proche uniquement#!"
+ setting_nu_acceptance_scope_close_family_desc:0 "Seuls les enfants appartenant à la famille proche d'un joueur contribuent à l'acceptation culturelle."
+
+ setting_nu_acceptance_scope_player_court:0 "#high Cour du joueur#!"
+ setting_nu_acceptance_scope_player_court_desc:0 "Les enfants de la cour d'un joueur ainsi que sa famille proche peuvent contribuer à l'acceptation culturelle."
+
+ setting_nu_acceptance_scope_top_realm:0 "#high Royaume du souverain#!"
+ setting_nu_acceptance_scope_top_realm_desc:0 "Les enfants situés dans le royaume souverain d'un joueur ainsi que sa famille proche peuvent contribuer à l'acceptation culturelle."
+
+ setting_nu_acceptance_scope_neighboring_realms:0 "#high Royaume et royaumes voisins#!"
+ setting_nu_acceptance_scope_neighboring_realms_desc:0 "La portée couvre le royaume souverain d'un joueur, les royaumes souverains voisins et sa famille proche."
+
+ setting_nu_acceptance_scope_world:0 "#high Monde entier#!"
+ setting_nu_acceptance_scope_world_desc:0 "Tous les enfants éligibles du monde peuvent contribuer à l'acceptation culturelle."
