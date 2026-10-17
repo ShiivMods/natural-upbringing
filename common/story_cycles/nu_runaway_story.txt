@@ -1,0 +1,43 @@
+﻿nu_runaway_story = {
+	visible = yes
+
+	icon = {
+		trigger = { always = yes }
+		reference = "gfx/interface/icons/message_feed/hostage.dds"
+	}
+
+	visualization = {
+		custom_string_key = "NU_RUNAWAY_STORY_PRACTICAL_INFORMATION_STRING"
+		character = {
+			variable_name = "nu_runaway_child"
+			label = "NU_RUNAWAY_CHILD_LABEL"
+		}
+	}
+
+	on_setup = {}
+
+	on_end = {}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		days = 10
+
+		trigger = {
+			exists = var:nu_runaway_child
+		}
+
+		triggered_effect = {
+			trigger = {
+				var:nu_runaway_child = {
+					NOT = { has_character_flag = nu_runaway_active }
+				}
+			}
+			effect = {
+				end_story = yes
+			}
+		}
+	}
+}
