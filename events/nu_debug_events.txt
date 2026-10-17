@@ -10,8 +10,6 @@ nu_debug.0001 = {
 	immediate = {
 
 		# Rebuild the inspected character scope inside the event.
-		# This makes the scope explicit and avoids relying on an
-		# externally-created saved scope for localization.
 		if = {
 			limit = {
 				exists = var:nu_debug_inspection_target
@@ -24,8 +22,7 @@ nu_debug.0001 = {
 			remove_variable = nu_debug_inspection_target
 		}
 
-		# Resolve tracked cultural/religious targets from the
-		# inspected character.
+		# Resolve all three exposure tracks independently.
 		if = {
 			limit = {
 				exists = scope:nu_debug_child
@@ -45,11 +42,21 @@ nu_debug.0001 = {
 
 				if = {
 					limit = {
+						exists = var:nu_belief_exposure_target
+					}
+
+					var:nu_belief_exposure_target = {
+						save_scope_as = nu_debug_faith_target
+					}
+				}
+
+				if = {
+					limit = {
 						exists = var:nu_rite_exposure_target
 					}
 
 					var:nu_rite_exposure_target = {
-						save_scope_as = nu_debug_faith_target
+						save_scope_as = nu_debug_rite_target
 					}
 				}
 			}
@@ -64,10 +71,8 @@ nu_debug.0001 = {
 				trigger = {
 					exists = scope:nu_debug_culture_target
 				}
-
 				desc = nu_debug.0001.culture
 			}
-
 			desc = nu_debug.0001.culture_none
 		}
 
@@ -76,11 +81,19 @@ nu_debug.0001 = {
 				trigger = {
 					exists = scope:nu_debug_faith_target
 				}
-
 				desc = nu_debug.0001.faith
 			}
-
 			desc = nu_debug.0001.faith_none
+		}
+
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:nu_debug_rite_target
+				}
+				desc = nu_debug.0001.rite
+			}
+			desc = nu_debug.0001.rite_none
 		}
 	}
 
@@ -92,6 +105,8 @@ nu_debug.0001 = {
 		name = nu_debug.0001.a
 	}
 }
+
+
 nu_debug.0002 = {
 	type = character_event
 	theme = education
@@ -131,11 +146,21 @@ nu_debug.0002 = {
 
 				if = {
 					limit = {
+						exists = var:nu_belief_exposure_target
+					}
+
+					var:nu_belief_exposure_target = {
+						save_scope_as = nu_debug_conversion_faith
+					}
+				}
+
+				if = {
+					limit = {
 						exists = var:nu_rite_exposure_target
 					}
 
 					var:nu_rite_exposure_target = {
-						save_scope_as = nu_debug_conversion_faith
+						save_scope_as = nu_debug_conversion_rite
 					}
 				}
 			}
@@ -168,6 +193,21 @@ nu_debug.0002 = {
 
 		trigger = {
 			exists = scope:nu_debug_conversion_faith
+		}
+
+		scope:nu_debug_conversion_child = {
+			save_scope_as = nu_assimilated_child
+			nu_debug_force_belief_assimilation_effect = yes
+		}
+
+		trigger_event = nu_assimilation.0002
+	}
+
+	option = {
+		name = nu_debug.0002.rite
+
+		trigger = {
+			exists = scope:nu_debug_conversion_rite
 		}
 
 		scope:nu_debug_conversion_child = {
