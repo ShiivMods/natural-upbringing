@@ -965,8 +965,8 @@ Intrigue :
 - accepter son retour augmente l'opinion de l'enfant envers le parent ;
 - le renvoyer auprès de son tuteur diminue l'opinion de l'enfant envers le parent ;
 - si l'enfant est renvoyé après avoir réussi à rentrer, son mal du pays est renforcé plutôt que supprimé ;
-- cette aggravation doit avoir des conséquences émotionnelles et augmenter la pression vers une nouvelle tentative de fuite selon la personnalité de l'enfant ;
-- point restant à trancher : cette logique entre en conflit avec la limite actuelle d'une seule fugue réelle maximum par enfant en 1.2 ; décider explicitement si une seconde fugue devient possible dans ce cas précis ou si cette conséquence est reportée à la 1.2.1 ;
+- cette aggravation doit avoir des conséquences émotionnelles fortes, mais aucune seconde fugue réelle n'est possible en 1.2 ;
+- la possibilité d'une seconde fugue est reportée à la 1.2.1 et sera liée aux futurs événements rares, qui pourront augmenter fortement sa probabilité lorsque le contexte narratif le justifie ;
 - les réactions et effets secondaires du choix du parent utilisent les six familles de traits déjà définies ;
 - les options restent accessibles au joueur, les traits adaptent principalement texte, stress, opinion et tonalité, conformément au fonctionnement vanilla ;
 - agir à contre-caractère reste donc possible mais peut produire du stress ;
