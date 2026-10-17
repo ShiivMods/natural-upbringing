@@ -160,7 +160,11 @@ nu_assimilation.0002 = {
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
-		set_local_variable = { name = nu_assimilation_event_kind value = flag:religion }
+		if = {
+			limit = { scope:nu_assimilated_child = { has_character_flag = nu_belief_assimilated_this_birthday } }
+			set_local_variable = { name = nu_assimilation_event_kind value = flag:religion }
+		}
+		else = { set_local_variable = { name = nu_assimilation_event_kind value = flag:rite } }
 		nu_prepare_religious_assimilation_reaction_effect = yes
 		nu_select_religious_assimilation_reaction_effect = yes
 	}
@@ -169,6 +173,19 @@ nu_assimilation.0002 = {
 
 	desc = {
 		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_assimilated_child = {
+						has_character_flag = nu_belief_assimilated_this_birthday
+						has_character_flag = nu_recent_religious_assimilation_rapid
+					}
+				}
+				desc = nu_assimilation.0002.desc_belief_rapid
+			}
+			triggered_desc = {
+				trigger = { scope:nu_assimilated_child = { has_character_flag = nu_belief_assimilated_this_birthday } }
+				desc = nu_assimilation.0002.desc_belief
+			}
 			triggered_desc = {
 				trigger = {
 					scope:nu_assimilated_child = {
@@ -309,7 +326,11 @@ nu_assimilation.0003 = {
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
-		set_local_variable = { name = nu_assimilation_event_kind value = flag:combined }
+		if = {
+			limit = { scope:nu_assimilated_child = { has_character_flag = nu_belief_assimilated_this_birthday } }
+			set_local_variable = { name = nu_assimilation_event_kind value = flag:combined }
+		}
+		else = { set_local_variable = { name = nu_assimilation_event_kind value = flag:combined_rite } }
 		nu_prepare_cultural_assimilation_reaction_effect = yes
 		nu_prepare_religious_assimilation_reaction_effect = yes
 		nu_combine_assimilation_reactions_effect = yes
@@ -319,6 +340,19 @@ nu_assimilation.0003 = {
 
 	desc = {
 		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_assimilated_child = {
+						has_character_flag = nu_belief_assimilated_this_birthday
+						has_character_flag = nu_recent_religious_assimilation_rapid
+					}
+				}
+				desc = nu_assimilation.0003.desc_belief_rapid
+			}
+			triggered_desc = {
+				trigger = { scope:nu_assimilated_child = { has_character_flag = nu_belief_assimilated_this_birthday } }
+				desc = nu_assimilation.0003.desc_belief
+			}
 			triggered_desc = {
 				trigger = {
 					scope:nu_assimilated_child = {
