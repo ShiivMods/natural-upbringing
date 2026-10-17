@@ -1197,8 +1197,11 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 
 - [À tester en jeu] Le suivi de l'exposition à un rite est conservé avec ses variables actuelles (`nu_rite_exposure_target` et `nu_faith_exposure_*`) afin de ne pas réinitialiser les sauvegardes de développement.
 - [À tester en jeu] La nouvelle exposition à une foi différente est indépendante, via `nu_belief_exposure_*`. Elle reprend les gains, seuils et chances du modèle religieux actuel.
-- [À tester en jeu] Lorsqu'un enfant et son tuteur partagent la même foi, seul un changement de rite est possible.
-- [À tester en jeu] Si leurs fois diffèrent, une conversion éventuelle adopte le rite réellement présent dans son environnement éducatif et par conséquent la foi parente de ce rite.
+- [À tester en jeu] Hiérarchie religieuse stricte : la foi est évaluée avant le rite.
+- [À tester en jeu] Si la foi de l'environnement éducatif est différente de celle de l'enfant, seule l'exposition à la foi progresse. Le rite étranger n'ajoute aucune exposition séparée et n'accélère donc jamais la conversion religieuse.
+- [À tester en jeu] Si la foi est identique mais le rite différent, seule l'exposition au rite progresse.
+- [À tester en jeu] Si foi et rite sont identiques, aucune exposition religieuse étrangère n'est créée.
+- [À tester en jeu] Lors d'une conversion vers une foi étrangère, l'enfant adopte nécessairement aussi un rite de cette foi, en priorité celui du tuteur ou de l'environnement qui a produit l'exposition. Ce changement de rite est une conséquence de la conversion de foi, pas une seconde assimilation indépendante.
 - [À tester en jeu] La protection religieuse contractuelle interdit les deux types d'assimilation.
 - [À tester en jeu] Lettres parentales différenciées et notifications de tuteur sans doublon, y compris lorsque l'assimilation culturelle survient au même anniversaire.
 - [À tester en jeu] Le mal du pays distingue désormais une foi différente d'un simple rite différent au sein de la même foi. Une foi étrangère pèse davantage ; un rite étranger produit un effet plus faible mais réel.
