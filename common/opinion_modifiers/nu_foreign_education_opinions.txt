@@ -1,0 +1,24 @@
+﻿nu_foreign_education_integrated_opinion = {
+	opinion = 20
+	years = 5
+}
+
+nu_foreign_education_social_opinion = {
+	opinion = 10
+	years = 5
+}
+
+nu_foreign_education_difficult_opinion = {
+	opinion = -5
+	years = 5
+}
+
+nu_foreign_education_parent_support_opinion = {
+	opinion = 5
+	years = 5
+}
+
+nu_foreign_education_parent_rejection_opinion = {
+	opinion = -10
+	years = 5
+}
