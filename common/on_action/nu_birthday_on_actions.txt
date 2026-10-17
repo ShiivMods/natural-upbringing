@@ -35,6 +35,9 @@ nu_on_guardianship_adulthood_cleanup = {
 			exists = var:nu_religious_contract_protection_guardian
 			exists = var:nu_guardianship_home_court_owner
 			has_variable = nu_homesickness_abroad_years
+			has_variable = nu_homesickness_active_years
+			has_variable = nu_homesickness_severity
+			has_character_flag = nu_homesickness_active
 			has_character_flag = nu_homesickness_request_pending
 			has_character_flag = nu_homesickness_cooldown
 		}
