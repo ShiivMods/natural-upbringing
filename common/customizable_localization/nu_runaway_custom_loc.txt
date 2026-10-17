@@ -1,0 +1,35 @@
+﻿NU_RunawayStatus = {
+	type = character
+
+	text = {
+		trigger = { has_character_flag = nu_runaway_status_danger }
+		localization_key = nu_runaway_status_danger_loc
+	}
+	text = {
+		trigger = { has_character_flag = nu_runaway_status_worry }
+		localization_key = nu_runaway_status_worry_loc
+	}
+	text = {
+		trigger = { has_character_flag = nu_runaway_status_encouraging }
+		localization_key = nu_runaway_status_encouraging_loc
+	}
+	text = {
+		trigger = { has_character_flag = nu_runaway_status_near_home }
+		localization_key = nu_runaway_status_near_home_loc
+	}
+	text = {
+		localization_key = nu_runaway_status_uncertain_loc
+	}
+}
+
+NU_RunawayLatestInfo = {
+	type = character
+
+	text = {
+		trigger = { has_character_flag = nu_runaway_search_reported }
+		localization_key = nu_runaway_latest_search_loc
+	}
+	text = {
+		localization_key = nu_runaway_latest_disappearance_loc
+	}
+}
