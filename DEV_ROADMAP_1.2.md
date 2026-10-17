@@ -811,10 +811,23 @@ Hooks :
 - [À tester en jeu] Les événements sont envoyés uniquement aux parents joueurs sous forme de lettres ou nouvelles ; les actions de l'enfant sont résolues avant réception.
 - [À tester en jeu] Un événement général n'est pas ajouté le même anniversaire qu'une assimilation NU ou qu'une demande active liée au mal du pays.
 - [À tester en jeu] Cooldown commun provisoire de 2 ans.
-- [À ajuster après test] Chance provisoire de 25 % par anniversaire éligible.
+- [Décision validée] Chance de 25 % par anniversaire éligible. Cette cadence est conservée pour la 1.2, notamment parce que les notifications de nouveaux traits apportent déjà d'autres nouvelles régulières du pupille.
 - [À tester en jeu] « Une amitié inattendue » crée une véritable relation d'amitié avec un enfant de la cour étrangère lorsque c'est possible.
 - [À tester en jeu] « L'étranger de la cour » et « Une coutume étrange » peuvent produire de très légers effets de stress ou d'exposition selon la personnalité.
 - [À tester en jeu] « Quelques mots familiers » exige une exposition culturelle déjà sensible ; « Deux mondes » exige une exposition plus profonde et ne peut apparaître qu'une fois par enfance.
+
+### Mal du pays persistant
+
+- [Décision validée] Le mal du pays devient un état persistant, distinct de la simple demande de retour au foyer.
+- Lorsqu'un enfant développe réellement le mal du pays, NU enregistre l'état et sa durée afin que les systèmes ultérieurs, notamment la fugue, puissent s'appuyer dessus.
+- Le parent est prévenu une seule fois, au moment de la première demande de retour. Tant que la même situation de mal du pays persiste, aucune nouvelle demande périodique n'est envoyée.
+- Le mal du pays ne disparaît pas naturellement sous prétexte que l'enfant reste longtemps chez son tuteur ou qu'il s'intègre davantage à la cour étrangère.
+- Il prend fin lorsque la situation qui le justifie disparaît réellement, notamment retour durable au foyer, fin de la tutelle concernée ou passage à l'âge adulte.
+- Si le parent refuse la demande de retour, l'état persiste et peut être renforcé émotionnellement sans générer de nouvelle notification.
+- Si l'enfant réussit plus tard à rentrer puis est renvoyé chez son tuteur, le mal du pays est renforcé mais aucune nouvelle demande parentale n'est envoyée.
+- La fugue devient possible après au moins un an de mal du pays actif.
+- La personnalité module la probabilité de fugue. Les multiplicateurs exacts seront fixés de manière conservative avant implémentation et repris dans `VALIDATION_1.2.md`.
+- Le fonctionnement actuel reposant sur un cooldown de demandes répétées tous les trois ans devra être remplacé lors de l'implémentation de cet état persistant.
 
 ### Arc spécial : Fugue de l'enfant
 
