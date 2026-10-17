@@ -2,14 +2,17 @@
  nu_debug_inspect_exposure_interaction: "Natural Upbringing : Inspecter l'exposition"
  nu_debug_inspect_exposure_interaction_desc: "Affiche les variables internes de Natural Upbringing pour ce personnage."
 
- nu_debug.0001.t: "Natural Upbringing — Debug"
+ nu_debug.0001.t: "Natural Upbringing : Debug"
  nu_debug.0001.desc: "État actuel de [nu_debug_child.GetShortUIName] :"
 
  nu_debug.0001.culture: "\n\n#bold Exposition culturelle#!\nCible : [nu_debug_culture_target.GetName]\nDurée : [nu_debug_child.MakeScope.Var('nu_culture_exposure_years').GetValue|0] ans\nScore : [nu_debug_child.MakeScope.Var('nu_culture_exposure_score').GetValue|0]"
  nu_debug.0001.culture_none: "\n\n#bold Exposition culturelle#!\nAucune exposition culturelle enregistrée."
 
- nu_debug.0001.faith: "\n\n#bold Exposition religieuse#!\nCible : [nu_debug_faith_target.GetName]\nDurée : [nu_debug_child.MakeScope.Var('nu_faith_exposure_years').GetValue|0] ans\nScore : [nu_debug_child.MakeScope.Var('nu_faith_exposure_score').GetValue|0]"
- nu_debug.0001.faith_none: "\n\n#bold Exposition religieuse#!\nAucune exposition religieuse enregistrée."
+ nu_debug.0001.faith: "\n\n#bold Exposition à la foi#!\nCible : [nu_debug_faith_target.GetName]\nDurée : [nu_debug_child.MakeScope.Var('nu_belief_exposure_years').GetValue|0] ans\nScore : [nu_debug_child.MakeScope.Var('nu_belief_exposure_score').GetValue|0]"
+ nu_debug.0001.faith_none: "\n\n#bold Exposition à la foi#!\nAucune exposition à une foi différente enregistrée."
+
+ nu_debug.0001.rite: "\n\n#bold Exposition au rite#!\nCible : [nu_debug_rite_target.GetName]\nDurée : [nu_debug_child.MakeScope.Var('nu_faith_exposure_years').GetValue|0] ans\nScore : [nu_debug_child.MakeScope.Var('nu_faith_exposure_score').GetValue|0]"
+ nu_debug.0001.rite_none: "\n\n#bold Exposition au rite#!\nAucune exposition à un rite différent enregistrée."
 
  nu_debug.0001.a: "Fermer"
 
@@ -19,10 +22,11 @@
  nu_debug_force_current_assimilation_interaction: "Natural Upbringing : Forcer l'assimilation actuelle"
  nu_debug_force_current_assimilation_interaction_desc: "Force l'assimilation correspondant à l'exposition actuellement enregistrée."
 
- nu_debug.0002.t: "Natural Upbringing — Assimilation forcée"
- nu_debug.0002.desc: "[nu_debug_conversion_child.GetFirstName] possède actuellement une exposition culturelle envers [nu_debug_conversion_culture.GetName] et une exposition religieuse envers [nu_debug_conversion_faith.GetName].\n\nQuelle assimilation voulez-vous forcer ?"
+ nu_debug.0002.t: "Natural Upbringing : Assimilation forcée"
+ nu_debug.0002.desc: "[nu_debug_conversion_child.GetFirstName] possède une ou plusieurs expositions suivies par Natural Upbringing.\n\nQuelle assimilation voulez-vous forcer ?"
  nu_debug.0002.culture: "Forcer l'assimilation culturelle : [nu_debug_conversion_culture.GetName]"
- nu_debug.0002.faith: "Forcer l'assimilation religieuse : [nu_debug_conversion_faith.GetName]"
+ nu_debug.0002.faith: "Forcer la conversion de foi : [nu_debug_conversion_faith.GetName]"
+ nu_debug.0002.rite: "Forcer le changement de rite : [nu_debug_conversion_rite.GetName]"
  nu_debug.0002.cancel: "Annuler"
 
  nu_debug_force_quality_request_interaction:0 "DEBUG - Forcer la demande de fonds"
@@ -31,7 +35,7 @@
  nu_debug_foreign_education_event_interaction:0 "Natural Upbringing : Tester un événement éducatif"
  nu_debug_foreign_education_event_interaction_desc:0 "Ouvre un menu permettant de lancer aléatoirement ou de choisir un événement éducatif lié à l'éducation à l'étranger."
 
- nu_debug.0003.t:0 "Natural Upbringing — Événement éducatif"
+ nu_debug.0003.t:0 "Natural Upbringing : Événement éducatif"
  nu_debug.0003.desc:0 "Quel événement voulez-vous lancer pour [nu_debug_education_child.GetFirstName] ?"
  nu_debug.0003.random:0 "Lancer un événement aléatoire"
  nu_debug.0003.report:0 "Des nouvelles de mon enfant"
