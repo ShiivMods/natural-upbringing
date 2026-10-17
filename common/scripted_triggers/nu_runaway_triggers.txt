@@ -7,6 +7,7 @@ nu_can_start_runaway_trigger = {
 	is_adult = no
 	has_education_focus_trigger = yes
 	nu_is_genuinely_educated_abroad_trigger = yes
+	any_parent = { is_alive = yes }
 
 	has_character_flag = nu_homesickness_active
 	has_variable = nu_homesickness_active_years
