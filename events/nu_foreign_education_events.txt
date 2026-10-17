@@ -7,6 +7,10 @@
 nu_foreign_education.0001 = {
 	type = letter_event
 	opening = nu_foreign_education.0001.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -47,7 +51,35 @@ nu_foreign_education.0001 = {
 	sender = scope:nu_foreign_education_guardian
 
 	option = {
-		name = nu_foreign_education.0001.a
+		name = nu_foreign_education.0001.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0001.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0001.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0001.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_foreign_education.0001.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_foreign_education.0001.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_foreign_education.0001.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
 	}
 }
 
@@ -59,6 +91,10 @@ nu_foreign_education.0001 = {
 nu_foreign_education.0010 = {
 	type = letter_event
 	opening = nu_foreign_education.0010.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -89,7 +125,35 @@ nu_foreign_education.0010 = {
 	sender = scope:nu_foreign_education_guardian
 
 	option = {
-		name = nu_foreign_education.0010.a
+		name = nu_foreign_education.0010.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0010.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0010.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0010.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_foreign_education.0010.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_foreign_education.0010.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_foreign_education.0010.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
 	}
 }
 
@@ -101,6 +165,10 @@ nu_foreign_education.0010 = {
 nu_foreign_education.0020 = {
 	type = letter_event
 	opening = nu_foreign_education.0020.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -144,7 +212,35 @@ nu_foreign_education.0020 = {
 	sender = scope:nu_foreign_education_guardian
 
 	option = {
-		name = nu_foreign_education.0020.a
+		name = nu_foreign_education.0020.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0020.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0020.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0020.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_foreign_education.0020.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_foreign_education.0020.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_foreign_education.0020.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
 	}
 }
 
@@ -156,6 +252,10 @@ nu_foreign_education.0020 = {
 nu_foreign_education.0030 = {
 	type = letter_event
 	opening = nu_foreign_education.0030.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -198,7 +298,35 @@ nu_foreign_education.0030 = {
 	sender = scope:nu_foreign_education_guardian
 
 	option = {
-		name = nu_foreign_education.0030.a
+		name = nu_foreign_education.0030.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0030.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0030.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0030.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_foreign_education.0030.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_foreign_education.0030.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_foreign_education.0030.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
 	}
 }
 
@@ -210,6 +338,10 @@ nu_foreign_education.0030 = {
 nu_foreign_education.0040 = {
 	type = letter_event
 	opening = nu_foreign_education.0040.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -226,7 +358,35 @@ nu_foreign_education.0040 = {
 	sender = scope:nu_foreign_education_child
 
 	option = {
-		name = nu_foreign_education.0040.a
+		name = nu_foreign_education.0040.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0040.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0040.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0040.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_foreign_education.0040.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_foreign_education.0040.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_foreign_education.0040.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
 	}
 }
 
@@ -238,6 +398,10 @@ nu_foreign_education.0040 = {
 nu_foreign_education.0050 = {
 	type = letter_event
 	opening = nu_foreign_education.0050.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -264,7 +428,35 @@ nu_foreign_education.0050 = {
 	sender = scope:nu_foreign_education_guardian
 
 	option = {
-		name = nu_foreign_education.0050.a
+		name = nu_foreign_education.0050.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0050.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0050.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0050.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_foreign_education.0050.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_foreign_education.0050.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_foreign_education.0050.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
 	}
 }
 
@@ -276,6 +468,10 @@ nu_foreign_education.0050 = {
 nu_foreign_education.0070 = {
 	type = letter_event
 	opening = nu_foreign_education.0070.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -300,7 +496,35 @@ nu_foreign_education.0070 = {
 	sender = scope:nu_foreign_education_guardian
 
 	option = {
-		name = nu_foreign_education.0070.a
+		name = nu_foreign_education.0070.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0070.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0070.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0070.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_foreign_education.0070.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_foreign_education.0070.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_foreign_education.0070.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
 	}
 }
 
@@ -312,6 +536,10 @@ nu_foreign_education.0070 = {
 nu_foreign_education.0080 = {
 	type = letter_event
 	opening = nu_foreign_education.0080.opening
+
+	immediate = {
+		nu_prepare_parent_news_reaction_effect = yes
+	}
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -344,6 +572,34 @@ nu_foreign_education.0080 = {
 	sender = scope:nu_foreign_education_guardian
 
 	option = {
-		name = nu_foreign_education.0080.a
+		name = nu_foreign_education.0080.rejection
+		trigger = { local_var:nu_parent_news_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0080.mistrust
+		trigger = { local_var:nu_parent_news_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0080.acceptance
+		trigger = { local_var:nu_parent_news_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_foreign_education.0080.reflection
+		trigger = { local_var:nu_parent_news_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_foreign_education.0080.pragmatism
+		trigger = { local_var:nu_parent_news_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_foreign_education.0080.adaptation
+		trigger = { local_var:nu_parent_news_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_foreign_education.0080.fallback
+		trigger = { local_var:nu_parent_news_reaction = flag:fallback }
 	}
 }
