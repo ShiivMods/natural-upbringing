@@ -41,3 +41,5 @@ There is nothing worrying in those few lines, yet something has changed. [nu_for
  nu_foreign_education.0050.desc.deep:0 "[nu_foreign_education_child.GetFirstName] seems to live between two worlds. Some mannerisms still clearly come from home, while others now appear so natural one might think they were learned from infancy. At times it is difficult to say where one inheritance ends and the other begins."
  nu_foreign_education.0050.desc.fallback:0 "[nu_foreign_education_child.GetFirstNamePossessive] habits are becoming difficult to define. [nu_foreign_education_child.GetSheHe|U] keeps some customs from home while spontaneously adopting those of our court. The mixture no longer seems contradictory to [nu_foreign_education_child.GetHerHim]."
  nu_foreign_education.0050.a:0 "Two worlds can coexist."
+
+ nu_foreign_education_cultural_acceptance_desc:0 "A child's education across two cultures"
