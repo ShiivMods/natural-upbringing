@@ -17,9 +17,9 @@
  nu_assimilation.0001.context_court:0 "\n\nLife at the court of [nu_cultural_assimilation_court_owner.GetFirstName] seems to have profoundly shaped [nu_assimilated_child.GetFirstName]."
  nu_assimilation.0001.context_guardian:0 "\n\nThe influence of [nu_cultural_assimilation_guardian.GetFirstName] seems to have played a decisive role in this change."
 
- nu_assimilation.0002.context_guardian_court_attendant:0 "\n\nEven the religious accompaniment arranged to preserve the old faith was not enough. Under the guardianship of [nu_religious_assimilation_guardian.GetFirstName], at the court of [nu_religious_assimilation_court_owner.GetFirstName], new convictions ultimately took root."
- nu_assimilation.0002.context_guardian_court:0 "\n\nThe influence of [nu_religious_assimilation_guardian.GetFirstName] and life at the court of [nu_religious_assimilation_court_owner.GetFirstName] seem to have nourished this new faith."
- nu_assimilation.0002.context_court:0 "\n\nLife at the court of [nu_religious_assimilation_court_owner.GetFirstName] seems to have gradually nourished these new convictions."
+ nu_assimilation.0002.context_guardian_court_attendant:0 "\n\nEven the religious guidance arranged to preserve our traditions could not prevent this change. Under [nu_religious_assimilation_guardian.GetFirstName] at the court of [nu_religious_assimilation_court_owner.GetFirstName], different religious practices gradually took hold."
+ nu_assimilation.0002.context_guardian_court:0 "\n\nThe influence of [nu_religious_assimilation_guardian.GetFirstName] and daily life at the court of [nu_religious_assimilation_court_owner.GetFirstName] appear to have shaped this change."
+ nu_assimilation.0002.context_court:0 "\n\nLife at the court of [nu_religious_assimilation_court_owner.GetFirstName] seems to have gradually shaped these practices."
  nu_assimilation.0002.context_guardian:0 "\n\nThe influence of [nu_religious_assimilation_guardian.GetFirstName] seems to have played a decisive role in this spiritual change."
 
  nu_assimilation.0003.context_guardian_court:0 "\n\nUnder the guardianship of [nu_cultural_assimilation_guardian.GetFirstName], at the court of [nu_cultural_assimilation_court_owner.GetFirstName], [nu_assimilated_child.GetFirstName] seems to have found far more than a place of education."
