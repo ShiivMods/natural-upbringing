@@ -38,3 +38,13 @@
  nu_foreign_personality.0010.desc.forgiving:0 "Les rancunes semblent avoir peu de prise sur [nu_foreign_personality_child.GetFirstName]. Même après une dispute sérieuse, [nu_foreign_personality_child.Custom('FR_IlElle')] préfère généralement tourner la page plutôt que chercher à rendre le mal reçu.\n\n#bold Trait acquis :#! [nu_foreign_personality_trait.GetName( nu_foreign_personality_child )]"
  nu_foreign_personality.0010.desc.fallback:0 "Le caractère de [nu_foreign_personality_child.GetFirstName] semble avoir durablement évolué au cours de son séjour. Ce qui paraissait encore passager il y a quelque temps est désormais devenu une part évidente de sa personnalité.\n\n#bold Trait acquis :#! [nu_foreign_personality_trait.GetName( nu_foreign_personality_child )]"
  nu_foreign_personality.0010.a:0 "Ainsi se forge son caractère."
+
+ nu_foreign_personality.0010.recognition:0 "Je reconnais bien là un tempérament que je comprends."
+ nu_foreign_personality.0010.opposition:0 "Voilà un caractère qui me sera difficile à comprendre."
+ nu_foreign_personality.0010.rejection:0 "Il faudra veiller à ce que ce trait ne prenne pas trop de place."
+ nu_foreign_personality.0010.mistrust:0 "Je me demande ce qui, là-bas, a encouragé cette évolution."
+ nu_foreign_personality.0010.acceptance:0 "C'est à [nu_foreign_personality_child.GetFirstName] de devenir la personne qu'[nu_foreign_personality_child.Custom('FR_IlElle')] doit être."
+ nu_foreign_personality.0010.reflection:0 "Un trait ne résume pas une personne, mais il en dit déjà beaucoup."
+ nu_foreign_personality.0010.pragmatism:0 "Selon les circonstances, ce caractère pourra aussi devenir un avantage."
+ nu_foreign_personality.0010.adaptation:0 "Les enfants changent en grandissant. Celui-ci trouvera sa place."
+ nu_foreign_personality.0010.fallback:0 "Je garderai cette nouvelle en mémoire."
