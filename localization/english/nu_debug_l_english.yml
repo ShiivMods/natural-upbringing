@@ -45,3 +45,6 @@
  nu_debug.0003.words:0 "Familiar Words"
  nu_debug.0003.two_worlds:0 "Between Two Worlds"
  nu_debug.0003.cancel:0 "Cancel"
+
+ nu_debug_force_runaway_interaction:0 "Natural Upbringing: Force Runaway"
+ nu_debug_force_runaway_interaction_desc:0 "Forces the runaway arc to begin for this child, granting the minimum required homesickness state when necessary."
