@@ -210,8 +210,16 @@ nu_save_religious_assimilation_context_effect = {
 
 	if = {
 		limit = {
-			court_owner ?= {
-				rite = scope:nu_conversion_faith
+			trigger_if = {
+				limit = { has_character_flag = nu_belief_assimilated_this_birthday }
+				court_owner ?= {
+					faith = scope:nu_conversion_belief
+				}
+			}
+			trigger_else = {
+				court_owner ?= {
+					rite = scope:nu_conversion_faith
+				}
 			}
 		}
 
@@ -220,9 +228,19 @@ nu_save_religious_assimilation_context_effect = {
 
 	if = {
 		limit = {
-			court_owner ?= {
-				capital_province ?= {
-					rite = scope:nu_conversion_faith
+			trigger_if = {
+				limit = { has_character_flag = nu_belief_assimilated_this_birthday }
+				court_owner ?= {
+					capital_province ?= {
+						faith = scope:nu_conversion_belief
+					}
+				}
+			}
+			trigger_else = {
+				court_owner ?= {
+					capital_province ?= {
+						rite = scope:nu_conversion_faith
+					}
 				}
 			}
 		}
