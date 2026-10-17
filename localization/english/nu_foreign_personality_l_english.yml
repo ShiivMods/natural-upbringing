@@ -38,3 +38,13 @@
  nu_foreign_personality.0010.desc.forgiving:0 "Grudges seem to have little hold over [nu_foreign_personality_child.GetFirstName]. Even after a serious quarrel, [nu_foreign_personality_child.GetSheHe] generally prefers to move on rather than repay harm with harm.\n\n#bold Trait gained :#! [nu_foreign_personality_trait.GetName( nu_foreign_personality_child )]"
  nu_foreign_personality.0010.desc.fallback:0 "[nu_foreign_personality_child.GetFirstNamePossessive] character appears to have changed durably during [nu_foreign_personality_child.GetHerHis] stay. What once seemed temporary has now become an evident part of [nu_foreign_personality_child.GetHerHis] personality.\n\n#bold Trait gained:#! [nu_foreign_personality_trait.GetName( nu_foreign_personality_child )]"
  nu_foreign_personality.0010.a:0 "So [nu_foreign_personality_child.GetHerHis] character takes shape."
+
+ nu_foreign_personality.0010.recognition:0 "I recognize a temperament I understand well."
+ nu_foreign_personality.0010.opposition:0 "That is a character I may find difficult to understand."
+ nu_foreign_personality.0010.rejection:0 "I will have to make sure this trait does not grow too dominant."
+ nu_foreign_personality.0010.mistrust:0 "I wonder what, over there, encouraged this change."
+ nu_foreign_personality.0010.acceptance:0 "It is for [nu_foreign_personality_child.GetFirstName] to become the person they are meant to be."
+ nu_foreign_personality.0010.reflection:0 "A single trait does not define a person, but it already says much."
+ nu_foreign_personality.0010.pragmatism:0 "Under the right circumstances, this temperament may also become an advantage."
+ nu_foreign_personality.0010.adaptation:0 "Children change as they grow. This will find its place."
+ nu_foreign_personality.0010.fallback:0 "I will remember this news."
