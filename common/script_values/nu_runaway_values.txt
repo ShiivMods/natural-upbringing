@@ -1,0 +1,18 @@
+﻿nu_spontaneous_runaway_chance = {
+	value = 5
+
+	if = { limit = { has_trait = brave } multiply = 1.50 }
+	if = { limit = { has_trait = stubborn } multiply = 1.35 }
+	if = { limit = { has_trait = wrathful } multiply = 1.25 }
+	if = { limit = { has_trait = ambitious } multiply = 1.20 }
+	if = { limit = { has_trait = fickle } multiply = 1.15 }
+
+	if = { limit = { has_trait = craven } multiply = 0.25 }
+	if = { limit = { has_trait = shy } multiply = 0.70 }
+	if = { limit = { has_trait = content } multiply = 0.75 }
+	if = { limit = { has_trait = trusting } multiply = 0.85 }
+	if = { limit = { has_trait = calm } multiply = 0.90 }
+
+	max = 12
+	min = 0.5
+}
