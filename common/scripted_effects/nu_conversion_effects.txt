@@ -433,6 +433,7 @@ nu_check_natural_assimilation_effect = {
 						add_character_flag = { flag = nu_recent_religious_assimilation_rapid months = 1 }
 					}
 					add_character_flag = nu_belief_assimilated_this_birthday
+					add_character_flag = { flag = nu_recent_belief_assimilation months = 1 }
 					add_character_flag = nu_assimilation_happened_this_birthday
 
 					nu_save_religious_assimilation_context_effect = yes
