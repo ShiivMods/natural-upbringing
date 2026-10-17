@@ -8,7 +8,7 @@
 # Root: child
 # scope:nu_foreign_personality_trait: trait that was just gained
 #
-# This event is hidden and delayed by one day so vanilla has time
+# This event is hidden and delayed by three days so vanilla has time
 # to let the guardian replace the trait if an education event
 # allows it.
 # =============================================================
@@ -68,6 +68,11 @@ nu_foreign_personality.0010 = {
 	type = letter_event
 
 	opening = nu_foreign_personality.0010.opening
+
+	immediate = {
+		nu_prepare_parent_trait_reaction_effect = yes
+	}
+
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -221,6 +226,44 @@ nu_foreign_personality.0010 = {
 	sender = scope:nu_foreign_personality_guardian
 
 	option = {
-		name = nu_foreign_personality.0010.a
+		name = nu_foreign_personality.0010.recognition
+		trigger = { local_var:nu_parent_trait_reaction = flag:recognition }
+		nu_apply_parent_trait_recognition_effect = yes
+	}
+	option = {
+		name = nu_foreign_personality.0010.opposition
+		trigger = { local_var:nu_parent_trait_reaction = flag:opposition }
+		nu_apply_parent_trait_opposition_effect = yes
+	}
+	option = {
+		name = nu_foreign_personality.0010.rejection
+		trigger = { local_var:nu_parent_trait_reaction = flag:rejection }
+		nu_apply_parent_news_rejection_effect = yes
+	}
+	option = {
+		name = nu_foreign_personality.0010.mistrust
+		trigger = { local_var:nu_parent_trait_reaction = flag:mistrust }
+		nu_apply_parent_news_mistrust_effect = yes
+	}
+	option = {
+		name = nu_foreign_personality.0010.acceptance
+		trigger = { local_var:nu_parent_trait_reaction = flag:acceptance }
+		nu_apply_parent_news_acceptance_effect = yes
+	}
+	option = {
+		name = nu_foreign_personality.0010.reflection
+		trigger = { local_var:nu_parent_trait_reaction = flag:reflection }
+	}
+	option = {
+		name = nu_foreign_personality.0010.pragmatism
+		trigger = { local_var:nu_parent_trait_reaction = flag:pragmatism }
+	}
+	option = {
+		name = nu_foreign_personality.0010.adaptation
+		trigger = { local_var:nu_parent_trait_reaction = flag:adaptation }
+	}
+	option = {
+		name = nu_foreign_personality.0010.fallback
+		trigger = { local_var:nu_parent_trait_reaction = flag:fallback }
 	}
 }
