@@ -15,3 +15,25 @@
 
  setting_nu_scope_world: "#high Entire World#!"
  setting_nu_scope_world_desc: "Natural Upbringing simulates every eligible child in the world. This provides the most complete simulation at the cost of potentially greater performance impact."
+
+ game_rule_category_natural_upbringing:0 "Natural Upbringing"
+
+ rule_nu_cultural_acceptance_scope:0 "Natural Upbringing: Cultural Acceptance Scope"
+
+ setting_nu_acceptance_scope_follow_simulation:0 "#high Follow NU Simulation Scope#!"
+ setting_nu_acceptance_scope_follow_simulation_desc:0 "The very small Cultural Acceptance effect from foreign education uses the same scope as Natural Upbringing's general simulation. #bold Recommended and default option.#!"
+
+ setting_nu_acceptance_scope_close_family:0 "#high Close Family Only#!"
+ setting_nu_acceptance_scope_close_family_desc:0 "Only children belonging to a player's close family contribute to Cultural Acceptance."
+
+ setting_nu_acceptance_scope_player_court:0 "#high Player Court#!"
+ setting_nu_acceptance_scope_player_court_desc:0 "Children in a player's court, as well as their close family, may contribute to Cultural Acceptance."
+
+ setting_nu_acceptance_scope_top_realm:0 "#high Ruler's Realm#!"
+ setting_nu_acceptance_scope_top_realm_desc:0 "Children within a player's top realm, as well as their close family, may contribute to Cultural Acceptance."
+
+ setting_nu_acceptance_scope_neighboring_realms:0 "#high Realm and Neighboring Realms#!"
+ setting_nu_acceptance_scope_neighboring_realms_desc:0 "The scope covers a player's top realm, neighboring independent realms, and their close family."
+
+ setting_nu_acceptance_scope_world:0 "#high Entire World#!"
+ setting_nu_acceptance_scope_world_desc:0 "Every eligible child in the world may contribute to Cultural Acceptance."
