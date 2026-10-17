@@ -178,14 +178,14 @@ nu_save_religious_assimilation_context_effect = {
 	# EXPOSURE HISTORY
 	# =========================================================
 
-	set_variable = {
-		name = nu_last_religious_assimilation_years
-		value = var:nu_faith_exposure_years
+	if = {
+		limit = { has_character_flag = nu_belief_assimilated_this_birthday }
+		set_variable = { name = nu_last_religious_assimilation_years value = var:nu_belief_exposure_years }
+		set_variable = { name = nu_last_religious_assimilation_score value = var:nu_belief_exposure_score }
 	}
-
-	set_variable = {
-		name = nu_last_religious_assimilation_score
-		value = var:nu_faith_exposure_score
+	else = {
+		set_variable = { name = nu_last_religious_assimilation_years value = var:nu_faith_exposure_years }
+		set_variable = { name = nu_last_religious_assimilation_score value = var:nu_faith_exposure_score }
 	}
 
 
@@ -390,6 +390,69 @@ nu_check_natural_assimilation_effect = {
 	}
 
 
+
+	# =========================================================
+	# FOREIGN FAITH ASSIMILATION
+	# =========================================================
+	# Adopting the guardian's rite also adopts its parent faith.
+	# The existing rite exposure never causes foreign-faith conversion.
+
+	if = {
+		limit = {
+			exists = var:nu_belief_exposure_target
+			has_variable = nu_belief_exposure_score
+			var:nu_belief_exposure_score >= 5
+			NOT = { nu_has_active_religious_contract_protection_trigger = yes }
+		}
+		var:nu_belief_exposure_target = { save_temporary_scope_as = nu_conversion_belief }
+		if = {
+			limit = {
+				faith != scope:nu_conversion_belief
+				nu_has_belief_assimilation_environment_trigger = yes
+			}
+			if = {
+				limit = {
+					exists = scope:nu_guardian
+					scope:nu_guardian.faith = scope:nu_conversion_belief
+				}
+				scope:nu_guardian.rite = { save_temporary_scope_as = nu_conversion_faith }
+			}
+			else_if = {
+				limit = { court_owner ?= { faith = scope:nu_conversion_belief } }
+				court_owner.rite = { save_temporary_scope_as = nu_conversion_faith }
+			}
+			if = {
+				limit = { exists = scope:nu_conversion_faith }
+				random = {
+					chance = nu_belief_assimilation_chance
+					if = {
+						limit = {
+							has_variable = nu_belief_exposure_years
+							var:nu_belief_exposure_years <= 3
+						}
+						add_character_flag = { flag = nu_recent_religious_assimilation_rapid months = 1 }
+					}
+					add_character_flag = nu_belief_assimilated_this_birthday
+					add_character_flag = nu_assimilation_happened_this_birthday
+
+					nu_save_religious_assimilation_context_effect = yes
+					convert_to_rite_with_consequences_effect = { RITE = scope:nu_conversion_faith }
+
+					remove_variable = nu_belief_exposure_target
+					remove_variable = nu_belief_exposure_years
+					remove_variable = nu_belief_exposure_score
+					remove_variable = nu_belief_exposure_floor
+
+					# No separate rite change after a conversion of faith.
+					remove_variable = nu_rite_exposure_target
+					remove_variable = nu_faith_exposure_years
+					remove_variable = nu_faith_exposure_score
+					remove_variable = nu_faith_exposure_floor
+				}
+			}
+		}
+	}
+
 	# =========================================================
 	# RELIGIOUS ASSIMILATION
 	# =========================================================
@@ -399,6 +462,7 @@ nu_check_natural_assimilation_effect = {
 			exists = var:nu_rite_exposure_target
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 5
+			NOT = { has_character_flag = nu_belief_assimilated_this_birthday }
 		}
 
 		var:nu_rite_exposure_target = {
@@ -409,6 +473,18 @@ nu_check_natural_assimilation_effect = {
 			limit = {
 				rite != scope:nu_conversion_faith
 				nu_has_religious_assimilation_environment_trigger = yes
+				# Rite-only conversion must remain within the child's current faith.
+				OR = {
+					AND = {
+						exists = scope:nu_guardian
+						scope:nu_guardian.faith = root.faith
+						scope:nu_guardian.rite = scope:nu_conversion_faith
+					}
+					court_owner ?= {
+						faith = root.faith
+						rite = scope:nu_conversion_faith
+					}
+				}
 
 				NOT = {
 					nu_has_active_religious_contract_protection_trigger = yes
@@ -448,65 +524,63 @@ nu_check_natural_assimilation_effect = {
 	# =========================================================
 	# PLAYER-PARENT RP NOTIFICATION
 	# =========================================================
-
 	if = {
 		limit = {
 			OR = {
 				has_character_flag = nu_culture_assimilated_this_birthday
 				has_character_flag = nu_faith_assimilated_this_birthday
+				has_character_flag = nu_belief_assimilated_this_birthday
 			}
 		}
-
 		save_scope_as = nu_assimilated_child
-
-		# Only player parents need a full RP event.
-		# This also naturally supports two player parents in MP.
 		every_parent = {
 			limit = {
 				is_alive = yes
 				is_ai = no
 			}
-
 			if = {
 				limit = {
 					scope:nu_assimilated_child = {
 						has_character_flag = nu_culture_assimilated_this_birthday
-						has_character_flag = nu_faith_assimilated_this_birthday
+						OR = {
+							has_character_flag = nu_faith_assimilated_this_birthday
+							has_character_flag = nu_belief_assimilated_this_birthday
+						}
 					}
 				}
-
 				trigger_event = nu_assimilation.0003
 			}
-
 			else_if = {
 				limit = {
 					scope:nu_assimilated_child = {
 						has_character_flag = nu_culture_assimilated_this_birthday
 					}
 				}
-
 				trigger_event = nu_assimilation.0001
 			}
-
 			else_if = {
 				limit = {
 					scope:nu_assimilated_child = {
-						has_character_flag = nu_faith_assimilated_this_birthday
+						OR = {
+							has_character_flag = nu_faith_assimilated_this_birthday
+							has_character_flag = nu_belief_assimilated_this_birthday
+						}
 					}
 				}
-
 				trigger_event = nu_assimilation.0002
 			}
 		}
+		if = {
+			limit = { has_character_flag = nu_belief_assimilated_this_birthday }
+			nu_notify_player_guardian_of_belief_assimilation_effect = yes
+		}
+		else = { nu_notify_player_guardian_of_assimilation_effect = yes }
 
-		# Notify a player guardian with a lightweight message.
-		# Player parents already receive the full RP event above.
-		nu_notify_player_guardian_of_assimilation_effect = yes
-
-		# These flags are only needed to decide which event/message to send.
 		remove_character_flag = nu_culture_assimilated_this_birthday
 		remove_character_flag = nu_faith_assimilated_this_birthday
+		remove_character_flag = nu_belief_assimilated_this_birthday
 	}
+
 }
 # =============================================================
 # DEBUG — FORCE CURRENT ASSIMILATION
