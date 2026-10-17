@@ -280,6 +280,37 @@ nu_focus_education.0140 = {
 			}
 			desc = nu_focus_education.0140.desc.fallback
 		}
+
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_current_court = {
+						government_has_flag = government_is_nomadic
+					}
+				}
+				desc = nu_focus_education.0140.context.nomadic
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_current_court = {
+						government_has_flag = government_is_tribal
+					}
+				}
+				desc = nu_focus_education.0140.context.tribal
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_current_court = {
+						OR = {
+							government_has_flag = government_is_administrative
+							government_has_flag = government_is_republic
+						}
+					}
+				}
+				desc = nu_focus_education.0140.context.administrative
+			}
+			desc = nu_focus_education.0140.context.settled
+		}
 	}
 
 	sender = scope:nu_foreign_education_guardian
