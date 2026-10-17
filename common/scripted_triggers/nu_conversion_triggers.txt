@@ -40,6 +40,26 @@ nu_has_religious_assimilation_environment_trigger = {
 	}
 }
 
+nu_has_belief_assimilation_environment_trigger = {
+
+	exists = scope:nu_conversion_belief
+
+	OR = {
+
+		# The child's current court follows the target faith.
+		court_owner ?= {
+			rite = scope:nu_conversion_belief
+		}
+
+		# Or the local population around that court does.
+		court_owner ?= {
+			capital_province ?= {
+				rite = scope:nu_conversion_belief
+			}
+		}
+	}
+}
+
 nu_has_active_religious_contract_protection_trigger = {
 
 	exists = var:nu_religious_contract_protection_guardian
