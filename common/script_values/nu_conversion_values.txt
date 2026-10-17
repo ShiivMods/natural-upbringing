@@ -127,28 +127,28 @@ nu_religious_assimilation_chance = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 90
 		}
-		add = 40
+		add = 85
 	}
 	else_if = {
 		limit = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 75
 		}
-		add = 28
+		add = 38
 	}
 	else_if = {
 		limit = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 60
 		}
-		add = 18
+		add = 45
 	}
 	else_if = {
 		limit = {
 			has_variable = nu_faith_exposure_score
 			var:nu_faith_exposure_score >= 45
 		}
-		add = 10
+		add = 25
 	}
 	else_if = {
 		limit = {
@@ -183,7 +183,7 @@ nu_religious_assimilation_chance = {
 			has_trait = zealous
 		}
 
-		multiply = 0.55
+		multiply = 0.75
 	}
 
 	# Cynical characters are much less attached to inherited
@@ -193,7 +193,7 @@ nu_religious_assimilation_chance = {
 			has_trait = cynical
 		}
 
-		multiply = 1.35
+		multiply = 1.15
 	}
 
 	# Stubbornness also makes a change of faith less likely.
@@ -202,7 +202,7 @@ nu_religious_assimilation_chance = {
 			has_trait = stubborn
 		}
 
-		multiply = 0.80
+		multiply = 0.90
 	}
 
 	# Fickle characters are more receptive to changing beliefs.
@@ -231,7 +231,7 @@ nu_religious_assimilation_chance = {
 			has_trait = paranoid
 		}
 
-		multiply = 0.85
+		multiply = 0.90
 	}
 }
 
