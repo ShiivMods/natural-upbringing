@@ -12,8 +12,7 @@ nu_foreign_education.0001 = {
 			triggered_desc = {
 				trigger = {
 					scope:nu_foreign_education_child = {
-						has_variable = nu_culture_exposure_score
-						var:nu_culture_exposure_score >= 30
+						has_character_flag = nu_foreign_report_integrated
 					}
 				}
 				desc = nu_foreign_education.0001.desc.integrated
@@ -21,11 +20,7 @@ nu_foreign_education.0001 = {
 			triggered_desc = {
 				trigger = {
 					scope:nu_foreign_education_child = {
-						OR = {
-							has_trait = gregarious
-							has_trait = trusting
-							has_trait = fickle
-						}
+						has_character_flag = nu_foreign_report_social
 					}
 				}
 				desc = nu_foreign_education.0001.desc.social
@@ -33,10 +28,7 @@ nu_foreign_education.0001 = {
 			triggered_desc = {
 				trigger = {
 					scope:nu_foreign_education_child = {
-						OR = {
-							has_trait = shy
-							has_trait = paranoid
-						}
+						has_character_flag = nu_foreign_report_reserved
 					}
 				}
 				desc = nu_foreign_education.0001.desc.reserved
@@ -44,10 +36,7 @@ nu_foreign_education.0001 = {
 			triggered_desc = {
 				trigger = {
 					scope:nu_foreign_education_child = {
-						OR = {
-							has_trait = wrathful
-							has_trait = stubborn
-						}
+						has_character_flag = nu_foreign_report_difficult
 					}
 				}
 				desc = nu_foreign_education.0001.desc.difficult
@@ -276,5 +265,85 @@ nu_foreign_education.0050 = {
 
 	option = {
 		name = nu_foreign_education.0050.a
+	}
+}
+
+
+# =============================================================
+# 0070 - THE CRUSH
+# =============================================================
+
+nu_foreign_education.0070 = {
+	type = letter_event
+	opening = nu_foreign_education.0070.opening
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						has_character_flag = nu_foreign_crush_from_friendship
+					}
+				}
+				desc = nu_foreign_education.0070.desc.friend
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						has_character_flag = nu_foreign_crush_from_rivalry
+					}
+				}
+				desc = nu_foreign_education.0070.desc.rival
+			}
+			desc = nu_foreign_education.0070.desc.new
+		}
+	}
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_foreign_education.0070.a
+	}
+}
+
+
+# =============================================================
+# 0080 - THE RIVAL
+# =============================================================
+
+nu_foreign_education.0080 = {
+	type = letter_event
+	opening = nu_foreign_education.0080.opening
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						has_character_flag = nu_rival_news_friend
+					}
+				}
+				desc = nu_foreign_education.0080.desc.friend
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						has_character_flag = nu_rival_news_nemesis
+					}
+				}
+				desc = nu_foreign_education.0080.desc.nemesis
+			}
+			triggered_desc = {
+				trigger = {
+					scope:nu_foreign_education_child = {
+						has_character_flag = nu_rival_news_crush
+					}
+				}
+				desc = nu_foreign_education.0080.desc.crush
+			}
+			desc = nu_foreign_education.0080.desc.unchanged
+		}
+	}
+	sender = scope:nu_foreign_education_guardian
+
+	option = {
+		name = nu_foreign_education.0080.a
 	}
 }
