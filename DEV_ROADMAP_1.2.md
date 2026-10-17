@@ -1198,8 +1198,13 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - [À tester en jeu] Le suivi de l'exposition à un rite est conservé avec ses variables actuelles (`nu_rite_exposure_target` et `nu_faith_exposure_*`) afin de ne pas réinitialiser les sauvegardes de développement.
 - [À tester en jeu] La nouvelle exposition à une foi différente est indépendante, via `nu_belief_exposure_*`. Elle reprend les gains, seuils et chances du modèle religieux actuel.
 - [À tester en jeu] Lorsqu'un enfant et son tuteur partagent la même foi, seul un changement de rite est possible.
-- [À tester en jeu] Si leurs fois diffèrent, une conversion éventuelle adopte le rite du tuteur et par conséquent sa foi.
+- [À tester en jeu] Si leurs fois diffèrent, une conversion éventuelle adopte le rite réellement présent dans son environnement éducatif et par conséquent la foi parente de ce rite.
 - [À tester en jeu] La protection religieuse contractuelle interdit les deux types d'assimilation.
 - [À tester en jeu] Lettres parentales différenciées et notifications de tuteur sans doublon, y compris lorsque l'assimilation culturelle survient au même anniversaire.
+- [À tester en jeu] Le mal du pays distingue désormais une foi différente d'un simple rite différent au sein de la même foi. Une foi étrangère pèse davantage ; un rite étranger produit un effet plus faible mais réel.
+- [À tester en jeu] L'accompagnement religieux protège désormais à la fois contre l'exposition à une autre foi et contre l'exposition à un autre rite.
+- [À tester en jeu] Les outils de debug distinguent désormais Culture, Foi et Rite pour l'inspection et l'assimilation forcée.
+- [Validation statique] Les comparaisons de scopes foi / rite du nouveau système ont été auditées et les comparaisons de type incorrect identifiées ont été corrigées.
+- [Validation statique] Les fichiers texte du mod sur cette branche utilisent tous un BOM UTF-8.
 - [À affiner après tests groupés] Ajuster séparément les probabilités et la sensibilité des parents aux changements de rite.
 - Ce développement reste non publié jusqu'à la campagne de tests générale de la 1.2.
