@@ -300,6 +300,201 @@ nu_check_foreign_education_news_effect = {
 								limit = { is_alive = yes is_ai = no }
 								trigger_event = nu_foreign_education.0080
 							}
+
+
+					# -------------------------------------------------
+					# FOCUS-SPECIFIC EDUCATION NEWS
+					# Two entries become eligible for the current focus.
+					# -------------------------------------------------
+
+					# Diplomacy 1: Between Two Quarrels
+					15 = {
+						trigger = {
+							has_focus = education_diplomacy
+							scope:nu_foreign_education_current_court = {
+								any_courtier_or_guest = {
+									age >= 6
+									is_adult = no
+									this != root
+								}
+							}
+						}
+						scope:nu_foreign_education_current_court = {
+							random_courtier_or_guest = {
+								limit = {
+									age >= 6
+									is_adult = no
+									this != root
+								}
+								save_scope_as = nu_focus_target
+							}
+						}
+						nu_resolve_focus_diplomacy_quarrels_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0100
+						}
+					}
+
+					# Diplomacy 2: A Face From Elsewhere
+					15 = {
+						trigger = {
+							has_focus = education_diplomacy
+							scope:nu_foreign_education_current_court = {
+								any_courtier_or_guest = {
+									this != root
+									is_alive = yes
+								}
+							}
+						}
+						scope:nu_foreign_education_current_court = {
+							random_courtier_or_guest = {
+								limit = {
+									this != root
+									is_alive = yes
+								}
+								save_scope_as = nu_focus_target
+							}
+						}
+						nu_resolve_focus_diplomacy_visitor_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0110
+						}
+					}
+
+					# Martial 1: The Field Rather Than the Books
+					15 = {
+						trigger = { has_focus = education_martial }
+						nu_resolve_focus_martial_field_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0120
+						}
+					}
+
+					# Martial 2: One Blow Too Many
+					15 = {
+						trigger = {
+							has_focus = education_martial
+							scope:nu_foreign_education_current_court = {
+								any_courtier_or_guest = {
+									age >= 6
+									is_adult = no
+									this != root
+								}
+							}
+						}
+						scope:nu_foreign_education_current_court = {
+							random_courtier_or_guest = {
+								limit = {
+									age >= 6
+									is_adult = no
+									this != root
+								}
+								save_scope_as = nu_focus_peer
+							}
+						}
+						nu_resolve_focus_martial_blow_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0130
+						}
+					}
+
+					# Stewardship 1: Something Does Not Add Up
+					15 = {
+						trigger = { has_focus = education_stewardship }
+						nu_resolve_focus_stewardship_count_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0140
+						}
+					}
+
+					# Stewardship 2: Making Supplies Last
+					15 = {
+						trigger = { has_focus = education_stewardship }
+						nu_resolve_focus_stewardship_reserves_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0150
+						}
+					}
+
+					# Intrigue 1: Not Meant for Their Ears
+					15 = {
+						trigger = {
+							has_focus = education_intrigue
+							scope:nu_foreign_education_current_court = {
+								any_courtier_or_guest = {
+									is_adult = yes
+									this != root
+								}
+							}
+						}
+						scope:nu_foreign_education_current_court = {
+							random_courtier_or_guest = {
+								limit = {
+									is_adult = yes
+									this != root
+								}
+								save_scope_as = nu_focus_target
+							}
+						}
+						nu_resolve_focus_intrigue_overheard_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0160
+						}
+					}
+
+					# Intrigue 2: I Know Something You Do Not
+					15 = {
+						trigger = {
+							has_focus = education_intrigue
+							scope:nu_foreign_education_current_court = {
+								any_courtier_or_guest = {
+									is_adult = yes
+									this != root
+								}
+							}
+						}
+						scope:nu_foreign_education_current_court = {
+							random_courtier_or_guest = {
+								limit = {
+									is_adult = yes
+									this != root
+								}
+								save_scope_as = nu_focus_target
+							}
+						}
+						nu_resolve_focus_intrigue_leverage_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0170
+						}
+					}
+
+					# Learning 1: Two Teachings, Two Truths
+					15 = {
+						trigger = { has_focus = education_learning }
+						nu_resolve_focus_learning_teachings_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0180
+						}
+					}
+
+					# Learning 2: Why?
+					15 = {
+						trigger = { has_focus = education_learning }
+						nu_resolve_focus_learning_why_effect = yes
+						every_parent = {
+							limit = { is_alive = yes is_ai = no }
+							trigger_event = nu_focus_education.0190
+						}
+					}
 						}
 					}
 				}
