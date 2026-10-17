@@ -426,9 +426,7 @@ nu_cleanup_guardianship_state_on_adulthood_effect = {
 	remove_variable = nu_religious_contract_protection_guardian
 	remove_variable = nu_guardianship_home_court_owner
 	remove_variable = nu_homesickness_abroad_years
-
-	remove_character_flag = nu_homesickness_request_pending
-	remove_character_flag = nu_homesickness_cooldown
+	nu_clear_homesickness_effect = yes
 
 	remove_character_flag = nu_foreign_education_news_cooldown
 	remove_character_flag = nu_foreign_education_first_report_seen
@@ -442,6 +440,8 @@ nu_reset_previous_guardianship_state_effect = {
 		remove_variable = nu_cultural_servants_guardian
 		remove_variable = nu_religious_attendant_guardian
 		remove_variable = nu_religious_contract_protection_guardian
+		remove_variable = nu_homesickness_abroad_years
+		nu_clear_homesickness_effect = yes
 	}
 
 	nu_record_guardianship_home_effect = yes
@@ -452,6 +452,7 @@ nu_record_guardianship_home_effect = {
 	scope:ward = {
 		remove_variable = nu_guardianship_home_court_owner
 		remove_variable = nu_homesickness_abroad_years
+		nu_clear_homesickness_effect = yes
 	}
 
 	if = {
