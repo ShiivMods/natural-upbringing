@@ -249,3 +249,82 @@ nu_requested_ward_is_in_simulation_scope_trigger = {
 		}
 	}
 }
+
+# Root: child.
+# Independent scope for the global Cultural Acceptance micro-effect.
+nu_is_in_cultural_acceptance_scope_trigger = {
+
+	trigger_if = {
+		limit = {
+			has_game_rule = nu_acceptance_scope_follow_simulation
+		}
+		nu_is_in_simulation_scope_trigger = yes
+	}
+
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_acceptance_scope_world
+		}
+		always = yes
+	}
+
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_acceptance_scope_neighboring_realms
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = root
+
+				AND = {
+					root = { exists = top_liege }
+					top_liege = root.top_liege
+				}
+
+				AND = {
+					root = { exists = top_liege }
+					any_neighboring_top_liege_realm_owner = {
+						this = root.top_liege
+					}
+				}
+			}
+		}
+	}
+
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_acceptance_scope_top_realm
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = root
+
+				AND = {
+					root = { exists = top_liege }
+					top_liege = root.top_liege
+				}
+			}
+		}
+	}
+
+	trigger_else_if = {
+		limit = {
+			has_game_rule = nu_acceptance_scope_player_court
+		}
+
+		any_player = {
+			OR = {
+				is_close_family_of = root
+				is_in_the_same_court_as = root
+			}
+		}
+	}
+
+	trigger_else = {
+		any_player = {
+			is_close_family_of = root
+		}
+	}
+}
