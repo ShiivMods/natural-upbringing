@@ -1,6 +1,6 @@
 ﻿l_french:
  NU_CULTURAL_SERVANTS_RELEVANT:0 "L'enfant doit être exposé à une culture différente."
- NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "L'enfant et son tuteur doivent suivre des rites religieux différents."
+ NU_RELIGIOUS_ATTENDANT_RELEVANT:0 "L'enfant doit être exposé à une foi ou à un rite différent du sien."
  NU_GUARDIANSHIP_MEASURE_NOT_ALREADY_ACTIVE:0 "Cette mesure ne doit pas déjà être active pour ce tuteur."
 
  NU_GUARDIANSHIP_OPTION_CULTURAL_SERVANTS: "Envoyer des serviteurs de sa culture"
@@ -10,7 +10,7 @@
  NU_GUARDIANSHIP_OPTION_QUALITY_INSTRUCTION_TT:0 "Des précepteurs et des moyens supplémentaires seront consacrés à son éducation afin de lui offrir un enseignement particulièrement soigné.\n\nCoût : [gold_i] [GetPlayer.MakeScope.ScriptValue('minor_gold_value')|0]"
 
  NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT: "Prévoir un accompagnement religieux"
- NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT_TT:0 "Un accompagnant religieux veillera à maintenir l'enfant au contact de la foi dans laquelle il a été élevé durant sa tutelle.\n\nCoût initial : [piety_i] [GetPlayer.MakeScope.ScriptValue('minor_piety_value')|0]"
+ NU_GUARDIANSHIP_OPTION_RELIGIOUS_ATTENDANT_TT:0 "Un accompagnant religieux veillera à maintenir l'enfant au contact de sa foi et de son rite d'origine durant sa tutelle.\n\nCoût initial : [piety_i] [GetPlayer.MakeScope.ScriptValue('minor_piety_value')|0]"
 
  NU_AI_ACCEPT_CULTURAL_SERVANTS:0 "Serviteurs culturels accompagnant le pupille : $VALUE|=+0$"
  NU_AI_ACCEPT_QUALITY_INSTRUCTION:0 "Instruction de qualité financée : $VALUE|=+0$"
@@ -25,10 +25,10 @@
  nu_accompaniment.0001.t:0 "Des dispositions pour [nu_accompaniment_ward.GetFirstName]"
  nu_accompaniment.0001.desc_culture:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Très bien. Envoyez quelques serviteurs de confiance avec [nu_accompaniment_ward.GetFirstName], et je veillerai à ce qu'ils puissent rester auprès de votre enfant durant son séjour. »"
  nu_accompaniment.0001.desc_education:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Je suis ravi de voir que vous prenez l'éducation de [nu_accompaniment_ward.GetFirstName] au sérieux. Soyez assuré que cet argent sera employé à bon escient et que rien ne sera négligé dans son instruction. »"
- nu_accompaniment.0001.desc_faith:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Bien que cette demande ne soit pas des plus simples pour moi, je comprends parfaitement votre désir de préserver la foi de [nu_accompaniment_ward.GetFirstName]. Son accompagnateur sera bien reçu et pourra remplir son office sans être inquiété. »"
+ nu_accompaniment.0001.desc_faith:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Bien que cette demande ne soit pas des plus simples pour moi, je comprends parfaitement votre désir de préserver la foi et le rite de [nu_accompaniment_ward.GetFirstName]. Son accompagnateur sera bien reçu et pourra remplir son office sans être inquiété. »"
  nu_accompaniment.0001.desc_culture_education:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Vos dispositions me paraissent raisonnables. Les serviteurs que vous enverrez pourront rester auprès de [nu_accompaniment_ward.GetFirstName], et les fonds destinés à son instruction seront employés afin de lui assurer la meilleure éducation possible. »"
- nu_accompaniment.0001.desc_culture_faith:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Je comprends votre volonté de préserver les coutumes et la foi dans lesquelles [nu_accompaniment_ward.GetFirstName] a été élevé. Ses serviteurs et son accompagnateur religieux seront accueillis à ma cour et autorisés à rester auprès de lui. »"
- nu_accompaniment.0001.desc_education_faith:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Votre souci pour l'éducation et la foi de [nu_accompaniment_ward.GetFirstName] vous honore. Les fonds prévus seront consacrés à son instruction, et son accompagnateur religieux sera autorisé à demeurer auprès de lui. »"
+ nu_accompaniment.0001.desc_culture_faith:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Je comprends votre volonté de préserver les coutumes, la foi et le rite dans lesquels [nu_accompaniment_ward.GetFirstName] a été élevé. Ses serviteurs et son accompagnateur religieux seront accueillis à ma cour et autorisés à rester auprès de lui. »"
+ nu_accompaniment.0001.desc_education_faith:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Votre souci pour l'éducation et les traditions religieuses de [nu_accompaniment_ward.GetFirstName] vous honore. Les fonds prévus seront consacrés à son instruction, et son accompagnateur religieux sera autorisé à demeurer auprès de lui. »"
  nu_accompaniment.0001.desc_all:0 "[nu_accompaniment_sender.GetFirstName] a répondu à votre proposition.\n\n« Vous avez manifestement pris grand soin de préparer le séjour de [nu_accompaniment_ward.GetFirstName]. Ses serviteurs et son accompagnateur religieux seront reçus comme convenu, et les fonds destinés à son instruction seront employés à bon escient. Je veillerai à ce que vos volontés soient respectées. »"
  nu_accompaniment.0001.desc_generic:0 "[nu_accompaniment_sender.GetFirstName] vous confirme que les nouvelles dispositions concernant l'éducation de [nu_accompaniment_ward.GetFirstName] seront respectées."
  nu_accompaniment.0001.a:0 "Très bien."
