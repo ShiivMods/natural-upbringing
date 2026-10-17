@@ -41,3 +41,5 @@ Rien d'inquiétant dans ces quelques lignes, mais quelque chose a changé. [nu_f
  nu_foreign_education.0050.desc.deep:0 "[nu_foreign_education_child.GetFirstName] semble vivre entre deux mondes. Certaines de ses manières viennent encore clairement de chez vous, mais d'autres sont désormais si naturelles qu'on les croirait apprises depuis l'enfance. Il devient parfois difficile de dire où finit l'un de ses héritages et où commence l'autre."
  nu_foreign_education.0050.desc.fallback:0 "Les habitudes de [nu_foreign_education_child.GetFirstName] deviennent difficiles à définir. [nu_foreign_education_child.Custom('FR_IlElle')|U] conserve certaines coutumes de son foyer d'origine, tout en adoptant spontanément celles de notre cour. Ce mélange ne semble plus lui paraître contradictoire."
  nu_foreign_education.0050.a:0 "Deux mondes peuvent donc cohabiter."
+
+ nu_foreign_education_cultural_acceptance_desc:0 "Éducation d'un enfant entre deux cultures"
