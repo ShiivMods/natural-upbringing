@@ -1,0 +1,23 @@
+﻿# =============================================================
+# NATURAL UPBRINGING - RUNAWAY ARC TRIGGERS
+# =============================================================
+
+nu_can_start_runaway_trigger = {
+	age >= 12
+	is_adult = no
+	has_education_focus_trigger = yes
+	nu_is_genuinely_educated_abroad_trigger = yes
+
+	has_character_flag = nu_homesickness_active
+	has_variable = nu_homesickness_active_years
+	var:nu_homesickness_active_years >= 1
+
+	NOT = { has_character_flag = nu_runaway_active }
+	NOT = { has_character_flag = nu_runaway_happened }
+}
+
+
+nu_can_roll_spontaneous_runaway_trigger = {
+	nu_can_start_runaway_trigger = yes
+	NOT = { has_character_flag = nu_runaway_spontaneous_check_done }
+}
