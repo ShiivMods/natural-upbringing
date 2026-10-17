@@ -1,0 +1,93 @@
+﻿# =============================================================
+# NATURAL UPBRINGING - PARENT REACTIONS TO PERSONALITY TRAITS
+# =============================================================
+# Root: player parent receiving the letter.
+# Expects scope:nu_foreign_personality_trait.
+# =============================================================
+
+nu_prepare_parent_trait_reaction_effect = {
+
+	# Recognition takes priority when parent and child share the trait.
+	if = {
+		limit = {
+			has_trait = scope:nu_foreign_personality_trait
+		}
+		set_local_variable = {
+			name = nu_parent_trait_reaction
+			value = flag:recognition
+		}
+	}
+
+	# Vanilla personality opposites, hard-coded only for the validated
+	# trait pairs so modded personality traits safely fall through.
+	else_if = {
+		limit = {
+			OR = {
+				AND = { scope:nu_foreign_personality_trait = trait:lustful has_trait = chaste }
+				AND = { scope:nu_foreign_personality_trait = trait:chaste has_trait = lustful }
+				AND = { scope:nu_foreign_personality_trait = trait:gluttonous has_trait = temperate }
+				AND = { scope:nu_foreign_personality_trait = trait:temperate has_trait = gluttonous }
+				AND = { scope:nu_foreign_personality_trait = trait:greedy has_trait = generous }
+				AND = { scope:nu_foreign_personality_trait = trait:generous has_trait = greedy }
+				AND = { scope:nu_foreign_personality_trait = trait:lazy has_trait = diligent }
+				AND = { scope:nu_foreign_personality_trait = trait:diligent has_trait = lazy }
+				AND = { scope:nu_foreign_personality_trait = trait:wrathful has_trait = calm }
+				AND = { scope:nu_foreign_personality_trait = trait:calm has_trait = wrathful }
+				AND = { scope:nu_foreign_personality_trait = trait:patient has_trait = impatient }
+				AND = { scope:nu_foreign_personality_trait = trait:impatient has_trait = patient }
+				AND = { scope:nu_foreign_personality_trait = trait:arrogant has_trait = humble }
+				AND = { scope:nu_foreign_personality_trait = trait:humble has_trait = arrogant }
+				AND = { scope:nu_foreign_personality_trait = trait:deceitful has_trait = honest }
+				AND = { scope:nu_foreign_personality_trait = trait:honest has_trait = deceitful }
+				AND = { scope:nu_foreign_personality_trait = trait:craven has_trait = brave }
+				AND = { scope:nu_foreign_personality_trait = trait:brave has_trait = craven }
+				AND = { scope:nu_foreign_personality_trait = trait:shy has_trait = gregarious }
+				AND = { scope:nu_foreign_personality_trait = trait:gregarious has_trait = shy }
+				AND = { scope:nu_foreign_personality_trait = trait:ambitious has_trait = content }
+				AND = { scope:nu_foreign_personality_trait = trait:content has_trait = ambitious }
+				AND = { scope:nu_foreign_personality_trait = trait:arbitrary has_trait = just }
+				AND = { scope:nu_foreign_personality_trait = trait:just has_trait = arbitrary }
+				AND = { scope:nu_foreign_personality_trait = trait:cynical has_trait = zealous }
+				AND = { scope:nu_foreign_personality_trait = trait:zealous has_trait = cynical }
+				AND = { scope:nu_foreign_personality_trait = trait:paranoid has_trait = trusting }
+				AND = { scope:nu_foreign_personality_trait = trait:trusting has_trait = paranoid }
+				AND = { scope:nu_foreign_personality_trait = trait:compassionate has_trait = callous }
+				AND = { scope:nu_foreign_personality_trait = trait:compassionate has_trait = sadistic }
+				AND = { scope:nu_foreign_personality_trait = trait:callous has_trait = compassionate }
+				AND = { scope:nu_foreign_personality_trait = trait:sadistic has_trait = compassionate }
+				AND = { scope:nu_foreign_personality_trait = trait:stubborn has_trait = fickle }
+				AND = { scope:nu_foreign_personality_trait = trait:fickle has_trait = stubborn }
+				AND = { scope:nu_foreign_personality_trait = trait:vengeful has_trait = forgiving }
+				AND = { scope:nu_foreign_personality_trait = trait:forgiving has_trait = vengeful }
+			}
+		}
+		set_local_variable = {
+			name = nu_parent_trait_reaction
+			value = flag:opposition
+		}
+	}
+
+	else = {
+		nu_prepare_parent_news_reaction_effect = yes
+		set_local_variable = {
+			name = nu_parent_trait_reaction
+			value = local_var:nu_parent_news_reaction
+		}
+	}
+}
+
+
+nu_apply_parent_trait_recognition_effect = {
+	if = {
+		limit = { NOT = { has_trait = callous } }
+		add_stress = minor_stress_loss
+	}
+}
+
+
+nu_apply_parent_trait_opposition_effect = {
+	if = {
+		limit = { NOT = { has_trait = callous } }
+		add_stress = medium_stress_gain
+	}
+}
