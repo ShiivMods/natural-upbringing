@@ -1244,6 +1244,30 @@ Scope indépendant :
 - l'objectif est de permettre une dernière passe de validation sans devoir relire toute la roadmap ni l'historique de discussion ;
 - après validation, le document sert de référence de cadrage pendant l'implémentation et les tests.
 
+## Extension Crozier : exposition distincte à la foi et au rite (1.2)
+
+- [À tester en jeu] Le suivi de l'exposition à un rite est conservé avec ses variables actuelles (`nu_rite_exposure_target` et `nu_faith_exposure_*`) afin de ne pas réinitialiser les sauvegardes de développement.
+- [À tester en jeu] La nouvelle exposition à une foi différente est indépendante, via `nu_belief_exposure_*`.
+- [À tester en jeu] Hiérarchie religieuse stricte : la foi est évaluée avant le rite.
+- [À tester en jeu] Si la foi de l'environnement éducatif est différente de celle de l'enfant, seule l'exposition à la foi progresse. Le rite étranger n'ajoute aucune exposition séparée et n'accélère donc jamais la conversion religieuse.
+- [À tester en jeu] Si la foi est identique mais le rite différent, seule l'exposition au rite progresse.
+- [À tester en jeu] Si foi et rite sont identiques, aucune exposition religieuse étrangère n'est créée.
+- [À tester en jeu] Lors d'une conversion vers une foi étrangère, l'enfant adopte nécessairement aussi un rite de cette foi, en priorité celui du tuteur ou de l'environnement qui a produit l'exposition. Ce changement de rite est une conséquence de la conversion de foi, pas une seconde assimilation indépendante.
+- [À tester en jeu] La protection religieuse contractuelle interdit les deux types d'assimilation.
+- [Décision validée] L'accompagnement religieux protège avec la même intensité contre l'exposition à une autre foi et contre l'exposition à un autre rite.
+- [Décision validée] Foi et rite sont complémentaires mais suivent des pistes d'exposition mutuellement exclusives : une différence de foi prend toujours priorité ; l'exposition au rite n'existe que lorsque la foi est déjà identique.
+- [Décision validée] Les événements qui donnent de l'exposition religieuse suivent la même hiérarchie : foi différente -> exposition à la foi ; même foi mais rite différent -> exposition au rite ; jamais les deux à la fois.
+- [Décision validée] Un changement complet de foi est narrativement et mécaniquement plus important qu'un simple changement de rite. Les réactions parentales utilisent les mêmes familles de personnalité, mais leur intensité doit être supérieure pour une conversion de foi.
+- [À tester en jeu] Lettres parentales différenciées et notifications de tuteur sans doublon, y compris lorsque l'assimilation culturelle survient au même anniversaire.
+- [À tester en jeu] Le mal du pays distingue désormais une foi différente d'un simple rite différent au sein de la même foi. Une foi étrangère pèse davantage ; un rite étranger produit un effet plus faible mais réel.
+- [À tester en jeu] Les outils de debug distinguent désormais Culture, Foi et Rite pour l'inspection et l'assimilation forcée.
+- [Décision validée] À niveau d'exposition comparable, le rite est plus facile à assimiler qu'une foi complète.
+- Table de conversion de foi : score 5/15/30/45/60/75/90 -> 1/2/5/10/18/28/40 %.
+- Table de changement de rite : score 5/15/30/45/60/75/90 -> 2/4/8/15/25/38/55 %.
+- Modificateurs de personnalité pour la foi : Zélé x0,55 ; Cynique x1,35 ; Obstiné x0,80 ; Inconstant x1,20 ; Confiant x1,10 ; Paranoïaque x0,85.
+- Modificateurs de personnalité pour le rite : Zélé x0,75 ; Cynique x1,20 ; Obstiné x0,90 ; Inconstant x1,15 ; Confiant x1,10 ; Paranoïaque x0,90.
+- Ces valeurs sont validées comme point de départ et restent réévaluables uniquement si les tests groupés montrent un déséquilibre manifeste.
+
 ## Notes pour le futur changelog
 
 Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du développement, convertir uniquement les fonctionnalités réellement implémentées et testées en notes de version FR/EN.
