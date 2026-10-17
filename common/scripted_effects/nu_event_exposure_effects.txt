@@ -1,0 +1,120 @@
+﻿nu_change_current_cultural_exposure_effect = {
+	# Root: child. VALUE may be positive or negative.
+	if = {
+		limit = {
+			exists = var:nu_culture_exposure_target
+			has_variable = nu_culture_exposure_score
+		}
+		change_variable = {
+			name = nu_culture_exposure_score
+			add = $VALUE$
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score < 0 }
+			set_variable = {
+				name = nu_culture_exposure_score
+				value = 0
+			}
+		}
+	}
+}
+
+
+nu_change_current_religious_exposure_effect = {
+	# Root: child.
+	# Faith and rite tracks are mutually exclusive for the current
+	# environment. Resolve that environment using the same hierarchy
+	# as nu_update_exposure_tracking_effect.
+	if = {
+		limit = {
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+		}
+		random_relation = {
+			type = guardian
+			save_temporary_scope_as = nu_event_exposure_guardian
+		}
+	}
+
+	if = {
+		limit = {
+			exists = scope:nu_event_exposure_guardian
+			scope:nu_event_exposure_guardian.faith != root.faith
+		}
+		scope:nu_event_exposure_guardian.faith = {
+			save_temporary_scope_as = nu_event_belief_environment
+		}
+	}
+	else_if = {
+		limit = {
+			exists = scope:nu_event_exposure_guardian
+			scope:nu_event_exposure_guardian.faith = root.faith
+			scope:nu_event_exposure_guardian.rite != root.rite
+		}
+		scope:nu_event_exposure_guardian.rite = {
+			save_temporary_scope_as = nu_event_rite_environment
+		}
+	}
+	else_if = {
+		limit = {
+			court_owner ?= {
+				faith != root.faith
+			}
+		}
+		court_owner.faith = {
+			save_temporary_scope_as = nu_event_belief_environment
+		}
+	}
+	else_if = {
+		limit = {
+			court_owner ?= {
+				faith = root.faith
+				rite != root.rite
+			}
+		}
+		court_owner.rite = {
+			save_temporary_scope_as = nu_event_rite_environment
+		}
+	}
+
+	if = {
+		limit = {
+			exists = scope:nu_event_belief_environment
+			exists = var:nu_belief_exposure_target
+			has_variable = nu_belief_exposure_score
+			var:nu_belief_exposure_target = scope:nu_event_belief_environment
+		}
+		change_variable = {
+			name = nu_belief_exposure_score
+			add = $VALUE$
+		}
+		if = {
+			limit = { var:nu_belief_exposure_score < 0 }
+			set_variable = {
+				name = nu_belief_exposure_score
+				value = 0
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			exists = scope:nu_event_rite_environment
+			exists = var:nu_rite_exposure_target
+			has_variable = nu_faith_exposure_score
+			var:nu_rite_exposure_target = scope:nu_event_rite_environment
+		}
+		change_variable = {
+			name = nu_faith_exposure_score
+			add = $VALUE$
+		}
+		if = {
+			limit = { var:nu_faith_exposure_score < 0 }
+			set_variable = {
+				name = nu_faith_exposure_score
+				value = 0
+			}
+		}
+	}
+}
