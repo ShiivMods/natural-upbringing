@@ -477,7 +477,10 @@
 			factor = 0
 			scope:nu_religious_attendant = yes
 
-			scope:secondary_recipient.rite != scope:actor.rite
+			OR = {
+				scope:secondary_recipient.faith != scope:actor.faith
+				scope:secondary_recipient.rite != scope:actor.rite
+			}
 		}
 
 		modifier = {
