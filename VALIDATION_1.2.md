@@ -4,7 +4,7 @@
 > Il ne remplace pas `DEV_ROADMAP_1.2.md`.
 > Statuts utilisés :
 > - **VALIDÉ** : décision déjà approuvée.
-> - **À VALIDER** : valeur ou détail proposé pour la dernière relecture.
+> - **VALIDÉ** : valeur ou détail proposé pour la dernière relecture.
 > - **À TESTER** : fonctionnement approuvé mais encore non validé en jeu.
 > - **1.2.1** : volontairement reporté après la 1.2.
 
@@ -125,6 +125,18 @@ La vitesse normale d'exposition reste la même. C'est l'assimilation du Rite qui
 
 **VALIDÉ**
 
+### Information affichée au joueur
+
+**VALIDÉ**
+
+- distinguer systématiquement ce qui relève de la narration visible de ce qui relève du moteur interne de NU ;
+- les gains ou pertes d'exposition culturelle, de Foi ou de Rite existent mécaniquement mais ne sont pas affichés au joueur dans les options ou résultats lorsqu'ils représentent une évolution interne que le personnage ne peut pas quantifier ;
+- même principe pour les points d'éducation, pondérations, jets cachés, seuils, progression interne et autres valeurs purement systémiques ;
+- n'afficher directement que les conséquences que le personnage peut raisonnablement constater ou comprendre : relation créée ou détériorée, blessure, stress lorsqu'il est vécu par le personnage concerné, retour au foyer, changement effectif de culture/Foi/Rite, etc. ;
+- les tooltips ne doivent pas transformer une scène RP en tableau de statistiques cachées ;
+- ce principe s'applique également aux 10 événements de focus et, plus largement, à tous les événements NU de la 1.2.
+
+
 ### Des nouvelles de mon enfant
 - Très intégré : +5 exposition culturelle, +20 opinion mutuelle enfant/tuteur pendant 5 ans.
 - Sociable : +2 exposition culturelle, +10 opinion mutuelle pendant 5 ans.
@@ -146,7 +158,7 @@ La vitesse normale d'exposition reste la même. C'est l'assimilation du Rite qui
 - Adaptation : +2 ;
 - fallback : -1.
 
-**À VALIDER**
+**VALIDÉ**
 - branche Défi : **10 %** de chance de créer une Rivalité avec l'enfant impliqué.
 
 ### Une coutume étrange
@@ -206,7 +218,7 @@ Aucun malus d'éducation direct pour un événement normal.
 - imparfaite : +1 ;
 - aggravation : 0.
 
-**À VALIDER**
+**VALIDÉ**
 - progression relationnelle positive si cible persistante et valide : **10 %**.
 
 **Un visage venu d'ailleurs**
@@ -214,7 +226,7 @@ Aucun malus d'éducation direct pour un événement normal.
 - interaction instructive : +1 ;
 - fermeture : 0.
 
-**À VALIDER**
+**VALIDÉ**
 - relation positive avec le visiteur : **7 %** si la cible peut rester pertinente.
 
 ### Martial
@@ -223,7 +235,7 @@ Aucun malus d'éducation direct pour un événement normal.
 - normale : +1 ;
 - mauvaise discipline : 0.
 
-**À VALIDER**
+**VALIDÉ**
 - +1 Prouesse sur réussite forte : **10 %** si progrès physique crédible ;
 - +1 Prouesse sur branche normale : **3 %**.
 
@@ -232,7 +244,7 @@ Aucun malus d'éducation direct pour un événement normal.
 - confrontation assumée : +1 ;
 - domination sadique : +1 possible, mais conséquences relationnelles plus dures.
 
-**À VALIDER**
+**VALIDÉ**
 - progression amicale après retenue : **10 %** ;
 - Rivalité après confrontation : **10 %** ;
 - Rivalité avec Sadique : **20 %** ;
@@ -256,7 +268,7 @@ Aucun malus d'éducation direct pour un événement normal.
 - révèle au tuteur : +1 ;
 - se fait prendre : 0.
 
-**À VALIDER**
+**VALIDÉ**
 - hook faible pour l'enfant en cas de véritable levier : **12 %** ;
 - hook faible pour le tuteur si l'enfant lui révèle une information exploitable : **8 %** ;
 - jamais de hook si la scène ne justifie pas réellement un levier.
@@ -266,7 +278,7 @@ Aucun malus d'éducation direct pour un événement normal.
 - manipulation subtile : +1 ;
 - retour de bâton : 0.
 
-**À VALIDER**
+**VALIDÉ**
 - hook faible, réussite forte : **15 %** ;
 - hook faible, réussite subtile : **8 %** ;
 - Rivalité après manipulation ou retour de bâton : **10 %**.
@@ -325,7 +337,7 @@ Déclenchement spontané :
 
 ### Personnalité
 
-**À VALIDER**
+**VALIDÉ**
 
 Proposition pour le jet spontané :
 - Brave : x1,50 ;
@@ -387,7 +399,7 @@ La mort utilise les conséquences vanilla de deuil et de stress. NU fournit surt
 
 ### Retour réussi
 
-**À VALIDER**
+**VALIDÉ**
 
 Proposition :
 - parent accepte que l'enfant reste : +20 opinion de l'enfant envers le parent, fin de la tutelle étrangère, fin du mal du pays ;
@@ -492,9 +504,9 @@ Un gros test doit couvrir ensemble :
 11. scopes IA/joueur et cas multijoueur pertinents ;
 12. absence de régression sur la tutelle vanilla.
 
-## 15. Points précis à relire avant feu vert
+## 15. Derniers réglages validés
 
-Les seuls détails encore proposés plutôt que déjà verrouillés sont :
+Les valeurs suivantes sont validées comme base de la 1.2 et pourront uniquement être rééquilibrées si les tests groupés montrent un problème manifeste :
 - 10 % de Rivalité dans « L'étranger de la cour » branche Défi ;
 - 10 % / 7 % de progression relationnelle dans les événements Diplomatie ;
 - probabilités de +1 Prouesse dans les événements Martial ;
@@ -502,4 +514,9 @@ Les seuls détails encore proposés plutôt que déjà verrouillés sont :
 - multiplicateurs de personnalité et plafond 12 % pour la fugue ;
 - +20 / -25 d'opinion et stress moyen lors du choix du parent après un retour réussi.
 
-Tout le reste de ce document reflète les décisions déjà prises pour la 1.2.
+L'ensemble de ce document est désormais validé pour l'implémentation de la 1.2.
+
+## 16. Prévu pour la 1.2.1
+
+- **Events RARES**
+- **Story Cycle Complet**
