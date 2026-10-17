@@ -40,7 +40,7 @@
 - Les choix du parent doivent donc surtout représenter une réaction, une réponse à une lettre ou une décision logistique/politique lorsque cela est réellement crédible.
 - Les événements doivent être résolus principalement par la personnalité, les compétences, le focus d'éducation et l'environnement de l'enfant et du tuteur.
 - Des exceptions sont possibles lorsque le parent peut raisonnablement intervenir à distance, mais elles doivent rester rares et justifiées.
-- Les propositions concrètes d'événements par domaine ne sont pas encore validées.
+- Le premier pack de 10 événements par domaine est désormais validé plus bas dans ce document.
 
 ### Cohérence du contexte de la cour étrangère
 
@@ -233,7 +233,7 @@ Ordre validé pour la variante Difficile : tester d'abord la fugue si elle est p
   - Indulgent, Compatissant, Sociable, Confiant, traits similaires : favorisent la réconciliation ;
   - Vengeur, Colérique, Sadique, Obstiné, traits similaires : favorisent la némésis ;
   - le béguin dépend principalement de l'attirance et de la compatibilité sexuelle.
-- Les pourcentages exacts restent à cadrer avant implémentation.
+- La pondération exacte est validée dans la section dédiée ci-dessous.
 
 
 ### Pondération validée de l'événement « Le Rival »
