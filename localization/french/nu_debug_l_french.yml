@@ -77,3 +77,10 @@
  nu_debug.0006.t:0 "Natural Upbringing : Debug d'acceptation culturelle"
  nu_debug.0006.desc:0 "Un tick d'acceptation culturelle a été tenté pour [nu_debug_acceptance_child.GetFirstName] avec les règles normales d'éligibilité, de portée et de plafond annuel par paire de Natural Upbringing. Vérifiez la valeur d'acceptation culturelle entre la culture de l'enfant et celle de la cour étrangère."
  nu_debug.0006.a:0 "Compris"
+
+ nu_debug.0007.t:0 "Natural Upbringing : Béguin indisponible"
+ nu_debug.0007.desc:0 "Aucune personne présente dans la cour étrangère ne remplit actuellement toutes les conditions d'un béguin pouvant être rapporté au parent. Vérifiez notamment l'âge, l'orientation, l'écart d'âge, la parenté et, pour un béguin homosexuel, les Rites concernés."
+ nu_debug.0007.a:0 "Compris"
+ nu_debug.0008.t:0 "Natural Upbringing : Rival indisponible"
+ nu_debug.0008.desc:0 "L'enfant n'a actuellement aucun rival dans cette cour et aucun autre enfant disponible ne peut recevoir une relation de rivalité valide pour ce test."
+ nu_debug.0008.a:0 "Compris"

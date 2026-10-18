@@ -30,6 +30,7 @@ nu_prepare_parent_news_reaction_effect = {
 	if = { limit = { has_trait = temperate } change_local_variable = { name = nu_news_reflection add = 1 } }
 	if = { limit = { has_trait = just } change_local_variable = { name = nu_news_reflection add = 2 } }
 	if = { limit = { has_trait = honest } change_local_variable = { name = nu_news_reflection add = 1 } }
+	if = { limit = { has_trait = diligent } change_local_variable = { name = nu_news_reflection add = 1 } }
 
 	if = { limit = { has_trait = ambitious } change_local_variable = { name = nu_news_pragmatism add = 3 } }
 	if = { limit = { has_trait = greedy } change_local_variable = { name = nu_news_pragmatism add = 2 } }
@@ -93,28 +94,8 @@ nu_prepare_parent_news_reaction_effect = {
 }
 
 
-nu_apply_parent_news_rejection_effect = {
-	if = {
-		limit = { NOT = { has_trait = callous } }
-		add_stress = minor_stress_gain
-	}
-}
-
-nu_apply_parent_news_mistrust_effect = {
-	if = {
-		limit = {
-			NOR = {
-				has_trait = callous
-				has_trait = brave
-			}
-		}
-		add_stress = minor_stress_gain
-	}
-}
-
-nu_apply_parent_news_acceptance_effect = {
-	if = {
-		limit = { has_trait = compassionate }
-		add_stress = minor_stress_loss
-	}
-}
+# Ordinary education news should not become a passive stress engine.
+# Strong emotional consequences belong to the event itself when justified.
+nu_apply_parent_news_rejection_effect = {}
+nu_apply_parent_news_mistrust_effect = {}
+nu_apply_parent_news_acceptance_effect = {}

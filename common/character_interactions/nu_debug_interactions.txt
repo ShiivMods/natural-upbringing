@@ -63,7 +63,34 @@ nu_debug_refresh_exposure_interaction = {
 
 	is_valid_showing_failures_only = {
 		scope:recipient = {
-			nu_is_genuinely_educated_abroad_trigger = yes
+			age >= 6
+			is_adult = no
+			exists = var:nu_guardianship_home_court_owner
+			exists = court_owner
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+			trigger_if = {
+				limit = {
+					exists = var:nu_guardianship_home_court_owner
+					exists = court_owner
+				}
+				NOT = {
+					var:nu_guardianship_home_court_owner = {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
+			trigger_if = {
+				limit = { exists = court_owner }
+				any_relation = {
+					type = guardian
+					court_owner ?= {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
 		}
 	}
 
@@ -101,8 +128,35 @@ nu_debug_force_cultural_acceptance_interaction = {
 
 	is_valid_showing_failures_only = {
 		scope:recipient = {
-			nu_is_genuinely_educated_abroad_trigger = yes
+			age >= 6
+			is_adult = no
+			exists = var:nu_guardianship_home_court_owner
 			exists = court_owner
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+			trigger_if = {
+				limit = {
+					exists = var:nu_guardianship_home_court_owner
+					exists = court_owner
+				}
+				NOT = {
+					var:nu_guardianship_home_court_owner = {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
+			trigger_if = {
+				limit = { exists = court_owner }
+				any_relation = {
+					type = guardian
+					court_owner ?= {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
+		
 			culture != court_owner.culture
 		}
 	}
@@ -146,7 +200,34 @@ nu_debug_test_trait_notification_interaction = {
 	is_valid_showing_failures_only = {
 		scope:recipient = {
 			is_child_of = scope:actor
-			nu_is_genuinely_educated_abroad_trigger = yes
+			age >= 6
+			is_adult = no
+			exists = var:nu_guardianship_home_court_owner
+			exists = court_owner
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+			trigger_if = {
+				limit = {
+					exists = var:nu_guardianship_home_court_owner
+					exists = court_owner
+				}
+				NOT = {
+					var:nu_guardianship_home_court_owner = {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
+			trigger_if = {
+				limit = { exists = court_owner }
+				any_relation = {
+					type = guardian
+					court_owner ?= {
+						this = scope:recipient.court_owner
+					}
+				}
+			}
 		}
 	}
 

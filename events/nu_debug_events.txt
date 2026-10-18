@@ -110,99 +110,78 @@ nu_debug.0001 = {
 nu_debug.0002 = {
 	type = character_event
 	theme = education
-
 	title = nu_debug.0002.t
 
 	immediate = {
-
 		if = {
-			limit = {
-				exists = var:nu_debug_conversion_target
-			}
-
-			var:nu_debug_conversion_target = {
-				save_scope_as = nu_debug_conversion_child
-			}
-
+			limit = { exists = var:nu_debug_conversion_target }
+			var:nu_debug_conversion_target = { save_scope_as = nu_debug_conversion_child }
 			remove_variable = nu_debug_conversion_target
 		}
-
 		if = {
-			limit = {
-				exists = scope:nu_debug_conversion_child
-			}
-
+			limit = { exists = scope:nu_debug_conversion_child }
 			scope:nu_debug_conversion_child = {
-
 				if = {
-					limit = {
-						exists = var:nu_culture_exposure_target
-					}
-
-					var:nu_culture_exposure_target = {
-						save_scope_as = nu_debug_conversion_culture
-					}
+					limit = { exists = var:nu_culture_exposure_target }
+					var:nu_culture_exposure_target = { save_scope_as = nu_debug_conversion_culture }
 				}
-
 				if = {
-					limit = {
-						exists = var:nu_belief_exposure_target
-					}
-
-					var:nu_belief_exposure_target = {
-						save_scope_as = nu_debug_conversion_faith
-					}
+					limit = { exists = var:nu_belief_exposure_target }
+					var:nu_belief_exposure_target = { save_scope_as = nu_debug_conversion_faith }
 				}
-
 				if = {
-					limit = {
-						exists = var:nu_rite_exposure_target
-					}
-
-					var:nu_rite_exposure_target = {
-						save_scope_as = nu_debug_conversion_rite
-					}
+					limit = { exists = var:nu_rite_exposure_target }
+					var:nu_rite_exposure_target = { save_scope_as = nu_debug_conversion_rite }
 				}
 			}
 		}
 	}
 
 	desc = nu_debug.0002.desc
-
-	left_portrait = {
-		character = scope:nu_debug_conversion_child
-	}
+	left_portrait = { character = scope:nu_debug_conversion_child }
 
 	option = {
 		name = nu_debug.0002.culture
-
 		trigger = { exists = scope:nu_debug_conversion_culture }
-
 		scope:nu_debug_conversion_child = {
+			save_scope_as = nu_assimilated_child
 			nu_debug_force_cultural_assimilation_effect = yes
-			nu_debug_dispatch_assimilation_notifications_effect = yes
+		}
+		trigger_event = nu_assimilation.0001
+		scope:nu_debug_conversion_child = {
+			nu_notify_player_guardian_of_assimilation_effect = yes
+			remove_character_flag = nu_culture_assimilated_this_birthday
+			remove_character_flag = nu_assimilation_happened_this_birthday
 		}
 	}
 
 	option = {
 		name = nu_debug.0002.faith
-
 		trigger = { exists = scope:nu_debug_conversion_faith }
-
 		scope:nu_debug_conversion_child = {
+			save_scope_as = nu_assimilated_child
 			nu_debug_force_belief_assimilation_effect = yes
-			nu_debug_dispatch_assimilation_notifications_effect = yes
+		}
+		trigger_event = nu_assimilation.0002
+		scope:nu_debug_conversion_child = {
+			nu_notify_player_guardian_of_belief_assimilation_effect = yes
+			remove_character_flag = nu_belief_assimilated_this_birthday
+			remove_character_flag = nu_assimilation_happened_this_birthday
 		}
 	}
 
 	option = {
 		name = nu_debug.0002.rite
-
 		trigger = { exists = scope:nu_debug_conversion_rite }
-
 		scope:nu_debug_conversion_child = {
+			save_scope_as = nu_assimilated_child
 			nu_debug_force_religious_assimilation_effect = yes
-			nu_debug_dispatch_assimilation_notifications_effect = yes
+		}
+		trigger_event = nu_assimilation.0002
+		scope:nu_debug_conversion_child = {
+			nu_notify_player_guardian_of_assimilation_effect = yes
+			remove_character_flag = nu_faith_assimilated_this_birthday
+			remove_character_flag = nu_assimilation_happened_this_birthday
 		}
 	}
 
@@ -216,6 +195,7 @@ nu_debug.0002 = {
 			}
 		}
 		scope:nu_debug_conversion_child = {
+			save_scope_as = nu_assimilated_child
 			nu_debug_force_cultural_assimilation_effect = yes
 			if = {
 				limit = { exists = var:nu_belief_exposure_target }
@@ -225,13 +205,24 @@ nu_debug.0002 = {
 				limit = { exists = var:nu_rite_exposure_target }
 				nu_debug_force_religious_assimilation_effect = yes
 			}
-			nu_debug_dispatch_assimilation_notifications_effect = yes
+		}
+		trigger_event = nu_assimilation.0003
+		scope:nu_debug_conversion_child = {
+			if = {
+				limit = { exists = scope:nu_debug_conversion_faith }
+				nu_notify_player_guardian_of_belief_assimilation_effect = yes
+			}
+			else = {
+				nu_notify_player_guardian_of_assimilation_effect = yes
+			}
+			remove_character_flag = nu_culture_assimilated_this_birthday
+			remove_character_flag = nu_faith_assimilated_this_birthday
+			remove_character_flag = nu_belief_assimilated_this_birthday
+			remove_character_flag = nu_assimilation_happened_this_birthday
 		}
 	}
 
-	option = {
-		name = nu_debug.0002.cancel
-	}
+	option = { name = nu_debug.0002.cancel }
 }
 
 # =============================================================
@@ -419,67 +410,72 @@ nu_debug.0003 = {
 
 	option = {
 		name = nu_debug.0003.crush
-		trigger = {
-			scope:nu_foreign_education_current_court = {
-				any_courtier_or_guest = {
-					this != scope:nu_debug_education_child
-					scope:nu_debug_education_child = {
-						nu_can_form_foreign_crush_with_trigger = {
-							CHARACTER = prev
-						}
-						nu_foreign_crush_is_reportable_trigger = {
-							CHARACTER = prev
-						}
-					}
-				}
-			}
-		}
-		hidden_effect = {
-			scope:nu_foreign_education_current_court = {
-				random_courtier_or_guest = {
-					limit = {
+		if = {
+			limit = {
+				scope:nu_foreign_education_current_court = {
+					any_courtier_or_guest = {
 						this != scope:nu_debug_education_child
 						scope:nu_debug_education_child = {
-							nu_can_form_foreign_crush_with_trigger = {
-								CHARACTER = prev
-							}
-							nu_foreign_crush_is_reportable_trigger = {
-								CHARACTER = prev
-							}
+							nu_can_form_foreign_crush_with_trigger = { CHARACTER = prev }
+							nu_foreign_crush_is_reportable_trigger = { CHARACTER = prev }
 						}
 					}
-					save_scope_as = nu_foreign_education_peer
 				}
 			}
-			scope:nu_debug_education_child = {
-				nu_make_foreign_crush_effect = yes
+			hidden_effect = {
+				scope:nu_foreign_education_current_court = {
+					random_courtier_or_guest = {
+						limit = {
+							this != scope:nu_debug_education_child
+							scope:nu_debug_education_child = {
+								nu_can_form_foreign_crush_with_trigger = { CHARACTER = prev }
+								nu_foreign_crush_is_reportable_trigger = { CHARACTER = prev }
+							}
+						}
+						save_scope_as = nu_foreign_education_peer
+					}
+				}
+				scope:nu_debug_education_child = { nu_make_foreign_crush_effect = yes }
 			}
+			trigger_event = nu_foreign_education.0070
 		}
-		trigger_event = nu_foreign_education.0070
+		else = { trigger_event = nu_debug.0007 }
 	}
 
 	option = {
 		name = nu_debug.0003.rival
-		trigger = { exists = scope:nu_debug_rival }
-		hidden_effect = {
-			scope:nu_debug_rival = { save_scope_as = nu_foreign_education_rival }
-			scope:nu_debug_education_child = {
-				nu_resolve_rival_news_effect = yes
-			}
-		}
 		if = {
+			limit = { exists = scope:nu_debug_rival }
+			scope:nu_debug_rival = { save_scope_as = nu_foreign_education_rival }
+		}
+		else_if = {
 			limit = {
+				exists = scope:nu_debug_peer
 				scope:nu_debug_education_child = {
-					has_character_flag = nu_rival_news_crush
-					has_character_flag = nu_foreign_crush_reportable
+					can_set_relation_rival_even_if_teen_trigger = { CHARACTER = scope:nu_debug_peer }
 				}
 			}
-			scope:nu_debug_rival = { save_scope_as = nu_foreign_education_peer }
-			trigger_event = nu_foreign_education.0070
+			scope:nu_debug_education_child = { set_relation_rival = scope:nu_debug_peer }
+			scope:nu_debug_peer = { save_scope_as = nu_foreign_education_rival }
 		}
-		else = {
-			trigger_event = nu_foreign_education.0080
+		if = {
+			limit = { exists = scope:nu_foreign_education_rival }
+			hidden_effect = {
+				scope:nu_debug_education_child = { nu_resolve_rival_news_effect = yes }
+			}
+			if = {
+				limit = {
+					scope:nu_debug_education_child = {
+						has_character_flag = nu_rival_news_crush
+						has_character_flag = nu_foreign_crush_reportable
+					}
+				}
+				scope:nu_foreign_education_rival = { save_scope_as = nu_foreign_education_peer }
+				trigger_event = nu_foreign_education.0070
+			}
+			else = { trigger_event = nu_foreign_education.0080 }
 		}
+		else = { trigger_event = nu_debug.0008 }
 	}
 
 	option = {
@@ -736,4 +732,21 @@ nu_debug.0006 = {
 
 	left_portrait = { character = scope:nu_debug_acceptance_child }
 	option = { name = nu_debug.0006.a }
+}
+
+
+nu_debug.0007 = {
+	type = character_event
+	theme = education
+	title = nu_debug.0007.t
+	desc = nu_debug.0007.desc
+	option = { name = nu_debug.0007.a }
+}
+
+nu_debug.0008 = {
+	type = character_event
+	theme = education
+	title = nu_debug.0008.t
+	desc = nu_debug.0008.desc
+	option = { name = nu_debug.0008.a }
 }

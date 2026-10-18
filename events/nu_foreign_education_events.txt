@@ -89,8 +89,9 @@ nu_foreign_education.0001 = {
 # =============================================================
 
 nu_foreign_education.0010 = {
-	type = letter_event
-	opening = nu_foreign_education.0010.opening
+	type = character_event
+	theme = education
+	title = nu_foreign_education.0010.opening
 
 	immediate = {
 		nu_prepare_parent_news_reaction_effect = yes
@@ -122,7 +123,8 @@ nu_foreign_education.0010 = {
 			desc = nu_foreign_education.0010.desc.fallback
 		}
 	}
-	sender = scope:nu_foreign_education_guardian
+	left_portrait = { character = scope:nu_foreign_education_child }
+	right_portrait = { character = scope:nu_foreign_education_peer }
 
 	option = {
 		name = nu_foreign_education.0010.rejection
@@ -163,8 +165,9 @@ nu_foreign_education.0010 = {
 # =============================================================
 
 nu_foreign_education.0020 = {
-	type = letter_event
-	opening = nu_foreign_education.0020.opening
+	type = character_event
+	theme = education
+	title = nu_foreign_education.0020.opening
 
 	immediate = {
 		nu_prepare_parent_news_reaction_effect = yes
@@ -209,7 +212,8 @@ nu_foreign_education.0020 = {
 			desc = nu_foreign_education.0020.desc.fallback
 		}
 	}
-	sender = scope:nu_foreign_education_guardian
+	left_portrait = { character = scope:nu_foreign_education_child }
+	right_portrait = { character = scope:nu_foreign_education_guardian }
 
 	option = {
 		name = nu_foreign_education.0020.rejection

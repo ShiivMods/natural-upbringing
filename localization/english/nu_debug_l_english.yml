@@ -77,3 +77,10 @@
  nu_debug.0006.t:0 "Natural Upbringing: Cultural Acceptance Debug"
  nu_debug.0006.desc:0 "A Cultural Acceptance tick was attempted for [nu_debug_acceptance_child.GetFirstName] using the normal Natural Upbringing eligibility, scope, and annual pair-cap rules. Check the Cultural Acceptance value between the child's culture and the foreign court culture."
  nu_debug.0006.a:0 "Understood"
+
+ nu_debug.0007.t:0 "Natural Upbringing: Crush Unavailable"
+ nu_debug.0007.desc:0 "Nobody currently present at the foreign court meets every condition for a crush that can be reported to the parent. Check age, sexuality, age difference, close kinship and, for a same-sex crush, the rites involved."
+ nu_debug.0007.a:0 "Understood"
+ nu_debug.0008.t:0 "Natural Upbringing: Rival Unavailable"
+ nu_debug.0008.desc:0 "The child currently has no rival at this court, and no other child available there can receive a valid rivalry relation for this test."
+ nu_debug.0008.a:0 "Understood"
