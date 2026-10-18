@@ -176,46 +176,57 @@ nu_debug.0002 = {
 	option = {
 		name = nu_debug.0002.culture
 
-		trigger = {
-			exists = scope:nu_debug_conversion_culture
-		}
+		trigger = { exists = scope:nu_debug_conversion_culture }
 
 		scope:nu_debug_conversion_child = {
-			save_scope_as = nu_assimilated_child
 			nu_debug_force_cultural_assimilation_effect = yes
+			nu_debug_dispatch_assimilation_notifications_effect = yes
 		}
-
-		trigger_event = nu_assimilation.0001
 	}
 
 	option = {
 		name = nu_debug.0002.faith
 
-		trigger = {
-			exists = scope:nu_debug_conversion_faith
-		}
+		trigger = { exists = scope:nu_debug_conversion_faith }
 
 		scope:nu_debug_conversion_child = {
-			save_scope_as = nu_assimilated_child
 			nu_debug_force_belief_assimilation_effect = yes
+			nu_debug_dispatch_assimilation_notifications_effect = yes
 		}
-
-		trigger_event = nu_assimilation.0002
 	}
 
 	option = {
 		name = nu_debug.0002.rite
 
-		trigger = {
-			exists = scope:nu_debug_conversion_rite
-		}
+		trigger = { exists = scope:nu_debug_conversion_rite }
 
 		scope:nu_debug_conversion_child = {
-			save_scope_as = nu_assimilated_child
 			nu_debug_force_religious_assimilation_effect = yes
+			nu_debug_dispatch_assimilation_notifications_effect = yes
 		}
+	}
 
-		trigger_event = nu_assimilation.0002
+	option = {
+		name = nu_debug.0002.all
+		trigger = {
+			exists = scope:nu_debug_conversion_culture
+			OR = {
+				exists = scope:nu_debug_conversion_faith
+				exists = scope:nu_debug_conversion_rite
+			}
+		}
+		scope:nu_debug_conversion_child = {
+			nu_debug_force_cultural_assimilation_effect = yes
+			if = {
+				limit = { exists = var:nu_belief_exposure_target }
+				nu_debug_force_belief_assimilation_effect = yes
+			}
+			else_if = {
+				limit = { exists = var:nu_rite_exposure_target }
+				nu_debug_force_religious_assimilation_effect = yes
+			}
+			nu_debug_dispatch_assimilation_notifications_effect = yes
+		}
 	}
 
 	option = {
@@ -622,4 +633,107 @@ nu_debug.0004 = {
 		name = nu_debug.0004.back
 		trigger_event = nu_debug.0003
 	}
+}
+
+
+# =============================================================
+# PERSONALITY LETTER CYCLER
+# =============================================================
+
+nu_debug.0005 = {
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = { exists = var:nu_debug_trait_letter_target }
+			var:nu_debug_trait_letter_target = {
+				save_scope_as = nu_foreign_personality_child
+				random_relation = {
+					type = guardian
+					save_scope_as = nu_foreign_personality_guardian
+				}
+				court_owner = {
+					save_scope_as = nu_foreign_personality_current_court
+				}
+			}
+			remove_variable = nu_debug_trait_letter_target
+		}
+
+		if = {
+			limit = { NOT = { has_variable = nu_debug_trait_test_index } }
+			set_variable = { name = nu_debug_trait_test_index value = 1 }
+		}
+		else = {
+			change_variable = { name = nu_debug_trait_test_index add = 1 }
+			if = {
+				limit = { var:nu_debug_trait_test_index > 36 }
+				set_variable = { name = nu_debug_trait_test_index value = 1 }
+			}
+		}
+
+		if = { limit = { var:nu_debug_trait_test_index = 1 } trait:lustful = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 2 } trait:chaste = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 3 } trait:gluttonous = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 4 } trait:temperate = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 5 } trait:greedy = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 6 } trait:generous = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 7 } trait:lazy = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 8 } trait:diligent = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 9 } trait:wrathful = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 10 } trait:calm = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 11 } trait:patient = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 12 } trait:impatient = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 13 } trait:arrogant = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 14 } trait:humble = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 15 } trait:deceitful = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 16 } trait:honest = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 17 } trait:craven = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 18 } trait:brave = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 19 } trait:shy = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 20 } trait:gregarious = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 21 } trait:ambitious = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 22 } trait:content = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 23 } trait:arbitrary = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 24 } trait:just = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 25 } trait:cynical = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 26 } trait:zealous = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 27 } trait:paranoid = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 28 } trait:trusting = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 29 } trait:compassionate = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 30 } trait:callous = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 31 } trait:sadistic = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 32 } trait:stubborn = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 33 } trait:fickle = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 34 } trait:eccentric = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 35 } trait:vengeful = { save_scope_as = nu_foreign_personality_trait } }
+		else_if = { limit = { var:nu_debug_trait_test_index = 36 } trait:forgiving = { save_scope_as = nu_foreign_personality_trait } }
+
+		if = {
+			limit = {
+				exists = scope:nu_foreign_personality_child
+				exists = scope:nu_foreign_personality_trait
+			}
+			trigger_event = nu_foreign_personality.0010
+		}
+	}
+}
+
+
+nu_debug.0006 = {
+	type = character_event
+	theme = education
+	title = nu_debug.0006.t
+	desc = nu_debug.0006.desc
+
+	immediate = {
+		if = {
+			limit = { exists = var:nu_debug_acceptance_target }
+			var:nu_debug_acceptance_target = { save_scope_as = nu_debug_acceptance_child }
+			remove_variable = nu_debug_acceptance_target
+		}
+	}
+
+	left_portrait = { character = scope:nu_debug_acceptance_child }
+	option = { name = nu_debug.0006.a }
 }

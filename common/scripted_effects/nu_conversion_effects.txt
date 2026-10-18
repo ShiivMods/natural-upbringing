@@ -633,6 +633,9 @@ nu_debug_force_cultural_assimilation_effect = {
 				}
 			}
 
+				add_character_flag = nu_culture_assimilated_this_birthday
+			add_character_flag = nu_assimilation_happened_this_birthday
+
 			nu_save_cultural_assimilation_context_effect = yes
 
 			set_culture = scope:nu_conversion_culture
@@ -732,10 +735,6 @@ nu_debug_force_belief_assimilation_effect = {
 				remove_variable = nu_faith_exposure_score
 				remove_variable = nu_faith_exposure_floor
 
-				# These flags are normally cleaned by the birthday pipeline.
-				# Debug forcing bypasses that pipeline, so clean them here.
-				remove_character_flag = nu_belief_assimilated_this_birthday
-				remove_character_flag = nu_assimilation_happened_this_birthday
 			}
 		}
 	}
@@ -770,6 +769,9 @@ nu_debug_force_religious_assimilation_effect = {
 				}
 			}
 
+			add_character_flag = nu_faith_assimilated_this_birthday
+			add_character_flag = nu_assimilation_happened_this_birthday
+
 			nu_save_religious_assimilation_context_effect = yes
 
 			convert_to_rite_with_consequences_effect = { RITE = scope:nu_conversion_faith }
@@ -779,5 +781,67 @@ nu_debug_force_religious_assimilation_effect = {
 			remove_variable = nu_faith_exposure_score
 			remove_variable = nu_faith_exposure_floor
 		}
+	}
+}
+
+# =============================================================
+# DEBUG - DISPATCH REAL ASSIMILATION NOTIFICATIONS
+# =============================================================
+
+nu_debug_dispatch_assimilation_notifications_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_character_flag = nu_culture_assimilated_this_birthday
+				has_character_flag = nu_faith_assimilated_this_birthday
+				has_character_flag = nu_belief_assimilated_this_birthday
+			}
+		}
+
+		save_scope_as = nu_assimilated_child
+
+		every_parent = {
+			limit = { is_alive = yes is_ai = no }
+			if = {
+				limit = {
+					scope:nu_assimilated_child = {
+						has_character_flag = nu_culture_assimilated_this_birthday
+						OR = {
+							has_character_flag = nu_faith_assimilated_this_birthday
+							has_character_flag = nu_belief_assimilated_this_birthday
+						}
+					}
+				}
+				trigger_event = nu_assimilation.0003
+			}
+			else_if = {
+				limit = { scope:nu_assimilated_child = { has_character_flag = nu_culture_assimilated_this_birthday } }
+				trigger_event = nu_assimilation.0001
+			}
+			else_if = {
+				limit = {
+					scope:nu_assimilated_child = {
+						OR = {
+							has_character_flag = nu_faith_assimilated_this_birthday
+							has_character_flag = nu_belief_assimilated_this_birthday
+						}
+					}
+				}
+				trigger_event = nu_assimilation.0002
+			}
+		}
+
+		if = {
+			limit = { has_character_flag = nu_belief_assimilated_this_birthday }
+			nu_notify_player_guardian_of_belief_assimilation_effect = yes
+		}
+		else = {
+			nu_notify_player_guardian_of_assimilation_effect = yes
+		}
+
+		remove_character_flag = nu_culture_assimilated_this_birthday
+		remove_character_flag = nu_faith_assimilated_this_birthday
+		remove_character_flag = nu_belief_assimilated_this_birthday
+		remove_character_flag = nu_assimilation_happened_this_birthday
 	}
 }

@@ -41,6 +41,128 @@ nu_debug_inspect_exposure_interaction = {
 
 
 # -------------------------------------------------------------
+# FORCE ONE YEAR OF EXPOSURE TRACKING
+# -------------------------------------------------------------
+#
+# Test-only helper. It deliberately runs the yearly exposure update
+# immediately, then opens the normal exposure inspector.
+# -------------------------------------------------------------
+
+nu_debug_refresh_exposure_interaction = {
+	category = interaction_debug_admin
+	common_interaction = yes
+	icon = child
+
+	use_diplomatic_range = no
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+		scope:recipient = { is_adult = no }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			nu_is_genuinely_educated_abroad_trigger = yes
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			nu_update_exposure_tracking_effect = yes
+		}
+		scope:actor = {
+			set_variable = {
+				name = nu_debug_inspection_target
+				value = scope:recipient
+			}
+			trigger_event = nu_debug.0001
+		}
+	}
+}
+
+
+# -------------------------------------------------------------
+# FORCE ONE CULTURAL ACCEPTANCE TICK
+# -------------------------------------------------------------
+
+nu_debug_force_cultural_acceptance_interaction = {
+	category = interaction_debug_admin
+	common_interaction = yes
+	icon = child
+
+	use_diplomatic_range = no
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+		scope:recipient = { is_adult = no }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			nu_is_genuinely_educated_abroad_trigger = yes
+			exists = court_owner
+			culture != court_owner.culture
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			nu_apply_foreign_education_cultural_acceptance_effect = yes
+		}
+		scope:actor = {
+			set_variable = {
+				name = nu_debug_acceptance_target
+				value = scope:recipient
+			}
+			trigger_event = nu_debug.0006
+		}
+	}
+}
+
+
+# -------------------------------------------------------------
+# CYCLE THROUGH THE 36 PERSONALITY-TRAIT LETTERS
+# -------------------------------------------------------------
+#
+# Each use advances to the next vanilla personality trait and sends
+# the actual NU parent letter without changing the child's traits.
+# -------------------------------------------------------------
+
+nu_debug_test_trait_notification_interaction = {
+	category = interaction_debug_admin
+	common_interaction = yes
+	icon = child
+
+	use_diplomatic_range = no
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+		scope:recipient = { is_adult = no }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			is_child_of = scope:actor
+			nu_is_genuinely_educated_abroad_trigger = yes
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			set_variable = {
+				name = nu_debug_trait_letter_target
+				value = scope:recipient
+			}
+			trigger_event = nu_debug.0005
+		}
+	}
+}
+
+
+# -------------------------------------------------------------
 # FORCE HOMESICKNESS REQUEST
 # -------------------------------------------------------------
 #
