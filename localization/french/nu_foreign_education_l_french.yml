@@ -28,12 +28,8 @@
  nu_foreign_education.0030.a:0 "Ainsi découvre-t-on un autre monde."
 
  nu_foreign_education.0040.opening:0 "Une lettre de [nu_foreign_education_child.GetFirstName]"
- nu_foreign_education.0040.desc.language:0 "« Je vais bien. Les leçons continuent et je commence à comprendre bien mieux les gens d'ici. Je vous raconterai tout cela lorsque nous nous reverrons. »
-
-La lettre est banale en apparence. Pourtant, certaines tournures et quelques expressions employées par [nu_foreign_education_child.GetFirstName] ne sont pas celles que vous lui connaissiez. La langue et les habitudes de sa nouvelle cour commencent manifestement à déteindre sur sa façon de penser."
- nu_foreign_education.0040.desc.fallback:0 "« Je vais bien. Les journées sont toujours très occupées ici. Je vous écrirai encore bientôt. »
-
-Rien d'inquiétant dans ces quelques lignes, mais quelque chose a changé. [nu_foreign_education_child.GetFirstName] emploie désormais des références et des manières de parler qui semblent venir tout droit de sa nouvelle cour."
+ nu_foreign_education.0040.desc.language:0 "« Je vais bien. Les leçons continuent et je commence à comprendre bien mieux les gens d'ici. Je vous raconterai tout cela lorsque nous nous reverrons. »\n\nLa lettre est banale en apparence. Pourtant, certaines tournures et quelques expressions employées par [nu_foreign_education_child.GetFirstName] ne sont pas celles que vous lui connaissiez. La langue et les habitudes de sa nouvelle cour commencent manifestement à déteindre sur sa façon de penser."
+ nu_foreign_education.0040.desc.fallback:0 "« Je vais bien. Les journées sont toujours très occupées ici. Je vous écrirai encore bientôt. »\n\nRien d'inquiétant dans ces quelques lignes, mais quelque chose a changé. [nu_foreign_education_child.GetFirstName] emploie désormais des références et des manières de parler qui semblent venir tout droit de sa nouvelle cour."
  nu_foreign_education.0040.a:0 "Même ses mots commencent à changer..."
 
  nu_foreign_education.0050.opening:0 "Entre deux mondes"

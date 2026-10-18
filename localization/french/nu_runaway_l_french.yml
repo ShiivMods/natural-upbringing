@@ -1,9 +1,7 @@
 ﻿l_french:
 
  nu_runaway.0001.opening:0 "Une disparition"
- nu_runaway.0001.desc:0 "[nu_runaway_guardian.GetFirstName] m'écrit avec une nouvelle que je redoutais sans réellement l'attendre. [nu_runaway_child.GetFirstName] a disparu de la cour. Quelques affaires manquent avec [nu_runaway_child.Custom('FR_LuiElle')], suffisamment pour écarter l'idée d'un simple retard.
-
-Tout indique que mon enfant a décidé de tenter le chemin du retour par ses propres moyens."
+ nu_runaway.0001.desc:0 "[nu_runaway_guardian.GetFirstName] m'écrit avec une nouvelle que je redoutais sans réellement l'attendre. [nu_runaway_child.GetFirstName] a disparu de la cour. Quelques affaires manquent avec [nu_runaway_child.Custom('FR_LuiElle')], suffisamment pour écarter l'idée d'un simple retard.\n\nTout indique que mon enfant a décidé de tenter le chemin du retour par ses propres moyens."
  nu_runaway.0001.a:0 "Retrouvez [nu_runaway_child.GetFirstName]."
 
  nu_runaway.0010.opening:0 "Des nouvelles de la recherche"
@@ -60,12 +58,7 @@ Tout indique que mon enfant a décidé de tenter le chemin du retour par ses pro
 
  nu_runaway_story:0 "Fugue de [Story.MakeScope.Var('nu_runaway_child').Char.GetFirstName]"
  NU_RUNAWAY_CHILD_LABEL:0 "Enfant disparu"
- NU_RUNAWAY_STORY_PRACTICAL_INFORMATION_STRING:0 "[Story.MakeScope.Var('nu_runaway_child').Char.GetFirstName] a quitté la cour de son tuteur pour tenter de rentrer au foyer.
-
-Temps écoulé : [Story.MakeScope.Var('nu_runaway_child').Char.MakeScope.Var('nu_runaway_months').GetValue|0] mois
-Intérêt d'éducation : [Story.MakeScope.Var('nu_runaway_child').Char.GetFocus.GetName]
-État : [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayStatus')]
-Dernières informations : [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayLatestInfo')]"
+ NU_RUNAWAY_STORY_PRACTICAL_INFORMATION_STRING:0 "[Story.MakeScope.Var('nu_runaway_child').Char.GetFirstName] a quitté la cour de son tuteur pour tenter de rentrer au foyer.\n\nTemps écoulé : [Story.MakeScope.Var('nu_runaway_child').Char.MakeScope.Var('nu_runaway_months').GetValue|0] mois\nIntérêt d'éducation : [Story.MakeScope.Var('nu_runaway_child').Char.GetFocus.GetName]\nÉtat : [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayStatus')]\nDernières informations : [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayLatestInfo')]"
 
  nu_runaway_status_danger_loc:0 "En grande difficulté"
  nu_runaway_status_worry_loc:0 "Pistes inquiétantes"

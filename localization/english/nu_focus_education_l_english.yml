@@ -140,15 +140,7 @@
  nu_focus_education.0190.adaptation:0 "The tutor will eventually get used to the questions."
  nu_focus_education.0190.fallback:0 "At least curiosity is not lacking."
 
- nu_focus_education.0140.context.nomadic:0 "
-
-At this nomadic court, the lesson concerned less formal ledgers than herds, provisions, and what had to be reserved for the next stage of the journey."
- nu_focus_education.0140.context.tribal:0 "
-
-Here, the accounts were mainly tribute, reserves, and goods to be redistributed among those who depended on the court."
- nu_focus_education.0140.context.administrative:0 "
-
-The exercise used proper records, with taxes, stocks, and expenses expected to match down to the smallest detail."
- nu_focus_education.0140.context.settled:0 "
-
-The lesson concerned reserves, income, and the obligations of a settled court."
+ nu_focus_education.0140.context.nomadic:0 "\n\nAt this nomadic court, the lesson concerned less formal ledgers than herds, provisions, and what had to be reserved for the next stage of the journey."
+ nu_focus_education.0140.context.tribal:0 "\n\nHere, the accounts were mainly tribute, reserves, and goods to be redistributed among those who depended on the court."
+ nu_focus_education.0140.context.administrative:0 "\n\nThe exercise used proper records, with taxes, stocks, and expenses expected to match down to the smallest detail."
+ nu_focus_education.0140.context.settled:0 "\n\nThe lesson concerned reserves, income, and the obligations of a settled court."

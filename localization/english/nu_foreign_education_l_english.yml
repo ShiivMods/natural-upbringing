@@ -28,12 +28,8 @@
  nu_foreign_education.0030.a:0 "So another world becomes familiar."
 
  nu_foreign_education.0040.opening:0 "A Letter from [nu_foreign_education_child.GetFirstName]"
- nu_foreign_education.0040.desc.language:0 "“I am well. My lessons continue, and I am beginning to understand the people here much better. I will tell you everything when we see each other again.”
-
-The letter seems ordinary enough. Yet some turns of phrase and expressions used by [nu_foreign_education_child.GetFirstName] are not ones you remember. The language and habits of the new court are clearly beginning to shape the way your child thinks."
- nu_foreign_education.0040.desc.fallback:0 "“I am well. The days are always very busy here. I will write again soon.”
-
-There is nothing worrying in those few lines, yet something has changed. [nu_foreign_education_child.GetFirstName] now uses references and manners of speech that seem to come directly from the new court."
+ nu_foreign_education.0040.desc.language:0 "“I am well. My lessons continue, and I am beginning to understand the people here much better. I will tell you everything when we see each other again.”\n\nThe letter seems ordinary enough. Yet some turns of phrase and expressions used by [nu_foreign_education_child.GetFirstName] are not ones you remember. The language and habits of the new court are clearly beginning to shape the way your child thinks."
+ nu_foreign_education.0040.desc.fallback:0 "“I am well. The days are always very busy here. I will write again soon.”\n\nThere is nothing worrying in those few lines, yet something has changed. [nu_foreign_education_child.GetFirstName] now uses references and manners of speech that seem to come directly from the new court."
  nu_foreign_education.0040.a:0 "Even the words are beginning to change..."
 
  nu_foreign_education.0050.opening:0 "Between Two Worlds"

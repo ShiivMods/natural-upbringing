@@ -140,15 +140,7 @@
  nu_focus_education.0190.adaptation:0 "Son tuteur finira bien par s'habituer à ses questions."
  nu_focus_education.0190.fallback:0 "Au moins, il ne manque pas de curiosité."
 
- nu_focus_education.0140.context.nomadic:0 "
-
-Dans cette cour nomade, la leçon portait moins sur des registres que sur les troupeaux, les provisions et ce qui devait être réservé pour la prochaine étape."
- nu_focus_education.0140.context.tribal:0 "
-
-Ici, les comptes prenaient surtout la forme de tributs, de réserves et de biens à redistribuer entre ceux qui dépendent de la cour."
- nu_focus_education.0140.context.administrative:0 "
-
-L'exercice s'appuyait sur de véritables registres, où taxes, stocks et dépenses devaient correspondre jusque dans les moindres détails."
- nu_focus_education.0140.context.settled:0 "
-
-La leçon portait sur les réserves, les revenus et les obligations d'une cour installée durablement."
+ nu_focus_education.0140.context.nomadic:0 "\n\nDans cette cour nomade, la leçon portait moins sur des registres que sur les troupeaux, les provisions et ce qui devait être réservé pour la prochaine étape."
+ nu_focus_education.0140.context.tribal:0 "\n\nIci, les comptes prenaient surtout la forme de tributs, de réserves et de biens à redistribuer entre ceux qui dépendent de la cour."
+ nu_focus_education.0140.context.administrative:0 "\n\nL'exercice s'appuyait sur de véritables registres, où taxes, stocks et dépenses devaient correspondre jusque dans les moindres détails."
+ nu_focus_education.0140.context.settled:0 "\n\nLa leçon portait sur les réserves, les revenus et les obligations d'une cour installée durablement."

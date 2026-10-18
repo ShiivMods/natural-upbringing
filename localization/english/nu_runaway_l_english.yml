@@ -1,9 +1,7 @@
 ﻿l_english:
 
  nu_runaway.0001.opening:0 "A Disappearance"
- nu_runaway.0001.desc:0 "[nu_runaway_guardian.GetFirstName] writes with news I feared without ever truly expecting. [nu_runaway_child.GetFirstName] has vanished from court. A few belongings disappeared as well, enough to rule out a simple delay.
-
-Everything suggests that my child has decided to attempt the journey home alone."
+ nu_runaway.0001.desc:0 "[nu_runaway_guardian.GetFirstName] writes with news I feared without ever truly expecting. [nu_runaway_child.GetFirstName] has vanished from court. A few belongings disappeared as well, enough to rule out a simple delay.\n\nEverything suggests that my child has decided to attempt the journey home alone."
  nu_runaway.0001.a:0 "Find [nu_runaway_child.GetFirstName]."
 
  nu_runaway.0010.opening:0 "News From the Search"
@@ -60,12 +58,7 @@ Everything suggests that my child has decided to attempt the journey home alone.
 
  nu_runaway_story:0 "[Story.MakeScope.Var('nu_runaway_child').Char.GetFirstNamePossessive] Runaway"
  NU_RUNAWAY_CHILD_LABEL:0 "Missing Child"
- NU_RUNAWAY_STORY_PRACTICAL_INFORMATION_STRING:0 "[Story.MakeScope.Var('nu_runaway_child').Char.GetFirstName] left the guardian's court and is trying to return home.
-
-Time elapsed: [Story.MakeScope.Var('nu_runaway_child').Char.MakeScope.Var('nu_runaway_months').GetValue|0] months
-Education focus: [Story.MakeScope.Var('nu_runaway_child').Char.GetFocus.GetName]
-Status: [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayStatus')]
-Latest information: [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayLatestInfo')]"
+ NU_RUNAWAY_STORY_PRACTICAL_INFORMATION_STRING:0 "[Story.MakeScope.Var('nu_runaway_child').Char.GetFirstName] left the guardian's court and is trying to return home.\n\nTime elapsed: [Story.MakeScope.Var('nu_runaway_child').Char.MakeScope.Var('nu_runaway_months').GetValue|0] months\nEducation focus: [Story.MakeScope.Var('nu_runaway_child').Char.GetFocus.GetName]\nStatus: [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayStatus')]\nLatest information: [Story.MakeScope.Var('nu_runaway_child').Char.Custom('NU_RunawayLatestInfo')]"
 
  nu_runaway_status_danger_loc:0 "In serious difficulty"
  nu_runaway_status_worry_loc:0 "Troubling signs"
