@@ -520,3 +520,5 @@ L'ensemble de ce document est désormais validé pour l'implémentation de la 1.
 
 - **Events RARES**
 - **Story Cycle Complet**
+- Étudier les événements vanilla impliquant physiquement un enfant resté à l'étranger, notamment « Chamailleries », afin d'éviter les scènes incohérentes avec une tutelle étrangère.
+- Créer un souvenir pour l'enfant lorsqu'il est envoyé vivre à l'étranger pour son éducation.
