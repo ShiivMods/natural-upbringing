@@ -522,3 +522,11 @@ L'ensemble de ce document est désormais validé pour l'implémentation de la 1.
 - **Story Cycle Complet**
 - Étudier les événements vanilla impliquant physiquement un enfant resté à l'étranger, notamment « Chamailleries », afin d'éviter les scènes incohérentes avec une tutelle étrangère.
 - Créer un souvenir pour l'enfant lorsqu'il est envoyé vivre à l'étranger pour son éducation.
+
+
+## 17. Prévu pour la 1.3
+
+- Reprendre les 10 événements de focus avec le **Story Cycle complet** afin qu'ils s'intègrent dans un suivi continu de l'éducation de l'enfant, de son départ à son retour ou à sa majorité.
+- Revoir leur mise en scène et leur écriture, notamment les lettres trop génériques ou incohérentes lorsqu'un expéditeur parle de lui-même à la troisième personne.
+- Afficher clairement les conséquences pertinentes des événements de focus : hameçons obtenus, pertes ou gains d'opinion, relations créées ou dégradées, prouesse et autres résultats significatifs.
+- Étudier une récompense réelle au choix d'envoyer volontairement un enfant être élevé à l'étranger. Piste à évaluer : une **alliance uniquement défensive** liée à la tutelle étrangère, sans en faire une récompense automatique avant validation du design.
