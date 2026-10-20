@@ -349,62 +349,62 @@ nu_prepare_religious_assimilation_reaction_effect = {
 
 nu_select_cultural_assimilation_reaction_effect = {
 	if = {
-		limit = { local_var:nu_cultural_reaction = flag:rejection }
+		limit = { local_var:nu_cultural_reaction_reaction = flag:rejection }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:rejection }
 	}
 	else_if = {
-		limit = { local_var:nu_cultural_reaction = flag:mistrust }
+		limit = { local_var:nu_cultural_reaction_reaction = flag:mistrust }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:mistrust }
 	}
 	else_if = {
-		limit = { local_var:nu_cultural_reaction = flag:acceptance }
+		limit = { local_var:nu_cultural_reaction_reaction = flag:acceptance }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:acceptance }
 	}
 	else_if = {
-		limit = { local_var:nu_cultural_reaction = flag:reflection }
+		limit = { local_var:nu_cultural_reaction_reaction = flag:reflection }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:reflection }
 	}
 	else_if = {
-		limit = { local_var:nu_cultural_reaction = flag:pragmatism }
+		limit = { local_var:nu_cultural_reaction_reaction = flag:pragmatism }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:pragmatism }
 	}
 	else_if = {
-		limit = { local_var:nu_cultural_reaction = flag:adaptation }
+		limit = { local_var:nu_cultural_reaction_reaction = flag:adaptation }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:adaptation }
 	}
 	else_if = {
-		limit = { local_var:nu_cultural_reaction = flag:fallback }
+		limit = { local_var:nu_cultural_reaction_reaction = flag:fallback }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:fallback }
 	}
 }
 
 nu_select_religious_assimilation_reaction_effect = {
 	if = {
-		limit = { local_var:nu_religious_reaction = flag:rejection }
+		limit = { local_var:nu_religious_reaction_reaction = flag:rejection }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:rejection }
 	}
 	else_if = {
-		limit = { local_var:nu_religious_reaction = flag:mistrust }
+		limit = { local_var:nu_religious_reaction_reaction = flag:mistrust }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:mistrust }
 	}
 	else_if = {
-		limit = { local_var:nu_religious_reaction = flag:acceptance }
+		limit = { local_var:nu_religious_reaction_reaction = flag:acceptance }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:acceptance }
 	}
 	else_if = {
-		limit = { local_var:nu_religious_reaction = flag:reflection }
+		limit = { local_var:nu_religious_reaction_reaction = flag:reflection }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:reflection }
 	}
 	else_if = {
-		limit = { local_var:nu_religious_reaction = flag:pragmatism }
+		limit = { local_var:nu_religious_reaction_reaction = flag:pragmatism }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:pragmatism }
 	}
 	else_if = {
-		limit = { local_var:nu_religious_reaction = flag:adaptation }
+		limit = { local_var:nu_religious_reaction_reaction = flag:adaptation }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:adaptation }
 	}
 	else_if = {
-		limit = { local_var:nu_religious_reaction = flag:fallback }
+		limit = { local_var:nu_religious_reaction_reaction = flag:fallback }
 		set_local_variable = { name = nu_assimilation_reaction value = flag:fallback }
 	}
 }
@@ -412,8 +412,8 @@ nu_select_religious_assimilation_reaction_effect = {
 nu_combine_assimilation_reactions_effect = {
 	if = {
 		limit = {
-			local_var:nu_cultural_reaction = flag:rejection
-			local_var:nu_religious_reaction = flag:rejection
+			local_var:nu_cultural_reaction_reaction = flag:rejection
+			local_var:nu_religious_reaction_reaction = flag:rejection
 		}
 		set_local_variable = { name = nu_assimilation_reaction value = flag:rejection }
 		set_local_variable = { name = nu_combined_reaction_source value = flag:both }
@@ -421,8 +421,8 @@ nu_combine_assimilation_reactions_effect = {
 	}
 	else_if = {
 		limit = {
-			local_var:nu_cultural_reaction = flag:mistrust
-			local_var:nu_religious_reaction = flag:mistrust
+			local_var:nu_cultural_reaction_reaction = flag:mistrust
+			local_var:nu_religious_reaction_reaction = flag:mistrust
 		}
 		set_local_variable = { name = nu_assimilation_reaction value = flag:mistrust }
 		set_local_variable = { name = nu_combined_reaction_source value = flag:both }
@@ -430,8 +430,8 @@ nu_combine_assimilation_reactions_effect = {
 	}
 	else_if = {
 		limit = {
-			local_var:nu_cultural_reaction = flag:acceptance
-			local_var:nu_religious_reaction = flag:acceptance
+			local_var:nu_cultural_reaction_reaction = flag:acceptance
+			local_var:nu_religious_reaction_reaction = flag:acceptance
 		}
 		set_local_variable = { name = nu_assimilation_reaction value = flag:acceptance }
 		set_local_variable = { name = nu_combined_reaction_source value = flag:both }
@@ -439,8 +439,8 @@ nu_combine_assimilation_reactions_effect = {
 	}
 	else_if = {
 		limit = {
-			local_var:nu_cultural_reaction = flag:reflection
-			local_var:nu_religious_reaction = flag:reflection
+			local_var:nu_cultural_reaction_reaction = flag:reflection
+			local_var:nu_religious_reaction_reaction = flag:reflection
 		}
 		set_local_variable = { name = nu_assimilation_reaction value = flag:reflection }
 		set_local_variable = { name = nu_combined_reaction_source value = flag:both }
@@ -448,8 +448,8 @@ nu_combine_assimilation_reactions_effect = {
 	}
 	else_if = {
 		limit = {
-			local_var:nu_cultural_reaction = flag:pragmatism
-			local_var:nu_religious_reaction = flag:pragmatism
+			local_var:nu_cultural_reaction_reaction = flag:pragmatism
+			local_var:nu_religious_reaction_reaction = flag:pragmatism
 		}
 		set_local_variable = { name = nu_assimilation_reaction value = flag:pragmatism }
 		set_local_variable = { name = nu_combined_reaction_source value = flag:both }
@@ -457,8 +457,8 @@ nu_combine_assimilation_reactions_effect = {
 	}
 	else_if = {
 		limit = {
-			local_var:nu_cultural_reaction = flag:adaptation
-			local_var:nu_religious_reaction = flag:adaptation
+			local_var:nu_cultural_reaction_reaction = flag:adaptation
+			local_var:nu_religious_reaction_reaction = flag:adaptation
 		}
 		set_local_variable = { name = nu_assimilation_reaction value = flag:adaptation }
 		set_local_variable = { name = nu_combined_reaction_source value = flag:both }
@@ -466,15 +466,15 @@ nu_combine_assimilation_reactions_effect = {
 	}
 	else_if = {
 		limit = {
-			local_var:nu_cultural_reaction = flag:fallback
-			local_var:nu_religious_reaction = flag:fallback
+			local_var:nu_cultural_reaction_reaction = flag:fallback
+			local_var:nu_religious_reaction_reaction = flag:fallback
 		}
 		set_local_variable = { name = nu_assimilation_reaction value = flag:fallback }
 		set_local_variable = { name = nu_combined_reaction_source value = flag:both }
 	}
 	else = {
-		set_local_variable = { name = nu_reaction_compare value = local_var:nu_religious_reaction_strength }
-		change_local_variable = { name = nu_reaction_compare subtract = local_var:nu_cultural_reaction_strength }
+		set_local_variable = { name = nu_reaction_compare value = local_var:nu_religious_reaction_reaction_strength }
+		change_local_variable = { name = nu_reaction_compare subtract = local_var:nu_cultural_reaction_reaction_strength }
 
 		if = {
 			limit = { local_var:nu_reaction_compare > 0 }

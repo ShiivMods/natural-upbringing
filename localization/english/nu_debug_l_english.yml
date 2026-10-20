@@ -13,6 +13,8 @@
 
  nu_debug.0001.rite: "\n\n#bold Rite Exposure#!\nTarget: [nu_debug_rite_target.GetName]\nDuration: [nu_debug_child.MakeScope.Var('nu_faith_exposure_years').GetValue|0] years\nScore: [nu_debug_child.MakeScope.Var('nu_faith_exposure_score').GetValue|0]"
  nu_debug.0001.rite_none: "\n\n#bold Rite Exposure#!\nNo exposure to a different rite is currently recorded."
+ nu_debug.0001.homesickness_active: "\n\n#bold Homesickness#!\nState: #N active#!\nActive duration: [nu_debug_child.MakeScope.Var('nu_homesickness_active_years').GetValue|0] year(s)\nInternal severity: [nu_debug_child.MakeScope.Var('nu_homesickness_severity').GetValue|0]"
+ nu_debug.0001.homesickness_inactive: "\n\n#bold Homesickness#!\nState: inactive"
 
  nu_debug.0001.a: "Close"
 
@@ -70,9 +72,9 @@
  nu_debug_refresh_exposure_interaction:0 "Natural Upbringing: Force One Exposure Year"
  nu_debug_refresh_exposure_interaction_desc:0 "Immediately runs one yearly Natural Upbringing exposure update for this child, then opens the exposure inspector."
  nu_debug_force_cultural_acceptance_interaction:0 "Natural Upbringing: Force Cultural Acceptance Tick"
- nu_debug_force_cultural_acceptance_interaction_desc:0 "Immediately attempts one yearly +0.01 Cultural Acceptance contribution using the real scope and pair-cap rules."
- nu_debug_test_trait_notification_interaction:0 "Natural Upbringing: Test Next Trait Letter"
- nu_debug_test_trait_notification_interaction_desc:0 "Cycles through the 36 vanilla personality traits and sends the real Natural Upbringing parent letter for the next trait. It does not change the child's traits."
+ nu_debug_force_cultural_acceptance_interaction_desc:0 "Immediately attempts one yearly +1 Cultural Acceptance point contribution using the real scope and pair-cap rules."
+ nu_debug_test_trait_notification_interaction:0 "Natural Upbringing: Test Next Trait Event"
+ nu_debug_test_trait_notification_interaction_desc:0 "Cycles through the 36 vanilla personality traits and shows the real Natural Upbringing parent event for the next trait. It does not change the child's traits."
  nu_debug.0002.all:0 "Force all current assimilations"
  nu_debug.0006.t:0 "Natural Upbringing: Cultural Acceptance Debug"
  nu_debug.0006.desc:0 "A Cultural Acceptance tick was attempted for [nu_debug_acceptance_child.GetFirstName] using the normal Natural Upbringing eligibility, scope, and annual pair-cap rules. Check the Cultural Acceptance value between the child's culture and the foreign court culture."

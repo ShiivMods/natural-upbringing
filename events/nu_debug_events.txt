@@ -95,6 +95,18 @@ nu_debug.0001 = {
 			}
 			desc = nu_debug.0001.rite_none
 		}
+
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:nu_debug_child = {
+						has_character_flag = nu_homesickness_active
+					}
+				}
+				desc = nu_debug.0001.homesickness_active
+			}
+			desc = nu_debug.0001.homesickness_inactive
+		}
 	}
 
 	left_portrait = {

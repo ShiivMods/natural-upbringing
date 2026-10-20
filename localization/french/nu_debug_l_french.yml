@@ -13,6 +13,8 @@
 
  nu_debug.0001.rite: "\n\n#bold Exposition au rite#!\nCible : [nu_debug_rite_target.GetName]\nDurée : [nu_debug_child.MakeScope.Var('nu_faith_exposure_years').GetValue|0] ans\nScore : [nu_debug_child.MakeScope.Var('nu_faith_exposure_score').GetValue|0]"
  nu_debug.0001.rite_none: "\n\n#bold Exposition au rite#!\nAucune exposition à un rite différent enregistrée."
+ nu_debug.0001.homesickness_active: "\n\n#bold Mal du pays#!\nÉtat : #N actif#!\nDurée active : [nu_debug_child.MakeScope.Var('nu_homesickness_active_years').GetValue|0] an(s)\nSévérité interne : [nu_debug_child.MakeScope.Var('nu_homesickness_severity').GetValue|0]"
+ nu_debug.0001.homesickness_inactive: "\n\n#bold Mal du pays#!\nÉtat : inactif"
 
  nu_debug.0001.a: "Fermer"
 
@@ -70,9 +72,9 @@
  nu_debug_refresh_exposure_interaction:0 "Natural Upbringing : Forcer une année d'exposition"
  nu_debug_refresh_exposure_interaction_desc:0 "Exécute immédiatement une mise à jour annuelle de l'exposition Natural Upbringing pour cet enfant, puis ouvre l'inspecteur d'exposition."
  nu_debug_force_cultural_acceptance_interaction:0 "Natural Upbringing : Forcer un tick d'acceptation culturelle"
- nu_debug_force_cultural_acceptance_interaction_desc:0 "Tente immédiatement une contribution annuelle de +0,01 d'acceptation culturelle en utilisant les vraies règles de portée et de plafond par paire."
- nu_debug_test_trait_notification_interaction:0 "Natural Upbringing : Tester la prochaine lettre de trait"
- nu_debug_test_trait_notification_interaction_desc:0 "Fait défiler les 36 traits de personnalité vanilla et envoie la vraie lettre Natural Upbringing correspondant au trait suivant. Les traits de l'enfant ne sont pas modifiés."
+ nu_debug_force_cultural_acceptance_interaction_desc:0 "Tente immédiatement une contribution annuelle de +1 point d'acceptation culturelle en utilisant les vraies règles de portée et de plafond par paire."
+ nu_debug_test_trait_notification_interaction:0 "Natural Upbringing : Tester le prochain événement de trait"
+ nu_debug_test_trait_notification_interaction_desc:0 "Fait défiler les 36 traits de personnalité vanilla et affiche le véritable événement parental Natural Upbringing correspondant au trait suivant. Les traits de l'enfant ne sont pas modifiés."
  nu_debug.0002.all:0 "Forcer toutes les assimilations actuelles"
  nu_debug.0006.t:0 "Natural Upbringing : Debug d'acceptation culturelle"
  nu_debug.0006.desc:0 "Un tick d'acceptation culturelle a été tenté pour [nu_debug_acceptance_child.GetFirstName] avec les règles normales d'éligibilité, de portée et de plafond annuel par paire de Natural Upbringing. Vérifiez la valeur d'acceptation culturelle entre la culture de l'enfant et celle de la cour étrangère."

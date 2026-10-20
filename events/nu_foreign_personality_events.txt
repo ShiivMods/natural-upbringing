@@ -61,13 +61,14 @@ nu_foreign_personality.0001 = {
 
 
 # =============================================================
-# 0010 - LETTER TO THE PLAYER PARENT
+# 0010 - PERSONALITY NEWS EVENT FOR THE PLAYER PARENT
 # =============================================================
 
 nu_foreign_personality.0010 = {
-	type = letter_event
+	type = character_event
+	theme = family
 
-	opening = nu_foreign_personality.0010.opening
+	title = nu_foreign_personality.0010.opening
 
 	immediate = {
 		nu_prepare_parent_trait_reaction_effect = yes
@@ -223,7 +224,12 @@ nu_foreign_personality.0010 = {
 		}
 	}
 
-	sender = scope:nu_foreign_personality_guardian
+	left_portrait = {
+		character = scope:nu_foreign_personality_child
+	}
+	right_portrait = {
+		character = scope:nu_foreign_personality_guardian
+	}
 
 	option = {
 		name = nu_foreign_personality.0010.recognition

@@ -19,7 +19,7 @@
 		}
 
 		# Enforce a rolling one-year cap of ten contributions for the
-		# same unordered culture pair, i.e. +0.10 maximum.
+		# same unordered culture pair, i.e. +10 acceptance points maximum.
 		if = {
 			limit = {
 				NOT = {
@@ -47,7 +47,7 @@
 			scope:nu_acceptance_source_culture = {
 				change_cultural_acceptance = {
 					target = scope:nu_acceptance_target_culture
-					value = 0.01
+					value = 1
 					desc = nu_foreign_education_cultural_acceptance_desc
 				}
 			}

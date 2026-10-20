@@ -116,6 +116,7 @@ La vitesse normale d'exposition reste la même. C'est l'assimilation du Rite qui
 - notification différée de 3 jours ;
 - vérifier que le trait existe toujours après les éventuels remplacements vanilla ;
 - 36 variantes FR/EN, une pour chaque trait vanilla ;
+- notification affichée comme un événement parental classique, avec l'enfant et le tuteur en portraits, et non comme une lettre rédigée par le tuteur ;
 - fallback générique pour les traits ajoutés par des mods ;
 - la scène décrit le comportement ayant révélé le trait, sans rejouer l'événement vanilla ;
 - le parent réagit selon : même trait, opposition vanilla, puis familles générales ;
@@ -425,8 +426,9 @@ Prestige :
 
 **VALIDÉ**
 
-- +0,01 par année complète et par enfant réellement élevé dans une autre culture ;
-- plafond +0,10 par an pour une même paire de cultures ;
+- +1 point d'acceptation par année complète et par enfant réellement élevé dans une autre culture ;
+- plafond +10 points par an pour une même paire de cultures ;
+- CK3 exprime directement l'acceptation culturelle en points de pourcentage : les anciennes valeurs 0,01 / 0,10 étaient 100 fois trop faibles en jeu ;
 - cesse si l'enfant adopte la culture locale ;
 - cesse s'il quitte la cour ou n'est plus réellement élevé à l'étranger ;
 - mécanique toujours active ;
@@ -495,7 +497,7 @@ Un gros test doit couvrir ensemble :
 2. accompagnement religieux et protection contractuelle ;
 3. assimilation et réactions parentales ;
 4. notifications du tuteur et absence de doublons ;
-5. acquisition de traits et 36 lettres ;
+5. acquisition de traits et 36 notifications ;
 6. les 8 événements généraux ;
 7. les 10 événements de focus et leurs effets spéciaux ;
 8. mal du pays persistant, demande unique et absence de nouvelle demande ;
