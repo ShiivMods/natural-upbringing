@@ -62,10 +62,12 @@ nu_on_guardianship_adulthood_cleanup = {
 			has_character_flag = nu_homesickness_active
 			has_character_flag = nu_homesickness_request_pending
 			has_character_flag = nu_homesickness_cooldown
+			has_character_flag = nu_runaway_active
 		}
 	}
 
 	effect = {
+		if = { limit = { has_character_flag = nu_runaway_active } nu_resolve_runaway_adulthood_effect = yes }
 		nu_cleanup_guardianship_state_on_adulthood_effect = yes
 	}
 }

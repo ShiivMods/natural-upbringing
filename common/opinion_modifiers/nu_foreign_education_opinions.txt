@@ -29,6 +29,6 @@ nu_runaway_parent_accepted_return = {
 }
 
 nu_runaway_parent_sent_back = {
-	opinion = -25
+	opinion = -40
 	years = 10
 }

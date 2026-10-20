@@ -33,3 +33,24 @@ NU_RunawayLatestInfo = {
 		localization_key = nu_runaway_latest_disappearance_loc
 	}
 }
+
+
+NU_RunawaySearchDetail = {
+	type = character
+	text = { trigger = { has_focus = education_diplomacy } localization_key = nu_runaway_search_detail_diplomacy }
+	text = { trigger = { has_focus = education_martial } localization_key = nu_runaway_search_detail_martial }
+	text = { trigger = { has_focus = education_stewardship } localization_key = nu_runaway_search_detail_stewardship }
+	text = { trigger = { has_focus = education_intrigue } localization_key = nu_runaway_search_detail_intrigue }
+	text = { trigger = { has_focus = education_learning } localization_key = nu_runaway_search_detail_learning }
+	text = { localization_key = nu_runaway_search_detail_fallback }
+}
+
+NU_RunawayJourneySummary = {
+	type = character
+	text = { trigger = { has_focus = education_diplomacy } localization_key = nu_runaway_journey_summary_diplomacy }
+	text = { trigger = { has_focus = education_martial } localization_key = nu_runaway_journey_summary_martial }
+	text = { trigger = { has_focus = education_stewardship } localization_key = nu_runaway_journey_summary_stewardship }
+	text = { trigger = { has_focus = education_intrigue } localization_key = nu_runaway_journey_summary_intrigue }
+	text = { trigger = { has_focus = education_learning } localization_key = nu_runaway_journey_summary_learning }
+	text = { localization_key = nu_runaway_journey_summary_fallback }
+}

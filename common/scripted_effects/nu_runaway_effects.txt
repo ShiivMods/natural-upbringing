@@ -410,6 +410,20 @@ nu_finish_runaway_resolution_cleanup_effect = {
 }
 
 
+nu_resolve_runaway_adulthood_effect = {
+	nu_prepare_runaway_resolution_scopes_effect = yes
+	add_character_flag = { flag = nu_runaway_result_adulthood days = 14 }
+	remove_variable = nu_homesickness_abroad_years
+	nu_clear_homesickness_effect = yes
+	nu_clear_runaway_active_state_effect = yes
+	if = {
+		limit = { exists = scope:nu_runaway_decision_parent }
+		scope:nu_runaway_decision_parent = { trigger_event = nu_runaway.0400 }
+	}
+	nu_finish_runaway_resolution_cleanup_effect = yes
+}
+
+
 nu_resolve_runaway_critical_success_effect = {
 	nu_prepare_runaway_resolution_scopes_effect = yes
 

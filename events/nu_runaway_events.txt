@@ -119,6 +119,13 @@ nu_runaway.0100 = {
 	option = {
 		name = nu_runaway.0100.a
 
+		show_as_tooltip = {
+			scope:nu_runaway_child = {
+				if = { limit = { has_character_flag = nu_runaway_result_critical_success } add_prestige = medium_prestige_gain }
+				else = { add_prestige = minor_prestige_gain }
+			}
+		}
+
 		if = {
 			limit = {
 				exists = scope:nu_runaway_child
@@ -138,6 +145,8 @@ nu_runaway.0100 = {
 					modifier = nu_runaway_parent_accepted_return
 				}
 			}
+
+			scope:nu_runaway_child = { move_to_pool_at = root.location }
 
 			remove_guardian_effect = {
 				GUARDIAN = scope:nu_runaway_guardian
@@ -170,6 +179,13 @@ nu_runaway.0100 = {
 
 	option = {
 		name = nu_runaway.0100.b
+
+		show_as_tooltip = {
+			scope:nu_runaway_child = {
+				if = { limit = { has_character_flag = nu_runaway_result_critical_success } add_prestige = medium_prestige_gain }
+				else = { add_prestige = minor_prestige_gain }
+			}
+		}
 
 		if = {
 			limit = {
@@ -420,6 +436,21 @@ nu_runaway.0300 = {
 	option = {
 		name = nu_runaway.0300.a
 	}
+}
+
+
+# =============================================================
+# 0400 - REACHES ADULTHOOD WHILE MISSING
+# =============================================================
+
+nu_runaway.0400 = {
+	type = character_event
+	theme = family
+	title = nu_runaway.0400.t
+	desc = nu_runaway.0400.desc
+	left_portrait = { character = scope:nu_runaway_child }
+	right_portrait = { character = scope:nu_runaway_guardian }
+	option = { name = nu_runaway.0400.a }
 }
 
 
