@@ -473,7 +473,7 @@ Les systèmes centraux d'éducation ne deviennent pas des toggles individuels.
 
 - événements généraux : 25 % par anniversaire éligible ;
 - cooldown commun : 2 ans ;
-- les lettres de nouveaux traits restent indépendantes ;
+- les notifications de nouveaux traits restent indépendantes ;
 - pas d'événement général le même anniversaire qu'une assimilation NU ou qu'une demande active liée au mal du pays.
 
 ## 13. Compatibilité et philosophie
@@ -532,3 +532,67 @@ L'ensemble de ce document est désormais validé pour l'implémentation de la 1.
 - Revoir leur mise en scène et leur écriture, notamment les lettres trop génériques ou incohérentes lorsqu'un expéditeur parle de lui-même à la troisième personne.
 - Afficher clairement les conséquences pertinentes des événements de focus : hameçons obtenus, pertes ou gains d'opinion, relations créées ou dégradées, prouesse et autres résultats significatifs.
 - Étudier une récompense réelle au choix d'envoyer volontairement un enfant être élevé à l'étranger. Piste à évaluer : une **alliance uniquement défensive** liée à la tutelle étrangère, sans en faire une récompense automatique avant validation du design.
+
+
+## 18. État de la campagne de tests 1.2
+
+### Validé en jeu
+
+- filtre des Game Rules Natural Upbringing : les deux règles NU sont correctement regroupées ;
+- exposition culturelle avec culture différente ;
+- exposition à une Foi différente, sans exposition séparée au Rite ;
+- exposition au Rite lorsque la Foi est identique mais le Rite différent ;
+- absence d'exposition religieuse lorsque Foi et Rite sont identiques ;
+- recalcul de l'exposition après changement d'environnement ;
+- accompagnateur religieux sur un Rite différent : progression observée 8 -> 11, soit +3 au lieu d'environ +8 sans protection, cohérent avec le multiplicateur x0,4 ;
+- assimilation culturelle, conversion de Foi et changement de Rite modifient correctement l'enfant et nettoient leurs expositions ;
+- conversion de Foi : après correction, le Rite du tuteur est correctement adopté ;
+- assimilation combinée Culture + Religion modifie correctement Culture, Foi et Rite ;
+- événements généraux 1 à 6 fonctionnels lors de la campagne de test ;
+- « Une amitié inattendue » crée bien l'amitié ;
+- « L'étranger de la cour » applique bien ses effets d'exposition ;
+- plusieurs années de simulation n'ont révélé aucune régression évidente de la tutelle vanilla ;
+- Game Rules et changements ordinaires de tuteur testés sans régression notable.
+
+### Corrigé après test, à revalider en jeu
+
+- réactions parentales d'assimilation : cause commune identifiée dans les variables locales de réaction et corrigée ; vérifier Culture, Foi, Rite et combinaison ;
+- debug de fugue : mauvais scope d'interaction corrigé ; vérifier que l'arc peut désormais être forcé sur un enfant de 12 ans ou plus, avec focus et tutelle étrangère valide ;
+- inspecteur debug : affiche désormais l'état, la durée et la sévérité du mal du pays ;
+- acceptation culturelle : ancienne valeur 0,01 remplacée par +1 point, plafond annuel 0,10 remplacé par +10 points par paire ;
+- notifications de traits : passage du format lettre au format événement parental classique avec enfant et tuteur en portraits ;
+- outils debug d'exposition et de traits : vérifier une dernière fois leur comportement après les corrections de scope.
+
+### Partiellement validé ou encore à tester
+
+- accompagnateur religieux avec Foi différente : contexte de test précédent refusait l'accompagnateur ;
+- protection religieuse contractuelle : contexte de test non encore disponible ;
+- Béguin : outil debug accessible mais aucune cible valide rencontrée pendant la campagne ;
+- Rival : outil debug accessible mais toutes les variantes de résolution n'ont pas été validées ;
+- tuteur joueur distinct du parent joueur : notifications et absence de doublons à tester avec changement de personnage ou multijoueur ;
+- fugue complète : progression mensuelle, Story Cycle, succès, échecs, retour, renvoi et branches sévères restent à tester après correction du debug ;
+- plafond annuel de +10 d'acceptation culturelle : logique implémentée mais pas encore éprouvée avec dix contributions sur une même paire.
+
+### Événements et narration reportés
+
+- les 10 événements de focus restent dans la 1.2, mais leur refonte narrative, leur meilleure mise en scène et l'affichage explicite de leurs conséquences sont reportés à la 1.3 avec le Story Cycle complet ;
+- pendant les tests, Diplomatie et Érudition se sont montrées fonctionnelles ; Intrigue et Intendance ont révélé des textes trop génériques ou un format de lettre peu immersif ; un seul événement Martial était disponible dans le contexte testé et ce point doit être gardé en tête lors de la reprise 1.3 ;
+- les notifications de traits n'ont pas été relues une par une jusqu'au bout après décision de refonte du format ; aucune clé de localisation manquante n'a été observée.
+
+### Points vanilla identifiés, non corrigés par NU
+
+- char_interaction.0084, lettre vanilla d'arrivée du pupille chez le tuteur, peut afficher un salut cassé de type ERROR:[second.Custom(...)] ; le corps de l'événement et le déplacement du pupille fonctionnent, NU ne surcharge pas cet événement global pour contourner ce défaut ;
+- l'événement vanilla « Chamailleries » peut mettre en scène un enfant pourtant physiquement élevé à l'étranger ; étude reportée à la 1.2.1.
+
+### Reports confirmés
+
+**1.2.1**
+- **Events RARES**
+- **Story Cycle Complet**
+- étude des événements vanilla incohérents avec la présence physique à l'étranger, notamment « Chamailleries » ;
+- création d'un souvenir pour l'enfant au moment de son envoi à l'étranger.
+
+**1.3**
+- reprise complète des 10 événements de focus avec le Story Cycle d'éducation ;
+- meilleure mise en scène et conséquences observables : hooks, opinion, relations, prouesse et autres résultats pertinents ;
+- étude d'une vraie incitation à l'éducation étrangère, avec comme piste une alliance uniquement défensive liée à la tutelle.

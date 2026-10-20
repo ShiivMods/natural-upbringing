@@ -69,7 +69,7 @@
 
 - Lorsqu'un enfant réellement élevé à l'étranger acquiert un trait de personnalité pendant son éducation, son parent joueur doit en être informé.
 - Cette notification fait partie du cœur des événements d'éducation NU : elle permet au parent de suivre concrètement l'évolution de l'enfant malgré son absence.
-- La nouvelle est présentée comme une lettre, un rapport du tuteur ou un témoignage venu de la cour étrangère.
+- La nouvelle est présentée comme un événement parental classique rapportant un incident observé dans la cour étrangère, avec l'enfant et le tuteur en portraits lorsque pertinent.
 - Le parent ne rejoue pas la scène et ne choisit pas à la place de l'enfant comment le trait se forme.
 - L'implémentation doit s'appuyer autant que possible sur `on_trait_gained` afin d'éviter d'override les nombreux événements de personnalité vanilla et de rester compatible avec les futurs événements Paradox.
 - `on_trait_gained` indique le personnage et le trait obtenu, mais pas nécessairement l'événement précis qui l'a causé. NU utilisera donc un événement de nouvelles associé au trait obtenu plutôt qu'une copie de la scène vanilla.
@@ -83,10 +83,10 @@
 - [À tester en jeu] La notification ne concerne que les enfants réellement élevés à l'étranger auprès de leur tuteur et ayant au moins un parent joueur vivant.
 - [À tester en jeu] Le trait obtenu est conservé dans le contexte d'un événement différé de trois jours.
 - [À tester en jeu] Après ces trois jours, NU vérifie que l'enfant possède toujours ce trait afin de laisser les systèmes vanilla de remplacement de trait se résoudre avant la notification.
-- [À tester en jeu] Si le trait est toujours présent, chaque parent joueur reçoit une lettre du tuteur indiquant le trait final acquis.
+- [À tester en jeu] Si le trait est toujours présent, chaque parent joueur reçoit l'événement NU correspondant au trait final acquis.
 - La notification est purement informative et n'ajoute aucun effet mécanique supplémentaire.
 - Un scripted trigger réutilisable, `nu_is_genuinely_educated_abroad_trigger`, centralise désormais la définition d'un enfant réellement élevé à l'étranger.
-- [À tester en jeu] Les 36 traits de personnalité vanilla disposent désormais chacun d'une variante de lettre dédiée en français et en anglais.
+- [À tester en jeu] Les 36 traits de personnalité vanilla disposent désormais chacun d'une variante d'événement dédiée en français et en anglais.
 - Un fallback générique reste prévu pour les traits de personnalité ajoutés par un autre mod ou une future version du jeu.
 - [À enrichir ultérieurement si utile] Certaines variantes pourront encore tenir compte du contexte précis de la cour sans modifier le moteur du système.
 
@@ -535,7 +535,7 @@ Rival → Béguin :
 - si le béguin doit rester secret, aucune notification au parent.
 
 
-### Lettres lors de l'acquisition d'un trait de personnalité
+### Notifications lors de l'acquisition d'un trait de personnalité
 
 - Le système de notification différée reste validé.
 - Le texte actuel du trait Chaste doit être réécrit afin de supprimer la formulation « au contraire », qui suppose à tort une continuité avec une lettre précédente.
@@ -550,9 +550,9 @@ Rival → Béguin :
   3. constat du tuteur ;
   4. trait acquis.
 - Les réponses du parent doivent également pouvoir varier selon sa propre personnalité.
-- Pour les lettres de traits, aller au-delà des seules six familles lorsque pertinent : tenir compte de la compatibilité ou opposition spécifique entre les traits du parent et le nouveau trait de l'enfant.
+- Pour les notifications de traits, aller au-delà des seules six familles lorsque pertinent : tenir compte de la compatibilité ou opposition spécifique entre les traits du parent et le nouveau trait de l'enfant.
 - Les 36 scènes narratives ont été revues et validées comme base de travail avant implémentation.
-- Chaque lettre doit raconter un incident concret révélant progressivement le trait, puis conclure par le trait acquis.
+- Chaque événement doit raconter un incident concret révélant progressivement le trait, puis conclure par le trait acquis.
 - Les noms de traits affichés en français doivent reprendre strictement la localisation vanilla CK3, sans traduction manuelle. Exemple vérifié : `brave` = « Brave » en français.
 - Le texte du trait Chaste est validé dans sa nouvelle version sans la formulation « au contraire ».
 - Les textes pourront encore recevoir de petites corrections de style ou d'accord lors de l'intégration FR/EN, sans changer leur scène ni leur intention.
@@ -844,7 +844,7 @@ Principes validés :
 - l'enfant doit toujours être réellement élevé à l'étranger ;
 - une seule fugue réelle maximum par enfant dans cette version ;
 - une prochaine version pourra ajouter un événement spécifique permettant exceptionnellement une seconde fugue ;
-- le focus d'éducation ne conditionne pas l'accès à la fugue, mais détermine la compétence utilisée pour progresser pendant la fuite ;
+- un focus d'éducation est requis pour accéder à la fugue et détermine la compétence utilisée pour progresser pendant la fuite ;
 - le parent ne contrôle pas les décisions prises par l'enfant pendant la fugue.
 
 Chance de déclenchement :
@@ -1022,9 +1022,9 @@ Principe validé :
 
 Équilibrage :
 - le gain doit être extrêmement faible, inférieur aux gains événementiels vanilla ordinaires ;
-- valeur de départ validée : +0,01 d'acceptation par année complète et par enfant ;
-- plafond annuel validé : +0,10 par paire de cultures ;
-- ces valeurs restent réévaluables après test en jeu si elles se révèlent trop faibles ou trop fortes ;
+- valeur corrigée après test en jeu : +1 point d'acceptation par année complète et par enfant ;
+- plafond annuel corrigé après test en jeu : +10 points par paire de cultures ;
+- l'ancienne interprétation 0,01 / 0,10 était 100 fois trop faible sur l'échelle réelle de CK3 ; les valeurs +1 / +10 restent réévaluables après test en jeu ;
 - le plafond empêche l'exploitation via un grand nombre de pupilles.
 
 Scope indépendant :
@@ -1258,7 +1258,7 @@ Scope indépendant :
 - [Décision validée] Foi et rite sont complémentaires mais suivent des pistes d'exposition mutuellement exclusives : une différence de foi prend toujours priorité ; l'exposition au rite n'existe que lorsque la foi est déjà identique.
 - [Décision validée] Les événements qui donnent de l'exposition religieuse suivent la même hiérarchie : foi différente -> exposition à la foi ; même foi mais rite différent -> exposition au rite ; jamais les deux à la fois.
 - [Décision validée] Un changement complet de foi est narrativement et mécaniquement plus important qu'un simple changement de rite. Les réactions parentales utilisent les mêmes familles de personnalité, mais leur intensité doit être supérieure pour une conversion de foi.
-- [À tester en jeu] Lettres parentales différenciées et notifications de tuteur sans doublon, y compris lorsque l'assimilation culturelle survient au même anniversaire.
+- [À tester en jeu] Événements parentaux différenciés et notifications de tuteur sans doublon, y compris lorsque l'assimilation culturelle survient au même anniversaire.
 - [À tester en jeu] Le mal du pays distingue désormais une foi différente d'un simple rite différent au sein de la même foi. Une foi étrangère pèse davantage ; un rite étranger produit un effet plus faible mais réel.
 - [À tester en jeu] Les outils de debug distinguent désormais Culture, Foi et Rite pour l'inspection et l'assimilation forcée.
 - [Décision validée] À niveau d'exposition comparable, le rite est plus facile à assimiler qu'une foi complète.
@@ -1271,3 +1271,15 @@ Scope indépendant :
 ## Notes pour le futur changelog
 
 Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du développement, convertir uniquement les fonctionnalités réellement implémentées et testées en notes de version FR/EN.
+
+
+### Synchronisation après campagne de tests 1.2
+
+- L'acceptation culturelle utilise désormais l'échelle réelle de CK3 : +1 point par enfant et par année complète, plafond +10 points par paire de cultures et par an.
+- Les notifications de traits sont des événements parentaux classiques, et non des lettres rédigées par le tuteur.
+- La fugue exige bien un focus d'éducation, conformément à la validation finale.
+- Le bug commun empêchant les événements parentaux d'assimilation a été identifié dans les noms de variables locales de réaction et corrigé ; revalidation en jeu requise.
+- Le debug de fugue et l'inspecteur du mal du pays ont été corrigés après la première campagne de test ; revalidation en jeu requise.
+- La refonte narrative des 10 événements de focus, ainsi que l'affichage plus explicite de leurs conséquences, est reportée à la 1.3.
+- Le cas vanilla « Chamailleries » et la création d'un souvenir lors de l'envoi à l'étranger sont reportés à la 1.2.1.
+- Une incitation mécanique à l'éducation étrangère doit être étudiée en 1.3 ; piste actuelle : alliance uniquement défensive liée à la tutelle.
