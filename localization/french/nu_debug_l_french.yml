@@ -13,7 +13,7 @@
 
  nu_debug.0001.rite: "\n\n#bold Exposition au rite#!\nCible : [nu_debug_rite_target.GetName]\nDurée : [nu_debug_child.MakeScope.Var('nu_faith_exposure_years').GetValue|0] ans\nScore : [nu_debug_child.MakeScope.Var('nu_faith_exposure_score').GetValue|0]"
  nu_debug.0001.rite_none: "\n\n#bold Exposition au rite#!\nAucune exposition à un rite différent enregistrée."
- nu_debug.0001.homesickness_active: "\n\n#bold Mal du pays#!\nÉtat : #N actif#!\nDurée active : [nu_debug_child.MakeScope.Var('nu_homesickness_active_years').GetValue|0] an(s)\nSévérité interne : [nu_debug_child.MakeScope.Var('nu_homesickness_severity').GetValue|0]"
+ nu_debug.0001.homesickness_active: "\n\n#bold Mal du pays#!\nÉtat : #N actif#!\nDurée active : [nu_debug_child.MakeScope.Var('nu_homesickness_active_years').GetValue|0] an(s)\nSévérité interne : [nu_debug_child.MakeScope.Var('nu_homesickness_severity').GetValue|0] (augmente seulement si la situation s'aggrave)"
  nu_debug.0001.homesickness_inactive: "\n\n#bold Mal du pays#!\nÉtat : inactif"
 
  nu_debug.0001.a: "Fermer"
