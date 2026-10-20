@@ -85,5 +85,5 @@
  nu_runaway_journey_summary_learning:0 "[ROOT.Char.GetFirstName] a reconstitué son itinéraire au fil des indications, des repères et de ce qu'il avait appris, corrigeant plusieurs fois sa route sans renoncer."
  nu_runaway_journey_summary_fallback:0 "Quelles qu'aient été ses méthodes, parvenir jusque-là sans être retrouvé reste un exploit remarquable pour un enfant."
  nu_runaway.0400.t:0 "L'âge de choisir"
- nu_runaway.0400.desc:0 "Le temps a fini par dépasser les recherches. [ROOT.Char.GetFirstName] a atteint l'âge adulte pendant son absence. Sa tutelle n'a désormais plus lieu d'être, et personne ne peut raisonnablement le contraindre à retourner auprès de [nu_runaway_guardian.GetFirstName].\n\nLa fugue prend fin ici, même si son avenir lui appartient désormais."
+ nu_runaway.0400.desc:0 "Le temps a fini par dépasser les recherches. [ROOT.Char.GetFirstName] a atteint l'âge adulte pendant son absence. Sa tutelle n'a désormais plus lieu d'être, et personne ne peut raisonnablement le contraindre à retourner auprès de [nu_runaway_guardian.GetFirstName].\n\nLa fugue prend fin ici. La suite ne m'incombe plus."
  nu_runaway.0400.a:0 "Son chemin lui appartient."

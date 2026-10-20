@@ -85,5 +85,5 @@
  nu_runaway_journey_summary_learning:0 "[ROOT.Char.GetFirstName] pieced the route together from directions, landmarks, and remembered lessons, correcting course more than once without giving up."
  nu_runaway_journey_summary_fallback:0 "Whatever methods were used, making it this far without being found is a remarkable feat for a child."
  nu_runaway.0400.t:0 "Old Enough to Choose"
- nu_runaway.0400.desc:0 "Time has finally overtaken the search. [ROOT.Char.GetFirstName] reached adulthood while still missing. The guardianship no longer has any force, and no one can reasonably compel an adult to return to [nu_runaway_guardian.GetFirstName].\n\nThe runaway ends here, even if the future now belongs to [ROOT.Char.GetFirstName]."
+ nu_runaway.0400.desc:0 "Time has finally overtaken the search. [ROOT.Char.GetFirstName] reached adulthood while still missing. The guardianship no longer has any force, and no one can reasonably compel an adult to return to [nu_runaway_guardian.GetFirstName].\n\nThe runaway ends here. What comes next is no longer mine to decide."
  nu_runaway.0400.a:0 "The path is now theirs to choose."

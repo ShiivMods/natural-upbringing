@@ -1356,3 +1356,11 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - Notification légère du tuteur existante conservée pour Culture, Rite, Foi et combinaison.
 - Assimilations culturelles rapprochées observées en test : aucun double roll détecté ; probabilités actuelles conservées faute d'indice de bug.
 - Majorité pendant fugue : formulation finale recentrée sur le point de vue du parent.
+
+
+### Suivi long terme après 1.2
+
+- Surveiller en partie normale la fréquence des assimilations simultanées lorsque plusieurs enfants partagent une même date d'anniversaire ; aucun bug de déclenchement n'a été identifié à ce stade.
+- Surveiller l'acceptation culturelle sur des campagnes longues plutôt que sur un test artificiel du plafond.
+- Reprendre l'acceptation culturelle en 1.3 avec le chantier des cultures hybrides et leurs interactions avec l'éducation étrangère.
+- La protection religieuse contractuelle reste à valider naturellement lorsqu'un contexte adapté se présente.

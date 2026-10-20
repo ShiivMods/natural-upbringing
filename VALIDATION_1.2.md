@@ -721,3 +721,16 @@ La seconde session s'est arrêtée après le constat du blocage de l'arc de fugu
 - chances culturelles précoces conservées : 1 % à score 5-14, 2 % à score 15-29 ;
 - avec six enfants soumis à environ 1 % puis 2 % sur deux anniversaires, deux succès représentent environ 1,3 % de probabilité avant modificateurs : rare mais plausible ;
 - aucun rééquilibrage n'est effectué sur ce seul échantillon.
+
+
+## 23. Validation des derniers tests contextuels
+
+- échec normal de fugue : validé ; un échec sûr peut ne produire aucune conséquence supplémentaire au-delà du retour chez le tuteur ;
+- échec plus sévère : blessure correctement appliquée ; une guérison immédiate peut provenir des systèmes vanilla de médecin de cour et n'est pas traitée comme un bug NU ;
+- tuteur joueur distinct du parent : notification dédiée validée en jeu ;
+- accompagnement religieux : réduction déjà validée pour une Foi différente et désormais également validée pour un Rite différent, avec un gain observé 43 -> 46 après ajout de l'accompagnement ;
+- protection religieuse contractuelle : test volontairement laissé aux parties naturelles / retours joueurs faute de contexte simple ;
+- assimilations culturelles simultanées : considérées pour l'instant comme un événement aléatoire rare ; aucun double roll ni état partagé entre pupilles identifié dans l'audit statique ;
+- acceptation culturelle : validation longue durée laissée aux parties normales ; le système sera réévalué en 1.3 lors du travail sur les cultures hybrides ;
+- retour réussi chez le parent : dernier problème observé, l'enfant restait hors de la cour malgré sa présence dans le comté ; correction supplémentaire appliquée avec le pattern vanilla set_employer + return_to_court ;
+- majorité pendant la fugue : mécanique validée, formulation finale corrigée dans la localisation actuelle.

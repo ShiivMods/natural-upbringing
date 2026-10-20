@@ -146,6 +146,9 @@ nu_runaway.0100 = {
 				}
 			}
 
+			# Preserve the parent explicitly before changing character scope.
+			save_scope_as = nu_runaway_return_parent
+
 			remove_guardian_effect = {
 				GUARDIAN = scope:nu_runaway_guardian
 				WARD = scope:nu_runaway_child
@@ -153,15 +156,17 @@ nu_runaway.0100 = {
 				HIDE_OPINION = yes
 			}
 
-			# The child has already physically reached the parent.
-			# Unlanded children now join the parent's court directly.
+			# The story has already established that the child reached the
+			# parent. Vanilla court transfers pair set_employer with
+			# return_to_court so the character actually joins the court.
 			scope:nu_runaway_child = {
 				if = {
 					limit = { is_ruler = no }
-					set_employer = root
+					set_employer = scope:nu_runaway_return_parent
+					return_to_court = yes
 				}
 				else = {
-					move_to_pool_at = root.location
+					move_to_pool_at = scope:nu_runaway_return_parent.location
 				}
 			}
 
