@@ -1,7 +1,7 @@
 ﻿# =============================================================
 # NATURAL UPBRINGING - PARENT REACTIONS TO PERSONALITY TRAITS
 # =============================================================
-# Root: player parent receiving the letter.
+# Root: player parent receiving the personality event.
 # Expects scope:nu_foreign_personality_trait.
 # =============================================================
 
@@ -80,7 +80,8 @@ nu_prepare_parent_trait_reaction_effect = {
 nu_apply_parent_trait_recognition_effect = {
 	if = {
 		limit = { NOT = { has_trait = callous } }
-		add_stress = minor_stress_loss
+		# Vanilla medium_stress_loss = -20.
+		add_stress = medium_stress_loss
 	}
 }
 

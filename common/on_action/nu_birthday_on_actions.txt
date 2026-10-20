@@ -1,9 +1,24 @@
 ﻿on_birthday = {
 	on_actions = {
+		nu_on_active_homesickness_birthday
 		nu_on_child_birthday
 		nu_on_guardianship_adulthood_cleanup
 	}
 }
+
+nu_on_active_homesickness_birthday = {
+	trigger = {
+		is_adult = no
+		has_character_flag = nu_homesickness_active
+	}
+
+	effect = {
+		# Persistent emotional state must continue to age even if the
+		# child is currently outside the selected NU simulation scope.
+		nu_check_homesickness_effect = yes
+	}
+}
+
 
 nu_on_child_birthday = {
 	trigger = {
@@ -18,7 +33,12 @@ nu_on_child_birthday = {
 		nu_apply_foreign_education_cultural_acceptance_effect = yes
 		nu_quality_instruction_birthday_effect = yes
 		nu_check_natural_assimilation_effect = yes
-		nu_check_homesickness_effect = yes
+		# Existing homesickness is advanced by the dedicated birthday
+		# action above, even when this child is outside simulation scope.
+		if = {
+			limit = { NOT = { has_character_flag = nu_homesickness_active } }
+			nu_check_homesickness_effect = yes
+		}
 		nu_check_spontaneous_runaway_effect = yes
 		nu_check_foreign_education_news_effect = yes
 

@@ -1303,3 +1303,11 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - Mal du pays : durée interne ne progresse pas après plusieurs années ; bug à corriger.
 - Fugue : interaction désormais cliquable mais ne déclenche aucun arc ; bug à corriger avant poursuite de la campagne.
 - La lettre vanilla d'arrivée reproduit toujours le défaut `char_interaction.0084` déjà documenté.
+
+
+### Corrections après la seconde campagne de tests
+
+- Debug d'exposition : exécution déplacée dans un événement enfant-root afin que `nu_update_exposure_tracking_effect` lise correctement le tuteur, la cour et la culture de l'enfant.
+- Mal du pays actif : progression annuelle rendue indépendante de la Game Rule de portée ; le système normal d'apparition reste, lui, soumis à la simulation NU.
+- Debug de fugue : démarrage déplacé dans un événement enfant-root et scope du tuteur conservé explicitement pour la première notification.
+- Trait commun parent/enfant : perte de stress portée à `medium_stress_loss` (-20).

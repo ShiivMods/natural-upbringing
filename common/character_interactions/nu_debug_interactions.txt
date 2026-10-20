@@ -95,15 +95,15 @@ nu_debug_refresh_exposure_interaction = {
 	}
 
 	on_accept = {
+		# The exposure effect relies on root being the child. Character
+		# interaction scopes keep the actor as root, so pass execution
+		# through a hidden child-root event.
 		scope:recipient = {
-			nu_update_exposure_tracking_effect = yes
-		}
-		scope:actor = {
 			set_variable = {
-				name = nu_debug_inspection_target
-				value = scope:recipient
+				name = nu_debug_exposure_requester
+				value = scope:actor
 			}
-			trigger_event = nu_debug.0001
+			trigger_event = nu_debug.0009
 		}
 	}
 }
@@ -421,37 +421,10 @@ nu_debug_force_runaway_interaction = {
 	}
 
 	on_accept = {
+		# nu_start_runaway_effect uses child-root scripted triggers.
+		# Start it from a hidden event whose root is the recipient child.
 		scope:recipient = {
-			# Give the child the minimum real homesickness state expected
-			# by the arc, then start it through the normal effect.
-			if = {
-				limit = {
-					NOT = { has_character_flag = nu_homesickness_active }
-				}
-				add_character_flag = nu_homesickness_active
-				set_variable = {
-					name = nu_homesickness_active_years
-					value = 1
-				}
-				set_variable = {
-					name = nu_homesickness_severity
-					value = 1
-				}
-			}
-			else_if = {
-				limit = {
-					OR = {
-						NOT = { has_variable = nu_homesickness_active_years }
-						var:nu_homesickness_active_years < 1
-					}
-				}
-				set_variable = {
-					name = nu_homesickness_active_years
-					value = 1
-				}
-			}
-
-			nu_start_runaway_effect = yes
+			trigger_event = nu_debug.0010
 		}
 	}
 }

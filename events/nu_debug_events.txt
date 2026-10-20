@@ -762,3 +762,73 @@ nu_debug.0008 = {
 	desc = nu_debug.0008.desc
 	option = { name = nu_debug.0008.a }
 }
+
+
+# =============================================================
+# 0009 - FORCE ONE EXPOSURE YEAR WITH CHILD AS ROOT
+# =============================================================
+
+nu_debug.0009 = {
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		save_scope_as = nu_debug_exposure_child
+		nu_update_exposure_tracking_effect = yes
+
+		if = {
+			limit = { exists = var:nu_debug_exposure_requester }
+			var:nu_debug_exposure_requester = {
+				set_variable = {
+					name = nu_debug_inspection_target
+					value = scope:nu_debug_exposure_child
+				}
+				trigger_event = nu_debug.0001
+			}
+			remove_variable = nu_debug_exposure_requester
+		}
+	}
+}
+
+
+# =============================================================
+# 0010 - FORCE RUNAWAY WITH CHILD AS ROOT
+# =============================================================
+
+nu_debug.0010 = {
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		# Give the child the minimum persistent homesickness state
+		# required by the real runaway arc.
+		if = {
+			limit = {
+				NOT = { has_character_flag = nu_homesickness_active }
+			}
+			add_character_flag = nu_homesickness_active
+			set_variable = {
+				name = nu_homesickness_active_years
+				value = 1
+			}
+			set_variable = {
+				name = nu_homesickness_severity
+				value = 1
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					NOT = { has_variable = nu_homesickness_active_years }
+					var:nu_homesickness_active_years < 1
+				}
+			}
+			set_variable = {
+				name = nu_homesickness_active_years
+				value = 1
+			}
+		}
+
+		nu_start_runaway_effect = yes
+	}
+}

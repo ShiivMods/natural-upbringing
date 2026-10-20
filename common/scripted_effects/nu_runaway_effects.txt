@@ -53,6 +53,7 @@ nu_start_runaway_effect = {
 		random_relation = {
 			type = guardian
 			save_temporary_scope_as = nu_runaway_guardian_scope
+			save_scope_as = nu_runaway_guardian
 		}
 		if = {
 			limit = { exists = scope:nu_runaway_guardian_scope }

@@ -643,3 +643,13 @@ La seconde session s'est arrêtée après le constat du blocage de l'arc de fugu
 - l'événement vanilla **« L'enfant trouvé »** a été jugé particulièrement intéressant comme référence de mise en scène ;
 - pour la 1.2.1, concevoir un événement NU original inspiré de ce type de situation, avec un autre contexte et d'autres conditions de déclenchement adaptées à Natural Upbringing ;
 - ne pas recopier l'événement vanilla : reprendre uniquement l'idée générale d'une situation familiale imprévue autour d'un enfant et l'intégrer au système d'événements rares.
+
+
+## 20. Corrections après la seconde session
+
+**Implémenté, à revalider en jeu**
+- `Forcer une année d'exposition` passe désormais par un événement caché dont l'enfant est réellement le root avant d'exécuter le système annuel d'exposition ;
+- la progression d'un mal du pays déjà actif possède désormais son propre on_action d'anniversaire, indépendant de la portée de simulation, sans double incrément pour les enfants déjà inclus dans le scope normal ;
+- `Forcer une fugue` démarre désormais l'effet réel depuis un événement caché dont l'enfant est le root ;
+- le scope du tuteur est conservé explicitement au démarrage de la fugue pour l'événement initial de disparition ;
+- la reconnaissance d'un trait commun parent/enfant utilise désormais `medium_stress_loss`, soit **20 points de stress perdus** dans les valeurs vanilla.
