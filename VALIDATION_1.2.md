@@ -759,3 +759,21 @@ La seconde session s'est arrêtée après le constat du blocage de l'arc de fugu
 - `set_employer` n'est donc pas suffisant dans ce contexte ;
 - correction finale alignée sur le pattern vanilla : le parent exécute `add_courtier = enfant`, puis l'enfant est déplacé à la localisation du parent ;
 - dernier contrôle requis : après « reste à la maison », l'enfant doit être courtisan du parent sans invitation manuelle.
+
+
+### Cause racine du retour de fugue
+
+Après plusieurs tentatives de transfert direct, la cause a été isolée dans le fonctionnement vanilla de l'éducation étrangère.
+
+- à l'arrivée chez un tuteur étranger, vanilla utilise `visit_court_of` : le pupille devient `is_foreign_court_guest` et conserve parallèlement son `liege` / sa cour d'origine ;
+- `set_employer`, `add_courtier` et `move_to_pool_at` ne nettoient pas à eux seuls cet état de guest/host ;
+- lors d'un retour vanilla normal, `remove_guardian_effect` lance `return_ward_travel_effect` ;
+- à l'arrivée, `on_ward_arrive_at_home` exécute `return_to_court = yes` sur le pupille ;
+- c'est cette étape qui rétablit réellement la cour d'origine et nettoie l'état d'invité étranger.
+
+Correction NU :
+- conserver `RETURN_WARD = no` afin de ne pas créer un second voyage visible après une fugue narrativement réussie ;
+- appeler directement `return_to_court = yes` sur l'enfant ;
+- replacer ensuite physiquement l'enfant dans la capitale de son liege, avec fallback vers la localisation du parent.
+
+Cette correction remplace les anciennes tentatives basées sur `set_employer` / `add_courtier`.

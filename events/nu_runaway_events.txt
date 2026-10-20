@@ -156,20 +156,22 @@ nu_runaway.0100 = {
 				HIDE_OPINION = yes
 			}
 
-			# The story has already established that the child reached the
-			# parent. Vanilla court transfers use add_courtier on the court
-			# owner; set_employer alone can leave the character landless and
-			# outside the court despite being physically present.
-			if = {
-				limit = {
-					scope:nu_runaway_child = { is_ruler = no }
-				}
-				scope:nu_runaway_return_parent = {
-					add_courtier = scope:nu_runaway_child
-				}
-			}
+			# Root cause: wards educated abroad are foreign court guests.
+			# Vanilla clears that host/guest state with return_to_court on
+			# arrival home. Reproduce that final vanilla step directly so
+			# the successful runaway does not need a second visible journey.
 			scope:nu_runaway_child = {
-				move_to_pool_at = scope:nu_runaway_return_parent.location
+				if = {
+					limit = { is_ruler = no }
+					return_to_court = yes
+				}
+				if = {
+					limit = { exists = liege.capital_province }
+					move_to_pool_at = liege.capital_province
+				}
+				else = {
+					move_to_pool_at = scope:nu_runaway_return_parent.location
+				}
 			}
 
 			scope:nu_runaway_child = {
