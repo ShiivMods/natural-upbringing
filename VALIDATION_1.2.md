@@ -694,3 +694,30 @@ La seconde session s'est arrêtée après le constat du blocage de l'arc de fugu
 - résumé final du parcours : validé en jeu après correction des custom localizations ;
 - aucune nouvelle erreur de localisation observée sur cette passe ;
 - la chaîne disparition -> Story Cycle -> nouvelles intermédiaires -> dénouement -> choix parental fonctionne désormais correctement dans les cas testés.
+
+
+## 22. Dernière passe pré-release
+
+### Validé en jeu
+
+- issue négative de fugue : conséquences mécaniques appliquées, enfant blessé lorsque prévu ;
+- majorité pendant une fugue : résolution spéciale fonctionnelle ;
+- second événement Martial : existence confirmée ;
+- retour réussi : aucun voyage redondant observé ;
+- tuteur joueur : les trois contextes Culture, Religion et combinaison ont été observés, mais l'event parental complet s'est affiché à tort ;
+- acceptation culturelle avec plusieurs enfants : progression observée 3 -> 6 -> 9, cohérente avec +1 par enfant et par année.
+
+### Corrections de release
+
+- l'issue négative normale de fugue est désormais un événement parental classique et non une lettre du tuteur ;
+- lorsqu'un enfant revient réellement chez son parent après une fugue réussie, un enfant non dirigeant rejoint directement la cour du parent ; aucun voyage ou invitation manuelle ne doit être nécessaire ;
+- les événements RP complets d'assimilation sont désormais protégés par une condition parent/enfant : un tuteur joueur distinct ne peut recevoir que la notification légère prévue ;
+- texte de majorité pendant la fugue réécrit au point de vue du parent : « La suite ne m'incombe plus. »
+
+### Assimilation précoce observée
+
+- deux assimilations culturelles proches dans le temps ont été observées avec plusieurs enfants ;
+- audit statique : un seul roll d'assimilation naturelle est effectué par anniversaire et par enfant ;
+- chances culturelles précoces conservées : 1 % à score 5-14, 2 % à score 15-29 ;
+- avec six enfants soumis à environ 1 % puis 2 % sur deux anniversaires, deux succès représentent environ 1,3 % de probabilité avant modificateurs : rare mais plausible ;
+- aucun rééquilibrage n'est effectué sur ce seul échantillon.

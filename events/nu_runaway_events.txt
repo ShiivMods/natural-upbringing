@@ -146,13 +146,23 @@ nu_runaway.0100 = {
 				}
 			}
 
-			scope:nu_runaway_child = { move_to_pool_at = root.location }
-
 			remove_guardian_effect = {
 				GUARDIAN = scope:nu_runaway_guardian
 				WARD = scope:nu_runaway_child
-				RETURN_WARD = yes
+				RETURN_WARD = no
 				HIDE_OPINION = yes
+			}
+
+			# The child has already physically reached the parent.
+			# Unlanded children now join the parent's court directly.
+			scope:nu_runaway_child = {
+				if = {
+					limit = { is_ruler = no }
+					set_employer = root
+				}
+				else = {
+					move_to_pool_at = root.location
+				}
 			}
 
 			scope:nu_runaway_child = {
@@ -260,8 +270,9 @@ nu_runaway.0100 = {
 # =============================================================
 
 nu_runaway.0200 = {
-	type = letter_event
-	opening = nu_runaway.0200.opening
+	type = character_event
+	theme = family
+	title = nu_runaway.0200.opening
 
 	desc = {
 		first_valid = {
@@ -330,7 +341,8 @@ nu_runaway.0200 = {
 		}
 	}
 
-	sender = scope:nu_runaway_guardian
+	left_portrait = { character = scope:nu_runaway_child }
+	right_portrait = { character = scope:nu_runaway_guardian }
 
 	option = {
 		name = nu_runaway.0200.a

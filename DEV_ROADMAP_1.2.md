@@ -1346,3 +1346,13 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - Les corrections de localisation du Story Cycle et du résumé final ont été revalidées en jeu.
 - Aucun nouveau blocage observé sur la chaîne de fugue testée.
 - Les extensions supplémentaires restent réservées à la 1.2.1, notamment les nouvelles issues à la majorité et l'option potentielle de devenir aventurier.
+
+
+### Corrections pré-release après dernière campagne
+
+- Issue négative normale de fugue : passage du format lettre au format événement parental classique.
+- Retour réussi : les enfants non dirigeants rejoignent directement la cour du parent après suppression de la tutelle ; aucun second voyage ou invitation manuelle.
+- Événements parentaux d'assimilation : condition explicite parent/enfant ajoutée afin qu'un tuteur joueur distinct ne puisse jamais recevoir le plein événement RP du parent.
+- Notification légère du tuteur existante conservée pour Culture, Rite, Foi et combinaison.
+- Assimilations culturelles rapprochées observées en test : aucun double roll détecté ; probabilités actuelles conservées faute d'indice de bug.
+- Majorité pendant fugue : formulation finale recentrée sur le point de vue du parent.

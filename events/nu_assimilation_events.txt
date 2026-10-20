@@ -9,6 +9,11 @@ nu_assimilation.0001 = {
 	type = character_event
 	theme = family
 
+	trigger = {
+		exists = scope:nu_assimilated_child
+		scope:nu_assimilated_child = { is_child_of = root }
+	}
+
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
 		set_local_variable = { name = nu_assimilation_event_kind value = flag:culture }
@@ -157,6 +162,11 @@ nu_assimilation.0001 = {
 nu_assimilation.0002 = {
 	type = character_event
 	theme = family
+
+	trigger = {
+		exists = scope:nu_assimilated_child
+		scope:nu_assimilated_child = { is_child_of = root }
+	}
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
@@ -323,6 +333,11 @@ nu_assimilation.0002 = {
 nu_assimilation.0003 = {
 	type = character_event
 	theme = family
+
+	trigger = {
+		exists = scope:nu_assimilated_child
+		scope:nu_assimilated_child = { is_child_of = root }
+	}
 
 	immediate = {
 		nu_prepare_assimilation_event_context_effect = yes
