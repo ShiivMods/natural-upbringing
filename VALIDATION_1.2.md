@@ -653,3 +653,27 @@ La seconde session s'est arrêtée après le constat du blocage de l'arc de fugu
 - `Forcer une fugue` démarre désormais l'effet réel depuis un événement caché dont l'enfant est le root ;
 - le scope du tuteur est conservé explicitement au démarrage de la fugue pour l'événement initial de disparition ;
 - la reconnaissance d'un trait commun parent/enfant utilise désormais `medium_stress_loss`, soit **20 points de stress perdus** dans les valeurs vanilla.
+
+
+## 21. Troisième session de tests 1.2
+
+### Validé en jeu
+
+- debug « Forcer une année d'exposition » : fonctionne désormais et augmente réellement durée et score ;
+- fugue : déclenchement, événement initial, Story Cycle, nouvelle intermédiaire et résolution positive fonctionnent ;
+- acceptation culturelle : +1 point visible par contribution dans les changements récents ;
+- branche garder / renvoyer après retour réussi : les deux choix fonctionnent mécaniquement ;
+- le renvoi renforce bien la sévérité du mal du pays.
+
+### Ajustements décidés après test
+
+- réactions aux traits : -30 stress pour un trait commun et +30 pour un trait opposé ;
+- la sévérité du mal du pays ne progresse pas automatiquement avec les années : seule la durée progresse naturellement ; la sévérité augmente lorsqu'un événement aggrave réellement la situation ;
+- la lettre de disparition reste une lettre du tuteur, mais son texte est désormais écrit depuis son propre point de vue ;
+- la disparition initiale n'affirme plus que l'enfant cherche à rentrer au foyer : seule la sortie de la cour est certaine ;
+- les nouvelles intermédiaires et le dénouement de fugue décrivent davantage le parcours, avec des détails adaptés au focus d'éducation ;
+- le prestige déjà gagné par l'enfant lors d'un retour réussi est désormais visible dans le tooltip de décision ;
+- retour réussi : l'enfant est replacé à la localisation du parent avant la fin de tutelle afin d'éviter un second voyage artificiel lorsque le parent est déjà sur place ;
+- renvoi chez le tuteur après un retour réussi : opinion envers le parent portée à -40 ;
+- passage à l'âge adulte pendant la fugue : résolution spécifique, fin immédiate et propre de l'arc, fin du mal du pays et absence de retour forcé vers l'ancien tuteur ;
+- localisation manquante du descriptif du Story Cycle corrigée ; titre simplifié en « Fugue ».
