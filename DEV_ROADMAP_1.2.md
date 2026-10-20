@@ -1324,3 +1324,18 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - Renvoi chez le tuteur après retour réussi : opinion enfant -> parent portée à -40.
 - Passage à l'âge adulte pendant la fugue : résolution spéciale, fin de l'arc et de la tutelle sans retour forcé vers l'ancien tuteur.
 - Trait commun / opposé : stress symétrique fixé à -30 / +30.
+
+
+### Ajout 1.2.1 : majorité pendant une fugue
+
+- Étendre la résolution actuelle lorsqu'un enfant atteint l'âge adulte pendant sa fugue.
+- Ajouter plusieurs issues cohérentes avec sa nouvelle autonomie.
+- Parmi les options à concevoir : **devenir aventurier après une fugue**, plutôt que revenir automatiquement à la cour familiale.
+- Cette option doit respecter les règles vanilla des personnages aventuriers / sans terres et ne doit pas être forcée si le contexte gouvernemental ou DLC ne le permet pas.
+
+
+### Stress des notifications de traits
+
+- Trait commun parent/enfant : valeur de base -30 stress.
+- Trait opposé : valeur de base +30 stress.
+- Ces valeurs sont des valeurs de base avant multiplicateurs vanilla de gain/perte de stress ; le résultat final affiché peut donc varier selon traits, perks et modificateurs du parent.
