@@ -777,3 +777,20 @@ Correction NU :
 - replacer ensuite physiquement l'enfant dans la capitale de son liege, avec fallback vers la localisation du parent.
 
 Cette correction remplace les anciennes tentatives basées sur `set_employer` / `add_courtier`.
+
+
+### Cause racine confirmée par error.log
+
+Le dernier error.log fournit la preuve directe du problème de retour après fugue :
+
+- CK3 signale que `add_courtier` tente d'ajouter Judita à la cour de Vratislav alors qu'elle s'y trouve déjà ;
+- le rattachement à la cour du parent était donc déjà correct avant notre transfert manuel ;
+- l'effet fautif était `move_to_pool_at`, exécuté juste après : cet effet place explicitement le personnage dans le pool et le fait donc quitter sa cour ;
+- cela explique exactement l'état observé en jeu : enfant physiquement dans le comté du parent, mais sans cour et à inviter manuellement.
+
+Correction finale :
+- suppression de tout `move_to_pool_at` dans la branche « rester à la maison » ;
+- conservation de `return_to_court = yes` pour le nettoyage vanilla de l'état de pupille / invité étranger ;
+- utilisation de `set_location_to_default = yes` uniquement pour replacer physiquement l'enfant à son emplacement de cour normal, sans l'envoyer dans le pool.
+
+Aucun `set_employer` ni `add_courtier` n'est désormais utilisé dans ce retour.
