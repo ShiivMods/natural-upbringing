@@ -157,13 +157,14 @@ nu_runaway.0100 = {
 			}
 
 			# The story has already established that the child reached the
-			# parent. Vanilla court transfers pair set_employer with
-			# return_to_court so the character actually joins the court.
+			# parent. Court membership and physical location are handled
+			# separately to avoid keeping the child in the former guardian's
+			# court location after the employer changes.
 			scope:nu_runaway_child = {
 				if = {
 					limit = { is_ruler = no }
 					set_employer = scope:nu_runaway_return_parent
-					return_to_court = yes
+					move_to_pool_at = scope:nu_runaway_return_parent.location
 				}
 				else = {
 					move_to_pool_at = scope:nu_runaway_return_parent.location
