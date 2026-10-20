@@ -13,7 +13,7 @@
 
  nu_debug.0001.rite: "\n\n#bold Rite Exposure#!\nTarget: [nu_debug_rite_target.GetName]\nDuration: [nu_debug_child.MakeScope.Var('nu_faith_exposure_years').GetValue|0] years\nScore: [nu_debug_child.MakeScope.Var('nu_faith_exposure_score').GetValue|0]"
  nu_debug.0001.rite_none: "\n\n#bold Rite Exposure#!\nNo exposure to a different rite is currently recorded."
- nu_debug.0001.homesickness_active: "\n\n#bold Homesickness#!\nState: #N active#!\nActive duration: [nu_debug_child.MakeScope.Var('nu_homesickness_active_years').GetValue|0] year(s)\nInternal severity: [nu_debug_child.MakeScope.Var('nu_homesickness_severity').GetValue|0]"
+ nu_debug.0001.homesickness_active: "\n\n#bold Homesickness#!\nState: #N active#!\nActive duration: [nu_debug_child.MakeScope.Var('nu_homesickness_active_years').GetValue|0] year(s)\nInternal severity: [nu_debug_child.MakeScope.Var('nu_homesickness_severity').GetValue|0] (only increases when the situation worsens)"
  nu_debug.0001.homesickness_inactive: "\n\n#bold Homesickness#!\nState: inactive"
 
  nu_debug.0001.a: "Close"
