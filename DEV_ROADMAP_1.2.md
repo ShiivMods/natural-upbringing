@@ -1311,3 +1311,16 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - Mal du pays actif : progression annuelle rendue indépendante de la Game Rule de portée ; le système normal d'apparition reste, lui, soumis à la simulation NU.
 - Debug de fugue : démarrage déplacé dans un événement enfant-root et scope du tuteur conservé explicitement pour la première notification.
 - Trait commun parent/enfant : perte de stress portée à `medium_stress_loss` (-20).
+
+
+### Ajustements narratifs après première fugue complète
+
+- Le déclenchement et le Story Cycle de fugue sont fonctionnels en jeu.
+- Lettre initiale et nouvelle intermédiaire réécrites depuis le point de vue réel du tuteur.
+- La destination de l'enfant n'est plus présumée au début de la fugue.
+- Des détails de parcours dépendant du focus d'éducation ont été ajoutés aux recherches et au dénouement.
+- Le gain de prestige déjà accordé lors d'un retour réussi est désormais affiché au joueur.
+- Le retour réussi tente d'éviter un voyage redondant en plaçant d'abord l'enfant à la localisation du parent.
+- Renvoi chez le tuteur après retour réussi : opinion enfant -> parent portée à -40.
+- Passage à l'âge adulte pendant la fugue : résolution spéciale, fin de l'arc et de la tutelle sans retour forcé vers l'ancien tuteur.
+- Trait commun / opposé : stress symétrique fixé à -30 / +30.
