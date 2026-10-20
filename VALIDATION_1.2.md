@@ -556,11 +556,11 @@ L'ensemble de ce document est désormais validé pour l'implémentation de la 1.
 
 ### Corrigé après test, à revalider en jeu
 
-- réactions parentales d'assimilation : cause commune identifiée dans les variables locales de réaction et corrigée ; vérifier Culture, Foi, Rite et combinaison ;
-- debug de fugue : mauvais scope d'interaction corrigé ; vérifier que l'arc peut désormais être forcé sur un enfant de 12 ans ou plus, avec focus et tutelle étrangère valide ;
+- réactions parentales d'assimilation : correction revalidée en jeu lors de la seconde session, Culture, Foi, Rite et combinaison fonctionnent ;
+- debug de fugue : le bouton est désormais cliquable sur un enfant valide, mais son activation ne démarre toujours pas l'arc ; correction supplémentaire requise ;
 - inspecteur debug : affiche désormais l'état, la durée et la sévérité du mal du pays ;
 - acceptation culturelle : ancienne valeur 0,01 remplacée par +1 point, plafond annuel 0,10 remplacé par +10 points par paire ;
-- notifications de traits : passage du format lettre au format événement parental classique avec enfant et tuteur en portraits ;
+- notifications de traits : passage au format événement parental classique revalidé en jeu ;
 - outils debug d'exposition et de traits : vérifier une dernière fois leur comportement après les corrections de scope.
 
 ### Partiellement validé ou encore à tester
@@ -596,3 +596,50 @@ L'ensemble de ce document est désormais validé pour l'implémentation de la 1.
 - reprise complète des 10 événements de focus avec le Story Cycle d'éducation ;
 - meilleure mise en scène et conséquences observables : hooks, opinion, relations, prouesse et autres résultats pertinents ;
 - étude d'une vraie incitation à l'éducation étrangère, avec comme piste une alliance uniquement défensive liée à la tutelle.
+
+
+## 19. Seconde session de tests 1.2
+
+### Désormais validé en jeu
+
+- assimilation culturelle : changement de culture, nettoyage de l'exposition et événement parental fonctionnent ;
+- conversion de Foi : Foi et Rite du tuteur sont correctement adoptés, exposition nettoyée et événement parental fonctionnel ;
+- assimilation combinée Culture + Religion : Culture, Foi et Rite sont corrects et l'événement combiné fonctionne ;
+- assimilation de Rite : Foi inchangée, Rite correctement modifié, exposition nettoyée et événement parental fonctionnel ;
+- réactions parentales d'assimilation : cohérentes dans les cas observés pendant cette session ;
+- nouveau format des notifications de traits : événement parental classique fonctionnel ;
+- réaction à un trait commun : perte de stress fonctionnelle ;
+- réaction à un trait opposé : gain de stress fonctionnel et jugé cohérent.
+
+### Corrections encore nécessaires avant reprise des tests
+
+- `Forcer une année d'exposition` ouvre bien l'inspecteur mais n'ajoute actuellement aucune exposition, y compris lorsqu'une exposition existe déjà ;
+- mal du pays : l'état reste visible mais sa durée interne n'augmente pas après un ou deux ans de jeu ;
+- fugue : le bouton debug est désormais cliquable, mais son activation ne déclenche aucun événement ni démarrage d'arc ;
+- réaction à un trait commun : la perte de stress fonctionne mais est jugée trop faible ; cible de design à revoir autour de **20 points de stress perdus** ;
+- une erreur de localisation a été aperçue lors de la mise en place du personnage de 10 ans mais n'a pas pu être capturée ; à surveiller lors de la prochaine session avant d'attribuer une cause précise.
+
+### Erreur vanilla confirmée à nouveau
+
+- la lettre d'arrivée vanilla du pupille reproduit toujours le salut cassé `frugaleERROR:[second.Custom('FR_E')]` ;
+- le screenshot confirme à nouveau le problème déjà identifié sur `char_interaction.0084` ;
+- ce défaut reste séparé de NU et ne doit pas être confondu avec les erreurs de localisation propres au mod.
+
+### Tests interrompus après ce point
+
+La seconde session s'est arrêtée après le constat du blocage de l'arc de fugue. Les tests suivants ne doivent pas être considérés comme effectués :
+- Story Cycle de fugue ;
+- progression mensuelle et résolutions de fugue ;
+- branches garder / renvoyer l'enfant ;
+- revalidation du tick d'acceptation culturelle à +1 ;
+- plafond annuel culturel +10 ;
+- accompagnateur religieux sur Foi différente ;
+- protection religieuse contractuelle ;
+- variantes complètes Béguin / Rival ;
+- tuteur joueur distinct du parent.
+
+### Ajout 1.2.1 inspiré d'un événement vanilla
+
+- l'événement vanilla **« L'enfant trouvé »** a été jugé particulièrement intéressant comme référence de mise en scène ;
+- pour la 1.2.1, concevoir un événement NU original inspiré de ce type de situation, avec un autre contexte et d'autres conditions de déclenchement adaptées à Natural Upbringing ;
+- ne pas recopier l'événement vanilla : reprendre uniquement l'idée générale d'une situation familiale imprévue autour d'un enfant et l'intégrer au système d'événements rares.

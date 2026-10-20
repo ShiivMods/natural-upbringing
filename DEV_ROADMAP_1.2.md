@@ -1283,3 +1283,23 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - La refonte narrative des 10 événements de focus, ainsi que l'affichage plus explicite de leurs conséquences, est reportée à la 1.3.
 - Le cas vanilla « Chamailleries » et la création d'un souvenir lors de l'envoi à l'étranger sont reportés à la 1.2.1.
 - Une incitation mécanique à l'éducation étrangère doit être étudiée en 1.3 ; piste actuelle : alliance uniquement défensive liée à la tutelle.
+
+
+### Piste 1.2.1 : événement rare inspiré de « L'enfant trouvé »
+
+- L'événement vanilla « L'enfant trouvé » constitue une bonne référence de mise en scène pour un futur événement rare Natural Upbringing.
+- Concevoir une version originale avec un contexte et des conditions de déclenchement différents, adaptés à l'éducation, la famille ou aux conséquences d'une enfance vécue loin du foyer.
+- Ne pas copier le texte ni la structure exacte de l'événement vanilla ; reprendre uniquement l'idée d'une situation familiale imprévue centrée sur un enfant.
+- Intégrer cette piste au chantier **Events RARES** de la 1.2.1.
+
+
+### Seconde campagne de tests 1.2
+
+- Assimilation Culture, Foi, Rite et combinaison : événements parentaux revalidés en jeu, correction confirmée.
+- Notifications de traits : nouveau format événementiel validé en jeu.
+- Même trait parent/enfant : perte de stress fonctionnelle mais à renforcer, cible de design autour de 20 points.
+- Trait opposé : gain de stress fonctionnel et cohérent.
+- Debug « Forcer une année d'exposition » : interaction fonctionnelle visuellement mais aucun gain d'exposition constaté ; bug à corriger.
+- Mal du pays : durée interne ne progresse pas après plusieurs années ; bug à corriger.
+- Fugue : interaction désormais cliquable mais ne déclenche aucun arc ; bug à corriger avant poursuite de la campagne.
+- La lettre vanilla d'arrivée reproduit toujours le défaut `char_interaction.0084` déjà documenté.
