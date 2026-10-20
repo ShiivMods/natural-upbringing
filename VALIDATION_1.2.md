@@ -742,3 +742,20 @@ La seconde session s'est arrêtée après le constat du blocage de l'arc de fugu
 - cause : `return_to_court = yes` après `set_employer` ne garantissait pas le déplacement géographique attendu dans ce contexte ;
 - correction : séparer explicitement appartenance et localisation, avec `set_employer = parent` puis `move_to_pool_at = parent.location` ;
 - à revalider une dernière fois : après « reste à la maison », l'enfant doit être à la fois membre de la cour du parent et physiquement à sa localisation.
+
+
+### Smoke test final sans debug
+
+- partie lancée sans mode debug après les dernières corrections ;
+- aucun outil debug visible ;
+- aucune erreur NU notable observée ;
+- événements naturels et tutelles vanilla se comportent normalement sur la période testée ;
+- smoke test considéré **VALIDÉ**.
+
+
+### Retour de fugue : rattachement définitif à la cour
+
+- second retest : l'enfant était physiquement dans le comté du parent mais restait sans terre et hors de sa cour ;
+- `set_employer` n'est donc pas suffisant dans ce contexte ;
+- correction finale alignée sur le pattern vanilla : le parent exécute `add_courtier = enfant`, puis l'enfant est déplacé à la localisation du parent ;
+- dernier contrôle requis : après « reste à la maison », l'enfant doit être courtisan du parent sans invitation manuelle.

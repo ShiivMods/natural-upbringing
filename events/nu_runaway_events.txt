@@ -157,18 +157,19 @@ nu_runaway.0100 = {
 			}
 
 			# The story has already established that the child reached the
-			# parent. Court membership and physical location are handled
-			# separately to avoid keeping the child in the former guardian's
-			# court location after the employer changes.
+			# parent. Vanilla court transfers use add_courtier on the court
+			# owner; set_employer alone can leave the character landless and
+			# outside the court despite being physically present.
+			if = {
+				limit = {
+					scope:nu_runaway_child = { is_ruler = no }
+				}
+				scope:nu_runaway_return_parent = {
+					add_courtier = scope:nu_runaway_child
+				}
+			}
 			scope:nu_runaway_child = {
-				if = {
-					limit = { is_ruler = no }
-					set_employer = scope:nu_runaway_return_parent
-					move_to_pool_at = scope:nu_runaway_return_parent.location
-				}
-				else = {
-					move_to_pool_at = scope:nu_runaway_return_parent.location
-				}
+				move_to_pool_at = scope:nu_runaway_return_parent.location
 			}
 
 			scope:nu_runaway_child = {

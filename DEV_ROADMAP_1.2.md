@@ -1364,3 +1364,10 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - Surveiller l'acceptation culturelle sur des campagnes longues plutôt que sur un test artificiel du plafond.
 - Reprendre l'acceptation culturelle en 1.3 avec le chantier des cultures hybrides et leurs interactions avec l'éducation étrangère.
 - La protection religieuse contractuelle reste à valider naturellement lorsqu'un contexte adapté se présente.
+
+
+### Smoke test de release
+
+- Smoke test sans debug effectué avec succès.
+- Aucun problème général de tutelle ou d'événement naturel observé sur la période testée.
+- Le seul correctif encore revalidé séparément concerne le rattachement de l'enfant à la cour du parent après un retour réussi de fugue.
