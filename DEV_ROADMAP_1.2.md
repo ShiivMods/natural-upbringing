@@ -1339,3 +1339,10 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - Trait commun parent/enfant : valeur de base -30 stress.
 - Trait opposé : valeur de base +30 stress.
 - Ces valeurs sont des valeurs de base avant multiplicateurs vanilla de gain/perte de stress ; le résultat final affiché peut donc varier selon traits, perks et modificateurs du parent.
+
+
+### Fugue 1.2 : validation finale de la passe actuelle
+
+- Les corrections de localisation du Story Cycle et du résumé final ont été revalidées en jeu.
+- Aucun nouveau blocage observé sur la chaîne de fugue testée.
+- Les extensions supplémentaires restent réservées à la 1.2.1, notamment les nouvelles issues à la majorité et l'option potentielle de devenir aventurier.
