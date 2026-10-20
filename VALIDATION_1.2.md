@@ -686,3 +686,11 @@ La seconde session s'est arrêtée après le constat du blocage de l'arc de fugu
 - ce comportement est volontairement conservé pour rester cohérent avec le système vanilla ;
 - descriptif court du Story Cycle : la référence dynamique à l'enfant ne se résolvait pas dans ce contexte ; remplacée par une formulation propriétaire « Votre enfant... » / « Your child... » ;
 - résumé final du parcours : les custom localizations utilisent désormais `ROOT.Char`, puisque le Custom est exécuté sur l'enfant lui-même ; corrige l'erreur `ERROR:[nu_runaway_child.GetFirstName]`.
+
+
+### Validation finale de la passe Fugue
+
+- descriptif court du Story Cycle : validé en jeu après correction du scope ;
+- résumé final du parcours : validé en jeu après correction des custom localizations ;
+- aucune nouvelle erreur de localisation observée sur cette passe ;
+- la chaîne disparition -> Story Cycle -> nouvelles intermédiaires -> dénouement -> choix parental fonctionne désormais correctement dans les cas testés.
