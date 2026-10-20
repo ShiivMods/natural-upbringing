@@ -677,3 +677,12 @@ La seconde session s'est arrêtée après le constat du blocage de l'arc de fugu
 - renvoi chez le tuteur après un retour réussi : opinion envers le parent portée à -40 ;
 - passage à l'âge adulte pendant la fugue : résolution spécifique, fin immédiate et propre de l'arc, fin du mal du pays et absence de retour forcé vers l'ancien tuteur ;
 - localisation manquante du descriptif du Story Cycle corrigée ; titre simplifié en « Fugue ».
+
+
+### Quatrième passe de test ciblée
+
+- réactions de traits : le système utilise bien une valeur de base de **-30 stress** pour un trait commun et **+30 stress** pour un trait opposé ;
+- CK3 applique ensuite les multiplicateurs vanilla de gain/perte de stress du personnage : les valeurs finales peuvent donc différer, par exemple -15 ou +38 selon le personnage ;
+- ce comportement est volontairement conservé pour rester cohérent avec le système vanilla ;
+- descriptif court du Story Cycle : la référence dynamique à l'enfant ne se résolvait pas dans ce contexte ; remplacée par une formulation propriétaire « Votre enfant... » / « Your child... » ;
+- résumé final du parcours : les custom localizations utilisent désormais `ROOT.Char`, puisque le Custom est exécuté sur l'enfant lui-même ; corrige l'erreur `ERROR:[nu_runaway_child.GetFirstName]`.
