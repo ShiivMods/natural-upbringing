@@ -734,3 +734,11 @@ La seconde session s'est arrêtée après le constat du blocage de l'arc de fugu
 - acceptation culturelle : validation longue durée laissée aux parties normales ; le système sera réévalué en 1.3 lors du travail sur les cultures hybrides ;
 - retour réussi chez le parent : dernier problème observé, l'enfant restait hors de la cour malgré sa présence dans le comté ; correction supplémentaire appliquée avec le pattern vanilla set_employer + return_to_court ;
 - majorité pendant la fugue : mécanique validée, formulation finale corrigée dans la localisation actuelle.
+
+
+### Dernière correction du retour après fugue
+
+- test précédent : l'enfant devenait bien courtisan du parent mais restait physiquement à Mahdiya, ancienne cour du tuteur ;
+- cause : `return_to_court = yes` après `set_employer` ne garantissait pas le déplacement géographique attendu dans ce contexte ;
+- correction : séparer explicitement appartenance et localisation, avec `set_employer = parent` puis `move_to_pool_at = parent.location` ;
+- à revalider une dernière fois : après « reste à la maison », l'enfant doit être à la fois membre de la cour du parent et physiquement à sa localisation.
