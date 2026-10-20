@@ -794,3 +794,27 @@ Correction finale :
 - utilisation de `set_location_to_default = yes` uniquement pour replacer physiquement l'enfant à son emplacement de cour normal, sans l'envoyer dans le pool.
 
 Aucun `set_employer` ni `add_courtier` n'est désormais utilisé dans ce retour.
+
+
+## 24. Nettoyage final pré-release
+
+### Retour après fugue
+
+- retour « reste à la maison » validé en jeu : tutelle terminée, enfant correctement rattaché à sa cour d'origine et physiquement revenu ;
+- le texte violet `BUG: missing localization 'set_location_to_default_global'` provenait uniquement de l'affichage automatique du tooltip de l'effet `set_location_to_default` ;
+- l'effet est désormais exécuté dans un `hidden_effect`, sans changement mécanique.
+
+### Audit statique
+
+- 48 events contrôlés : aucun identifiant d'event dupliqué ;
+- 561 clés de localisation anglaises et 561 françaises contrôlées : aucun doublon ;
+- accolades équilibrées dans tous les fichiers de script contrôlés ;
+- fichiers CK3 `.txt` et `.yml` contrôlés en UTF-8 avec BOM ;
+- aucun reliquat `set_employer`, `add_courtier` ou `move_to_pool_at` n'est utilisé dans la branche de retour réussi de fugue.
+
+### Warnings du dernier error.log
+
+- `nu_homesickness_cooldown` est conservé comme nettoyage d'un ancien état 1.1 / early 1.2 ; il peut donc être lu/supprimé sans être créé dans le code actuel ;
+- `nu_faith_exposure_target` est conservé comme migration de compatibilité depuis l'ancien stockage de l'exposition religieuse ;
+- ces deux avertissements statiques sont intentionnels et ne signalent pas un bug runtime actuel ;
+- les autres warnings listés dans ce log ne correspondent pas à un problème actif identifié dans la branche 1.2 actuelle.

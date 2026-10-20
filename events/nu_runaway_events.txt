@@ -163,7 +163,9 @@ nu_runaway.0100 = {
 					limit = { is_ruler = no }
 					return_to_court = yes
 				}
-				set_location_to_default = yes
+				hidden_effect = {
+					set_location_to_default = yes
+				}
 			}
 
 			scope:nu_runaway_child = {
