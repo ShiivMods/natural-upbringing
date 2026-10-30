@@ -1,0 +1,18 @@
+﻿# Natural Upbringing 1.2.1
+# Exposure begins at birth.
+
+on_birth_child = {
+	on_actions = {
+		nu_on_birth_exposure
+	}
+}
+
+nu_on_birth_exposure = {
+	trigger = {
+		nu_is_in_simulation_scope_trigger = yes
+	}
+
+	effect = {
+		nu_initialize_cultural_exposure_at_birth_effect = yes
+	}
+}
