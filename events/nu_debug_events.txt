@@ -1058,6 +1058,10 @@ nu_debug.0009 = {
 			}
 			remove_variable = nu_debug_exposure_requester
 		}
+
+		remove_character_flag = nu_cultural_assimilation_candidate_valid
+		remove_character_flag = nu_belief_assimilation_candidate_valid
+		remove_character_flag = nu_rite_assimilation_candidate_valid
 	}
 }
 
