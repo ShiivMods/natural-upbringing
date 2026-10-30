@@ -16,19 +16,10 @@ nu_on_exposure_birthday = {
 	}
 
 	effect = {
-		# Exposure exists throughout life. Only children can automatically
-		# assimilate from exposure alone.
+		# Exposure exists throughout life. This pulse only updates the exposure
+		# state. For children aged 4+, the actual assimilation roll remains in
+		# nu_on_child_birthday so the original 1.2 ordering is preserved.
 		nu_update_exposure_tracking_effect = yes
-
-		if = {
-			limit = { is_adult = no }
-			nu_check_natural_assimilation_effect = yes
-		}
-
-		# Candidate validity is only meaningful during this yearly resolution.
-		remove_character_flag = nu_cultural_assimilation_candidate_valid
-		remove_character_flag = nu_belief_assimilation_candidate_valid
-		remove_character_flag = nu_rite_assimilation_candidate_valid
 	}
 }
 
@@ -58,6 +49,13 @@ nu_on_child_birthday = {
 	effect = {
 		nu_apply_foreign_education_cultural_acceptance_effect = yes
 		nu_quality_instruction_birthday_effect = yes
+		nu_check_natural_assimilation_effect = yes
+
+		# Candidate validity is transient and only belongs to this yearly roll.
+		remove_character_flag = nu_cultural_assimilation_candidate_valid
+		remove_character_flag = nu_belief_assimilation_candidate_valid
+		remove_character_flag = nu_rite_assimilation_candidate_valid
+
 		# Existing homesickness is advanced by the dedicated birthday
 		# action above, even when this child is outside simulation scope.
 		if = {
