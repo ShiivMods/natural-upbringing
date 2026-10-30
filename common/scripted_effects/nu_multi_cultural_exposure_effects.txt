@@ -594,14 +594,18 @@ nu_apply_social_cultural_sources_effect = {
 		set_variable = { name = nu_tmp_social_total value = 0 }
 
 		scope:nu_social_owner = {
-			root = {
-				change_variable = { name = nu_tmp_social_total add = 1 }
-			}
-			culture = {
-				add_to_temporary_list = nu_social_cultures
+			if = {
+				limit = { NOT = { this = root } }
+				root = {
+					change_variable = { name = nu_tmp_social_total add = 1 }
+				}
+				culture = {
+					add_to_temporary_list = nu_social_cultures
+				}
 			}
 
 			every_courtier = {
+				limit = { NOT = { this = root } }
 				root = {
 					change_variable = { name = nu_tmp_social_total add = 1 }
 				}
@@ -627,13 +631,19 @@ nu_apply_social_cultural_sources_effect = {
 
 				scope:nu_social_owner = {
 					if = {
-						limit = { culture = scope:nu_social_test_culture }
+						limit = {
+							NOT = { this = root }
+							culture = scope:nu_social_test_culture
+						}
 						root = {
 							change_variable = { name = nu_tmp_social_match add = 1 }
 						}
 					}
 					every_courtier = {
-						limit = { culture = scope:nu_social_test_culture }
+						limit = {
+							NOT = { this = root }
+							culture = scope:nu_social_test_culture
+						}
 						root = {
 							change_variable = { name = nu_tmp_social_match add = 1 }
 						}
@@ -685,10 +695,14 @@ nu_seed_birth_social_culture_effect = {
 		set_variable = { name = nu_tmp_birth_dominant_total value = 0 }
 
 		scope:nu_birth_social_owner = {
-			root = { change_variable = { name = nu_tmp_birth_social_total add = 1 } }
-			culture = { add_to_temporary_list = nu_birth_social_cultures }
+			if = {
+				limit = { NOT = { this = root } }
+				root = { change_variable = { name = nu_tmp_birth_social_total add = 1 } }
+				culture = { add_to_temporary_list = nu_birth_social_cultures }
+			}
 
 			every_courtier = {
+				limit = { NOT = { this = root } }
 				root = { change_variable = { name = nu_tmp_birth_social_total add = 1 } }
 				culture = {
 					if = {
@@ -709,11 +723,17 @@ nu_seed_birth_social_culture_effect = {
 
 				scope:nu_birth_social_owner = {
 					if = {
-						limit = { culture = scope:nu_birth_test_culture }
+						limit = {
+							NOT = { this = root }
+							culture = scope:nu_birth_test_culture
+						}
 						root = { change_variable = { name = nu_tmp_birth_match add = 1 } }
 					}
 					every_courtier = {
-						limit = { culture = scope:nu_birth_test_culture }
+						limit = {
+							NOT = { this = root }
+							culture = scope:nu_birth_test_culture
+						}
 						root = { change_variable = { name = nu_tmp_birth_match add = 1 } }
 					}
 				}
@@ -748,11 +768,17 @@ nu_seed_birth_social_culture_effect = {
 
 				scope:nu_birth_social_owner = {
 					if = {
-						limit = { culture = scope:nu_birth_test_culture }
+						limit = {
+							NOT = { this = root }
+							culture = scope:nu_birth_test_culture
+						}
 						root = { change_variable = { name = nu_tmp_birth_match add = 1 } }
 					}
 					every_courtier = {
-						limit = { culture = scope:nu_birth_test_culture }
+						limit = {
+							NOT = { this = root }
+							culture = scope:nu_birth_test_culture
+						}
 						root = { change_variable = { name = nu_tmp_birth_match add = 1 } }
 					}
 				}
