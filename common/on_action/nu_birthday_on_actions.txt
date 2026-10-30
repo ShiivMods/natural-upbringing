@@ -1,10 +1,33 @@
 ﻿on_birthday = {
 	on_actions = {
+		nu_on_exposure_birthday
 		nu_on_active_homesickness_birthday
 		nu_on_child_birthday
 		nu_on_guardianship_adulthood_cleanup
 	}
 }
+
+
+nu_on_exposure_birthday = {
+	trigger = {
+		age >= 1
+		is_travelling = no
+		nu_is_in_simulation_scope_trigger = yes
+	}
+
+	effect = {
+		# Exposure exists throughout life. Only children can automatically
+		# assimilate from exposure alone.
+
+		if = {
+			limit = { is_adult = no }
+			}
+
+		# Candidate validity is only meaningful during this yearly resolution.
+		remove_character_flag = nu_cultural_assimilation_candidate_valid
+	}
+}
+
 
 nu_on_active_homesickness_birthday = {
 	trigger = {
