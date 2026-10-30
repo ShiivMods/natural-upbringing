@@ -480,17 +480,21 @@ nu_apply_social_religious_sources_effect = {
 		set_variable = { name = nu_tmp_root_faith_social_total value = 0 }
 
 		scope:nu_religious_social_owner = {
-			root = { change_variable = { name = nu_tmp_religious_social_total add = 1 } }
-			faith = {
-				add_to_temporary_list = nu_social_faiths
-			}
 			if = {
-				limit = { faith = root.faith }
-				root = { change_variable = { name = nu_tmp_root_faith_social_total add = 1 } }
-				rite = { add_to_temporary_list = nu_social_root_faith_rites }
+				limit = { NOT = { this = root } }
+				root = { change_variable = { name = nu_tmp_religious_social_total add = 1 } }
+				faith = {
+					add_to_temporary_list = nu_social_faiths
+				}
+				if = {
+					limit = { faith = root.faith }
+					root = { change_variable = { name = nu_tmp_root_faith_social_total add = 1 } }
+					rite = { add_to_temporary_list = nu_social_root_faith_rites }
+				}
 			}
 
 			every_courtier = {
+				limit = { NOT = { this = root } }
 				root = { change_variable = { name = nu_tmp_religious_social_total add = 1 } }
 				faith = {
 					if = {
@@ -521,11 +525,17 @@ nu_apply_social_religious_sources_effect = {
 
 				scope:nu_religious_social_owner = {
 					if = {
-						limit = { faith = scope:nu_social_test_faith }
+						limit = {
+							NOT = { this = root }
+							faith = scope:nu_social_test_faith
+						}
 						root = { change_variable = { name = nu_tmp_social_faith_match add = 1 } }
 					}
 					every_courtier = {
-						limit = { faith = scope:nu_social_test_faith }
+						limit = {
+							NOT = { this = root }
+							faith = scope:nu_social_test_faith
+						}
 						root = { change_variable = { name = nu_tmp_social_faith_match add = 1 } }
 					}
 				}
@@ -561,6 +571,7 @@ nu_apply_social_religious_sources_effect = {
 				scope:nu_religious_social_owner = {
 					if = {
 						limit = {
+							NOT = { this = root }
 							faith = root.faith
 							rite = scope:nu_social_test_rite
 						}
@@ -568,6 +579,7 @@ nu_apply_social_religious_sources_effect = {
 					}
 					every_courtier = {
 						limit = {
+							NOT = { this = root }
 							faith = root.faith
 							rite = scope:nu_social_test_rite
 						}
