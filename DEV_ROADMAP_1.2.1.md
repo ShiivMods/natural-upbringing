@@ -481,3 +481,67 @@ At minimum:
 The primary acceptance criterion is not merely that assimilation can happen.
 
 It is that sustained upbringing produces plausible identity changes while ordinary travel and mixed environments do not create a culture-switching carousel.
+
+
+---
+
+# 16. First implementation pass status
+
+The first 1.2.1 coding pass is complete and is awaiting in-game validation.
+
+## Implemented - requires in-game validation
+
+- [Implemented] Cultural exposure begins at birth with the 100-point birth profile.
+- [Implemented] Current Culture is stored as a real exposure track rather than existing outside the exposure system.
+- [Implemented] Up to eight simultaneous Culture exposure tracks.
+- [Implemented] Up to eight simultaneous Faith exposure tracks.
+- [Implemented] Up to eight simultaneous Rite exposure tracks.
+- [Implemented] Independent exposure scores, total years, uninterrupted streaks and decay.
+- [Implemented] Current annual Cultural pressure, distinct from accumulated Cultural familiarity.
+- [Implemented] Parents as direct influences.
+- [Implemented] Guardian as a strong direct influence.
+- [Implemented] Court/Camp demographic influences with the 33% dominance threshold.
+- [Implemented] The subject is excluded from their own Court/Camp demographic calculation.
+- [Implemented] County Culture/Faith/Rite using the character's actual County.
+- [Implemented] Adventurer support through Domicile/Camp location.
+- [Implemented] Liege Culture as a weak political influence.
+- [Implemented] Councillor Cultures as weak secondary influences.
+- [Implemented] Shared Heritage modifier.
+- [Implemented] Shared cultural language modifier.
+- [Implemented] Learned target-language modifier.
+- [Implemented] County synergy with matching non-County Cultural sources.
+- [Implemented] Cultural decay without permanent 1.2 exposure floors.
+- [Implemented] Faith/Rite decay without permanent exposure floors.
+- [Implemented] Adult exposure while blocking automatic adult assimilation.
+- [Implemented] No automatic assimilation before age 4.
+- [Implemented] Cultural anti-churn gate: score, streak, current pressure, competing exposure and cooldown.
+- [Implemented] Separate Faith and Rite assimilation thresholds/cooldowns.
+- [Implemented] Parental resistance to Culture/Faith/Rite assimilation without immunity.
+- [Implemented] Migration from 1.2 single-target exposure variables.
+- [Implemented] Compatibility view for 1.2 events, homesickness, notifications and assimilation context.
+- [Implemented] Existing education-event exposure changes are routed into persistent multi-exposure tracks.
+- [Implemented] Debug inspector for all Culture/Faith/Rite tracks.
+- [Implemented] Generalized debug annual-exposure tick for infants, Adventurers and adults.
+
+## Current balancing baselines
+
+These values are explicitly provisional until normal and forced in-game tests are complete.
+
+- Cultural automatic-assimilation minimum: 60 accumulated exposure.
+- Cultural uninterrupted active streak: 3 years.
+- Cultural current-pressure lead: target pressure >= 125% of current-Culture pressure.
+- Cultural lead over second foreign Culture: 10 accumulated points.
+- Cultural cooldown after an actual change: 5 years.
+- Faith automatic-assimilation minimum: 60.
+- Faith uninterrupted streak: 3 years.
+- Faith cooldown: 5 years.
+- Rite automatic-assimilation minimum: 45.
+- Rite uninterrupted streak: 2 years.
+- Rite cooldown: 3 years.
+- Exposure decay when unsupported: 8 points per yearly update.
+
+## Validation rule
+
+Do not consider these systems release-validated from static inspection alone.
+
+The branch must be tested in CK3 with the dedicated 1.2.1 test plan before balancing values or changelog wording are finalized.
