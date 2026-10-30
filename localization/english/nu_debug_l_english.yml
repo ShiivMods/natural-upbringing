@@ -97,7 +97,7 @@
  nu_debug.0004.back:0 "Back"
 
  nu_debug_refresh_exposure_interaction:0 "Natural Upbringing: Force One Exposure Year"
- nu_debug_refresh_exposure_interaction_desc:0 "Immediately runs one yearly Natural Upbringing exposure update for this child, then opens the exposure inspector."
+ nu_debug_refresh_exposure_interaction_desc:0 "Immediately runs one complete yearly exposure update for this character regardless of age or status, then opens the inspector."
  nu_debug_force_cultural_acceptance_interaction:0 "Natural Upbringing: Force Cultural Acceptance Tick"
  nu_debug_force_cultural_acceptance_interaction_desc:0 "Immediately attempts one yearly +1 Cultural Acceptance point contribution using the real scope and pair-cap rules."
  nu_debug_test_trait_notification_interaction:0 "Natural Upbringing: Test Next Trait Event"
