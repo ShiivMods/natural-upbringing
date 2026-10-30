@@ -1,6 +1,9 @@
 ﻿nu_cultural_assimilation_chance = {
 	value = 0
 
+	# 1.2.1: scores below 60 are never eligible for an automatic
+	# cultural identity change. Candidate selection also enforces
+	# continuity and a clear lead before this value is ever rolled.
 	if = {
 		limit = {
 			has_variable = nu_culture_exposure_score
@@ -21,34 +24,6 @@
 			var:nu_culture_exposure_score >= 60
 		}
 		add = 18
-	}
-	else_if = {
-		limit = {
-			has_variable = nu_culture_exposure_score
-			var:nu_culture_exposure_score >= 45
-		}
-		add = 10
-	}
-	else_if = {
-		limit = {
-			has_variable = nu_culture_exposure_score
-			var:nu_culture_exposure_score >= 30
-		}
-		add = 5
-	}
-	else_if = {
-		limit = {
-			has_variable = nu_culture_exposure_score
-			var:nu_culture_exposure_score >= 15
-		}
-		add = 2
-	}
-	else_if = {
-		limit = {
-			has_variable = nu_culture_exposure_score
-			var:nu_culture_exposure_score >= 5
-		}
-		add = 1
 	}
 
 	# =========================================================
@@ -115,6 +90,30 @@
 		}
 
 		multiply = 0.85
+	}
+
+
+	# Living parents who still embody the character's current culture make
+	# replacement of that identity substantially less likely, never impossible.
+	if = {
+		limit = {
+			any_parent = {
+				count >= 2
+				is_alive = yes
+				culture = root.culture
+			}
+		}
+		multiply = 0.45
+	}
+	else_if = {
+		limit = {
+			any_parent = {
+				count >= 1
+				is_alive = yes
+				culture = root.culture
+			}
+		}
+		multiply = 0.65
 	}
 }
 
