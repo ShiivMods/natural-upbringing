@@ -1492,6 +1492,32 @@ nu_update_multi_cultural_exposure_effect = {
 	# Court/Camp demographic environment. Several cultures can qualify.
 	nu_apply_social_cultural_sources_effect = yes
 
+	# Liege: weak political/cultural influence. This is deliberately much
+	# weaker than a parent, guardian or dominant household environment.
+	if = {
+		limit = { exists = liege }
+		liege.culture = { save_temporary_scope_as = nu_culture_target }
+		set_variable = { name = nu_tmp_culture_source_base value = 1.0 }
+		nu_apply_cultural_source_effect = yes
+		remove_variable = nu_tmp_culture_source_base
+	}
+
+	# Council: important adults around the Court/Camp owner receive a small
+	# individual weight on top of their normal demographic presence.
+	if = {
+		limit = { exists = court_owner }
+		court_owner = {
+			every_councillor = {
+				culture = { save_temporary_scope_as = nu_culture_target }
+				root = {
+					set_variable = { name = nu_tmp_culture_source_base value = 0.4 }
+					nu_apply_cultural_source_effect = yes
+					remove_variable = nu_tmp_culture_source_base
+				}
+			}
+		}
+	}
+
 	# County: weak direct exposure; matching sources already receive +25% synergy.
 	if = {
 		limit = { exists = scope:nu_local_culture }
