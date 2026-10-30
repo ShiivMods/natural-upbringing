@@ -1,22 +1,10 @@
 ﻿nu_has_cultural_assimilation_environment_trigger = {
-
 	exists = scope:nu_conversion_culture
 
-	OR = {
-
-		# The child's current court is culturally aligned
-		# with the assimilation target.
-		court_owner ?= {
-			culture = scope:nu_conversion_culture
-		}
-
-		# Or the local population around that court is.
-		court_owner ?= {
-			capital_province ?= {
-				culture = scope:nu_conversion_culture
-			}
-		}
-	}
+	# 1.2.1: validity is calculated from the persistent multi-track data.
+	# It implies a current source, minimum score/streak, a clear lead over the
+	# current Culture and competitors, and no active culture-change cooldown.
+	has_character_flag = nu_cultural_assimilation_candidate_valid
 }
 
 
