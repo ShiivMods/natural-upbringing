@@ -31,6 +31,62 @@ nu_debug.0001 = {
 			scope:nu_debug_child = {
 
 				if = {
+					limit = { exists = var:nu_culture_exposure_target_1 }
+					var:nu_culture_exposure_target_1 = {
+						save_scope_as = nu_debug_culture_target_1
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_culture_exposure_target_2 }
+					var:nu_culture_exposure_target_2 = {
+						save_scope_as = nu_debug_culture_target_2
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_culture_exposure_target_3 }
+					var:nu_culture_exposure_target_3 = {
+						save_scope_as = nu_debug_culture_target_3
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_culture_exposure_target_4 }
+					var:nu_culture_exposure_target_4 = {
+						save_scope_as = nu_debug_culture_target_4
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_culture_exposure_target_5 }
+					var:nu_culture_exposure_target_5 = {
+						save_scope_as = nu_debug_culture_target_5
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_culture_exposure_target_6 }
+					var:nu_culture_exposure_target_6 = {
+						save_scope_as = nu_debug_culture_target_6
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_culture_exposure_target_7 }
+					var:nu_culture_exposure_target_7 = {
+						save_scope_as = nu_debug_culture_target_7
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_culture_exposure_target_8 }
+					var:nu_culture_exposure_target_8 = {
+						save_scope_as = nu_debug_culture_target_8
+					}
+				}
+
+				if = {
 					limit = {
 						exists = var:nu_culture_exposure_target
 					}
@@ -65,6 +121,40 @@ nu_debug.0001 = {
 
 	desc = {
 		desc = nu_debug.0001.desc
+
+		desc = nu_debug.0001.culture_tracks_header
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_culture_target_1 }
+			desc = nu_debug.0001.culture_slot_1
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_culture_target_2 }
+			desc = nu_debug.0001.culture_slot_2
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_culture_target_3 }
+			desc = nu_debug.0001.culture_slot_3
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_culture_target_4 }
+			desc = nu_debug.0001.culture_slot_4
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_culture_target_5 }
+			desc = nu_debug.0001.culture_slot_5
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_culture_target_6 }
+			desc = nu_debug.0001.culture_slot_6
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_culture_target_7 }
+			desc = nu_debug.0001.culture_slot_7
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_culture_target_8 }
+			desc = nu_debug.0001.culture_slot_8
+		}
 
 		first_valid = {
 			triggered_desc = {
