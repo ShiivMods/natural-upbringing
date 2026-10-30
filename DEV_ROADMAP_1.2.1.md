@@ -160,9 +160,69 @@ The implementation should preserve the general hierarchy:
 - adolescence: weaker;
 - adulthood: exposure can still grow, but no automatic culture conversion occurs from exposure alone.
 
-Exposure tracking should begin before age 4 so that a child who entered a foreign environment as an infant does not effectively lose the first years of their upbringing.
+Exposure tracking begins at birth.
+
+A newborn receives an initial Cultural exposure profile immediately, before the first yearly update. This prevents infancy from being culturally invisible to the simulation.
 
 Automatic assimilation may remain unavailable during the earliest years even while exposure is already accumulating.
+
+---
+
+# 6A. Cultural exposure at birth
+
+The character's current Culture is itself tracked as an exposure.
+
+It is not merely an identity label outside the exposure system.
+
+At birth, the child receives an initial Cultural exposure profile totaling 100 birth-share points.
+
+The baseline model uses four equal anchors worth 25 points each:
+
+1. the child's current Culture: 25;
+2. parent A's Culture: 25;
+3. parent B's Culture: 25;
+4. the child's immediate social environment at birth: 25.
+
+If several anchors point to the same Culture, their shares are combined.
+
+Examples:
+
+- Norse child + one Norse parent + one French parent + Norse environment -> Norse 75 / French 25.
+- Norse child + two Norse parents + Norse environment -> Norse 100.
+- Norse child + one Norse parent + one French parent + French environment -> Norse 50 / French 50.
+
+These values are birth shares used to seed the persistent exposure tracks. They do not require all later exposure scores to remain normalized to a total of 100.
+
+The current Culture receives this birth anchor only once. A later assimilation does not grant a fresh artificial +25 identity bonus.
+
+After birth, every Culture follows the normal exposure rules:
+
+- active sources reinforce it;
+- absent sources allow it to decay;
+- the current Culture can therefore weaken over time if nothing in the child's lived environment continues to support it.
+
+This is intentional and allows a child culturally labelled Norse at birth, but genuinely raised without Norse social contact, to gradually become more strongly rooted in another Culture.
+
+## Birth environment anchor
+
+The 25-point environment anchor represents the child's immediate social household/Court/Camp environment at birth, not a duplicate County bonus.
+
+If one Culture clearly represents that immediate environment, it receives the full 25 points.
+
+If several Cultures simultaneously meet the Court/Camp dominance threshold, the 25 points should be distributed between those dominant Cultures according to their relative representation rather than granting 25 points to each.
+
+County Culture remains a separate universal exposure source from birth onward through the normal environmental update.
+
+If no valid Court/Camp social environment can be resolved at birth, the fallback for this anchor should be the character's current Culture rather than inventing an unrelated local identity.
+
+## Missing parent edge cases
+
+The normal case assumes two known parents.
+
+If one parental Culture cannot be resolved, its 25-point anchor falls back to the child's current Culture.
+
+This keeps the birth profile at 100 points and avoids an unknown parent weakening the child's starting cultural identity for purely technical reasons.
+
 
 ---
 
@@ -224,11 +284,17 @@ Only the strongest eligible foreign Culture may become the assimilation candidat
 
 ## 8.5 Clear lead requirement
 
-The leading foreign Culture must have a meaningful advantage over competing foreign exposures.
+The leading foreign Culture must have a meaningful advantage over both:
+
+- the character's current Culture exposure;
+- the second strongest eligible foreign Culture.
 
 Initial implementation target:
 
+- at least 10 exposure points above the current Culture;
 - at least 10 exposure points above the second strongest eligible foreign Culture.
+
+If the current Culture remains equally or more strongly rooted, no automatic assimilation occurs.
 
 If two strong foreign environments are competing closely, the character remains culturally stable rather than randomly alternating identities.
 
