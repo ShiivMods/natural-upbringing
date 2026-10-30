@@ -1371,3 +1371,20 @@ Ne pas rédiger le changelog définitif avant validation en jeu. À la fin du d�
 - Smoke test sans debug effectué avec succès.
 - Aucun problème général de tutelle ou d'événement naturel observé sur la période testée.
 - Le seul correctif encore revalidé séparément concerne le rattachement de l'enfant à la cour du parent après un retour réussi de fugue.
+
+
+---
+
+## Roadmap realignment after 1.2
+
+The previously planned 1.3 exposure overhaul has been advanced to **1.2.1**.
+
+The detailed specification now lives in `DEV_ROADMAP_1.2.1.md`.
+
+Summary:
+
+- 1.2.1: simultaneous Culture/Faith/Rite exposure, decay, Adventurer/Camp logic, County and Court/Camp environmental influence, adult exposure, language/Heritage modifiers and anti-churn assimilation safeguards.
+- 1.2.2: merges the former 1.2.1 and 1.2.2 narrative/advanced work.
+- Hybrid Culture requirements and interactions move from the former 1.3 scope to 1.2.2.
+
+The earlier 1.2.1 notes preserved above remain historical design notes unless explicitly carried into the new 1.2.2 scope.
