@@ -507,6 +507,7 @@ nu_apply_cultural_source_effect = {
 	# County synergy: local society strengthens matching household/social input.
 	if = {
 		limit = {
+			NOT = { has_variable = nu_tmp_culture_direct_county_source }
 			exists = scope:nu_local_culture
 			scope:nu_local_culture = scope:nu_culture_target
 		}
@@ -1523,7 +1524,9 @@ nu_update_multi_cultural_exposure_effect = {
 		limit = { exists = scope:nu_local_culture }
 		scope:nu_local_culture = { save_temporary_scope_as = nu_culture_target }
 		set_variable = { name = nu_tmp_culture_source_base value = 1.2 }
+		set_variable = { name = nu_tmp_culture_direct_county_source value = 1 }
 		nu_apply_cultural_source_effect = yes
+		remove_variable = nu_tmp_culture_direct_county_source
 		remove_variable = nu_tmp_culture_source_base
 	}
 
@@ -1536,6 +1539,7 @@ nu_update_multi_cultural_exposure_effect = {
 	remove_variable = nu_tmp_culture_source_base
 	remove_variable = nu_tmp_culture_gain
 	remove_variable = nu_tmp_culture_proximity
+	remove_variable = nu_tmp_culture_direct_county_source
 	remove_variable = nu_tmp_social_total
 	remove_variable = nu_tmp_social_match
 }
