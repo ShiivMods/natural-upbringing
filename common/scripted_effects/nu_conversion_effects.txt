@@ -363,7 +363,8 @@ nu_check_natural_assimilation_effect = {
 		limit = {
 			exists = var:nu_culture_exposure_target
 			has_variable = nu_culture_exposure_score
-			var:nu_culture_exposure_score >= 5
+			var:nu_culture_exposure_score >= 60
+			has_character_flag = nu_cultural_assimilation_candidate_valid
 		}
 
 		var:nu_culture_exposure_target = {
@@ -398,6 +399,12 @@ nu_check_natural_assimilation_effect = {
 
 				nu_save_cultural_assimilation_context_effect = yes
 				set_culture = scope:nu_conversion_culture
+
+				add_character_flag = {
+					flag = nu_cultural_assimilation_cooldown
+					years = 5
+				}
+				remove_character_flag = nu_cultural_assimilation_candidate_valid
 
 				remove_variable = nu_culture_exposure_target
 				remove_variable = nu_culture_exposure_years
