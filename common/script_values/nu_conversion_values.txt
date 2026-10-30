@@ -197,9 +197,30 @@ nu_religious_assimilation_chance = {
 		limit = { has_trait = paranoid }
 		multiply = 0.90
 	}
-}
 
-# Faith assimilation uses its own exposure history.
+	# Parents sharing the current Rite preserve ritual upbringing without
+	# making change impossible.
+	if = {
+		limit = {
+			any_parent = {
+				count >= 2
+				is_alive = yes
+				rite = root.rite
+			}
+		}
+		multiply = 0.60
+	}
+	else_if = {
+		limit = {
+			any_parent = {
+				count >= 1
+				is_alive = yes
+				rite = root.rite
+			}
+		}
+		multiply = 0.80
+	}
+}
 nu_belief_assimilation_chance = {
 	value = 0
 
@@ -313,5 +334,27 @@ nu_belief_assimilation_chance = {
 		}
 
 		multiply = 0.85
+	}
+
+	# Living parents of the current Faith strongly anchor religious identity.
+	if = {
+		limit = {
+			any_parent = {
+				count >= 2
+				is_alive = yes
+				faith = root.faith
+			}
+		}
+		multiply = 0.45
+	}
+	else_if = {
+		limit = {
+			any_parent = {
+				count >= 1
+				is_alive = yes
+				faith = root.faith
+			}
+		}
+		multiply = 0.65
 	}
 }
