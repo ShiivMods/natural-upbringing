@@ -1,21 +1,178 @@
 ﻿nu_change_current_cultural_exposure_effect = {
-	# Root: child. VALUE may be positive or negative.
+	# Root: character. VALUE may be positive or negative.
+	# 1.2.1 compatibility target always points to a persistent slot.
 	if = {
 		limit = {
 			exists = var:nu_culture_exposure_target
 			has_variable = nu_culture_exposure_score
 		}
+
+		var:nu_culture_exposure_target = {
+			save_temporary_scope_as = nu_event_culture_target
+		}
+		set_variable = { name = nu_tmp_event_culture_delta value = $VALUE$ }
+
+	if = {
+		limit = {
+			exists = var:nu_culture_exposure_target_1
+			var:nu_culture_exposure_target_1 = scope:nu_event_culture_target
+		}
 		change_variable = {
-			name = nu_culture_exposure_score
-			add = $VALUE$
+			name = nu_culture_exposure_score_1
+			add = var:nu_tmp_event_culture_delta
 		}
 		if = {
-			limit = { var:nu_culture_exposure_score < 0 }
-			set_variable = {
-				name = nu_culture_exposure_score
-				value = 0
-			}
+			limit = { var:nu_culture_exposure_score_1 < 0 }
+			set_variable = { name = nu_culture_exposure_score_1 value = 0 }
 		}
+		if = {
+			limit = { var:nu_culture_exposure_score_1 > 100 }
+			set_variable = { name = nu_culture_exposure_score_1 value = 100 }
+		}
+		set_variable = { name = nu_culture_exposure_score value = var:nu_culture_exposure_score_1 }
+	}
+
+	else_if = {
+		limit = {
+			exists = var:nu_culture_exposure_target_2
+			var:nu_culture_exposure_target_2 = scope:nu_event_culture_target
+		}
+		change_variable = {
+			name = nu_culture_exposure_score_2
+			add = var:nu_tmp_event_culture_delta
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_2 < 0 }
+			set_variable = { name = nu_culture_exposure_score_2 value = 0 }
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_2 > 100 }
+			set_variable = { name = nu_culture_exposure_score_2 value = 100 }
+		}
+		set_variable = { name = nu_culture_exposure_score value = var:nu_culture_exposure_score_2 }
+	}
+
+	else_if = {
+		limit = {
+			exists = var:nu_culture_exposure_target_3
+			var:nu_culture_exposure_target_3 = scope:nu_event_culture_target
+		}
+		change_variable = {
+			name = nu_culture_exposure_score_3
+			add = var:nu_tmp_event_culture_delta
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_3 < 0 }
+			set_variable = { name = nu_culture_exposure_score_3 value = 0 }
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_3 > 100 }
+			set_variable = { name = nu_culture_exposure_score_3 value = 100 }
+		}
+		set_variable = { name = nu_culture_exposure_score value = var:nu_culture_exposure_score_3 }
+	}
+
+	else_if = {
+		limit = {
+			exists = var:nu_culture_exposure_target_4
+			var:nu_culture_exposure_target_4 = scope:nu_event_culture_target
+		}
+		change_variable = {
+			name = nu_culture_exposure_score_4
+			add = var:nu_tmp_event_culture_delta
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_4 < 0 }
+			set_variable = { name = nu_culture_exposure_score_4 value = 0 }
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_4 > 100 }
+			set_variable = { name = nu_culture_exposure_score_4 value = 100 }
+		}
+		set_variable = { name = nu_culture_exposure_score value = var:nu_culture_exposure_score_4 }
+	}
+
+	else_if = {
+		limit = {
+			exists = var:nu_culture_exposure_target_5
+			var:nu_culture_exposure_target_5 = scope:nu_event_culture_target
+		}
+		change_variable = {
+			name = nu_culture_exposure_score_5
+			add = var:nu_tmp_event_culture_delta
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_5 < 0 }
+			set_variable = { name = nu_culture_exposure_score_5 value = 0 }
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_5 > 100 }
+			set_variable = { name = nu_culture_exposure_score_5 value = 100 }
+		}
+		set_variable = { name = nu_culture_exposure_score value = var:nu_culture_exposure_score_5 }
+	}
+
+	else_if = {
+		limit = {
+			exists = var:nu_culture_exposure_target_6
+			var:nu_culture_exposure_target_6 = scope:nu_event_culture_target
+		}
+		change_variable = {
+			name = nu_culture_exposure_score_6
+			add = var:nu_tmp_event_culture_delta
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_6 < 0 }
+			set_variable = { name = nu_culture_exposure_score_6 value = 0 }
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_6 > 100 }
+			set_variable = { name = nu_culture_exposure_score_6 value = 100 }
+		}
+		set_variable = { name = nu_culture_exposure_score value = var:nu_culture_exposure_score_6 }
+	}
+
+	else_if = {
+		limit = {
+			exists = var:nu_culture_exposure_target_7
+			var:nu_culture_exposure_target_7 = scope:nu_event_culture_target
+		}
+		change_variable = {
+			name = nu_culture_exposure_score_7
+			add = var:nu_tmp_event_culture_delta
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_7 < 0 }
+			set_variable = { name = nu_culture_exposure_score_7 value = 0 }
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_7 > 100 }
+			set_variable = { name = nu_culture_exposure_score_7 value = 100 }
+		}
+		set_variable = { name = nu_culture_exposure_score value = var:nu_culture_exposure_score_7 }
+	}
+
+	else_if = {
+		limit = {
+			exists = var:nu_culture_exposure_target_8
+			var:nu_culture_exposure_target_8 = scope:nu_event_culture_target
+		}
+		change_variable = {
+			name = nu_culture_exposure_score_8
+			add = var:nu_tmp_event_culture_delta
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_8 < 0 }
+			set_variable = { name = nu_culture_exposure_score_8 value = 0 }
+		}
+		if = {
+			limit = { var:nu_culture_exposure_score_8 > 100 }
+			set_variable = { name = nu_culture_exposure_score_8 value = 100 }
+		}
+		set_variable = { name = nu_culture_exposure_score value = var:nu_culture_exposure_score_8 }
+	}
+
+		remove_variable = nu_tmp_event_culture_delta
 	}
 }
 
