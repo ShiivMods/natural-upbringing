@@ -122,96 +122,82 @@ nu_add_cultural_influence_effect = {
 		nu_touch_cultural_exposure_slot_effect = { SLOT = 8 }
 	}
 
-	if = {
-		limit = {
-			NOT = { exists = var:nu_culture_exposure_target_1 }
+	else = {
+		# Only allocate a new slot when no existing slot matched.
+		if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_1 } }
+			set_variable = { name = nu_culture_exposure_target_1 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_1 value = 0 }
+			set_variable = { name = nu_culture_exposure_years_1 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_1 value = 0 }
+			nu_touch_cultural_exposure_slot_effect = { SLOT = 1 }
 		}
-		set_variable = { name = nu_culture_exposure_target_1 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_1 value = 0 }
-		set_variable = { name = nu_culture_exposure_years_1 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_1 value = 0 }
-		nu_touch_cultural_exposure_slot_effect = { SLOT = 1 }
+
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_2 } }
+			set_variable = { name = nu_culture_exposure_target_2 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_2 value = 0 }
+			set_variable = { name = nu_culture_exposure_years_2 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_2 value = 0 }
+			nu_touch_cultural_exposure_slot_effect = { SLOT = 2 }
+		}
+
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_3 } }
+			set_variable = { name = nu_culture_exposure_target_3 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_3 value = 0 }
+			set_variable = { name = nu_culture_exposure_years_3 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_3 value = 0 }
+			nu_touch_cultural_exposure_slot_effect = { SLOT = 3 }
+		}
+
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_4 } }
+			set_variable = { name = nu_culture_exposure_target_4 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_4 value = 0 }
+			set_variable = { name = nu_culture_exposure_years_4 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_4 value = 0 }
+			nu_touch_cultural_exposure_slot_effect = { SLOT = 4 }
+		}
+
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_5 } }
+			set_variable = { name = nu_culture_exposure_target_5 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_5 value = 0 }
+			set_variable = { name = nu_culture_exposure_years_5 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_5 value = 0 }
+			nu_touch_cultural_exposure_slot_effect = { SLOT = 5 }
+		}
+
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_6 } }
+			set_variable = { name = nu_culture_exposure_target_6 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_6 value = 0 }
+			set_variable = { name = nu_culture_exposure_years_6 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_6 value = 0 }
+			nu_touch_cultural_exposure_slot_effect = { SLOT = 6 }
+		}
+
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_7 } }
+			set_variable = { name = nu_culture_exposure_target_7 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_7 value = 0 }
+			set_variable = { name = nu_culture_exposure_years_7 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_7 value = 0 }
+			nu_touch_cultural_exposure_slot_effect = { SLOT = 7 }
+		}
+
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_8 } }
+			set_variable = { name = nu_culture_exposure_target_8 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_8 value = 0 }
+			set_variable = { name = nu_culture_exposure_years_8 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_8 value = 0 }
+			nu_touch_cultural_exposure_slot_effect = { SLOT = 8 }
+		}
 	}
 
-	else_if = {
-		limit = {
-			NOT = { exists = var:nu_culture_exposure_target_2 }
-		}
-		set_variable = { name = nu_culture_exposure_target_2 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_2 value = 0 }
-		set_variable = { name = nu_culture_exposure_years_2 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_2 value = 0 }
-		nu_touch_cultural_exposure_slot_effect = { SLOT = 2 }
-	}
-
-	else_if = {
-		limit = {
-			NOT = { exists = var:nu_culture_exposure_target_3 }
-		}
-		set_variable = { name = nu_culture_exposure_target_3 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_3 value = 0 }
-		set_variable = { name = nu_culture_exposure_years_3 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_3 value = 0 }
-		nu_touch_cultural_exposure_slot_effect = { SLOT = 3 }
-	}
-
-	else_if = {
-		limit = {
-			NOT = { exists = var:nu_culture_exposure_target_4 }
-		}
-		set_variable = { name = nu_culture_exposure_target_4 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_4 value = 0 }
-		set_variable = { name = nu_culture_exposure_years_4 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_4 value = 0 }
-		nu_touch_cultural_exposure_slot_effect = { SLOT = 4 }
-	}
-
-	else_if = {
-		limit = {
-			NOT = { exists = var:nu_culture_exposure_target_5 }
-		}
-		set_variable = { name = nu_culture_exposure_target_5 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_5 value = 0 }
-		set_variable = { name = nu_culture_exposure_years_5 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_5 value = 0 }
-		nu_touch_cultural_exposure_slot_effect = { SLOT = 5 }
-	}
-
-	else_if = {
-		limit = {
-			NOT = { exists = var:nu_culture_exposure_target_6 }
-		}
-		set_variable = { name = nu_culture_exposure_target_6 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_6 value = 0 }
-		set_variable = { name = nu_culture_exposure_years_6 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_6 value = 0 }
-		nu_touch_cultural_exposure_slot_effect = { SLOT = 6 }
-	}
-
-	else_if = {
-		limit = {
-			NOT = { exists = var:nu_culture_exposure_target_7 }
-		}
-		set_variable = { name = nu_culture_exposure_target_7 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_7 value = 0 }
-		set_variable = { name = nu_culture_exposure_years_7 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_7 value = 0 }
-		nu_touch_cultural_exposure_slot_effect = { SLOT = 7 }
-	}
-
-	else_if = {
-		limit = {
-			NOT = { exists = var:nu_culture_exposure_target_8 }
-		}
-		set_variable = { name = nu_culture_exposure_target_8 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_8 value = 0 }
-		set_variable = { name = nu_culture_exposure_years_8 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_8 value = 0 }
-		nu_touch_cultural_exposure_slot_effect = { SLOT = 8 }
-	}
-
-	# All eight slots occupied: deliberately ignore the new negligible source
-	# rather than evict an established cultural memory.
+	# If all eight slots are occupied, a new negligible source is ignored.
 }
 
 
@@ -342,99 +328,102 @@ nu_seed_cultural_exposure_effect = {
 		}
 	}
 
-	if = {
-		limit = { NOT = { exists = var:nu_culture_exposure_target_1 } }
-		set_variable = { name = nu_culture_exposure_target_1 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_1 value = var:nu_tmp_culture_seed }
-		set_variable = { name = nu_culture_exposure_years_1 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_1 value = 0 }
+	else = {
+		# Only allocate a new slot when no existing slot matched.
 		if = {
-			limit = { var:nu_culture_exposure_score_1 > 100 }
-			set_variable = { name = nu_culture_exposure_score_1 value = 100 }
+			limit = { NOT = { exists = var:nu_culture_exposure_target_1 } }
+			set_variable = { name = nu_culture_exposure_target_1 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_1 value = var:nu_tmp_culture_seed }
+			set_variable = { name = nu_culture_exposure_years_1 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_1 value = 0 }
+			if = {
+				limit = { var:nu_culture_exposure_score_1 > 100 }
+				set_variable = { name = nu_culture_exposure_score_1 value = 100 }
+			}
 		}
-	}
 
-	else_if = {
-		limit = { NOT = { exists = var:nu_culture_exposure_target_2 } }
-		set_variable = { name = nu_culture_exposure_target_2 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_2 value = var:nu_tmp_culture_seed }
-		set_variable = { name = nu_culture_exposure_years_2 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_2 value = 0 }
-		if = {
-			limit = { var:nu_culture_exposure_score_2 > 100 }
-			set_variable = { name = nu_culture_exposure_score_2 value = 100 }
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_2 } }
+			set_variable = { name = nu_culture_exposure_target_2 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_2 value = var:nu_tmp_culture_seed }
+			set_variable = { name = nu_culture_exposure_years_2 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_2 value = 0 }
+			if = {
+				limit = { var:nu_culture_exposure_score_2 > 100 }
+				set_variable = { name = nu_culture_exposure_score_2 value = 100 }
+			}
 		}
-	}
 
-	else_if = {
-		limit = { NOT = { exists = var:nu_culture_exposure_target_3 } }
-		set_variable = { name = nu_culture_exposure_target_3 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_3 value = var:nu_tmp_culture_seed }
-		set_variable = { name = nu_culture_exposure_years_3 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_3 value = 0 }
-		if = {
-			limit = { var:nu_culture_exposure_score_3 > 100 }
-			set_variable = { name = nu_culture_exposure_score_3 value = 100 }
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_3 } }
+			set_variable = { name = nu_culture_exposure_target_3 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_3 value = var:nu_tmp_culture_seed }
+			set_variable = { name = nu_culture_exposure_years_3 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_3 value = 0 }
+			if = {
+				limit = { var:nu_culture_exposure_score_3 > 100 }
+				set_variable = { name = nu_culture_exposure_score_3 value = 100 }
+			}
 		}
-	}
 
-	else_if = {
-		limit = { NOT = { exists = var:nu_culture_exposure_target_4 } }
-		set_variable = { name = nu_culture_exposure_target_4 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_4 value = var:nu_tmp_culture_seed }
-		set_variable = { name = nu_culture_exposure_years_4 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_4 value = 0 }
-		if = {
-			limit = { var:nu_culture_exposure_score_4 > 100 }
-			set_variable = { name = nu_culture_exposure_score_4 value = 100 }
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_4 } }
+			set_variable = { name = nu_culture_exposure_target_4 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_4 value = var:nu_tmp_culture_seed }
+			set_variable = { name = nu_culture_exposure_years_4 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_4 value = 0 }
+			if = {
+				limit = { var:nu_culture_exposure_score_4 > 100 }
+				set_variable = { name = nu_culture_exposure_score_4 value = 100 }
+			}
 		}
-	}
 
-	else_if = {
-		limit = { NOT = { exists = var:nu_culture_exposure_target_5 } }
-		set_variable = { name = nu_culture_exposure_target_5 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_5 value = var:nu_tmp_culture_seed }
-		set_variable = { name = nu_culture_exposure_years_5 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_5 value = 0 }
-		if = {
-			limit = { var:nu_culture_exposure_score_5 > 100 }
-			set_variable = { name = nu_culture_exposure_score_5 value = 100 }
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_5 } }
+			set_variable = { name = nu_culture_exposure_target_5 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_5 value = var:nu_tmp_culture_seed }
+			set_variable = { name = nu_culture_exposure_years_5 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_5 value = 0 }
+			if = {
+				limit = { var:nu_culture_exposure_score_5 > 100 }
+				set_variable = { name = nu_culture_exposure_score_5 value = 100 }
+			}
 		}
-	}
 
-	else_if = {
-		limit = { NOT = { exists = var:nu_culture_exposure_target_6 } }
-		set_variable = { name = nu_culture_exposure_target_6 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_6 value = var:nu_tmp_culture_seed }
-		set_variable = { name = nu_culture_exposure_years_6 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_6 value = 0 }
-		if = {
-			limit = { var:nu_culture_exposure_score_6 > 100 }
-			set_variable = { name = nu_culture_exposure_score_6 value = 100 }
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_6 } }
+			set_variable = { name = nu_culture_exposure_target_6 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_6 value = var:nu_tmp_culture_seed }
+			set_variable = { name = nu_culture_exposure_years_6 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_6 value = 0 }
+			if = {
+				limit = { var:nu_culture_exposure_score_6 > 100 }
+				set_variable = { name = nu_culture_exposure_score_6 value = 100 }
+			}
 		}
-	}
 
-	else_if = {
-		limit = { NOT = { exists = var:nu_culture_exposure_target_7 } }
-		set_variable = { name = nu_culture_exposure_target_7 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_7 value = var:nu_tmp_culture_seed }
-		set_variable = { name = nu_culture_exposure_years_7 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_7 value = 0 }
-		if = {
-			limit = { var:nu_culture_exposure_score_7 > 100 }
-			set_variable = { name = nu_culture_exposure_score_7 value = 100 }
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_7 } }
+			set_variable = { name = nu_culture_exposure_target_7 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_7 value = var:nu_tmp_culture_seed }
+			set_variable = { name = nu_culture_exposure_years_7 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_7 value = 0 }
+			if = {
+				limit = { var:nu_culture_exposure_score_7 > 100 }
+				set_variable = { name = nu_culture_exposure_score_7 value = 100 }
+			}
 		}
-	}
 
-	else_if = {
-		limit = { NOT = { exists = var:nu_culture_exposure_target_8 } }
-		set_variable = { name = nu_culture_exposure_target_8 value = scope:nu_culture_target }
-		set_variable = { name = nu_culture_exposure_score_8 value = var:nu_tmp_culture_seed }
-		set_variable = { name = nu_culture_exposure_years_8 value = 0 }
-		set_variable = { name = nu_culture_exposure_streak_8 value = 0 }
-		if = {
-			limit = { var:nu_culture_exposure_score_8 > 100 }
-			set_variable = { name = nu_culture_exposure_score_8 value = 100 }
+		else_if = {
+			limit = { NOT = { exists = var:nu_culture_exposure_target_8 } }
+			set_variable = { name = nu_culture_exposure_target_8 value = scope:nu_culture_target }
+			set_variable = { name = nu_culture_exposure_score_8 value = var:nu_tmp_culture_seed }
+			set_variable = { name = nu_culture_exposure_years_8 value = 0 }
+			set_variable = { name = nu_culture_exposure_streak_8 value = 0 }
+			if = {
+				limit = { var:nu_culture_exposure_score_8 > 100 }
+				set_variable = { name = nu_culture_exposure_score_8 value = 100 }
+			}
 		}
 	}
 }
