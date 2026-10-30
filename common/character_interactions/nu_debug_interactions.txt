@@ -58,46 +58,19 @@ nu_debug_refresh_exposure_interaction = {
 
 	is_shown = {
 		debug_only = yes
-		scope:recipient = { is_adult = no }
+		scope:recipient = { is_alive = yes }
 	}
 
 	is_valid_showing_failures_only = {
 		scope:recipient = {
-			age >= 6
-			is_adult = no
-			exists = var:nu_guardianship_home_court_owner
-			exists = court_owner
-			any_relation = {
-				type = guardian
-				always = yes
-			}
-			trigger_if = {
-				limit = {
-					exists = var:nu_guardianship_home_court_owner
-					exists = court_owner
-				}
-				NOT = {
-					var:nu_guardianship_home_court_owner = {
-						this = scope:recipient.court_owner
-					}
-				}
-			}
-			trigger_if = {
-				limit = { exists = court_owner }
-				any_relation = {
-					type = guardian
-					court_owner ?= {
-						this = scope:recipient.court_owner
-					}
-				}
-			}
+			is_alive = yes
+			is_travelling = no
 		}
 	}
 
 	on_accept = {
-		# The exposure effect relies on root being the child. Character
-		# interaction scopes keep the actor as root, so pass execution
-		# through a hidden child-root event.
+		# Execute with the inspected character as root. This is intentionally
+		# usable on infants, adventurers and adults for 1.2.1 testing.
 		scope:recipient = {
 			set_variable = {
 				name = nu_debug_exposure_requester
