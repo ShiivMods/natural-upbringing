@@ -97,7 +97,7 @@
  nu_debug.0004.back:0 "Retour"
 
  nu_debug_refresh_exposure_interaction:0 "Natural Upbringing : Forcer une année d'exposition"
- nu_debug_refresh_exposure_interaction_desc:0 "Exécute immédiatement une mise à jour annuelle de l'exposition Natural Upbringing pour cet enfant, puis ouvre l'inspecteur d'exposition."
+ nu_debug_refresh_exposure_interaction_desc:0 "Exécute immédiatement une mise à jour annuelle complète de l'exposition pour ce personnage, quel que soit son âge ou son statut, puis ouvre l'inspecteur."
  nu_debug_force_cultural_acceptance_interaction:0 "Natural Upbringing : Forcer un tick d'acceptation culturelle"
  nu_debug_force_cultural_acceptance_interaction_desc:0 "Tente immédiatement une contribution annuelle de +1 point d'acceptation culturelle en utilisant les vraies règles de portée et de plafond par paire."
  nu_debug_test_trait_notification_interaction:0 "Natural Upbringing : Tester le prochain événement de trait"
