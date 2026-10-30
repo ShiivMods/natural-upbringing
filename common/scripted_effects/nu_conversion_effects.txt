@@ -353,6 +353,85 @@ nu_prepare_assimilation_event_context_effect = {
 }
 
 
+nu_resolve_belief_conversion_rite_effect = {
+	# Root: character
+	# Required: scope:nu_conversion_belief (target Faith)
+
+	# Prefer the guardian when they actively represent the target Faith.
+	if = {
+		limit = {
+			any_relation = {
+				type = guardian
+				faith = scope:nu_conversion_belief
+			}
+		}
+		random_relation = {
+			type = guardian
+			limit = { faith = scope:nu_conversion_belief }
+			rite = { save_temporary_scope_as = nu_conversion_faith }
+		}
+	}
+
+	# Then a living parent.
+	else_if = {
+		limit = {
+			any_parent = {
+				is_alive = yes
+				faith = scope:nu_conversion_belief
+			}
+		}
+		random_parent = {
+			limit = {
+				is_alive = yes
+				faith = scope:nu_conversion_belief
+			}
+			rite = { save_temporary_scope_as = nu_conversion_faith }
+		}
+	}
+
+	# Then the Court/Camp owner.
+	else_if = {
+		limit = { court_owner ?= { faith = scope:nu_conversion_belief } }
+		court_owner.rite = { save_temporary_scope_as = nu_conversion_faith }
+	}
+
+	# Then another Court/Camp member.
+	else_if = {
+		limit = {
+			court_owner ?= {
+				any_courtier = {
+					faith = scope:nu_conversion_belief
+				}
+			}
+		}
+		court_owner = {
+			random_courtier = {
+				limit = { faith = scope:nu_conversion_belief }
+				rite = { save_temporary_scope_as = nu_conversion_faith }
+			}
+		}
+	}
+
+	# Then the physical local environment.
+	else_if = {
+		limit = {
+			location ?= {
+				faith = scope:nu_conversion_belief
+				exists = rite
+			}
+		}
+		location.rite = { save_temporary_scope_as = nu_conversion_faith }
+	}
+
+	# Safe final fallback: the target Faith's main Rite.
+	else = {
+		scope:nu_conversion_belief.main_rite = {
+			save_temporary_scope_as = nu_conversion_faith
+		}
+	}
+}
+
+
 nu_check_natural_assimilation_effect = {
 
 	# =========================================================
@@ -426,7 +505,8 @@ nu_check_natural_assimilation_effect = {
 		limit = {
 			exists = var:nu_belief_exposure_target
 			has_variable = nu_belief_exposure_score
-			var:nu_belief_exposure_score >= 5
+			var:nu_belief_exposure_score >= 60
+			has_character_flag = nu_belief_assimilation_candidate_valid
 			NOT = { nu_has_active_religious_contract_protection_trigger = yes }
 		}
 		var:nu_belief_exposure_target = { save_temporary_scope_as = nu_conversion_belief }
@@ -435,17 +515,7 @@ nu_check_natural_assimilation_effect = {
 				faith != scope:nu_conversion_belief
 				nu_has_belief_assimilation_environment_trigger = yes
 			}
-			if = {
-				limit = {
-					exists = scope:nu_guardian
-					scope:nu_guardian.faith = scope:nu_conversion_belief
-				}
-				scope:nu_guardian.rite = { save_temporary_scope_as = nu_conversion_faith }
-			}
-			else_if = {
-				limit = { court_owner ?= { faith = scope:nu_conversion_belief } }
-				court_owner.rite = { save_temporary_scope_as = nu_conversion_faith }
-			}
+			nu_resolve_belief_conversion_rite_effect = yes
 			if = {
 				limit = { exists = scope:nu_conversion_faith }
 				random = {
@@ -463,6 +533,17 @@ nu_check_natural_assimilation_effect = {
 
 					nu_save_religious_assimilation_context_effect = yes
 					convert_to_rite_with_consequences_effect = { RITE = scope:nu_conversion_faith }
+
+					add_character_flag = {
+						flag = nu_religious_assimilation_cooldown
+						years = 5
+					}
+					add_character_flag = {
+						flag = nu_rite_assimilation_cooldown
+						years = 3
+					}
+					remove_character_flag = nu_belief_assimilation_candidate_valid
+					remove_character_flag = nu_rite_assimilation_candidate_valid
 
 					remove_variable = nu_belief_exposure_target
 					remove_variable = nu_belief_exposure_years
@@ -487,7 +568,8 @@ nu_check_natural_assimilation_effect = {
 		limit = {
 			exists = var:nu_rite_exposure_target
 			has_variable = nu_faith_exposure_score
-			var:nu_faith_exposure_score >= 5
+			var:nu_faith_exposure_score >= 45
+			has_character_flag = nu_rite_assimilation_candidate_valid
 			NOT = { has_character_flag = nu_belief_assimilated_this_birthday }
 		}
 
@@ -499,18 +581,8 @@ nu_check_natural_assimilation_effect = {
 			limit = {
 				rite != scope:nu_conversion_faith
 				nu_has_religious_assimilation_environment_trigger = yes
-				# Rite-only conversion must remain within the child's current faith.
-				OR = {
-					AND = {
-						exists = scope:nu_guardian
-						scope:nu_guardian.faith = root.faith
-						scope:nu_guardian.rite = scope:nu_conversion_faith
-					}
-					court_owner ?= {
-						faith = root.faith
-						rite = scope:nu_conversion_faith
-					}
-				}
+				# Multi-track candidate validity already guarantees current support
+				# from a same-Faith source for this Rite.
 
 				NOT = {
 					nu_has_active_religious_contract_protection_trigger = yes
@@ -537,6 +609,12 @@ nu_check_natural_assimilation_effect = {
 
 				nu_save_religious_assimilation_context_effect = yes
 				convert_to_rite_with_consequences_effect = { RITE = scope:nu_conversion_faith }
+
+				add_character_flag = {
+					flag = nu_rite_assimilation_cooldown
+					years = 3
+				}
+				remove_character_flag = nu_rite_assimilation_candidate_valid
 
 				remove_variable = nu_rite_exposure_target
 				remove_variable = nu_faith_exposure_years
