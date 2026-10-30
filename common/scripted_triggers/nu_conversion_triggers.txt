@@ -9,44 +9,16 @@
 
 
 nu_has_religious_assimilation_environment_trigger = {
-
 	exists = scope:nu_conversion_faith
-
-	OR = {
-
-		# The child's current court follows the target faith.
-		court_owner ?= {
-			rite = scope:nu_conversion_faith
-		}
-
-		# Or the local population around that court does.
-		court_owner ?= {
-			capital_province ?= {
-				rite = scope:nu_conversion_faith
-			}
-		}
-	}
+	has_character_flag = nu_rite_assimilation_candidate_valid
 }
+
 
 nu_has_belief_assimilation_environment_trigger = {
-
 	exists = scope:nu_conversion_belief
-
-	OR = {
-
-		# The child's current court follows the target faith.
-		court_owner ?= {
-			faith = scope:nu_conversion_belief
-		}
-
-		# Or the local population around that court does.
-		court_owner ?= {
-			capital_province ?= {
-				faith = scope:nu_conversion_belief
-			}
-		}
-	}
+	has_character_flag = nu_belief_assimilation_candidate_valid
 }
+
 
 nu_has_active_religious_contract_protection_trigger = {
 
