@@ -284,17 +284,17 @@ Only the strongest eligible foreign Culture may become the assimilation candidat
 
 ## 8.5 Clear lead requirement
 
-The leading foreign Culture must have a meaningful advantage over both:
+Accumulated exposure and current environmental pressure are evaluated separately.
 
-- the character's current Culture exposure;
-- the second strongest eligible foreign Culture.
+The leading foreign Culture must:
 
-Initial implementation target:
+- have at least 60 accumulated exposure;
+- have at least 25% more current annual Cultural pressure than the character's current Culture;
+- remain at least 10 accumulated exposure points above the second strongest eligible foreign Culture.
 
-- at least 10 exposure points above the current Culture;
-- at least 10 exposure points above the second strongest eligible foreign Culture.
+This avoids a saturation problem where a current Culture already at 100 exposure could otherwise become mathematically impossible to replace, even when almost the entire present environment has changed.
 
-If the current Culture remains equally or more strongly rooted, no automatic assimilation occurs.
+Parents who retain the current Culture therefore continue to resist assimilation through both active Cultural pressure and the separate parental probability modifier, but never grant complete immunity.
 
 If two strong foreign environments are competing closely, the character remains culturally stable rather than randomly alternating identities.
 
