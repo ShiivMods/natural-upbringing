@@ -1426,6 +1426,7 @@ nu_select_cultural_assimilation_candidate_effect = {
 		if = {
 			limit = {
 				is_adult = no
+				age >= 4
 				NOT = { has_character_flag = nu_cultural_assimilation_cooldown }
 				var:nu_tmp_primary_culture_score >= 60
 				var:nu_tmp_primary_culture_streak >= 3
