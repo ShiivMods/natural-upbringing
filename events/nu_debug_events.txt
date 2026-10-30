@@ -86,6 +86,119 @@ nu_debug.0001 = {
 					}
 				}
 
+
+				if = {
+					limit = { exists = var:nu_belief_exposure_target_1 }
+					var:nu_belief_exposure_target_1 = {
+						save_scope_as = nu_debug_faith_target_1
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_rite_exposure_target_1 }
+					var:nu_rite_exposure_target_1 = {
+						save_scope_as = nu_debug_rite_target_1
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_belief_exposure_target_2 }
+					var:nu_belief_exposure_target_2 = {
+						save_scope_as = nu_debug_faith_target_2
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_rite_exposure_target_2 }
+					var:nu_rite_exposure_target_2 = {
+						save_scope_as = nu_debug_rite_target_2
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_belief_exposure_target_3 }
+					var:nu_belief_exposure_target_3 = {
+						save_scope_as = nu_debug_faith_target_3
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_rite_exposure_target_3 }
+					var:nu_rite_exposure_target_3 = {
+						save_scope_as = nu_debug_rite_target_3
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_belief_exposure_target_4 }
+					var:nu_belief_exposure_target_4 = {
+						save_scope_as = nu_debug_faith_target_4
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_rite_exposure_target_4 }
+					var:nu_rite_exposure_target_4 = {
+						save_scope_as = nu_debug_rite_target_4
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_belief_exposure_target_5 }
+					var:nu_belief_exposure_target_5 = {
+						save_scope_as = nu_debug_faith_target_5
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_rite_exposure_target_5 }
+					var:nu_rite_exposure_target_5 = {
+						save_scope_as = nu_debug_rite_target_5
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_belief_exposure_target_6 }
+					var:nu_belief_exposure_target_6 = {
+						save_scope_as = nu_debug_faith_target_6
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_rite_exposure_target_6 }
+					var:nu_rite_exposure_target_6 = {
+						save_scope_as = nu_debug_rite_target_6
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_belief_exposure_target_7 }
+					var:nu_belief_exposure_target_7 = {
+						save_scope_as = nu_debug_faith_target_7
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_rite_exposure_target_7 }
+					var:nu_rite_exposure_target_7 = {
+						save_scope_as = nu_debug_rite_target_7
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_belief_exposure_target_8 }
+					var:nu_belief_exposure_target_8 = {
+						save_scope_as = nu_debug_faith_target_8
+					}
+				}
+
+				if = {
+					limit = { exists = var:nu_rite_exposure_target_8 }
+					var:nu_rite_exposure_target_8 = {
+						save_scope_as = nu_debug_rite_target_8
+					}
+				}
+
 				if = {
 					limit = {
 						exists = var:nu_culture_exposure_target
@@ -166,6 +279,40 @@ nu_debug.0001 = {
 			desc = nu_debug.0001.culture_none
 		}
 
+		desc = nu_debug.0001.faith_tracks_header
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_faith_target_1 }
+			desc = nu_debug.0001.faith_slot_1
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_faith_target_2 }
+			desc = nu_debug.0001.faith_slot_2
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_faith_target_3 }
+			desc = nu_debug.0001.faith_slot_3
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_faith_target_4 }
+			desc = nu_debug.0001.faith_slot_4
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_faith_target_5 }
+			desc = nu_debug.0001.faith_slot_5
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_faith_target_6 }
+			desc = nu_debug.0001.faith_slot_6
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_faith_target_7 }
+			desc = nu_debug.0001.faith_slot_7
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_faith_target_8 }
+			desc = nu_debug.0001.faith_slot_8
+		}
+
 		first_valid = {
 			triggered_desc = {
 				trigger = {
@@ -174,6 +321,40 @@ nu_debug.0001 = {
 				desc = nu_debug.0001.faith
 			}
 			desc = nu_debug.0001.faith_none
+		}
+
+		desc = nu_debug.0001.rite_tracks_header
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_rite_target_1 }
+			desc = nu_debug.0001.rite_slot_1
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_rite_target_2 }
+			desc = nu_debug.0001.rite_slot_2
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_rite_target_3 }
+			desc = nu_debug.0001.rite_slot_3
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_rite_target_4 }
+			desc = nu_debug.0001.rite_slot_4
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_rite_target_5 }
+			desc = nu_debug.0001.rite_slot_5
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_rite_target_6 }
+			desc = nu_debug.0001.rite_slot_6
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_rite_target_7 }
+			desc = nu_debug.0001.rite_slot_7
+		}
+		triggered_desc = {
+			trigger = { exists = scope:nu_debug_rite_target_8 }
+			desc = nu_debug.0001.rite_slot_8
 		}
 
 		first_valid = {
