@@ -412,15 +412,50 @@ nu_resolve_belief_conversion_rite_effect = {
 		}
 	}
 
-	# Then the physical local environment.
+	# Then the physical County environment.
 	else_if = {
 		limit = {
 			location ?= {
-				faith = scope:nu_conversion_belief
-				exists = rite
+				county ?= {
+					faith = scope:nu_conversion_belief
+				}
 			}
 		}
-		location.rite = { save_temporary_scope_as = nu_conversion_faith }
+		location.county.rite = { save_temporary_scope_as = nu_conversion_faith }
+	}
+
+	# Landless Adventurer County fallback.
+	else_if = {
+		limit = {
+			domicile ?= {
+				domicile_location ?= {
+					county ?= {
+						faith = scope:nu_conversion_belief
+					}
+				}
+			}
+		}
+		domicile.domicile_location.county.rite = {
+			save_temporary_scope_as = nu_conversion_faith
+		}
+	}
+
+	# Member of another Adventurer's Camp.
+	else_if = {
+		limit = {
+			court_owner ?= {
+				domicile ?= {
+					domicile_location ?= {
+						county ?= {
+							faith = scope:nu_conversion_belief
+						}
+					}
+				}
+			}
+		}
+		court_owner.domicile.domicile_location.county.rite = {
+			save_temporary_scope_as = nu_conversion_faith
+		}
 	}
 
 	# Safe final fallback: the target Faith's main Rite.
