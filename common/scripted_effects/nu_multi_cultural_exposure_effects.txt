@@ -536,8 +536,8 @@ nu_apply_cultural_source_effect = {
 nu_resolve_local_culture_effect = {
 	# Prefer where the character physically is.
 	if = {
-		limit = { location ?= { exists = culture } }
-		location.culture = { save_temporary_scope_as = nu_local_culture }
+		limit = { location ?= { exists = county } }
+		location.county.culture = { save_temporary_scope_as = nu_local_culture }
 	}
 
 	# Landless owner fallback: the camp/domicile location.
@@ -545,10 +545,10 @@ nu_resolve_local_culture_effect = {
 		limit = {
 			is_landless_adventurer = yes
 			domicile ?= {
-				domicile_location ?= { exists = culture }
+				domicile_location ?= { exists = county }
 			}
 		}
-		domicile.domicile_location.culture = {
+		domicile.domicile_location.county.culture = {
 			save_temporary_scope_as = nu_local_culture
 		}
 	}
@@ -559,11 +559,11 @@ nu_resolve_local_culture_effect = {
 			court_owner ?= {
 				is_landless_adventurer = yes
 				domicile ?= {
-					domicile_location ?= { exists = culture }
+					domicile_location ?= { exists = county }
 				}
 			}
 		}
-		court_owner.domicile.domicile_location.culture = {
+		court_owner.domicile.domicile_location.county.culture = {
 			save_temporary_scope_as = nu_local_culture
 		}
 	}
@@ -572,10 +572,10 @@ nu_resolve_local_culture_effect = {
 	else_if = {
 		limit = {
 			court_owner ?= {
-				capital_province ?= { exists = culture }
+				capital_province ?= { exists = county }
 			}
 		}
-		court_owner.capital_province.culture = {
+		court_owner.capital_province.county.culture = {
 			save_temporary_scope_as = nu_local_culture
 		}
 	}
