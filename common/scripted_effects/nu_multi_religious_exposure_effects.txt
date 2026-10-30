@@ -913,6 +913,7 @@ nu_select_belief_assimilation_candidate_effect = {
 		if = {
 			limit = {
 				is_adult = no
+				age >= 4
 				NOT = { has_character_flag = nu_religious_assimilation_cooldown }
 				var:nu_tmp_belief_primary_score >= 60
 				var:nu_tmp_belief_primary_streak >= 3
@@ -1178,6 +1179,7 @@ nu_select_rite_assimilation_candidate_effect = {
 		if = {
 			limit = {
 				is_adult = no
+				age >= 4
 				NOT = { has_character_flag = nu_rite_assimilation_cooldown }
 				var:nu_tmp_rite_primary_score >= 45
 				var:nu_tmp_rite_primary_streak >= 2
