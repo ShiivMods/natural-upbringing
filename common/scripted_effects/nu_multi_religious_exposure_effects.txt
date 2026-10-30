@@ -435,34 +435,34 @@ nu_apply_religious_identity_source_effect = {
 
 nu_resolve_local_religion_effect = {
 	if = {
-		limit = { location ?= { exists = faith exists = rite } }
-		location.faith = { save_temporary_scope_as = nu_local_faith }
-		location.rite = { save_temporary_scope_as = nu_local_rite }
+		limit = { location ?= { exists = county } }
+		location.county.faith = { save_temporary_scope_as = nu_local_faith }
+		location.county.rite = { save_temporary_scope_as = nu_local_rite }
 	}
 	else_if = {
 		limit = {
 			is_landless_adventurer = yes
-			domicile ?= { domicile_location ?= { exists = faith exists = rite } }
+			domicile ?= { domicile_location ?= { exists = county } }
 		}
-		domicile.domicile_location.faith = { save_temporary_scope_as = nu_local_faith }
-		domicile.domicile_location.rite = { save_temporary_scope_as = nu_local_rite }
+		domicile.domicile_location.county.faith = { save_temporary_scope_as = nu_local_faith }
+		domicile.domicile_location.county.rite = { save_temporary_scope_as = nu_local_rite }
 	}
 	else_if = {
 		limit = {
 			court_owner ?= {
 				is_landless_adventurer = yes
-				domicile ?= { domicile_location ?= { exists = faith exists = rite } }
+				domicile ?= { domicile_location ?= { exists = county } }
 			}
 		}
-		court_owner.domicile.domicile_location.faith = { save_temporary_scope_as = nu_local_faith }
-		court_owner.domicile.domicile_location.rite = { save_temporary_scope_as = nu_local_rite }
+		court_owner.domicile.domicile_location.county.faith = { save_temporary_scope_as = nu_local_faith }
+		court_owner.domicile.domicile_location.county.rite = { save_temporary_scope_as = nu_local_rite }
 	}
 	else_if = {
 		limit = {
-			court_owner ?= { capital_province ?= { exists = faith exists = rite } }
+			court_owner ?= { capital_province ?= { exists = county } }
 		}
-		court_owner.capital_province.faith = { save_temporary_scope_as = nu_local_faith }
-		court_owner.capital_province.rite = { save_temporary_scope_as = nu_local_rite }
+		court_owner.capital_province.county.faith = { save_temporary_scope_as = nu_local_faith }
+		court_owner.capital_province.county.rite = { save_temporary_scope_as = nu_local_rite }
 	}
 }
 
