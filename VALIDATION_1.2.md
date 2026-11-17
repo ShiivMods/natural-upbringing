@@ -818,3 +818,18 @@ Aucun `set_employer` ni `add_courtier` n'est désormais utilisé dans ce retour.
 - `nu_faith_exposure_target` est conservé comme migration de compatibilité depuis l'ancien stockage de l'exposition religieuse ;
 - ces deux avertissements statiques sont intentionnels et ne signalent pas un bug runtime actuel ;
 - les autres warnings listés dans ce log ne correspondent pas à un problème actif identifié dans la branche 1.2 actuelle.
+
+## CK3 1.21 Florin compatibility
+
+Static compatibility pass:
+- [x] No removed/renamed Florin economy identifiers found in NU production script.
+- [x] Descriptor targets CK3 1.21.*.
+- [ ] Launch with CK3 1.21 Florin and check error.log for NU script errors.
+- [ ] Same-court guardian assignment still works.
+- [ ] Foreign/cross-court guardianship still works and keeps the intended NU travel flow.
+- [ ] Landless Adventurer guardianship still follows the intended availability/travel rules.
+- [ ] Merchant ruler/child guardianship does not produce invalid interaction or travel states where vanilla permits the relationship.
+- [ ] Culture/Faith/Rite exposure and assimilation continue to update normally.
+- [ ] Existing 1.2 save loads and performs at least one birthday/exposure tick without errors.
+
+Important: NU overrides `educate_child_interaction`, so runtime guardianship validation remains mandatory even though no known Florin rename is present in that file.
