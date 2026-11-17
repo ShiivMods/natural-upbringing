@@ -2203,7 +2203,9 @@ offer_ward_interaction = {
 			scope:send_to_university = yes
 
 			scope:puppet_or_actor.short_term_gold <= scope:puppet_or_actor.monumental_gold_value
-		}		# =========================================================
+		}
+
+		# =========================================================
 		# NATURAL UPBRINGING - AI GUARDIANSHIP OPTIONS
 		# =========================================================
 		modifier = {
