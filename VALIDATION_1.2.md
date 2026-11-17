@@ -824,6 +824,11 @@ Aucun `set_employer` ni `add_courtier` n'est désormais utilisé dans ce retour.
 Static compatibility pass:
 - [x] No removed/renamed Florin economy identifiers found in NU production script.
 - [x] Descriptor targets CK3 1.21.*.
+- [x] `nu_education_interactions.txt` hard-rebased on the supplied CK3 1.21 `00_education_interactions.txt`.
+- [x] NU-specific guardianship state, accompaniment options and AI logic reapplied on top of the Florin vanilla file.
+- [x] Florin merchant education support preserved, including `exceptional_diplo_range_trigger`, `merchant_government` AI frequency and merchant interaction guards.
+- [x] Legacy `ep3_laamp_diplo_range_trigger` and `add_clan_unity_interaction_effect` usages removed from the override in favor of the 1.21 vanilla paths.
+- [x] Supplied 1.21 `character_interaction_events.txt` checked: the accepted education response still calls `educate_child_interaction_effect` and retains the ward/guardian travel handling NU relies on.
 - [ ] Launch with CK3 1.21 Florin and check error.log for NU script errors.
 - [ ] Same-court guardian assignment still works.
 - [ ] Foreign/cross-court guardianship still works and keeps the intended NU travel flow.
@@ -832,4 +837,4 @@ Static compatibility pass:
 - [ ] Culture/Faith/Rite exposure and assimilation continue to update normally.
 - [ ] Existing 1.2 save loads and performs at least one birthday/exposure tick without errors.
 
-Important: NU overrides `educate_child_interaction`, so runtime guardianship validation remains mandatory even though no known Florin rename is present in that file.
+Important: the large vanilla education interaction override is now structurally rebased for Florin, but runtime guardianship validation remains mandatory because NU deliberately changes the vanilla education flow.
